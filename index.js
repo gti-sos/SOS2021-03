@@ -1,5 +1,10 @@
-var cool = require("cool-ascii-faces");
+/*var cool = require("cool-ascii-faces");
 var express = require("express");
+var app = express();*/
+
+var express = require("express");
+var path = require("path");
+
 var app = express();
 
 var port = (process.env.PORT || 10000);
