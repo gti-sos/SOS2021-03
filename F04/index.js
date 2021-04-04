@@ -8,29 +8,69 @@ app.use(express.json());
 
 app.use("/", express.static("./public"));
 
-var contacts = [
+var inter_tourisms_initial = [
     {
-        "name":"pablo",
-        "phone":12345
+        "country":"portugal",
+        "year":2014,
+        "number-of-arribals":10497000,
+        "number-of-departures":1502000,
+        "expenditures-billion":5213 
     },
     {
-        "name":"pepe",
-        "phone":6377
+        "country":"francia",
+        "year":2014,
+        "number-of-arribals":206599000,
+        "number-of-departures":31941000,
+        "expenditures-billion":58464
     }
 ];
 
+var inter_tourisms = inter_tourisms_initial;
+
 app.get(BASE_API_PATH+"/international-tourisms", (req,res)=>{
-    res.send("<html><head><style>table {font-family: arial, sans-serif;border-collapse: collapse;width: 100%;}td, th {border: 1px solid #dddddd;text-align: left;padding: 8px;}tr:nth-child(even) {background-color: #dddddd;}</style></head><body><h2>International-tourisms</h2><h3>We compare how many flights are made internationally during different years. Fuente de información: <a href='https://data.worldbank.org/indicator/ST.INT.RCPT.XP.ZS?end=2018&most_recent_year_desc=false&start=2018&view=map&year=1995'>https://data.worldbank.org/indicator/ST.INT.RCPT.XP.ZS?end=2018&most_recent_year_desc=false&start=2018&view=map&year=1995</a></h3><table><tr><th>country</th><th>year</th><th>number-of-arribals</th><th>number-of-departures</th><th>expenditures</th> </tr><tr><td>PORTUGAL</td><td>2014</td><td>10,497,000</td><td>1,502,000</td><td>5,213 billion </td></tr><tr><td>FRANCE</td><td>2014</td><td>206,599,000</td><td>31,941,000</td><td>58,464 billion </td></tr><tr><td>PORTUGAL</td><td>2012</td><td>7,503,000</td><td>1,361,000</td><td>4,482 billion </td></tr><tr><td>FRANCE</td><td>2012</td><td>197,522,000</td><td>29,642,000</td><td>50,068 billion </td></tr><tr><td>RUSSIAN FEDERATION</td><td>2010</td><td>22,281,000</td><td>39,232,000</td><td>30,169 billion </td></tr></table></body></html>");
-	
+    res.send(JSON.stringify(inter_tourisms,null,2)); //pasar objeto a JSON
 });
-app.get(BASE_API_PATH+"international-tourisms/loadInitialData",(req,res)=>{
+
+app.get(BASE_API_PATH+"/international-tourisms/loadInitialData",(req,res)=>{
+    res.send(JSON.stringify(inter_tourisms_initial,null,2)); //pasar objeto a JSON
 
 });
-app.post(BASE_API_PATH+"/contacts", (req,res)=>{
-    var newContact = req.body;
-    console.log("new contact to be added: "+ JSON.stringify(newContact,null,2));
-    contacts.push(newContact);
+app.post(BASE_API_PATH+"/international-tourisms", (req,res)=>{
+    var newCountry = req.body;
+    console.log("new country to be added: "+ JSON.stringify(newCountry,null,2));
+    inter_tourisms.push(newCountry);
     res.sendStatus(201); 
+});
+//no me sale
+app.delete(BASE_API_PATH+"/international-tourisms", (req,res)=>{
+    inter_tourisms.remove(); 
+    res.send(JSON.stringify(inter_tourisms,null,2));
+    res.sendStatus(204); 
+});
+//no me sale
+app.get(BASE_API_PATH+"international-tourisms/francia",(req, res)=>{
+    for(i=0; i < inter_tourisms.length; i++){
+        if("francia" == inter_tourisms.country){
+            res.send(JSON.stringify(inter_tourisms.country, null, 2));
+        }
+    }
+});
+//no me sale
+app.delete(BASE_API_PATH+"/international-tourisms/portugal/2012",(req, res)=>{
+    res.sendStatus(204)
+});
+
+//no me sale
+app.put(BASE_API_PATH+"international-tourisms/portugal/2014",(req, res)=>{
+
+});
+
+app.put(BASE_API_PATH+"international-tourisms",(req, res)=>{
+    res.sendStatus(405)
+});
+
+app.post(BASE_API_PATH+"international-tourisms/francia",(req, res)=>{
+    res.sendStatus(405)
 });
 
 app.listen(PORT, () => {
