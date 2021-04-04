@@ -30,29 +30,43 @@ var inter_tourisms_initial = [
     }
 ];
 
-var inter_tourisms = inter_tourisms_initial;
+var inter_tourisms = [
+    {
+        "country":"portugal",
+        "year":2014,
+        "number-of-arribals":10497000,
+        "number-of-departures":1502000,
+        "expenditures-billion":5213 
+    },
+    {
+        "country":"francia",
+        "year":2014,
+        "number-of-arribals":206599000,
+        "number-of-departures":31941000,
+        "expenditures-billion":58464
+    }
+];
 
+//1.GET a la lista de recursos (p.e. “/api/v1/stats”) devuelve una lista con todos los recursos (un array de objetos en JSON)
 app.get(BASE_API_PATH+"/international-tourisms", (req,res)=>{
     res.send(JSON.stringify(inter_tourisms,null,2)); //pasar objeto a JSON
 });
 
+//El recurso debe contener una ruta /api/v1/YYYYYY/loadInitialData que al hacer un GET cree 2 o más recursos.
 app.get(BASE_API_PATH+"/international-tourisms/loadInitialData",(req,res)=>{
     res.send(JSON.stringify(inter_tourisms_initial,null,2)); //pasar objeto a JSON
 
 });
+
+//2.POST a la lista de recursos (p.e. “/api/v1/stats”) crea un nuevo recurso.
 app.post(BASE_API_PATH+"/international-tourisms", (req,res)=>{
     var newCountry = req.body;
     console.log("new country to be added: "+ JSON.stringify(newCountry,null,2));
     inter_tourisms.push(newCountry);
     res.sendStatus(201); 
 });
-//no me sale
-app.delete(BASE_API_PATH+"/international-tourisms", (req,res)=>{
-    inter_tourisms.remove(); 
-    res.send(JSON.stringify(inter_tourisms,null,2));
-    res.sendStatus(204); 
-});
 
+//3. GET a un recurso (p.e. “/api/v1/stats/sevilla/2013”) devuelve ese recurso (un objeto en JSON) .
 app.get(BASE_API_PATH+"/international-tourisms/francia/2014",(req, res)=>{
     for(var i=0; i < inter_tourisms.length; i++){
         if(inter_tourisms[i].country == "francia" && inter_tourisms[i].year==2014){
@@ -62,22 +76,46 @@ app.get(BASE_API_PATH+"/international-tourisms/francia/2014",(req, res)=>{
     res.sendStatus(200);
 });
 
-//no me sale
+//4. DELETE a un recurso (p.e. “/api/v1/stats/sevilla/2013”) borra ese recurso (un objeto en JSON).
 app.delete(BASE_API_PATH+"/international-tourisms/portugal/2012",(req, res)=>{
+    for(var i=0; i < inter_tourisms.length; i++){
+        if(inter_tourisms[i].country == "portugal" && inter_tourisms[i].year==2012){
+            inter_tourisms.splice(i, 1);
+            console.log(inter_tourisms);
+        }
+    }
+    res.send("Deleted Portugal 2012")
     res.sendStatus(204)
 });
 
-//no me sale
+//5.PUT a un recurso (p.e. “/api/v1/stats/sevilla/2013”) actualiza ese recurso. 
 app.put(BASE_API_PATH+"/international-tourisms/portugal/2014",(req, res)=>{
-
+    for(var i=0; i<inter_tourisms.length; i++){
+		if(inter_tourisms[i].country=="portugal" && inter_tourisms[i].year==2014){
+			inter_tourisms[i]=req.body;
+		}
+	}
+	res.send("Updated Portugal 2014");
+	res.sendStatus(200);
 });
 
+//6. POST a un recurso (p.e. “/api/v1/stats/sevilla/2013”) debe dar un error de método no permitido.
+app.post(BASE_API_PATH+"/international-tourisms/francia/2014",(req, res)=>{
+    res.sendStatus(405)
+});
+
+//7. PUT a la lista de recursos (p.e. “/api/v1/stats”) debe dar un error de método no permitido.
 app.put(BASE_API_PATH+"/international-tourisms",(req, res)=>{
     res.sendStatus(405)
 });
 
-app.post(BASE_API_PATH+"/international-tourisms/francia/2014",(req, res)=>{
-    res.sendStatus(405)
+//8. DELETE a la lista de recursos (p.e. “/api/v1/stats”) borra todos los recursos.
+app.delete(BASE_API_PATH+"/international-tourisms", (req,res)=>{
+    for(var i=0; i < inter_tourisms.length+1; i++){
+       inter_tourisms.pop() 
+    }
+    res.send("Delete international tourisms data")
+    res.sendStatus(204); 
 });
 
 app.listen(PORT, () => {
