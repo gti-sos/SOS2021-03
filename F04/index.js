@@ -1,32 +1,247 @@
-/*var cool = require("cool-ascii-faces");
 var express = require("express");
-var app = express();*/
 
-var express = require("express");
-var path = require("path");
-
+var PORT = (process.env.PORT || 1607);
+var BASE_API_PATH = "/api/v1";
 var app = express();
 
-var port = (process.env.PORT || 10000);
+app.use(express.json());
 
-app.use("/", express.static(path.join(__dirname,"public")));
+app.use("/", express.static("./public"));
 
-
-
-app.get("/info/quality-of-life", (req, res) => {
-	res.send("<html><head><style>table {font-family: arial, sans-serif;border-collapse: collapse;width: 100%;}td, th {border: 1px solid #dddddd;text-align: left;padding: 8px;}tr:nth-child(even) {background-color: #dddddd;}</style></head><body><h2>source:<a href='https://www.numbeo.com/quality-of-life/rankings_by_country.jsp?title=2020'>https://www.numbeo.com/quality-of-life/rankings_by_country.jsp?title=2020</a></h2> <h3>Quality of Life Index by Country 2020 we are comparing data about quality of life with purchasing power and health care index.</h3><table><tr><th>country</th><th>year</th><th>quality-of-life</th><th>purchasing-power</th><th>health-care</th> </tr>   <tr><td>Denmark</td><td>2020</td><td>192.67</td><td>100.88</td><td>80</td></tr> <tr><td>Switzerland</td><td>2020</td><td>192.01</td><td>119.53</td><td>72.44</td></tr><tr><td>Finland</td><td>2020</td><td>190.22</td><td>99.93</td><td>75.79</td></tr><tr><td>Australia</td><td>2020</td><td>186.21</td><td>107.31</td><td>77.38</td></tr><tr><td>Netherlands</td><td>2020</td><td>183.67</td><td>90.73</td><td>64.65</td></tr></table></body></html>");});
-	
+////////////////////////////////////////////////////////
+// international tourisms
+////////////////////////////////////////////////////////
 
 app.get("/info/international-tourism", (req, res) => {
     res.send("<html><body><h1>International-tourism</h1><h3>Fuente de información:<a href='https://data.worldbank.org/indicator/ST.INT.RCPT.XP.ZS?end=2018&most_recent_year_desc=false&start=2018&view=map&year=1995'>https://data.worldbank.org/indicator/ST.INT.RCPT.XP.ZS?end=2018&most_recent_year_desc=false&start=2018&view=map&year=1995</a></h3><table class='default'><tr><th>country</th><th>year</th><th>number-of-arribals</th><th>number-of-departures</th><th>expenditures</th></tr><tr><td>PORTUGAL</td><td>2014</td><td>10,497,000</td><td>1,502,000</td><td>5,213 billion </td></tr><tr><td>FRANCE</td><td>2014</td><td>206,599,000</td><td>31,941,000</td><td>58,464 billion </td></tr><tr><td>PORTUGAL</td><td>2012</td><td>7,503,000</td><td>1,361,000</td><td>4,482 billion </td></tr><tr><td>FRANCE</td><td>2012</td><td>197,522,000</td><td>29,642,000</td><td>50,068 billion </td></tr><tr><td>RUSSIAN FEDERATION</td><td>2010</td><td>22,281,000</td><td>39,232,000</td><td>30,169 billion </td></tr></table></body></html>");
 });
 
-app.get("/info/air-pollution", (req, res) => {
-    res.send("<html><body><h1>air-pollution</h1><h3>Fuente de información:<a href='https://ourworldindata.org/grapher/death-rates-from-air-pollution'>https://ourworldindata.org/grapher/death-rates-from-air-pollution</a></h3><table class='default'><tr><th>country</th><th>year</th><th>deaths-ambient-particulate-matter-pollution</th><th>deaths-household-air-pollution-from-solid-fuels</th><th>deaths-air-pollution</th></tr><tr><td>AFGANISTAN</td><td>1990</td><td>46.44658944</td><td>250.3629097</td>	<td>299.4773089</td></tr><tr><td>ANDORRA</td><td>2015</td><td>16.87235513</td><td>0.2629612925</td><td>19.44612087</td></tr><tr><td>BELGUIM</td><td>2015</td><td>18.35943959</td><td>0.114447081</td><td>20.47646879</td></tr><tr><td>LITHUANIA</td><td>2014</td><td>33.25769851</td><td>1.027443949</td><td>35.11186188</td></tr><tr><td>BENIN</td><td>1990</td><td>20.05143274</td><td>150.2770072</td><td>171.9752414</td></tr></table></body></html>");
+var inter_tourisms_initial = [
+    {
+        "country":"portugal",
+        "year":2014,
+        "number-of-arribals":10497000,
+        "number-of-departures":1502000,
+        "expenditures-billion":5213 
+    },
+    {
+        "country":"francia",
+        "year":2014,
+        "number-of-arribals":206599000,
+        "number-of-departures":31941000,
+        "expenditures-billion":58464
+    }
+];
+
+var inter_tourisms = [
+    {
+        "country":"portugal",
+        "year":2014,
+        "number-of-arribals":10497000,
+        "number-of-departures":1502000,
+        "expenditures-billion":5213 
+    },
+    {
+        "country":"francia",
+        "year":2014,
+        "number-of-arribals":206599000,
+        "number-of-departures":31941000,
+        "expenditures-billion":58464
+    }
+];
+
+//1.GET a la lista de recursos (p.e. “/api/v1/stats”) devuelve una lista con todos los recursos (un array de objetos en JSON)
+app.get(BASE_API_PATH+"/international-tourisms", (req,res)=>{
+    res.send(JSON.stringify(inter_tourisms,null,2)); //pasar objeto a JSON
 });
 
+//El recurso debe contener una ruta /api/v1/YYYYYY/loadInitialData que al hacer un GET cree 2 o más recursos.
+app.get(BASE_API_PATH+"/international-tourisms/loadInitialData",(req,res)=>{
+    res.send(JSON.stringify(inter_tourisms_initial,null,2)); //pasar objeto a JSON
 
+});
 
-app.listen(port, () => {
-	console.log("Server ready listening on port " + port);
+//2.POST a la lista de recursos (p.e. “/api/v1/stats”) crea un nuevo recurso.
+app.post(BASE_API_PATH+"/international-tourisms", (req,res)=>{
+    var newCountry = req.body;
+    console.log("new country to be added: "+ JSON.stringify(newCountry,null,2));
+    inter_tourisms.push(newCountry);
+    res.sendStatus(201); 
+});
+
+//3. GET a un recurso (p.e. “/api/v1/stats/sevilla/2013”) devuelve ese recurso (un objeto en JSON) .
+app.get(BASE_API_PATH+"/international-tourisms/:country/:year",(req, res)=>{
+    country = req.params.country;
+    year = req.params.year;
+    var nuevo = [];
+    for(var i=0; i < inter_tourisms.length; i++){
+        if(inter_tourisms[i].country == country && inter_tourisms[i].year== year){
+            nuevo.push(inter_tourisms[i]);
+        }
+    }
+    
+    res.send(JSON.stringify(nuevo, null, 2));
+    res.sendStatus(200);
+});
+
+//4. DELETE a un recurso (p.e. “/api/v1/stats/sevilla/2013”) borra ese recurso (un objeto en JSON).
+app.delete(BASE_API_PATH+"/international-tourisms/:country/:year",(req, res)=>{
+    country = req.params.country;
+    year = req.params.year;
+    var nuevo = [];
+    for(var i=0; i < inter_tourisms.length; i++){
+        if(inter_tourisms[i].country == country && inter_tourisms[i].year==year){
+            nuevo = inter_tourisms.splice(i, 1);
+            console.log(nuevo);
+        }
+    }
+    res.sendStatus(204);
+    res.send("Deleted " +country+" "+year);
+    
+});
+
+//5.PUT a un recurso (p.e. “/api/v1/stats/sevilla/2013”) actualiza ese recurso. 
+app.put(BASE_API_PATH+"/international-tourisms/:country/:year",(req, res)=>{
+    country = req.params.country;
+    year = req.params.year;
+    var nuevo = [];
+    for(var i=0; i<inter_tourisms.length; i++){
+		if(inter_tourisms[i].country==country && inter_tourisms[i].year==year){
+			inter_tourisms[i]=req.body;
+		}
+	}
+	res.send("Updated "+country+" "+year);
+	res.sendStatus(200);
+});
+
+//6. POST a un recurso (p.e. “/api/v1/stats/sevilla/2013”) debe dar un error de método no permitido.
+app.post(BASE_API_PATH+"/international-tourisms/:country/:year",(req, res)=>{
+    res.sendStatus(405);
+});
+
+//7. PUT a la lista de recursos (p.e. “/api/v1/stats”) debe dar un error de método no permitido.
+app.put(BASE_API_PATH+"/international-tourisms",(req, res)=>{
+    res.sendStatus(405);
+});
+
+//8. DELETE a la lista de recursos (p.e. “/api/v1/stats”) borra todos los recursos.
+app.delete(BASE_API_PATH+"/international-tourisms", (req,res)=>{
+    for(var i=0; i < inter_tourisms.length+1; i++){
+       inter_tourisms.pop();
+    }
+    res.send("Delete international tourisms data")
+    res.sendStatus(204); 
+});
+
+app.listen(PORT, () => {
+	console.log("Server ready at port " + PORT +"!");
 })
+
+////////////////////////////////////////////////////////
+//AIR-POLLUTION
+////////////////////////////////////////////////////////
+var airpollutioninfo = [];
+
+var airpollutioninfopush = [
+    {
+        "country": "AFGANISTAN", 
+        "year": 1990, 
+        "deaths-ambient-particulate-matter-pollution": 46.4465894382846, 
+        "deaths-household-air-pollution-from-solid-fuels": 250.362909742374,
+        "deaths-air-pollution": 299.47730888328
+    }, 
+    {
+        "country": "ANDORRA", 
+        "year": 2015, 
+        "deaths-ambient-particulate-matter-pollution": 16.872355129519, 
+        "deaths-household-air-pollution-from-solid-fuels": 0.262961292500896,
+        "deaths-air-pollution": 19.4461208689732
+    }, 
+    {
+        "country": "BELGIUM", 
+        "year": 2015, 
+        "deaths-ambient-particulate-matter-pollution": 18.3594395851173, 
+        "deaths-household-air-pollution-from-solid-fuels": 0.114447080967493,
+        "deaths-air-pollution": 20.4764687866951
+    }, 
+    {
+        "country": "LITHUANIA", 
+        "year": 2014, 
+        "deaths-ambient-particulate-matter-pollution": 33.2576985134617, 
+        "deaths-household-air-pollution-from-solid-fuels": 1.02744394947467,
+        "deaths-air-pollution": 35.1118618798498
+    }, 
+    {
+        "country": "BENIN", 
+        "year": 1990, 
+        "deaths-ambient-particulate-matter-pollution": 20.0514327372541, 
+        "deaths-household-air-pollution-from-solid-fuels": 150.277007171104,
+        "deaths-air-pollution": 171.975241436558
+    }
+];
+
+app.get(BASE_API_PATH+"/air-pollution", (req, res)=>{
+    res.send(JSON.stringify(airpollutioninfo, null, 2));
+});
+
+app.get(BASE_API_PATH+"/air-pollution/loadInitialData", (req, res)=>{   
+    for(var i=0;i<airpollutioninfopush.length;i++){
+        airpollutioninfo.push(airpollutioninfopush[i]);
+    }
+    res.send("Loaded Initial Data");
+});
+
+app.post(BASE_API_PATH+"/air-pollution", (req,res)=>{
+    var newCountry = req.body;
+    console.log("New country to be added: "+ JSON.stringify(newCountry,null,2));
+    airpollutioninfo.push(newCountry);
+    res.sendStatus(201); 
+});
+
+app.get(BASE_API_PATH+"/air-pollution/:country/:year",(req, res)=>{
+    country = req.params.country;
+    var nuevo = [];
+    for(var i=0; i < airpollutioninfo.length; i++){
+        if(airpollutioninfo[i].year==req.params.year&&airpollutioninfo[i].country===country){
+            nuevo.push(airpollutioninfo[i])
+        }
+    }
+    res.send(JSON.stringify(nuevo, null, 2));
+    
+});
+
+app.delete(BASE_API_PATH+"/air-pollution", (req,res)=>{
+    for(var i=0; i < airpollutioninfo.length+1; i++){
+        airpollutioninfo.pop() 
+    }
+    res.send("Delete air pollution data")
+    res.sendStatus(204); 
+});
+
+app.put(BASE_API_PATH+"/air-pollution",(req, res)=>{
+    res.sendStatus(405)
+});
+
+app.post(BASE_API_PATH+"/air-pollution/:country/:year",(req, res)=>{
+    res.sendStatus(405)
+});
+
+app.put(BASE_API_PATH+"/air-pollution/:country/:year",(req, res)=>{
+    for(var i=0; i<airpollutioninfo.length; i++){
+		if(airpollutioninfo[i].country==req.params.country && airpollutioninfo[i].year==req.params.year){
+			airpollutioninfo[i]=req.body;
+		}
+	}
+	res.send("Updated "+ req.params.country+", "+req.params.year);
+	res.sendStatus(200);
+});
+app.delete(BASE_API_PATH+"/air-pollution/:country/:year",(req, res)=>{
+    for(var i=0; i < airpollutioninfo.length; i++){
+        if(airpollutioninfo[i].country == req.params.country && airpollutioninfo[i].year==req.params.year){
+            airpollutioninfo.splice(i, 1);
+            console.log(airpollutioninfo);
+        }
+    }
+    res.send("Deleted "+ req.params.country+", "+req.params.year);
+    res.sendStatus(204)
+});
