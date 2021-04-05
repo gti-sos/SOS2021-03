@@ -209,6 +209,7 @@ app.get(BASE_API_PATH+"/air-pollution/:country/:year",(req, res)=>{
         }
     }
     res.send(JSON.stringify(nuevo, null, 2));
+    res.sendStatus(200);
     
 });
 
