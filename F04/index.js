@@ -79,9 +79,9 @@ app.get(BASE_API_PATH+"/international-tourisms/:country/:year",(req, res)=>{
             nuevo.push(inter_tourisms[i]);
         }
     }
-    res.sendStatus(200);
-    res.send(JSON.stringify(nuevo, null, 2));
     
+    res.send(JSON.stringify(nuevo, null, 2));
+    res.sendStatus(200);
 });
 
 //4. DELETE a un recurso (p.e. “/api/v1/stats/sevilla/2013”) borra ese recurso (un objeto en JSON).
