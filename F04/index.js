@@ -167,6 +167,7 @@ var airpollutioninfopush = [
 
 app.get(BASE_API_PATH+"/air-pollution", (req, res)=>{
     res.send(JSON.stringify(airpollutioninfo, null, 2));
+    res.sendStatus(200);
 });
 
 app.get(BASE_API_PATH+"/air-pollution/loadInitialData", (req, res)=>{   
@@ -174,6 +175,7 @@ app.get(BASE_API_PATH+"/air-pollution/loadInitialData", (req, res)=>{
         airpollutioninfo.push(airpollutioninfopush[i]);
     }
     res.send("Loaded Initial Data");
+    res.sendStatus(200);
 });
 
 app.post(BASE_API_PATH+"/air-pollution", (req,res)=>{
@@ -199,7 +201,7 @@ app.delete(BASE_API_PATH+"/air-pollution", (req,res)=>{
     for(var i=0; i < airpollutioninfo.length+1; i++){
         airpollutioninfo.pop() 
     }
-    res.send("Delete air pollution data")
+    req.send("Delete air pollution data")
     res.sendStatus(204); 
 });
 
