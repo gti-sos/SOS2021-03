@@ -8,7 +8,10 @@ app.use(express.json());
 
 app.use("/", express.static("./public"));
 
+////////////////////////////////////////////////////////
 // international tourisms
+////////////////////////////////////////////////////////
+
 app.get("/info/international-tourism", (req, res) => {
     res.send("<html><body><h1>International-tourism</h1><h3>Fuente de información:<a href='https://data.worldbank.org/indicator/ST.INT.RCPT.XP.ZS?end=2018&most_recent_year_desc=false&start=2018&view=map&year=1995'>https://data.worldbank.org/indicator/ST.INT.RCPT.XP.ZS?end=2018&most_recent_year_desc=false&start=2018&view=map&year=1995</a></h3><table class='default'><tr><th>country</th><th>year</th><th>number-of-arribals</th><th>number-of-departures</th><th>expenditures</th></tr><tr><td>PORTUGAL</td><td>2014</td><td>10,497,000</td><td>1,502,000</td><td>5,213 billion </td></tr><tr><td>FRANCE</td><td>2014</td><td>206,599,000</td><td>31,941,000</td><td>58,464 billion </td></tr><tr><td>PORTUGAL</td><td>2012</td><td>7,503,000</td><td>1,361,000</td><td>4,482 billion </td></tr><tr><td>FRANCE</td><td>2012</td><td>197,522,000</td><td>29,642,000</td><td>50,068 billion </td></tr><tr><td>RUSSIAN FEDERATION</td><td>2010</td><td>22,281,000</td><td>39,232,000</td><td>30,169 billion </td></tr></table></body></html>");
 });
@@ -67,52 +70,64 @@ app.post(BASE_API_PATH+"/international-tourisms", (req,res)=>{
 });
 
 //3. GET a un recurso (p.e. “/api/v1/stats/sevilla/2013”) devuelve ese recurso (un objeto en JSON) .
-app.get(BASE_API_PATH+"/international-tourisms/francia/2014",(req, res)=>{
+app.get(BASE_API_PATH+"/international-tourisms/:country/:year",(req, res)=>{
+    country = req.params.country;
+    year = req.params.year;
+    var nuevo = [];
     for(var i=0; i < inter_tourisms.length; i++){
-        if(inter_tourisms[i].country == "francia" && inter_tourisms[i].year==2014){
-            res.send(JSON.stringify(inter_tourisms[i], null, 2));
+        if(inter_tourisms[i].country == country && inter_tourisms[i].year== year){
+            nuevo.push(inter_tourisms[i]);
         }
     }
+    
+    res.send(JSON.stringify(nuevo, null, 2));
     res.sendStatus(200);
 });
 
 //4. DELETE a un recurso (p.e. “/api/v1/stats/sevilla/2013”) borra ese recurso (un objeto en JSON).
-app.delete(BASE_API_PATH+"/international-tourisms/portugal/2012",(req, res)=>{
+app.delete(BASE_API_PATH+"/international-tourisms/:country/:year",(req, res)=>{
+    country = req.params.country;
+    year = req.params.year;
+    var nuevo = [];
     for(var i=0; i < inter_tourisms.length; i++){
-        if(inter_tourisms[i].country == "portugal" && inter_tourisms[i].year==2012){
-            inter_tourisms.splice(i, 1);
-            console.log(inter_tourisms);
+        if(inter_tourisms[i].country == country && inter_tourisms[i].year==year){
+            nuevo = inter_tourisms.splice(i, 1);
+            console.log(nuevo);
         }
     }
-    res.send("Deleted Portugal 2012")
-    res.sendStatus(204)
+    res.sendStatus(204);
+    res.send("Deleted " +country+" "+year);
+    
 });
 
 //5.PUT a un recurso (p.e. “/api/v1/stats/sevilla/2013”) actualiza ese recurso. 
-app.put(BASE_API_PATH+"/international-tourisms/portugal/2014",(req, res)=>{
+app.put(BASE_API_PATH+"/international-tourisms/:country/:year",(req, res)=>{
+    country = req.params.country;
+    year = req.params.year;
+    var nuevo = [];
     for(var i=0; i<inter_tourisms.length; i++){
-		if(inter_tourisms[i].country=="portugal" && inter_tourisms[i].year==2014){
+		if(inter_tourisms[i].country==country && inter_tourisms[i].year==year){
 			inter_tourisms[i]=req.body;
 		}
 	}
-	res.send("Updated Portugal 2014");
+	res.send("Updated "+country+" "+year);
 	res.sendStatus(200);
 });
 
 //6. POST a un recurso (p.e. “/api/v1/stats/sevilla/2013”) debe dar un error de método no permitido.
-app.post(BASE_API_PATH+"/international-tourisms/francia/2014",(req, res)=>{
-    res.sendStatus(405)
+app.post(BASE_API_PATH+"/international-tourisms/:country/:year",(req, res)=>{
+    res.sendStatus(405);
 });
 
 //7. PUT a la lista de recursos (p.e. “/api/v1/stats”) debe dar un error de método no permitido.
 app.put(BASE_API_PATH+"/international-tourisms",(req, res)=>{
-    res.sendStatus(405)
+    res.sendStatus(405);
 });
 
 //8. DELETE a la lista de recursos (p.e. “/api/v1/stats”) borra todos los recursos.
 app.delete(BASE_API_PATH+"/international-tourisms", (req,res)=>{
     for(var i=0; i < inter_tourisms.length+1; i++){
-       inter_tourisms.pop() 
+       inter_tourisms.pop();
     }
     res.send("Delete international tourisms data")
     res.sendStatus(204); 
@@ -167,6 +182,7 @@ var airpollutioninfopush = [
 
 app.get(BASE_API_PATH+"/air-pollution", (req, res)=>{
     res.send(JSON.stringify(airpollutioninfo, null, 2));
+    res.sendStatus(200);
 });
 
 app.get(BASE_API_PATH+"/air-pollution/loadInitialData", (req, res)=>{   
@@ -174,6 +190,7 @@ app.get(BASE_API_PATH+"/air-pollution/loadInitialData", (req, res)=>{
         airpollutioninfo.push(airpollutioninfopush[i]);
     }
     res.send("Loaded Initial Data");
+    res.sendStatus(200);
 });
 
 app.post(BASE_API_PATH+"/air-pollution", (req,res)=>{
@@ -199,7 +216,7 @@ app.delete(BASE_API_PATH+"/air-pollution", (req,res)=>{
     for(var i=0; i < airpollutioninfo.length+1; i++){
         airpollutioninfo.pop() 
     }
-    res.send("Delete air pollution data")
+    req.send("Delete air pollution data")
     res.sendStatus(204); 
 });
 
