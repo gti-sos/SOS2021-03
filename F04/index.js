@@ -214,7 +214,7 @@ app.get(BASE_API_PATH+"/air-pollution/:country/:year",(req, res)=>{
 
 app.delete(BASE_API_PATH+"/air-pollution", (req,res)=>{
     while(airpollutioninfo.length>0){
-        airpollutioninfo.pop() 
+        airpollutioninfo.pop(); 
     }
     //req.send("Delete quality of life data")
     console.log("delete air pollution data");
@@ -222,11 +222,11 @@ app.delete(BASE_API_PATH+"/air-pollution", (req,res)=>{
 });
 
 app.put(BASE_API_PATH+"/air-pollution",(req, res)=>{
-    res.sendStatus(405)
+    res.sendStatus(405);
 });
 
 app.post(BASE_API_PATH+"/air-pollution/:country/:year",(req, res)=>{
-    res.sendStatus(405)
+    res.sendStatus(405);
 });
 
 app.put(BASE_API_PATH+"/air-pollution/:country/:year",(req, res)=>{
