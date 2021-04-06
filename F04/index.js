@@ -25,11 +25,29 @@ var inter_tourisms_initial = [
         "expenditures-billion":5213 
     },
     {
+<<<<<<< HEAD
         "country":"rusian-federation",
         "year":2010,
         "number-of-arribals":22281000,
         "number-of-departures":39232000,
         "expenditures-billion":30169
+=======
+        "country":"francia",
+        "year":2014,
+        "number-of-arribals":206599000,
+        "number-of-departures":31941000,
+        "expenditures-billion":58464
+    }
+];
+
+var inter_tourisms = [
+    {
+        "country":"portugal",
+        "year":2014,
+        "number-of-arribals":10497000,
+        "number-of-departures":1502000,
+        "expenditures-billion":5213 
+>>>>>>> eed93087b4575d9a1db7c6b9218e7c49eee69ceb
     },
     {
         "country":"francia",
@@ -40,16 +58,23 @@ var inter_tourisms_initial = [
     }
 ];
 
+<<<<<<< HEAD
 var inter_tourisms = [];
 
 //1.GET a la lista de recursos (p.e. “/api/v1/stats”) devuelve una lista con todos los recursos (un array de objetos en JSON)
 app.get(BASE_API_PATH+"/international-tourisms", (req,res)=>{
     res.send(JSON.stringify(inter_tourisms,null,2)); //pasar objeto a JSON
     res.sendStatus(200);
+=======
+//1.GET a la lista de recursos (p.e. “/api/v1/stats”) devuelve una lista con todos los recursos (un array de objetos en JSON)
+app.get(BASE_API_PATH+"/international-tourisms", (req,res)=>{
+    res.send(JSON.stringify(inter_tourisms,null,2)); //pasar objeto a JSON
+>>>>>>> eed93087b4575d9a1db7c6b9218e7c49eee69ceb
 });
 
 //El recurso debe contener una ruta /api/v1/YYYYYY/loadInitialData que al hacer un GET cree 2 o más recursos.
 app.get(BASE_API_PATH+"/international-tourisms/loadInitialData",(req,res)=>{
+<<<<<<< HEAD
     for(var i=0;i<inter_tourisms_initial.length;i++){
         inter_tourisms.push(inter_tourisms_initial[i]);
     }
@@ -57,6 +82,11 @@ app.get(BASE_API_PATH+"/international-tourisms/loadInitialData",(req,res)=>{
     res.sendStatus(200);
 });
 
+=======
+    res.send(JSON.stringify(inter_tourisms_initial,null,2)); //pasar objeto a JSON
+
+});
+>>>>>>> eed93087b4575d9a1db7c6b9218e7c49eee69ceb
 
 //2.POST a la lista de recursos (p.e. “/api/v1/stats”) crea un nuevo recurso.
 app.post(BASE_API_PATH+"/international-tourisms", (req,res)=>{
@@ -123,7 +153,11 @@ app.put(BASE_API_PATH+"/international-tourisms",(req, res)=>{
 
 //8. DELETE a la lista de recursos (p.e. “/api/v1/stats”) borra todos los recursos.
 app.delete(BASE_API_PATH+"/international-tourisms", (req,res)=>{
+<<<<<<< HEAD
     while(inter_tourisms.length>0){
+=======
+    for(var i=0; i < inter_tourisms.length+1; i++){
+>>>>>>> eed93087b4575d9a1db7c6b9218e7c49eee69ceb
        inter_tourisms.pop();
     }
     res.send("Delete international tourisms data")
@@ -211,18 +245,33 @@ app.get(BASE_API_PATH+"/air-pollution/:country/:year",(req, res)=>{
 
 app.delete(BASE_API_PATH+"/air-pollution", (req,res)=>{
     for(var i=0; i < airpollutioninfo.length+1; i++){
+<<<<<<< HEAD
         airpollutioninfo.pop();
     }
     console.log("Delete air pollution data");
+=======
+        airpollutioninfo[i].pop() ;
+    }
+    //req.send("Delete quality of life data")
+    console.log("delete air-pollution data");
+>>>>>>> eed93087b4575d9a1db7c6b9218e7c49eee69ceb
     res.sendStatus(204); 
 });
 
 app.put(BASE_API_PATH+"/air-pollution",(req, res)=>{
+<<<<<<< HEAD
     res.sendStatus(405)
 });
 
 app.post(BASE_API_PATH+"/air-pollution/:country/:year",(req, res)=>{
     res.sendStatus(405)
+=======
+    res.sendStatus(405);
+});
+
+app.post(BASE_API_PATH+"/air-pollution/:country/:year",(req, res)=>{
+    res.sendStatus(405);
+>>>>>>> eed93087b4575d9a1db7c6b9218e7c49eee69ceb
 });
 
 app.put(BASE_API_PATH+"/air-pollution/:country/:year",(req, res)=>{
