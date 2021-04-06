@@ -123,7 +123,7 @@ app.put(BASE_API_PATH+"/international-tourisms",(req, res)=>{
 
 //8. DELETE a la lista de recursos (p.e. “/api/v1/stats”) borra todos los recursos.
 app.delete(BASE_API_PATH+"/international-tourisms", (req,res)=>{
-    for(var i=0; i < inter_tourisms.length+1; i++){
+    while(inter_tourisms.length>0){
        inter_tourisms.pop();
     }
     res.send("Delete international tourisms data")
