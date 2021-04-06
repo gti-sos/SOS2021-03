@@ -216,7 +216,7 @@ app.delete(BASE_API_PATH+"/air-pollution", (req,res)=>{
     for(var i=0; i < airpollutioninfo.length+1; i++){
         airpollutioninfo.pop() 
     }
-    req.send("Delete air pollution data")
+    console.log("Delete air pollution data")
     res.sendStatus(204); 
 });
 
