@@ -360,7 +360,7 @@ app.put(BASE_API_PATH+"/quality-of-life/:country/:year",(req, res)=>{
 });
 
 //9
-app.delete(BASE_API_PATH+"/quality-of-life:country/:year",(req, res)=>{
+app.delete(BASE_API_PATH+"/quality-of-life/:country/:year",(req, res)=>{
     for(var i=0; i < qof.length; i++){
         if(qof[i].country == req.params.country && qof[i].year==req.params.year){
             qof.splice(i, 1);
