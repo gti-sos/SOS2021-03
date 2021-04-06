@@ -333,7 +333,8 @@ app.delete(BASE_API_PATH+"/quality-of-life", (req,res)=>{
     for(var i=0; i < qof.length+1; i++){
         qof.pop() 
     }
-    req.send("Delete quality of life data")
+    //req.send("Delete quality of life data")
+    console.log("delete quality of life data");
     res.sendStatus(204); 
 });
 
@@ -359,14 +360,15 @@ app.put(BASE_API_PATH+"/quality-of-life/:country/:year",(req, res)=>{
 });
 
 //9
-app.delete(BASE_API_PATH+"/quality-of-life:country/:year",(req, res)=>{
+app.delete(BASE_API_PATH+"/quality-of-life/:country/:year",(req, res)=>{
     for(var i=0; i < qof.length; i++){
         if(qof[i].country == req.params.country && qof[i].year==req.params.year){
             qof.splice(i, 1);
-            console.log(qof);
+            
         }
     }
-    res.send("Deleted "+ req.params.country+", "+req.params.year);
+   // res.send("Deleted "+ req.params.country+", "+req.params.year);
+   console.log("Deleted "+ req.params.country+", "+req.params.year);
     res.sendStatus(204)
 
 })
