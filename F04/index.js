@@ -213,11 +213,9 @@ app.get(BASE_API_PATH+"/air-pollution/:country/:year",(req, res)=>{
 });
 
 app.delete(BASE_API_PATH+"/air-pollution", (req,res)=>{
-    //for(var i=0; i < airpollutioninfo.length+1; i++){
-        airpollutioninfo.pop() ;
-    //}
-    //req.send("Delete quality of life data")
-    console.log("delete air-pollution data");
+    while(airpollutioninfo.length>0){
+        airpollutioninfo.pop();
+    }
     res.sendStatus(204); 
 });
 
@@ -248,7 +246,7 @@ app.delete(BASE_API_PATH+"/air-pollution/:country/:year",(req, res)=>{
     res.send("Deleted "+ req.params.country+", "+req.params.year);
     res.sendStatus(204)
 
-})
+});
 
 ////////////////////////////////////////////////////////
 //Quality-of-life
