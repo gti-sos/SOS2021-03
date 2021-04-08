@@ -25,21 +25,11 @@ var inter_tourisms_initial = [
         "expenditures-billion":5213 
     },
     {
-        "country":"francia",
-        "year":2014,
-        "number-of-arribals":206599000,
-        "number-of-departures":31941000,
-        "expenditures-billion":58464
-    }
-];
-
-var inter_tourisms = [
-    {
-        "country":"portugal",
-        "year":2014,
-        "number-of-arribals":10497000,
-        "number-of-departures":1502000,
-        "expenditures-billion":5213 
+        "country":"rusian-federation",
+        "year":2010,
+        "number-of-arribals":22281000,
+        "number-of-departures":39232000,
+        "expenditures-billion":30169
     },
     {
         "country":"francia",
@@ -50,16 +40,23 @@ var inter_tourisms = [
     }
 ];
 
+var inter_tourisms = [];
+
 //1.GET a la lista de recursos (p.e. “/api/v1/stats”) devuelve una lista con todos los recursos (un array de objetos en JSON)
 app.get(BASE_API_PATH+"/international-tourisms", (req,res)=>{
     res.send(JSON.stringify(inter_tourisms,null,2)); //pasar objeto a JSON
+    res.sendStatus(200);
 });
 
 //El recurso debe contener una ruta /api/v1/YYYYYY/loadInitialData que al hacer un GET cree 2 o más recursos.
 app.get(BASE_API_PATH+"/international-tourisms/loadInitialData",(req,res)=>{
-    res.send(JSON.stringify(inter_tourisms_initial,null,2)); //pasar objeto a JSON
-
+    for(var i=0;i<inter_tourisms_initial.length;i++){
+        inter_tourisms.push(inter_tourisms_initial[i]);
+    }
+    res.send("Loaded Initial Data");
+    res.sendStatus(200);
 });
+
 
 //2.POST a la lista de recursos (p.e. “/api/v1/stats”) crea un nuevo recurso.
 app.post(BASE_API_PATH+"/international-tourisms", (req,res)=>{
@@ -126,7 +123,7 @@ app.put(BASE_API_PATH+"/international-tourisms",(req, res)=>{
 
 //8. DELETE a la lista de recursos (p.e. “/api/v1/stats”) borra todos los recursos.
 app.delete(BASE_API_PATH+"/international-tourisms", (req,res)=>{
-    for(var i=0; i < inter_tourisms.length+1; i++){
+    while(inter_tourisms.length>0){
        inter_tourisms.pop();
     }
     res.send("Delete international tourisms data")
@@ -221,11 +218,11 @@ app.delete(BASE_API_PATH+"/air-pollution", (req,res)=>{
 });
 
 app.put(BASE_API_PATH+"/air-pollution",(req, res)=>{
-    res.sendStatus(405)
+    res.sendStatus(405);
 });
 
 app.post(BASE_API_PATH+"/air-pollution/:country/:year",(req, res)=>{
-    res.sendStatus(405)
+    res.sendStatus(405);
 });
 
 app.put(BASE_API_PATH+"/air-pollution/:country/:year",(req, res)=>{
