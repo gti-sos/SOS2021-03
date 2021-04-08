@@ -244,7 +244,7 @@ app.delete(BASE_API_PATH+"/air-pollution/:country/:year",(req, res)=>{
     res.send("Deleted "+ req.params.country+", "+req.params.year);
     res.sendStatus(204)
 
-})
+});
 
 ////////////////////////////////////////////////////////
 //Quality-of-life
