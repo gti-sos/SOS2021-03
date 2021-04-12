@@ -16,119 +16,16 @@ app.get("/info/international-tourisms", (req, res) => {
     res.send("<html><head><style>table {font-family: arial, sans-serif;border-collapse: collapse;width: 100%;}td, th {border: 1px solid #dddddd;text-align: left;padding: 8px;}tr:nth-child(even) {background-color: #dddddd;}</style></head><body><h2>International-tourisms</h2><h3>We compare how many flights are made internationally during different years. Fuente de información: <a href='https://data.worldbank.org/indicator/ST.INT.RCPT.XP.ZS?end=2018&most_recent_year_desc=false&start=2018&view=map&year=1995'>https://data.worldbank.org/indicator/ST.INT.RCPT.XP.ZS?end=2018&most_recent_year_desc=false&start=2018&view=map&year=1995</a></h3><table><tr><th>country</th><th>year</th><th>number-of-arribals</th><th>number-of-departures</th><th>expenditures</th> </tr><tr><td>PORTUGAL</td><td>2014</td><td>10,497,000</td><td>1,502,000</td><td>5,213 billion </td></tr><tr><td>FRANCE</td><td>2014</td><td>206,599,000</td><td>31,941,000</td><td>58,464 billion </td></tr><tr><td>PORTUGAL</td><td>2012</td><td>7,503,000</td><td>1,361,000</td><td>4,482 billion </td></tr><tr><td>FRANCE</td><td>2012</td><td>197,522,000</td><td>29,642,000</td><td>50,068 billion </td></tr><tr><td>RUSSIAN FEDERATION</td><td>2010</td><td>22,281,000</td><td>39,232,000</td><td>30,169 billion </td></tr></table></body></html>");
 });
 
-var inter_tourisms_initial = [
-    {
-        "country":"portugal",
-        "year":2014,
-        "number-of-arribals":10497000,
-        "number-of-departures":1502000,
-        "expenditures-billion":5213 
-    },
-    {
-        "country":"rusian-federation",
-        "year":2010,
-        "number-of-arribals":22281000,
-        "number-of-departures":39232000,
-        "expenditures-billion":30169
-    },
-    {
-        "country":"francia",
-        "year":2014,
-        "number-of-arribals":206599000,
-        "number-of-departures":31941000,
-        "expenditures-billion":58464
-    }
-];
-
-var inter_tourisms = [];
-
-//1.GET a la lista de recursos (p.e. “/api/v1/stats”) devuelve una lista con todos los recursos (un array de objetos en JSON)
-app.get(BASE_API_PATH+"/international-tourisms", (req,res)=>{
-    res.send(JSON.stringify(inter_tourisms,null,2)); //pasar objeto a JSON
-    res.sendStatus(200);
-});
-
-//El recurso debe contener una ruta /api/v1/YYYYYY/loadInitialData que al hacer un GET cree 2 o más recursos.
-app.get(BASE_API_PATH+"/international-tourisms/loadInitialData",(req,res)=>{
-    for(var i=0;i<inter_tourisms_initial.length;i++){
-        inter_tourisms.push(inter_tourisms_initial[i]);
-    }
-    res.send("Loaded Initial Data");
-    res.sendStatus(200);
-});
-
-//2.POST a la lista de recursos (p.e. “/api/v1/stats”) crea un nuevo recurso.
-app.post(BASE_API_PATH+"/international-tourisms", (req,res)=>{
-    var newCountry = req.body;
-    console.log("new country to be added: "+ JSON.stringify(newCountry,null,2));
-    inter_tourisms.push(newCountry);
-    res.sendStatus(201); 
-});
-
-//3. GET a un recurso (p.e. “/api/v1/stats/sevilla/2013”) devuelve ese recurso (un objeto en JSON) .
-app.get(BASE_API_PATH+"/international-tourisms/:country/:year",(req, res)=>{
-    country = req.params.country;
-    year = req.params.year;
-    var nuevo = [];
-    for(var i=0; i < inter_tourisms.length; i++){
-        if(inter_tourisms[i].country == country && inter_tourisms[i].year== year){
-            nuevo.push(inter_tourisms[i]);
-        }
-    }
-    
-    res.send(JSON.stringify(nuevo, null, 2));
-    res.sendStatus(200);
-});
-
-//4. DELETE a un recurso (p.e. “/api/v1/stats/sevilla/2013”) borra ese recurso (un objeto en JSON).
-app.delete(BASE_API_PATH+"/international-tourisms/:country/:year",(req, res)=>{
-    country = req.params.country;
-    year = req.params.year;
-    var nuevo = [];
-    for(var i=0; i < inter_tourisms.length; i++){
-        if(inter_tourisms[i].country == country && inter_tourisms[i].year==year){
-            nuevo = inter_tourisms.splice(i, 1);
-            console.log(nuevo);
-        }
-    }
-    res.sendStatus(204);
-    res.send("Deleted " +country+" "+year);
-    
-});
-
-//5.PUT a un recurso (p.e. “/api/v1/stats/sevilla/2013”) actualiza ese recurso. 
-app.put(BASE_API_PATH+"/international-tourisms/:country/:year",(req, res)=>{
-    country = req.params.country;
-    year = req.params.year;
-    var nuevo = [];
-    for(var i=0; i<inter_tourisms.length; i++){
-		if(inter_tourisms[i].country==country && inter_tourisms[i].year==year){
-			inter_tourisms[i]=req.body;
-		}
-	}
-	res.send("Updated "+country+" "+year);
-	res.sendStatus(200);
-});
-
-//6. POST a un recurso (p.e. “/api/v1/stats/sevilla/2013”) debe dar un error de método no permitido.
-app.post(BASE_API_PATH+"/international-tourisms/:country/:year",(req, res)=>{
-    res.sendStatus(405);
-});
-
-//7. PUT a la lista de recursos (p.e. “/api/v1/stats”) debe dar un error de método no permitido.
-app.put(BASE_API_PATH+"/international-tourisms",(req, res)=>{
-    res.sendStatus(405);
-});
-
-//8. DELETE a la lista de recursos (p.e. “/api/v1/stats”) borra todos los recursos.
-app.delete(BASE_API_PATH+"/international-tourisms", (req,res)=>{
-    while(inter_tourisms.length>0){
-       inter_tourisms.pop();
-    }
-    res.send("Delete international tourisms data");
-    res.sendStatus(204); 
-});
-
+var intertourism = require("./inter-tourism/inter-tourism.js");
+intertourism.getAll(app);
+intertourism.loadInitialData(app);
+intertourism.postAll(app);
+intertourism.getOne(app);
+intertourism.deleteAll(app);
+intertourism.putAll(app);
+intertourism.postOne(app);
+intertourism.putOne(app);
+intertourism.deleteOne(app);
 
 app.listen(PORT, () => {
 	console.log("Server ready at port " + PORT +"!");
