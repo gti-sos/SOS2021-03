@@ -44,7 +44,18 @@ airpollutionm.deleteOne(app);
 ////////////////////////////////////////////////////////
 //Quality-of-life
 ////////////////////////////////////////////////////////
-var qof= [];
+var qof = require("./quality-of-life/quality-of-life.js");
+qof.getAll(app);
+qof.loadInitialData(app);
+qof.postAll(app);
+qof.getOne(app);
+qof.deleteAll(app);
+qof.putAll(app);
+qof.postOne(app);
+qof.putOne(app);
+qof.deleteOne(app);
+
+/*var qof= [];
 
 var qof_push = [
     {
@@ -165,4 +176,4 @@ app.delete(BASE_API_PATH+"/quality-of-life/:country/:year",(req, res)=>{
 
 })
 
-;
+;*/
