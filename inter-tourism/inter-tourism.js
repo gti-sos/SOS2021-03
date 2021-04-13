@@ -69,7 +69,6 @@ module.exports.getOne = (app) => {
     });
 }
 
-
 module.exports.deleteAll = (app) => {
     app.delete(BASE_API_PATH+"/international-tourisms", (req,res)=>{
     while(inter_tourisms.length>0){
