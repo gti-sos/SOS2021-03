@@ -17,15 +17,8 @@ app.get("/info/international-tourisms", (req, res) => {
 });
 
 var intertourism = require("./inter-tourism/inter-tourism.js");
-intertourism.getAll(app);
-intertourism.loadInitialData(app);
-intertourism.postAll(app);
-intertourism.getOne(app);
-intertourism.deleteAll(app);
-intertourism.putAll(app);
-intertourism.postOne(app);
-intertourism.putOne(app);
-intertourism.deleteOne(app);
+intertourism.register(app);
+
 
 app.listen(PORT, () => {
 	console.log("Server ready at port " + PORT +"!");

@@ -1,117 +1,166 @@
-var BASE_API_PATH = "/api/v1";
+
 ////////////////////////////////////////////////////////
 //INTERNATIONAL-TOURISMS
 ////////////////////////////////////////////////////////
+
+var BASE_API_PATH = "/api/v1";
+var Datastore = require("nedb");
+var db = new Datastore;
+
+var inter_tourisms = [];
 var inter_tourisms_initial = [
     {
         "country":"portugal",
         "year":2014,
-        "number-of-arribals":10497000,
-        "number-of-departures":1502000,
-        "expenditures-billion":5213 
+        "numberofarribals":10497000,
+        "numberofdepartures":1502000,
+        "expendituresbillion":5213 
     },
     {
         "country":"rusian-federation",
         "year":2010,
-        "number-of-arribals":22281000,
-        "number-of-departures":39232000,
-        "expenditures-billion":30169
+        "numberofarribals":22281000,
+        "numberofdepartures":39232000,
+        "expendituresbillion":30169
     },
     {
         "country":"francia",
         "year":2014,
-        "number-of-arribals":206599000,
-        "number-of-departures":31941000,
-        "expenditures-billion":58464
+        "numberofarribals":206599000,
+        "numberofdepartures":31941000,
+        "expendituresbillion":58464
     }
 ];
 
-var inter_tourisms = [];
+module.exports.register = (app) => {
 
-
-module.exports.getAll = (app) => {
+    //GET
     app.get(BASE_API_PATH+"/international-tourisms", (req, res)=>{
-    res.send(JSON.stringify(inter_tourisms, null, 2));
-    res.sendStatus(200);
-    });
-}
-
-module.exports.loadInitialData = (app) => {
-    app.get(BASE_API_PATH+"/international-tourisms/loadInitialData", (req, res)=>{   
-    for(var i=0;i<inter_tourisms_initial.length;i++){
-        inter_tourisms.push(inter_tourisms_initial[i]);
-    }
-    res.send("Loaded Initial Data");
-    res.sendStatus(200);
-    });
-}
-
-module.exports.postAll = (app) => {
-    app.post(BASE_API_PATH+"/international-tourisms", (req,res)=>{
-    var newCountry = req.body;
-    console.log("New country to be added: "+ JSON.stringify(newCountry,null,2));
-    inter_tourisms.push(newCountry);
-    res.sendStatus(201); 
-    });
-}
-
-module.exports.getOne = (app) => {
-    app.get(BASE_API_PATH+"/international-tourisms/:country/:year",(req, res)=>{
-    country = req.params.country;
-    var nuevo = [];
-    for(var i=0; i < inter_tourisms.length; i++){
-        if(inter_tourisms[i].year==req.params.year&&inter_tourisms[i].country===country){
-            nuevo.push(inter_tourisms[i])
-        }
-    }
-    res.send(JSON.stringify(nuevo, null, 2));
+        db.find({}, (err, inter_tourismsInDB)=>{
+            if(err){
+                console.error("ERROR accesing a DB in GET: " + err);
+                res.sendStats(500);
+            } else{
+                var interToSend = inter_tourismsInDB.map((i)=>{
+                    //We skip the "_id" field
+                    return {country : i.country, year : i.year, numberofarribals : i.numberofarribals, numberofdepartures : i.numberofdepartures, expendituresbillion : i.expendituresbillion};
+                });
+                res.send(JSON.stringify(interToSend, null, 2));
+            }
+        });
     
     });
-}
+    
 
-module.exports.deleteAll = (app) => {
+    
+    app.get(BASE_API_PATH+"/international-tourisms/loadInitialData", (req, res)=>{   
+            db.insert(inter_tourisms_initial);
+            res.send("Loaded Initial Data");
+       
+    });
+    
+
+
+    app.post(BASE_API_PATH+"/international-tourisms", (req,res)=>{
+        var newCountry = req.body;
+        db.find({name : newCountry.name}, (err, inter_tourismsInDB)=>{
+            if(err){
+                console.error("ERROR accesing a DB in GET: " + err);
+                res.sendStatus(500); //INTERNAL SERVER ERROR
+            } else{
+                if(inter_tourismsInDB.length == 0){
+                    console.log("Inserting new country in db: " + JSON.stringify(newCountry, null, 2));
+                    db.insert(newCountry);
+                    res.sendStatus(201); //CREATED
+                }else {
+                    res.sendStats(409); //CONFLICT
+                }
+            }
+        }); 
+    });
+    
+
+    //GET pais y fecha
+    app.get(BASE_API_PATH+"/international-tourisms/:country/:year",(req, res)=>{
+        country = req.params.country;
+        year = parseInt(req.params.year);
+        db.find({country: country, year: year}, (err, inter_tourismsInDB)=> {
+            if(err){
+                console.error("ERROR accesing a DB in GET: " + err);
+                res.sendStatus(500); //INTERNAL SERVER ERROR
+            } else{
+                if(inter_tourismsInDB.length == 0){
+                    res.sendStatus(404); 
+                }else{
+                    var interToSend = inter_tourismsInDB.map((i)=>{
+                        //We skip the "_id" field
+                        return {country : i.country, year : i.year, numberofarribals : i.numberofarribals, numberofdepartures : i.numberofdepartures, expendituresbillion : i.expendituresbillion};
+                    });
+                    res.send(JSON.stringify(interToSend, null, 2));
+                }
+            }
+        });
+        
+    });
+    
+
+   // DELETE todo
     app.delete(BASE_API_PATH+"/international-tourisms", (req,res)=>{
-    while(inter_tourisms.length>0){
-        inter_tourisms.pop();
-    }
-    res.sendStatus(204); 
+        db.remove({}, {multi:true}, (err, numCountrysRemoved)=>{
+            if(err){
+                console.error("ERROR accesing a DB countrys in DELETE: " + err);
+                res.sendStatus(500); //INTERNAL SERVER ERROR
+            }else{
+                if(numCountrysRemoved == 0){
+                    res.sendStatus(404); //NOT FOUND
+                }else{
+                    res.sendStatus(200); //OK
+                }
+            }
+        });
     });
-}
 
-module.exports.putAll = (app) => {
+    //PUT TODO ERROR
     app.put(BASE_API_PATH+"/international-tourisms",(req, res)=>{
-    res.sendStatus(405);
+        res.sendStatus(405);
     });
-}
 
-module.exports.postOne = (app) => {
+    //POST PAIS Y AÑO ERROR
     app.post(BASE_API_PATH+"/international-tourisms/:country/:year",(req, res)=>{
-    res.sendStatus(405);
+        res.sendStatus(405);
     });
-}
-
-module.exports.putOne = (app) => {
+    
+    //PUT pais y año
     app.put(BASE_API_PATH+"/international-tourisms/:country/:year",(req, res)=>{
-    for(var i=0; i<inter_tourisms.length; i++){
-		if(inter_tourisms[i].country==req.params.country && inter_tourisms[i].year==req.params.year){
-			inter_tourisms[i]=req.body;
-		}
-	}
-	res.send("Updated "+ req.params.country+", "+req.params.year);
-	res.sendStatus(200);
+        var countryMod = req.params.country;
+        var yearMod = parseInt(req.params.year);
+        var update = req.body;
+        db.update({$and : [{country : countryMod}, {year : yearMod}]}, {$set: {update}}, {}, (err, countryUpdate) => {
+            if(err){
+                console.error("ERROR accesing a DB countrys in PUT: " + err);
+                res.sendStatus(500); //INTERNAL SERVER ERROR
+            }else{
+                console.log("Update " + update.country);
+                res.sendStatus(200);
+            }
+        });
     });
-}
 
-module.exports.deleteOne = (app) => {
+    //DELETE pais y fecha
     app.delete(BASE_API_PATH+"/international-tourisms/:country/:year",(req, res)=>{
-    for(var i=0; i < inter_tourisms.length; i++){
-        if(inter_tourisms[i].country == req.params.country && inter_tourisms[i].year==req.params.year){
-            inter_tourisms.splice(i, 1);
-            console.log(inter_tourisms);
-        }
-    }
-    res.send("Deleted "+ req.params.country+", "+req.params.year);
-    res.sendStatus(204);
-
-    });
-}
+        var countryTBDeleted = req.params.country;
+        var yearTBDeleted = parseInt(req.params.year);
+        db.remove({$and:[{country: countryTBDeleted}, {year: yearTBDeleted}]}, {}, (err, numCountrysRemoved) => {
+            if(err){
+                console.error("ERROR accesing a DB countrys in DELETE: " + err);
+                res.sendStatus(500); //INTERNAL SERVER ERROR
+            }else{
+                if(numCountrysRemoved == 0){
+                    res.sendStatus(404); //NOT FOUND
+                }else{
+                    res.sendStatus(200); //OK
+                }
+            }
+        });
+    });   
+};

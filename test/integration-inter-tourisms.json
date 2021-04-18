@@ -1,12 +1,12 @@
 {
 	"info": {
-		"_postman_id": "e6b01853-20e4-42a8-b272-025a7616a91d",
+		"_postman_id": "4e6dbe38-90be-4df6-9469-47fc9a4d2be9",
 		"name": "SOS2021-03-international-tourism",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
 	"item": [
 		{
-			"name": "SOS2021-03-international-tourism",
+			"name": "conjunto vacio",
 			"event": [
 				{
 					"listen": "test",
@@ -14,6 +14,430 @@
 						"exec": [
 							"pm.test(\"Status code is 200\", function () {\r",
 							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"The set is empty\", function () {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData.length).to.eql(0);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:1607/api/v1/international-tourisms/",
+					"host": [
+						"localhost"
+					],
+					"port": "1607",
+					"path": [
+						"api",
+						"v1",
+						"international-tourisms",
+						""
+					]
+				},
+				"description": "conjunto vacio"
+			},
+			"response": []
+		},
+		{
+			"name": "Initial Data",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:1607/api/v1/international-tourisms/loadInitialData",
+					"host": [
+						"localhost"
+					],
+					"port": "1607",
+					"path": [
+						"api",
+						"v1",
+						"international-tourisms",
+						"loadInitialData"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "cargar datos ID",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Your test name\", function () {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData.length).to.eql(2);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:1607/api/v1/international-tourisms/",
+					"host": [
+						"localhost"
+					],
+					"port": "1607",
+					"path": [
+						"api",
+						"v1",
+						"international-tourisms",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "post portugal 2012",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 201\", function () {\r",
+							"    pm.response.to.have.status(201);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n        \"country\": \"portugal\",\r\n        \"year\": 2012, \r\n        \"numberofarribals\": 7503100, \r\n        \"numberofdepartures\": 1361000, \r\n        \"expendituresbillion\": 4483\r\n    }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:1607/api/v1/international-tourisms/",
+					"host": [
+						"localhost"
+					],
+					"port": "1607",
+					"path": [
+						"api",
+						"v1",
+						"international-tourisms",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get portugal 2012",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "localhost:1607/api/v1/international-tourisms/portugal/2012",
+					"host": [
+						"localhost"
+					],
+					"port": "1607",
+					"path": [
+						"api",
+						"v1",
+						"international-tourisms",
+						"portugal",
+						"2012"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "delete portugal 2012",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:1607/api/v1/international-tourisms/portugal/2012",
+					"host": [
+						"localhost"
+					],
+					"port": "1607",
+					"path": [
+						"api",
+						"v1",
+						"international-tourisms",
+						"portugal",
+						"2012"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "put portugal 2014",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n        \"country\": \"portugal\",\r\n        \"year\": 2014, \r\n        \"numberofarribals\": 7503, \r\n        \"numberofdepartures\": 13610, \r\n        \"expendituresbillion\": 44835\r\n    }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:1607/api/v1/international-tourisms/portugal/2014",
+					"host": [
+						"localhost"
+					],
+					"port": "1607",
+					"path": [
+						"api",
+						"v1",
+						"international-tourisms",
+						"portugal",
+						"2014"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "post error",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 405\", function () {\r",
+							"    pm.response.to.have.status(405);\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n        \"country\": \"portugal\",\r\n        \"year\": 2014, \r\n        \"number-of-arribals\": 7503, \r\n        \"number-of-departures\": 1361000, \r\n        \"expenditures-billion\": 4483\r\n    }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://sos2021-03.herokuapp.com/api/v1/international-tourisms/portugal/2014",
+					"protocol": "https",
+					"host": [
+						"sos2021-03",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"api",
+						"v1",
+						"international-tourisms",
+						"portugal",
+						"2014"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "put error",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 405\", function () {\r",
+							"    pm.response.to.have.status(405);\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n        \"country\": \"portugal\",\r\n        \"year\": 2014, \r\n        \"number-of-arribals\": 7503, \r\n        \"number-of-departures\": 1361000, \r\n        \"expenditures-billion\": 4483\r\n    }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:1607/api/v1/international-tourisms/",
+					"host": [
+						"localhost"
+					],
+					"port": "1607",
+					"path": [
+						"api",
+						"v1",
+						"international-tourisms",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete todo",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 405\", function () {\r",
+							"    pm.response.to.have.status(405);\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n        \"country\": \"portugal\",\r\n        \"year\": 2014, \r\n        \"number-of-arribals\": 7503, \r\n        \"number-of-departures\": 1361000, \r\n        \"expenditures-billion\": 4483\r\n    }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:1607/api/v1/international-tourisms/",
+					"host": [
+						"localhost"
+					],
+					"port": "1607",
+					"path": [
+						"api",
+						"v1",
+						"international-tourisms",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Mostrar tras el delete",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 405\", function () {\r",
+							"    pm.response.to.have.status(405);\r",
 							"});\r",
 							""
 						],
@@ -29,7 +453,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n\"country\": \"AFGANISTAN\",\r\n\"year\": 1990,\r\n\"deaths-ambient-particulate-matter-pollution\": 46.4465894382846,\r\n\"deaths-household-air-pollution-from-solid-fuels\": 250.362909742374,\r\n\"deaths-air-pollution\": 299.47730888329\r\n}\r\n",
+					"raw": "{\r\n        \"country\": \"portugal\",\r\n        \"year\": 2014, \r\n        \"number-of-arribals\": 7503, \r\n        \"number-of-departures\": 1361000, \r\n        \"expenditures-billion\": 4483\r\n    }",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -37,94 +461,16 @@
 					}
 				},
 				"url": {
-					"raw": "https://sos2021-03.herokuapp.com/api/v1/air-pollution/",
-					"protocol": "https",
+					"raw": "localhost:1607/api/v1/international-tourisms/",
 					"host": [
-						"sos2021-03",
-						"herokuapp",
-						"com"
+						"localhost"
 					],
+					"port": "1607",
 					"path": [
 						"api",
 						"v1",
-						"air-pollution",
+						"international-tourisms",
 						""
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "SOS2021-03-air-pollution",
-			"event": [
-				{
-					"listen": "test",
-					"script": {
-						"exec": [
-							"pm.test(\"Status code is 200\", function () {\r",
-							"    pm.response.to.have.status(200);\r",
-							"});\r",
-							""
-						],
-						"type": "text/javascript"
-					}
-				}
-			],
-			"request": {
-				"method": "DELETE",
-				"header": [],
-				"url": {
-					"raw": "https://sos2021-03.herokuapp.com/api/v1/air-pollution/AFGANISTAN/1990",
-					"protocol": "https",
-					"host": [
-						"sos2021-03",
-						"herokuapp",
-						"com"
-					],
-					"path": [
-						"api",
-						"v1",
-						"air-pollution",
-						"AFGANISTAN",
-						"1990"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "SOS2021-03-air-pollution-AFGANISTAN",
-			"event": [
-				{
-					"listen": "test",
-					"script": {
-						"exec": [
-							"pm.test(\"Status code is 200\", function () {\r",
-							"    pm.response.to.have.status(200);\r",
-							"});\r",
-							""
-						],
-						"type": "text/javascript"
-					}
-				}
-			],
-			"request": {
-				"method": "DELETE",
-				"header": [],
-				"url": {
-					"raw": "https://sos2021-03.herokuapp.com/api/v1/air-pollution/AFGANISTAN/1990",
-					"protocol": "https",
-					"host": [
-						"sos2021-03",
-						"herokuapp",
-						"com"
-					],
-					"path": [
-						"api",
-						"v1",
-						"air-pollution",
-						"AFGANISTAN",
-						"1990"
 					]
 				}
 			},
