@@ -136,7 +136,7 @@
 					}
 				},
 				"url": {
-					"raw": "https://sos2021-03.herokuapp.com/api/v1/air-pollution/limit=2&offset=1",
+					"raw": "https://sos2021-03.herokuapp.com/api/v1/air-pollution?limit=2&offset=1",
 					"protocol": "https",
 					"host": [
 						"sos2021-03",
@@ -146,8 +146,17 @@
 					"path": [
 						"api",
 						"v1",
-						"air-pollution",
-						"limit=2&offset=1"
+						"air-pollution"
+					],
+					"query": [
+						{
+							"key": "limit",
+							"value": "2"
+						},
+						{
+							"key": "offset",
+							"value": "1"
+						}
 					]
 				}
 			},
