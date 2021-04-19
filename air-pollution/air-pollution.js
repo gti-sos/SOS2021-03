@@ -345,7 +345,7 @@ app.delete(BASE_API_PATH+"/air-pollution/:country/:year", (req,res)=>{
             res.sendStatus(404,"NOT FOUND");
         }else{
             res.sendStatus(200,"OK");
-            db.remove({ "country":country, "year":year });
+            db.remove({ "country":country, "year":year }); 
             }
         })
     });	
