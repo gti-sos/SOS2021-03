@@ -86,12 +86,9 @@ app.get(BASE_API_PATH+"/air-pollution", (req,res) =>{
                         delete v._id;
                     });
                     res.send(JSON.stringify(airpollution1,null,2));
-                    if(airpollution1.length>1){
+                    
                         console.log("Data sent:"+JSON.stringify(airpollution1,null,2));
-                    }else{
-                        var airpollution2 = airpollution1[0]
-                        console.log("Data sent:"+JSON.stringify(airpollution2,null,2));
-                    }
+                    
                     
                 }
 			});
@@ -103,14 +100,10 @@ app.get(BASE_API_PATH+"/air-pollution", (req,res) =>{
                     airpollution1.forEach( (v) => {
                         delete v._id;
                     });
-                    if(airpollution1.length>1){
+                    
                         res.send(JSON.stringify(airpollution1,null,2));
                         console.log("Data sent:"+JSON.stringify(airpollution1,null,2));
-                    }else{
-                        var airpollution2 = airpollution1[0]
-                        res.send(JSON.stringify(airpollution2,null,2));
-                        console.log("Data sent:"+JSON.stringify(airpollution2,null,2));
-                    }
+                    
                     
                     
                 }
@@ -123,14 +116,10 @@ app.get(BASE_API_PATH+"/air-pollution", (req,res) =>{
                     airpollution1.forEach( (v) => {
                         delete v._id;
                     });
-                    if(airpollution1.length>1){
+                    
                         res.send(JSON.stringify(airpollution1,null,2));
                         console.log("Data sent:"+JSON.stringify(airpollution1,null,2));
-                    }else{
-                        var airpollution2 = airpollution1[0]
-                        res.send(JSON.stringify(airpollution2,null,2));
-                        console.log("Data sent:"+JSON.stringify(airpollution2,null,2));
-                    }
+                    
                 }
 			});
 		}else if(deaths_household_air_pollution_from_solid_fuels){
@@ -141,14 +130,10 @@ app.get(BASE_API_PATH+"/air-pollution", (req,res) =>{
                     airpollution1.forEach( (v) => {
                         delete v._id;
                     });
-                    if(airpollution1.length>1){
+                    
                         res.send(JSON.stringify(airpollution1,null,2));
                         console.log("Data sent:"+JSON.stringify(airpollution1,null,2));
-                    }else{
-                        var airpollution2 = airpollution1[0]
-                        res.send(JSON.stringify(airpollution2,null,2));
-                        console.log("Data sent:"+JSON.stringify(airpollution2,null,2));
-                    }
+                    
                     
                 }
 			});
@@ -160,14 +145,9 @@ app.get(BASE_API_PATH+"/air-pollution", (req,res) =>{
                     airpollution1.forEach( (v) => {
                         delete v._id;
                     });
-                    if(airpollution1.length>1){
+                    
                         res.send(JSON.stringify(airpollution1,null,2));
                         console.log("Data sent:"+JSON.stringify(airpollution1,null,2));
-                    }else{
-                        var airpollution2 = airpollution1[0]
-                        res.send(JSON.stringify(airpollution2,null,2));
-                        console.log("Data sent:"+JSON.stringify(airpollution2,null,2));
-                    }
                     
                 }
 			});
@@ -179,14 +159,10 @@ app.get(BASE_API_PATH+"/air-pollution", (req,res) =>{
                     airpollution1.forEach( (v) => {
                         delete v._id;
                     });
-                    if(airpollution1.length>1){
+                    
                         res.send(JSON.stringify(airpollution1,null,2));
                         console.log("Data sent:"+JSON.stringify(airpollution1,null,2));
-                    }else{
-                        var airpollution2 = airpollution1[0]
-                        res.send(JSON.stringify(airpollution2,null,2));
-                        console.log("Data sent:"+JSON.stringify(airpollution2,null,2));
-                    }
+                    
                 }
 			});
 		}else{
@@ -197,14 +173,10 @@ app.get(BASE_API_PATH+"/air-pollution", (req,res) =>{
                     airpollution1.forEach( (v) => {
                         delete v._id;
                     });
-                    if(airpollution1.length>1){
+                    
                         res.send(JSON.stringify(airpollution1,null,2));
                         console.log("Data sent:"+JSON.stringify(airpollution1,null,2));
-                    }else{
-                        var airpollution2 = airpollution1[0]
-                        res.send(JSON.stringify(airpollution2,null,2));
-                        console.log("Data sent:"+JSON.stringify(airpollution2,null,2));
-                    }
+                    
                 }
 			});
 		}
@@ -318,21 +290,14 @@ app.delete(BASE_API_PATH+"/air-pollution", (req,res) =>{
                 console.log("404. Not Found");
                 res.sendStatus(404);
             }else{
-                if(airpollution1.length>1){
+                
                     res.send(airpollution1.map((t)=>{
                         delete t._id;
                             return(t);
                         
                         
                     }));
-                }else{
-                    res.send(airpollution1[0].map((t)=>{
-                        delete t._id;
-                            return(t);
-                        
-                        
-                    }));
-                }
+                
 
             
             }
