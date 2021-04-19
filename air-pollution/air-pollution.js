@@ -318,15 +318,23 @@ app.delete(BASE_API_PATH+"/air-pollution", (req,res) =>{
                 console.log("404. Not Found");
                 res.sendStatus(404);
             }else{
-                res.send(airpollution1.map((t)=>{
-                    delete t._id;
-                    if(t.length>1){
-                        return(t);
-                    }else{
-                        return(t[0]);
-                    }
-                    
-                }));
+                if(airpollution1.length>1){
+                    res.send(airpollution1.map((t)=>{
+                        delete t._id;
+                            return(t);
+                        
+                        
+                    }));
+                }else{
+                    res.send(airpollution1[0].map((t)=>{
+                        delete t._id;
+                            return(t);
+                        
+                        
+                    }));
+                }
+
+            
             }
         })
     });	
