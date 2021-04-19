@@ -172,7 +172,7 @@ app.post(BASE_API_PATH+"/air-pollution",(req,res) =>{
 		var year1 = parseInt(req.body.year);
 
 		db.find({$and : [{country : country1}, {year : year1}]},(error, airpollution1)=>{
-			if(err){
+			if(error){
                 res.sendStatus(500);
             }else if(airpollution1.length != 0){	
 				console.log("409.ALREADY EXIST");
@@ -289,7 +289,7 @@ app.put(BASE_API_PATH+"/air-pollution/:country/:year", (req, res) =>{
 		
 		db.find({"country":country, "year": year},(error,countries_for_equality)=>{
 			console.log(countries_for_equality);
-            if(err){
+            if(error){
                 res.sendStatus(500);
             }else if(countries_for_equality.length == 0){
 				console.log("Error 404, recurso no encontrado.");
@@ -315,7 +315,7 @@ app.delete(BASE_API_PATH+"/air-pollution/:country/:year", (req,res)=>{
     var year = parseInt(req.params.year);
 
     db.find({"country":country, "year":year},(error, airpollution1)=>{
-        if(err){
+        if(error){
             res.sendStatus(500);
         }else if(airpollution1.length==0){
             res.sendStatus(404,"NOT FOUND");
