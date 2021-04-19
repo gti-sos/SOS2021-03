@@ -266,7 +266,7 @@ app.delete(BASE_API_PATH+"/air-pollution", (req,res) =>{
         var year = parseInt(req.params.year);
 
         db.find({"country" :country, "year":year},(error, airpollution1)=>{
-            if(err){
+            if(error){
                 res.sendStatus(500);
             }else if(airpollution1.length==0){
                 console.log("404. Not Found");
