@@ -236,15 +236,15 @@ app.post(BASE_API_PATH+"/air-pollution",(req,res) =>{
 		var newregister = req.body;
 		var country1 = req.body.country;
 		var year1 = parseInt(req.body.year);
-
+        
 		db.find({$and : [{country : country1}, {year : year1}]},(error, airpollution1)=>{
 			if(error){
                 res.sendStatus(500);
             }else if(airpollution1.length != 0){	
 				console.log("409.ALREADY EXIST");
 				res.sendStatus(409);
-			}else if(!newregister.country || !newregister.year || 	!newregister.deaths_ambient_particulate_matter_pollution || !newregister.deaths_household_air_pollution_from_solid_fuels
-		  				 || !newregister.deaths_air_pollution){
+			}else if((!newregister.country || !newregister.year || 	!newregister.deaths_ambient_particulate_matter_pollution || !newregister.deaths_household_air_pollution_from_solid_fuels
+		  				 || !newregister.deaths_air_pollution)||Object.keys(newregister).length != 5){
 				console.log("Syntax error on new data body");
 				res.sendStatus(400);
 			}else{
@@ -302,8 +302,8 @@ app.put(BASE_API_PATH+"/air-pollution/:country/:year", (req, res) =>{
             }else if(airpollution1.length == 0){
 				console.log("Error 404, Not Found .");
 				res.sendStatus(404);
-			}else if(!up.country || !up.year || !up.deaths_ambient_particulate_matter_pollution || !up.deaths_household_air_pollution_from_solid_fuels
-		  			 || !up.deaths_air_pollution || up.country != country 
+			}else if((!up.country || !up.year || !up.deaths_ambient_particulate_matter_pollution || !up.deaths_household_air_pollution_from_solid_fuels
+		  			 || !up.deaths_air_pollution || up.country != country1 )
 					 || Object.keys(up).length != 5
 					){
 				
@@ -376,33 +376,7 @@ app.delete(BASE_API_PATH+"/air-pollution", (req,res) =>{
         })
     });	
 
-//actualiza un recurso country año
-app.put(BASE_API_PATH+"/air-pollution/:country/:year", (req, res) =>{
 
-		var country = req.params.country;
-		var year = parseInt(req.params.year);
-		var up = req.body;
-		
-		db.find({"country":country, "year": year},(error,countries_for_equality)=>{
-			console.log(countries_for_equality);
-            if(error){
-                res.sendStatus(500);
-            }else if(countries_for_equality.length == 0){
-				console.log("Error 404, recurso no encontrado.");
-				res.sendStatus(404);
-			}else if(!up.country || !up.year || !up.deaths_ambient_particulate_matter_pollution || !up.deaths_household_air_pollution_from_solid_fuels
-		  			 || !up.deaths_air_pollution || up.country != country || up.year != year
-					 || Object.keys(up).length != 5
-					){
-				
-					res.sendStatus(400);
-			}else{
-				db.update({"country":country,"year":year},{$set: up});
-				console.log("PUT OK");
-				res.sendStatus(200);
-			}
-		});
-	});	
 	
 //delete dato country y año
 app.delete(BASE_API_PATH+"/air-pollution/:country/:year", (req,res)=>{
