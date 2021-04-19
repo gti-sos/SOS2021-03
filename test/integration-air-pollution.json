@@ -623,7 +623,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n\"country\": \"AFGANISTAN\",\n\"year\": 1990,\n\"deaths-ambient-particulate-matter-pollution\": 0,\n\"deaths-household-air-pollution-from-solid-fuels\": 0,\n\"deaths-air-pollution\": 0\n}",
+					"raw": "{\n\"country\": \"AFGANISTAN\",\n\"year\": 1990,\n\"deaths-ambient-particulate-matter-pollution\": 2,\n\"deaths-household-air-pollution-from-solid-fuels\": 2,\n\"deaths-air-pollution\": 2\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -676,7 +676,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n\"country\": \"PRUEBA\",\r\n\"year\": 2021,\r\n\"deaths-ambient-particulate-matter-pollution\": 0,\r\n\"deaths-household-air-pollution-from-solid-fuels\": 0,\r\n\"deaths-air-pollution\": 0\r\n}",
+					"raw": "{\r\n\"country\": \"PRUEBA\",\r\n\"year\": 2021,\r\n\"deaths-ambient-particulate-matter-pollution\": 2,\r\n\"deaths-household-air-pollution-from-solid-fuels\": 1,\r\n\"deaths-air-pollution\": 1\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
