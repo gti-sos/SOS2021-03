@@ -89,7 +89,7 @@ app.get(BASE_API_PATH+"/air-pollution", (req,res) =>{
                     if(airpollution1.length>1){
                         console.log("Data sent:"+JSON.stringify(airpollution1,null,2));
                     }else{
-                        var airpollution2 = airpollution1.slice(0, 1)
+                        var airpollution2 = airpollution1[0]
                         console.log("Data sent:"+JSON.stringify(airpollution2,null,2));
                     }
                     
@@ -107,7 +107,7 @@ app.get(BASE_API_PATH+"/air-pollution", (req,res) =>{
                         res.send(JSON.stringify(airpollution1,null,2));
                         console.log("Data sent:"+JSON.stringify(airpollution1,null,2));
                     }else{
-                        var airpollution2 = airpollution1.slice(0, 1)
+                        var airpollution2 = airpollution1[0]
                         res.send(JSON.stringify(airpollution2,null,2));
                         console.log("Data sent:"+JSON.stringify(airpollution2,null,2));
                     }
@@ -127,7 +127,7 @@ app.get(BASE_API_PATH+"/air-pollution", (req,res) =>{
                         res.send(JSON.stringify(airpollution1,null,2));
                         console.log("Data sent:"+JSON.stringify(airpollution1,null,2));
                     }else{
-                        var airpollution2 = airpollution1.slice(0, 1)
+                        var airpollution2 = airpollution1[0]
                         res.send(JSON.stringify(airpollution2,null,2));
                         console.log("Data sent:"+JSON.stringify(airpollution2,null,2));
                     }
@@ -145,7 +145,7 @@ app.get(BASE_API_PATH+"/air-pollution", (req,res) =>{
                         res.send(JSON.stringify(airpollution1,null,2));
                         console.log("Data sent:"+JSON.stringify(airpollution1,null,2));
                     }else{
-                        var airpollution2 = airpollution1.slice(0, 1)
+                        var airpollution2 = airpollution1[0]
                         res.send(JSON.stringify(airpollution2,null,2));
                         console.log("Data sent:"+JSON.stringify(airpollution2,null,2));
                     }
@@ -164,7 +164,7 @@ app.get(BASE_API_PATH+"/air-pollution", (req,res) =>{
                         res.send(JSON.stringify(airpollution1,null,2));
                         console.log("Data sent:"+JSON.stringify(airpollution1,null,2));
                     }else{
-                        var airpollution2 = airpollution1.slice(0, 1)
+                        var airpollution2 = airpollution1[0]
                         res.send(JSON.stringify(airpollution2,null,2));
                         console.log("Data sent:"+JSON.stringify(airpollution2,null,2));
                     }
@@ -183,7 +183,7 @@ app.get(BASE_API_PATH+"/air-pollution", (req,res) =>{
                         res.send(JSON.stringify(airpollution1,null,2));
                         console.log("Data sent:"+JSON.stringify(airpollution1,null,2));
                     }else{
-                        var airpollution2 = airpollution1.slice(0, 1)
+                        var airpollution2 = airpollution1[0]
                         res.send(JSON.stringify(airpollution2,null,2));
                         console.log("Data sent:"+JSON.stringify(airpollution2,null,2));
                     }
@@ -201,7 +201,7 @@ app.get(BASE_API_PATH+"/air-pollution", (req,res) =>{
                         res.send(JSON.stringify(airpollution1,null,2));
                         console.log("Data sent:"+JSON.stringify(airpollution1,null,2));
                     }else{
-                        var airpollution2 = airpollution1.slice(0, 1)
+                        var airpollution2 = airpollution1[0]
                         res.send(JSON.stringify(airpollution2,null,2));
                         console.log("Data sent:"+JSON.stringify(airpollution2,null,2));
                     }
@@ -323,7 +323,7 @@ app.delete(BASE_API_PATH+"/air-pollution", (req,res) =>{
                     if(t.length>1){
                         return(t);
                     }else{
-                        return(t.slice(0,1));
+                        return(t[0]);
                     }
                     
                 }));
