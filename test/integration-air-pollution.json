@@ -194,7 +194,7 @@
 					}
 				},
 				"url": {
-					"raw": "https://sos2021-03.herokuapp.com/api/v1/air-pollution/LITHUANIA/2014",
+					"raw": "https://sos2021-03.herokuapp.com/api/v1/air-pollution/AFGANISTAN/1990",
 					"protocol": "https",
 					"host": [
 						"sos2021-03",
@@ -205,8 +205,8 @@
 						"api",
 						"v1",
 						"air-pollution",
-						"LITHUANIA",
-						"2014"
+						"AFGANISTAN",
+						"1990"
 					]
 				}
 			},
@@ -492,6 +492,10 @@
 							"pm.test(\"Status code is 200\", function () {\r",
 							"    pm.response.to.have.status(200);\r",
 							"});\r",
+							"pm.test(\"Your test name\", function () {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData.length).to.eql(3);\r",
+							"});\r",
 							""
 						],
 						"type": "text/javascript"
@@ -514,7 +518,7 @@
 					}
 				},
 				"url": {
-					"raw": "https://sos2021-03.herokuapp.com/api/v1/air-pollution?fromYear=2014&toYear=2015",
+					"raw": "https://sos2021-03.herokuapp.com/api/v1/air-pollution?fromYear=2014&toYear=2016",
 					"protocol": "https",
 					"host": [
 						"sos2021-03",
@@ -533,7 +537,7 @@
 						},
 						{
 							"key": "toYear",
-							"value": "2015"
+							"value": "2016"
 						}
 					]
 				}
