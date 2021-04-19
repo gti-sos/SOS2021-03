@@ -2,11 +2,12 @@
 	"info": {
 		"_postman_id": "e6b01853-20e4-42a8-b272-025a7616a91d",
 		"name": "SOS2021-03-air-pollution",
+		"description": "Air-pollution management API",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
 	"item": [
 		{
-			"name": "SOS2021-03-air-pollution",
+			"name": "air-pollution/loadInitialData",
 			"event": [
 				{
 					"listen": "test",
@@ -29,7 +30,56 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n\"country\": \"AFGANISTAN\",\r\n\"year\": 1990,\r\n\"deaths-ambient-particulate-matter-pollution\": 46.4465894382846,\r\n\"deaths-household-air-pollution-from-solid-fuels\": 250.362909742374,\r\n\"deaths-air-pollution\": 299.47730888329\r\n}\r\n",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://sos2021-03.herokuapp.com/api/v1/air-pollution/loadInitialData",
+					"protocol": "https",
+					"host": [
+						"sos2021-03",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"api",
+						"v1",
+						"air-pollution",
+						"loadInitialData"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "air-pollution",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -55,7 +105,7 @@
 			"response": []
 		},
 		{
-			"name": "SOS2021-03-air-pollution",
+			"name": "air-pollution?PAGINACION",
 			"event": [
 				{
 					"listen": "test",
@@ -70,9 +120,503 @@
 					}
 				}
 			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
 			"request": {
-				"method": "DELETE",
+				"method": "GET",
 				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://sos2021-03.herokuapp.com/api/v1/air-pollution/limit=2&offset=1",
+					"protocol": "https",
+					"host": [
+						"sos2021-03",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"api",
+						"v1",
+						"air-pollution",
+						"limit=2&offset=1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "air-pollution/COUNTRY/YEAR",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://sos2021-03.herokuapp.com/api/v1/air-pollution/LITHUANIA/2014",
+					"protocol": "https",
+					"host": [
+						"sos2021-03",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"api",
+						"v1",
+						"air-pollution",
+						"LITHUANIA",
+						"2014"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "air-pollution?pais",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://sos2021-03.herokuapp.com/api/v1/air-pollution?country=LITHUANIA",
+					"protocol": "https",
+					"host": [
+						"sos2021-03",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"api",
+						"v1",
+						"air-pollution"
+					],
+					"query": [
+						{
+							"key": "country",
+							"value": "LITHUANIA"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "air-pollution?año",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://sos2021-03.herokuapp.com/api/v1/air-pollution?year=1990",
+					"protocol": "https",
+					"host": [
+						"sos2021-03",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"api",
+						"v1",
+						"air-pollution"
+					],
+					"query": [
+						{
+							"key": "year",
+							"value": "1990"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "air-pollution?ambient_particulate_matter_pollution",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://sos2021-03.herokuapp.com/api/v1/air-pollution?deaths_ambient_particulate_matter_pollution=46.4465894382846",
+					"protocol": "https",
+					"host": [
+						"sos2021-03",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"api",
+						"v1",
+						"air-pollution"
+					],
+					"query": [
+						{
+							"key": "deaths_ambient_particulate_matter_pollution",
+							"value": "46.4465894382846"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "air-pollution?household_air_pollution_from_solid_fuels",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://sos2021-03.herokuapp.com/api/v1/air-pollution?deaths_household_air_pollution_from_solid_fuels=250.362909742374",
+					"protocol": "https",
+					"host": [
+						"sos2021-03",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"api",
+						"v1",
+						"air-pollution"
+					],
+					"query": [
+						{
+							"key": "deaths_household_air_pollution_from_solid_fuels",
+							"value": "250.362909742374"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "air-pollution?air_pollution",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://sos2021-03.herokuapp.com/api/v1/air-pollution?deaths_air_pollution=299.47730888328",
+					"protocol": "https",
+					"host": [
+						"sos2021-03",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"api",
+						"v1",
+						"air-pollution"
+					],
+					"query": [
+						{
+							"key": "deaths_air_pollution",
+							"value": "299.47730888328"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "air-pollution?añoy-añox",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://sos2021-03.herokuapp.com/api/v1/air-pollution?fromYear=2014&toYear=2015",
+					"protocol": "https",
+					"host": [
+						"sos2021-03",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"api",
+						"v1",
+						"air-pollution"
+					],
+					"query": [
+						{
+							"key": "fromYear",
+							"value": "2014"
+						},
+						{
+							"key": "toYear",
+							"value": "2015"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "air-pollution/FALLO",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 405, METHOD NOT ALLOWED\", function () {",
+							"    pm.response.to.have.status(405);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\"country\": \"AFGANISTAN\",\n\"year\": 1990,\n\"deaths-ambient-particulate-matter-pollution\": 0,\n\"deaths-household-air-pollution-from-solid-fuels\": 0,\n\"deaths-air-pollution\": 0\n}\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://sos2021-03.herokuapp.com/api/v1/air-pollution/",
+					"protocol": "https",
+					"host": [
+						"sos2021-03",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"api",
+						"v1",
+						"air-pollution",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "air-pollution/COUNTRY/YEAR",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Successful 0K, BAD REQUEST or NOT FOUND request\", function () {",
+							"    pm.expect(pm.response.code).to.be.oneOf([200,400,404]);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\"country\": \"AFGANISTAN\",\n\"year\": 1990,\n\"deaths-ambient-particulate-matter-pollution\": 0,\n\"deaths-household-air-pollution-from-solid-fuels\": 0,\n\"deaths-air-pollution\": 0\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
 				"url": {
 					"raw": "https://sos2021-03.herokuapp.com/api/v1/air-pollution/AFGANISTAN/1990",
 					"protocol": "https",
@@ -93,16 +637,155 @@
 			"response": []
 		},
 		{
+			"name": "air-pollution",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Successful POST,BAD REQUEST or CONFLICT request\", function () {",
+							"    pm.expect(pm.response.code).to.be.oneOf([201,400,409]);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\"country\": \"PRUEBA\",\r\n\"year\": 2021,\r\n\"deaths-ambient-particulate-matter-pollution\": 0,\r\n\"deaths-household-air-pollution-from-solid-fuels\": 0,\r\n\"deaths-air-pollution\": 0\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://sos2021-03.herokuapp.com/api/v1/air-pollution/",
+					"protocol": "https",
+					"host": [
+						"sos2021-03",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"api",
+						"v1",
+						"air-pollution",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "post countriesforhappiness/united-kingdom",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 405\", function () {",
+							"    pm.response.to.have.status(405);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\"country\": \"AFGANISTAN\",\r\n\"year\": 1990,\r\n\"deaths-ambient-particulate-matter-pollution\": 0,\r\n\"deaths-household-air-pollution-from-solid-fuels\": 0,\r\n\"deaths-air-pollution\": 0\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://sos2021-03.herokuapp.com/api/v1/air-pollution/AFGANISTAN/1990",
+					"protocol": "https",
+					"host": [
+						"sos2021-03",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"api",
+						"v1",
+						"air-pollution",
+						"AFGANISTAN",
+						"1990"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "SOS2021-03-air-pollution",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Successful DELETE request\", function () {\r",
+							"    pm.expect(pm.response.code).to.be.oneOf([200,405]);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "https://sos2021-03.herokuapp.com/api/v1/air-pollution",
+					"protocol": "https",
+					"host": [
+						"sos2021-03",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"api",
+						"v1",
+						"air-pollution"
+					]
+				}
+			},
+			"response": []
+		},
+		{
 			"name": "SOS2021-03-air-pollution-AFGANISTAN",
 			"event": [
 				{
 					"listen": "test",
 					"script": {
 						"exec": [
-							"pm.test(\"Status code is 200\", function () {\r",
-							"    pm.response.to.have.status(200);\r",
-							"});\r",
-							""
+							"pm.test(\"Successful DELETE or NOT FOUND request\", function () {\r",
+							"    pm.expect(pm.response.code).to.be.oneOf([200,404]);\r",
+							"});"
 						],
 						"type": "text/javascript"
 					}
