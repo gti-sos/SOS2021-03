@@ -332,7 +332,7 @@ app.put(BASE_API_PATH+"/air-pollution/:country/:year", (req, res) =>{
 		});
 	});	
 	
-//delete dato country año
+//delete dato country y año
 app.delete(BASE_API_PATH+"/air-pollution/:country/:year", (req,res)=>{
 
     var country = req.params.country;
