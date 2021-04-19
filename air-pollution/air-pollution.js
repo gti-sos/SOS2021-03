@@ -82,13 +82,19 @@ app.get(BASE_API_PATH+"/air-pollution", (req,res) =>{
 				if(err){
                     res.sendStatus(500);
                 }else {
+                    if(airpollution1.length===1){
+                        delete airpollution1[0]._id;
+                        res.send(JSON.stringify(airpollution1[0],null,2));
+                    
+                        console.log("Data sent:"+JSON.stringify(airpollution1[0],null,2));
+                    }else{
                     airpollution1.forEach( (v) => {
                         delete v._id;
                     });
                     res.send(JSON.stringify(airpollution1,null,2));
                     
                         console.log("Data sent:"+JSON.stringify(airpollution1,null,2));
-                    
+                    }
                     
                 }
 			});
@@ -97,12 +103,19 @@ app.get(BASE_API_PATH+"/air-pollution", (req,res) =>{
 				if(err){
                     res.sendStatus(500);
                 }else {
+                    if(airpollution1.length===1){
+                        delete airpollution1[0]._id;
+                        res.send(JSON.stringify(airpollution1[0],null,2));
+                    
+                        console.log("Data sent:"+JSON.stringify(airpollution1[0],null,2));
+                    }else{
                     airpollution1.forEach( (v) => {
                         delete v._id;
                     });
+                    res.send(JSON.stringify(airpollution1,null,2));
                     
-                        res.send(JSON.stringify(airpollution1,null,2));
                         console.log("Data sent:"+JSON.stringify(airpollution1,null,2));
+                    }
                     
                     
                     
@@ -113,12 +126,19 @@ app.get(BASE_API_PATH+"/air-pollution", (req,res) =>{
 				if(err){
                     res.sendStatus(500);
                 }else {
+                    if(airpollution1.length===1){
+                        delete airpollution1[0]._id;
+                        res.send(JSON.stringify(airpollution1[0],null,2));
+                    
+                        console.log("Data sent:"+JSON.stringify(airpollution1[0],null,2));
+                    }else{
                     airpollution1.forEach( (v) => {
                         delete v._id;
                     });
+                    res.send(JSON.stringify(airpollution1,null,2));
                     
-                        res.send(JSON.stringify(airpollution1,null,2));
                         console.log("Data sent:"+JSON.stringify(airpollution1,null,2));
+                    }
                     
                 }
 			});
@@ -127,12 +147,19 @@ app.get(BASE_API_PATH+"/air-pollution", (req,res) =>{
                 if(err){
                     res.sendStatus(500);
                 }else {
+                    if(airpollution1.length===1){
+                        delete airpollution1[0]._id;
+                        res.send(JSON.stringify(airpollution1[0],null,2));
+                    
+                        console.log("Data sent:"+JSON.stringify(airpollution1[0],null,2));
+                    }else{
                     airpollution1.forEach( (v) => {
                         delete v._id;
                     });
+                    res.send(JSON.stringify(airpollution1,null,2));
                     
-                        res.send(JSON.stringify(airpollution1,null,2));
                         console.log("Data sent:"+JSON.stringify(airpollution1,null,2));
+                    }
                     
                     
                 }
@@ -142,12 +169,19 @@ app.get(BASE_API_PATH+"/air-pollution", (req,res) =>{
 				if(err){
                     res.sendStatus(500);
                 }else {
+                    if(airpollution1.length===1){
+                        delete airpollution1[0]._id;
+                        res.send(JSON.stringify(airpollution1[0],null,2));
+                    
+                        console.log("Data sent:"+JSON.stringify(airpollution1[0],null,2));
+                    }else{
                     airpollution1.forEach( (v) => {
                         delete v._id;
                     });
+                    res.send(JSON.stringify(airpollution1,null,2));
                     
-                        res.send(JSON.stringify(airpollution1,null,2));
                         console.log("Data sent:"+JSON.stringify(airpollution1,null,2));
+                    }
                     
                 }
 			});
@@ -156,12 +190,19 @@ app.get(BASE_API_PATH+"/air-pollution", (req,res) =>{
                 if(err){
                     res.sendStatus(500);
                 }else {
+                    if(airpollution1.length===1){
+                        delete airpollution1[0]._id;
+                        res.send(JSON.stringify(airpollution1[0],null,2));
+                    
+                        console.log("Data sent:"+JSON.stringify(airpollution1[0],null,2));
+                    }else{
                     airpollution1.forEach( (v) => {
                         delete v._id;
                     });
+                    res.send(JSON.stringify(airpollution1,null,2));
                     
-                        res.send(JSON.stringify(airpollution1,null,2));
                         console.log("Data sent:"+JSON.stringify(airpollution1,null,2));
+                    }
                     
                 }
 			});
@@ -170,12 +211,19 @@ app.get(BASE_API_PATH+"/air-pollution", (req,res) =>{
 				if(err){
                     res.sendStatus(500);
                 }else {
+                    if(airpollution1.length===1){
+                        delete airpollution1[0]._id;
+                        res.send(JSON.stringify(airpollution1[0],null,2));
+                    
+                        console.log("Data sent:"+JSON.stringify(airpollution1[0],null,2));
+                    }else{
                     airpollution1.forEach( (v) => {
                         delete v._id;
                     });
+                    res.send(JSON.stringify(airpollution1,null,2));
                     
-                        res.send(JSON.stringify(airpollution1,null,2));
                         console.log("Data sent:"+JSON.stringify(airpollution1,null,2));
+                    }
                     
                 }
 			});
@@ -224,12 +272,29 @@ app.delete(BASE_API_PATH+"/air-pollution/:country/:year", (req,res)=>{
 });
 	
 });
+/*
+app.put(BASE_API_PATH+"/air-pollution/:country/:year",(req, res)=>{
+        var country1 = req.params.country;
+        var year1 = parseInt(req.params.year);
+        var up = req.body;
+        db.update({$and : [{country : country1}, {year : year1}]}, {$set: up}, {}, (err, numRegRemoved)=>{
+            if(err){
+                console.error("Error deleting DB registers in DELETE:"+err);
+                res.sendStatus(500);
+            }else {
+                console.log("Update: "+ up.country);
+                res.sendStatus(200);
+            }
+        });
+    });
+*/
 //PUT
 app.put(BASE_API_PATH+"/air-pollution/:country/:year", (req, res) =>{
 
         var country1 = req.params.country;
         var year1 = parseInt(req.params.year);
 		var up = req.body;
+        console.log(up);
 		db.find({$and : [{country : country1}, {year : year1}]},(error,airpollution1)=>{
 			console.log(airpollution1);
 			if(error){
@@ -291,12 +356,19 @@ app.delete(BASE_API_PATH+"/air-pollution", (req,res) =>{
                 res.sendStatus(404);
             }else{
                 
-                    res.send(airpollution1.map((t)=>{
-                        delete t._id;
-                            return(t);
-                        
-                        
-                    }));
+                if(airpollution1.length===1){
+                    delete airpollution1[0]._id;
+                    res.send(JSON.stringify(airpollution1[0],null,2));
+                
+                    console.log("Data sent:"+JSON.stringify(airpollution1[0],null,2));
+                }else{
+                airpollution1.forEach( (v) => {
+                    delete v._id;
+                });
+                res.send(JSON.stringify(airpollution1,null,2));
+                
+                    console.log("Data sent:"+JSON.stringify(airpollution1,null,2));
+                }
                 
 
             
