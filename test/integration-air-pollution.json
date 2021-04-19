@@ -623,7 +623,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n\"country\": \"AFGANISTAN\",\n\"year\": 1990,\n\"deaths-ambient-particulate-matter-pollution\": 2,\n\"deaths-household-air-pollution-from-solid-fuels\": 2,\n\"deaths-air-pollution\": 2\n}",
+					"raw": "{\n\"country\": \"LITHUANIA\",\n\"year\": 2014,\n\"deaths_ambient_particulate_matter_pollution\": 33,\n\"deaths_household_air_pollution_from_solid_fuels\": 1.02,\n\"deaths_air_pollution\": 35\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -631,7 +631,7 @@
 					}
 				},
 				"url": {
-					"raw": "https://sos2021-03.herokuapp.com/api/v1/air-pollution/AFGANISTAN/1990",
+					"raw": "https://sos2021-03.herokuapp.com/api/v1/air-pollution/LITHUANIA/2014",
 					"protocol": "https",
 					"host": [
 						"sos2021-03",
@@ -642,8 +642,8 @@
 						"api",
 						"v1",
 						"air-pollution",
-						"AFGANISTAN",
-						"1990"
+						"LITHUANIA",
+						"2014"
 					]
 				}
 			},
@@ -676,7 +676,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n\"country\": \"PRUEBA\",\r\n\"year\": 2021,\r\n\"deaths-ambient-particulate-matter-pollution\": 2,\r\n\"deaths-household-air-pollution-from-solid-fuels\": 1,\r\n\"deaths-air-pollution\": 1\r\n}",
+					"raw": "{\r\n\"country\": \"PRUEBA\",\r\n\"year\": 2014,\r\n\"deaths_ambient_particulate_matter_pollution\": 33,\r\n\"deaths_household_air_pollution_from_solid_fuels\": 1.02,\r\n\"deaths_air_pollution\": 35\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"

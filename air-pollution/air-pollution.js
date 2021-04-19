@@ -230,13 +230,13 @@ app.get(BASE_API_PATH+"/air-pollution", (req,res) =>{
 		}
 	});
 	
-//POST
+//POST 
 app.post(BASE_API_PATH+"/air-pollution",(req,res) =>{
 
 		var newregister = req.body;
 		var country1 = req.body.country;
 		var year1 = parseInt(req.body.year);
-        
+        console.log(newregister);
 		db.find({$and : [{country : country1}, {year : year1}]},(error, airpollution1)=>{
 			if(error){
                 res.sendStatus(500);
