@@ -24,16 +24,8 @@ app.listen(PORT, () => {
 	console.log("Server ready at port " + PORT +"!");
 });
 
-var airpollutionm = require("./air-pollution/air-pollution.js");
-airpollutionm.getAll(app);
-airpollutionm.loadInitialData(app);
-airpollutionm.postAll(app);
-airpollutionm.getOne(app);
-airpollutionm.deleteAll(app);
-airpollutionm.putAll(app);
-airpollutionm.postOne(app);
-airpollutionm.putOne(app);
-airpollutionm.deleteOne(app);
+var airpollution = require("./air-pollution/air-pollution.js");
+airpollution.all(app);
 ////////////////////////////////////////////////////////
 //Quality-of-life
 ////////////////////////////////////////////////////////
