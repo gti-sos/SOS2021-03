@@ -272,22 +272,7 @@ app.delete(BASE_API_PATH+"/air-pollution/:country/:year", (req,res)=>{
 });
 	
 });
-/*
-app.put(BASE_API_PATH+"/air-pollution/:country/:year",(req, res)=>{
-        var country1 = req.params.country;
-        var year1 = parseInt(req.params.year);
-        var up = req.body;
-        db.update({$and : [{country : country1}, {year : year1}]}, {$set: up}, {}, (err, numRegRemoved)=>{
-            if(err){
-                console.error("Error deleting DB registers in DELETE:"+err);
-                res.sendStatus(500);
-            }else {
-                console.log("Update: "+ up.country);
-                res.sendStatus(200);
-            }
-        });
-    });
-*/
+
 //PUT
 app.put(BASE_API_PATH+"/air-pollution/:country/:year", (req, res) =>{
 
