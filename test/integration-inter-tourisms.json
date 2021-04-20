@@ -29,7 +29,7 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "https://sos2021-03.herokuapp.com/api/v1/api/v1/international-tourisms/",
+					"raw": "https://sos2021-03.herokuapp.com/api/v1/international-tourisms/",
 					"protocol": "https",
 					"host": [
 						"sos2021-03",
@@ -37,8 +37,6 @@
 						"com"
 					],
 					"path": [
-						"api",
-						"v1",
 						"api",
 						"v1",
 						"international-tourisms",
@@ -269,9 +267,11 @@
 					"listen": "test",
 					"script": {
 						"exec": [
-							"pm.test(\"Successful GET  or NOT FOUNF request\", function () {\r",
-							"    pm.expect(pm.response.code).to.be.oneOf([200,404]);\r",
-							"});"
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							""
 						],
 						"type": "text/javascript"
 					}
