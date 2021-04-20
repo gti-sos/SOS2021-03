@@ -236,7 +236,7 @@ app.get(BASE_API_PATH+"/quality-of-life", (req,res) =>{
 });
 //POST
 
-mapp.post(BASE_API_PATH+"/quality-of-life",(req,res) =>{
+app.post(BASE_API_PATH+"/quality-of-life",(req,res) =>{
 
     var newregister = req.body;
     var country1 = req.body.country;
