@@ -75,7 +75,7 @@ app.get(BASE_API_PATH+"/quality-of-life", (req,res) =>{
     
     var fromYear = parseInt(req.query.fromYear);
     var toYear = parseInt(req.query.toYear);
-    console.log("country="+country+", year="+year+", quality_of_life="+quality_of_life+", bus="+purchacing_power+", purchacing_power="+purchacing_power+", fromYear="+fromYear+", toYear="+toYear);
+    console.log("country="+country+", year="+year+", quality_of_life="+quality_of_life+", purchacing_power="+purchacing_power+", health_care="+health_care+", fromYear="+fromYear+", toYear="+toYear);
     
     if(country){
 			
