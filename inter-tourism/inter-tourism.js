@@ -246,22 +246,24 @@ module.exports.register = (app) => {
             if(err){
                 console.error("ERROR accesing a DB in GET: " + err);
                 res.sendStatus(500); //INTERNAL SERVER ERROR
-            } else if(inter_tourismsInDB.length==0){
+            }else{
+                if(inter_tourismsInDB.length==0){
                     console.log("404. Not Found");
                     res.sendStatus(404); 
-            }else{
-                if(inter_tourismsInDB.length===1){
-                    delete inter_tourismsInDB[0]._id;
-                    res.send(JSON.stringify(inter_tourismsInDB[0],null,2));
-                
-                    console.log("Data sent:"+JSON.stringify(inter_tourismsInDB[0],null,2));
                 }else{
-                    inter_tourismsInDB.forEach( (v) => {
-                        delete v._id;
-                    });
-                    res.send(JSON.stringify(inter_tourismsInDB,null,2));
-                
-                    console.log("Data sent:"+JSON.stringify(inter_tourismsInDB,null,2));
+                    if(inter_tourismsInDB.length===1){
+                        delete inter_tourismsInDB[0]._id;
+                        res.send(JSON.stringify(inter_tourismsInDB[0],null,2));
+                    
+                        console.log("Data sent:"+JSON.stringify(inter_tourismsInDB[0],null,2));
+                    }else{
+                        inter_tourismsInDB.forEach( (v) => {
+                            delete v._id;
+                        });
+                        res.send(JSON.stringify(inter_tourismsInDB,null,2));
+                    
+                        console.log("Data sent:"+JSON.stringify(inter_tourismsInDB,null,2));
+                    }
                 }
             }
         });
