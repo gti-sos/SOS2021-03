@@ -29,12 +29,16 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "localhost:1607/api/v1/international-tourisms/",
+					"raw": "https://sos2021-03.herokuapp.com/api/v1/api/v1/international-tourisms/",
+					"protocol": "https",
 					"host": [
-						"localhost"
+						"sos2021-03",
+						"herokuapp",
+						"com"
 					],
-					"port": "1607",
 					"path": [
+						"api",
+						"v1",
 						"api",
 						"v1",
 						"international-tourisms",
@@ -65,11 +69,13 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "localhost:1607/api/v1/international-tourisms/loadInitialData",
+					"raw": "https://sos2021-03.herokuapp.com/api/v1/international-tourisms/loadInitialData",
+					"protocol": "https",
 					"host": [
-						"localhost"
+						"sos2021-03",
+						"herokuapp",
+						"com"
 					],
-					"port": "1607",
 					"path": [
 						"api",
 						"v1",
@@ -104,11 +110,13 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "localhost:1607/api/v1/international-tourisms/",
+					"raw": "https://sos2021-03.herokuapp.com/api/v1/international-tourisms/",
+					"protocol": "https",
 					"host": [
-						"localhost"
+						"sos2021-03",
+						"herokuapp",
+						"com"
 					],
-					"port": "1607",
 					"path": [
 						"api",
 						"v1",
@@ -147,11 +155,103 @@
 					}
 				},
 				"url": {
-					"raw": "localhost:1607/api/v1/international-tourisms/",
+					"raw": "https://sos2021-03.herokuapp.com/api/v1/international-tourisms/",
+					"protocol": "https",
 					"host": [
-						"localhost"
+						"sos2021-03",
+						"herokuapp",
+						"com"
 					],
-					"port": "1607",
+					"path": [
+						"api",
+						"v1",
+						"international-tourisms",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "post portugal 2012 ya creado",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 409\", function () {\r",
+							"    pm.response.to.have.status(409);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n        \"country\": \"portugal\",\r\n        \"year\": 2012, \r\n        \"numberofarribals\": 7503100, \r\n        \"numberofdepartures\": 1361000, \r\n        \"expendituresbillion\": 4483\r\n    }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://sos2021-03.herokuapp.com/api/v1/international-tourisms/",
+					"protocol": "https",
+					"host": [
+						"sos2021-03",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"api",
+						"v1",
+						"international-tourisms",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "post valores erroneos",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 400\", function () {\r",
+							"    pm.response.to.have.status(400);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n        \"country\": \"portugal\",\r\n        \"year\": 2013, \r\n        \"numero\": 7503100, \r\n        \"numberofdepartures\": 1361000, \r\n        \"expendituresbillion\": 4483\r\n    }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://sos2021-03.herokuapp.com/api/v1/international-tourisms/",
+					"protocol": "https",
+					"host": [
+						"sos2021-03",
+						"herokuapp",
+						"com"
+					],
 					"path": [
 						"api",
 						"v1",
@@ -169,8 +269,8 @@
 					"listen": "test",
 					"script": {
 						"exec": [
-							"pm.test(\"Status code is 200\", function () {\r",
-							"    pm.response.to.have.status(200);\r",
+							"pm.test(\"Successful GET  or NOT FOUNF request\", function () {\r",
+							"    pm.expect(pm.response.code).to.be.oneOf([200,404]);\r",
 							"});"
 						],
 						"type": "text/javascript"
@@ -188,16 +288,375 @@
 					"raw": ""
 				},
 				"url": {
-					"raw": "localhost:1607/api/v1/international-tourisms/portugal/2012",
+					"raw": "https://sos2021-03.herokuapp.com/api/v1/portugal/2012",
+					"protocol": "https",
 					"host": [
-						"localhost"
+						"sos2021-03",
+						"herokuapp",
+						"com"
 					],
-					"port": "1607",
+					"path": [
+						"api",
+						"v1",
+						"portugal",
+						"2012"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "paginación",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://sos2021-03.herokuapp.com/api/v1/international-tourisms/?limit=2&offset=1",
+					"protocol": "https",
+					"host": [
+						"sos2021-03",
+						"herokuapp",
+						"com"
+					],
 					"path": [
 						"api",
 						"v1",
 						"international-tourisms",
-						"portugal",
+						""
+					],
+					"query": [
+						{
+							"key": "limit",
+							"value": "2"
+						},
+						{
+							"key": "offset",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "búsqueda ?pais",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://sos2021-03.herokuapp.com/api/v1/international-tourisms/?country=francia",
+					"protocol": "https",
+					"host": [
+						"sos2021-03",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"api",
+						"v1",
+						"international-tourisms",
+						""
+					],
+					"query": [
+						{
+							"key": "country",
+							"value": "francia"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "búsqueda ?year",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://sos2021-03.herokuapp.com/api/v1/international-tourisms/?year=2010",
+					"protocol": "https",
+					"host": [
+						"sos2021-03",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"api",
+						"v1",
+						"international-tourisms",
+						""
+					],
+					"query": [
+						{
+							"key": "year",
+							"value": "2010"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "búsqueda ?numberofarribals",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://sos2021-03.herokuapp.com/api/v1/international-tourisms/?numberofarribals=206599000",
+					"protocol": "https",
+					"host": [
+						"sos2021-03",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"api",
+						"v1",
+						"international-tourisms",
+						""
+					],
+					"query": [
+						{
+							"key": "numberofarribals",
+							"value": "206599000"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "búsqueda ?numberofdepartures",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://sos2021-03.herokuapp.com/api/v1/international-tourisms/?numberofdepartures=1502000",
+					"protocol": "https",
+					"host": [
+						"sos2021-03",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"api",
+						"v1",
+						"international-tourisms",
+						""
+					],
+					"query": [
+						{
+							"key": "numberofdepartures",
+							"value": "1502000"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "búsqueda ?expendituresbillion",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://sos2021-03.herokuapp.com/api/v1/international-tourisms/?expendituresbillion=58464",
+					"protocol": "https",
+					"host": [
+						"sos2021-03",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"api",
+						"v1",
+						"international-tourisms",
+						""
+					],
+					"query": [
+						{
+							"key": "expendituresbillion",
+							"value": "58464"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "búsqueda ?añox-añoy",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://sos2021-03.herokuapp.com/api/v1/international-tourisms/?fromYear=2010&toYear=2013",
+					"protocol": "https",
+					"host": [
+						"sos2021-03",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"api",
+						"v1",
+						"international-tourisms",
+						""
+					],
+					"query": [
+						{
+							"key": "fromYear",
+							"value": "2010"
+						},
+						{
+							"key": "toYear",
+							"value": "2013"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get sevilla 2012 no existente",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 404\", function () {\r",
+							"    pm.response.to.have.status(404);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://sos2021-03.herokuapp.com/api/v1/international-tourisms/sevilla/2012",
+					"protocol": "https",
+					"host": [
+						"sos2021-03",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"api",
+						"v1",
+						"international-tourisms",
+						"sevilla",
 						"2012"
 					]
 				}
@@ -233,16 +692,113 @@
 					}
 				},
 				"url": {
-					"raw": "localhost:1607/api/v1/international-tourisms/portugal/2012",
+					"raw": "https://sos2021-03.herokuapp.com/api/v1/international-tourisms/portugal/2012",
+					"protocol": "https",
 					"host": [
-						"localhost"
+						"sos2021-03",
+						"herokuapp",
+						"com"
 					],
-					"port": "1607",
 					"path": [
 						"api",
 						"v1",
 						"international-tourisms",
 						"portugal",
+						"2012"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get portugal 2012 no existente",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 404\", function () {\r",
+							"    pm.response.to.have.status(404);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://sos2021-03.herokuapp.com/api/v1/international-tourisms/portugal/2012",
+					"protocol": "https",
+					"host": [
+						"sos2021-03",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"api",
+						"v1",
+						"international-tourisms",
+						"portugal",
+						"2012"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "delete sevilla 2012 no existente",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 404\", function () {\r",
+							"    pm.response.to.have.status(404);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://sos2021-03.herokuapp.com/api/v1/international-tourisms/sevilla/2012",
+					"protocol": "https",
+					"host": [
+						"sos2021-03",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"api",
+						"v1",
+						"international-tourisms",
+						"sevilla",
 						"2012"
 					]
 				}
@@ -278,11 +834,60 @@
 					}
 				},
 				"url": {
-					"raw": "localhost:1607/api/v1/international-tourisms/portugal/2014",
+					"raw": "https://sos2021-03.herokuapp.com/api/v1/international-tourisms/portugal/2014",
+					"protocol": "https",
 					"host": [
-						"localhost"
+						"sos2021-03",
+						"herokuapp",
+						"com"
 					],
-					"port": "1607",
+					"path": [
+						"api",
+						"v1",
+						"international-tourisms",
+						"portugal",
+						"2014"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "put portugal 2014 valor/clave no valido",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 409\", function () {\r",
+							"    pm.response.to.have.status(409);\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n        \"country\": \"portugaaal\",\r\n        \"year\": 2014, \r\n        \"number\": 7503, \r\n        \"numberofdepartures\": 13610, \r\n        \"expendituresbillion\": 44835\r\n    }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://sos2021-03.herokuapp.com/api/v1/international-tourisms/portugal/2014",
+					"protocol": "https",
+					"host": [
+						"sos2021-03",
+						"herokuapp",
+						"com"
+					],
 					"path": [
 						"api",
 						"v1",
@@ -301,10 +906,9 @@
 					"listen": "test",
 					"script": {
 						"exec": [
-							"pm.test(\"Status code is 405\", function () {\r",
-							"    pm.response.to.have.status(405);\r",
-							"});\r",
-							""
+							"pm.test(\"Successful POST,BAD REQUEST or CONFLICT request\", function () {\r",
+							"    pm.expect(pm.response.code).to.be.oneOf([201,400,409]);\r",
+							"});"
 						],
 						"type": "text/javascript"
 					}
@@ -370,11 +974,13 @@
 					}
 				},
 				"url": {
-					"raw": "localhost:1607/api/v1/international-tourisms/",
+					"raw": "https://sos2021-03.herokuapp.com/api/v1/international-tourisms/",
+					"protocol": "https",
 					"host": [
-						"localhost"
+						"sos2021-03",
+						"herokuapp",
+						"com"
 					],
-					"port": "1607",
 					"path": [
 						"api",
 						"v1",
@@ -414,11 +1020,13 @@
 					}
 				},
 				"url": {
-					"raw": "localhost:1607/api/v1/international-tourisms/",
+					"raw": "https://sos2021-03.herokuapp.com/api/v1/international-tourisms/",
+					"protocol": "https",
 					"host": [
-						"localhost"
+						"sos2021-03",
+						"herokuapp",
+						"com"
 					],
-					"port": "1607",
 					"path": [
 						"api",
 						"v1",
@@ -465,11 +1073,13 @@
 					}
 				},
 				"url": {
-					"raw": "localhost:1607/api/v1/international-tourisms/",
+					"raw": "https://sos2021-03.herokuapp.com/api/v1/international-tourisms/",
+					"protocol": "https",
 					"host": [
-						"localhost"
+						"sos2021-03",
+						"herokuapp",
+						"com"
 					],
-					"port": "1607",
 					"path": [
 						"api",
 						"v1",
