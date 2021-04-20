@@ -235,7 +235,7 @@
 					"raw": ""
 				},
 				"url": {
-					"raw": "https://sos2021-03.herokuapp.com/api/v1/portugal/2012",
+					"raw": "https://sos2021-03.herokuapp.com/api/v1/international-tourisms/portugal/2012",
 					"protocol": "https",
 					"host": [
 						"sos2021-03",
@@ -245,6 +245,7 @@
 					"path": [
 						"api",
 						"v1",
+						"international-tourisms",
 						"portugal",
 						"2012"
 					]
@@ -943,9 +944,10 @@
 					"listen": "test",
 					"script": {
 						"exec": [
-							"pm.test(\"Successful POST,BAD REQUEST or CONFLICT request\", function () {\r",
-							"    pm.expect(pm.response.code).to.be.oneOf([201,400,409]);\r",
-							"});"
+							"pm.test(\"Status code is 405\", function () {\r",
+							"    pm.response.to.have.status(405);\r",
+							"});\r",
+							""
 						],
 						"type": "text/javascript"
 					}
