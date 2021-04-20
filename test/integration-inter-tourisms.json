@@ -85,6 +85,43 @@
 			"response": []
 		},
 		{
+			"name": "Initial Data already exists",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 409\", function () {\r",
+							"    pm.response.to.have.status(409);\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://sos2021-03.herokuapp.com/api/v1/international-tourisms/loadInitialData",
+					"protocol": "https",
+					"host": [
+						"sos2021-03",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"api",
+						"v1",
+						"international-tourisms",
+						"loadInitialData"
+					]
+				}
+			},
+			"response": []
+		},
+		{
 			"name": "cargar datos ID",
 			"event": [
 				{
@@ -165,6 +202,51 @@
 						"v1",
 						"international-tourisms",
 						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get portugal 2012",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "https://sos2021-03.herokuapp.com/api/v1/portugal/2012",
+					"protocol": "https",
+					"host": [
+						"sos2021-03",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"api",
+						"v1",
+						"portugal",
+						"2012"
 					]
 				}
 			},
@@ -255,51 +337,6 @@
 						"v1",
 						"international-tourisms",
 						""
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "get portugal 2012",
-			"event": [
-				{
-					"listen": "test",
-					"script": {
-						"exec": [
-							"pm.test(\"Status code is 200\", function () {\r",
-							"    pm.response.to.have.status(200);\r",
-							"});\r",
-							"\r",
-							""
-						],
-						"type": "text/javascript"
-					}
-				}
-			],
-			"protocolProfileBehavior": {
-				"disableBodyPruning": true
-			},
-			"request": {
-				"method": "GET",
-				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": ""
-				},
-				"url": {
-					"raw": "https://sos2021-03.herokuapp.com/api/v1/portugal/2012",
-					"protocol": "https",
-					"host": [
-						"sos2021-03",
-						"herokuapp",
-						"com"
-					],
-					"path": [
-						"api",
-						"v1",
-						"portugal",
-						"2012"
 					]
 				}
 			},
