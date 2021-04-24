@@ -171,6 +171,15 @@
 						"exec": [
 							"pm.test(\"Status code is 201\", function () {\r",
 							"    pm.response.to.have.status(201);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Test data type of the request\", function(){\r",
+							"    const jsonData = JSON.parse(pm.request.body.raw);\r",
+							"    pm.expect(jsonData.country).to.be.a(\"string\");\r",
+							"    pm.expect(jsonData.year).to.be.a(\"number\");\r",
+							"    pm.expect(jsonData['numberofarribals']).to.be.a(\"number\");\r",
+							"     pm.expect(jsonData['numberofdepartures']).to.be.a(\"number\");\r",
+							"      pm.expect(jsonData['expendituresbillion']).to.be.a(\"number\");\r",
 							"});"
 						],
 						"type": "text/javascript"
@@ -994,7 +1003,14 @@
 							"pm.test(\"Status code is 200\", function () {\r",
 							"    pm.response.to.have.status(200);\r",
 							"});\r",
-							""
+							"pm.test(\"Test data type of the request\", function(){\r",
+							"    const jsonData = JSON.parse(pm.request.body.raw);\r",
+							"    pm.expect(jsonData.country).to.be.a(\"string\");\r",
+							"    pm.expect(jsonData.year).to.be.a(\"number\");\r",
+							"    pm.expect(jsonData['numberofarribals']).to.be.a(\"number\");\r",
+							"     pm.expect(jsonData['numberofdepartures']).to.be.a(\"number\");\r",
+							"      pm.expect(jsonData['expendituresbillion']).to.be.a(\"number\");\r",
+							"});"
 						],
 						"type": "text/javascript"
 					}
