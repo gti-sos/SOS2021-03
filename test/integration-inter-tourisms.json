@@ -505,13 +505,11 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "https://sos2021-03.herokuapp.com/api/v1/international-tourisms/?numberofarribals=206599000",
-					"protocol": "https",
+					"raw": "localhost:1607/api/v1/international-tourisms/?numberofarribals=22281000",
 					"host": [
-						"sos2021-03",
-						"herokuapp",
-						"com"
+						"localhost"
 					],
+					"port": "1607",
 					"path": [
 						"api",
 						"v1",
@@ -521,7 +519,7 @@
 					"query": [
 						{
 							"key": "numberofarribals",
-							"value": "206599000"
+							"value": "22281000"
 						}
 					]
 				}
@@ -1068,7 +1066,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n        \"country\": \"portugaaal\",\r\n        \"year\": 2014, \r\n        \"number\": 7503, \r\n        \"numberofdepartures\": 13610, \r\n        \"expendituresbillion\": 44835\r\n    }",
+					"raw": "{\r\n        \"country\": \"portugaaal\",\r\n        \"year\": 2014, \r\n        \"numberofarribals\": 7503, \r\n        \"numberofdepartures\": 13610, \r\n        \"expendituresbillion\": 44835\r\n    }",
 					"options": {
 						"raw": {
 							"language": "json"
