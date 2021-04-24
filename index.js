@@ -1,7 +1,6 @@
 var express = require("express");
 var path = require("path");
 var PORT = (process.env.PORT || 1607);
-var BASE_API_PATH = "/api/v1";
 var app = express();
 
 app.use(express.json());

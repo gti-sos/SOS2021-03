@@ -190,6 +190,32 @@ module.exports.register = (app) => {
                     }   
                 }
             });
+        var x = country | year | numberofarribals | numberofdepartures | expendituresbillion;
+        var y = country | year | numberofarribals | numberofdepartures | expendituresbillion;
+        }else if(x && y){
+            if(x!=y){
+                db.find({x: {$gte: x, $lt: y}}).sort({x: 1}).skip(offset).limit(limit).exec(function(err, inter_tourismsInDB) {
+                    if(err){
+                        res.sendStatus(500);
+                    }else {
+                        if(inter_tourismsInDB.length===1){
+                            delete inter_tourismsInDB[0]._id;
+                            res.send(JSON.stringify(inter_tourismsInDB[0],null,2));
+                        
+                            console.log("Data sent:"+JSON.stringify(inter_tourismsInDB[0],null,2));
+                        }else{
+                            inter_tourismsInDB.forEach( (v) => {
+                                delete v._id;
+                            });
+                            res.send(JSON.stringify(inter_tourismsInDB,null,2));
+                            
+                            console.log("Data sent:"+JSON.stringify(inter_tourismsInDB,null,2));
+                        }   
+                    }
+                });
+            }else{
+                res.sendStatus(500);
+            }
         }else{
             db.find({}).skip(offset).limit(limit).exec( (err, inter_tourismsInDB) => {
                 if(err){
