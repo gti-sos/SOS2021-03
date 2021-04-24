@@ -606,6 +606,147 @@
 			"response": []
 		},
 		{
+			"name": "busqueda ?pais y año",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://sos2021-03.herokuapp.com/api/v1/international-tourisms/?country=rusian-federation&year=2010",
+					"protocol": "https",
+					"host": [
+						"sos2021-03",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"api",
+						"v1",
+						"international-tourisms",
+						""
+					],
+					"query": [
+						{
+							"key": "country",
+							"value": "rusian-federation"
+						},
+						{
+							"key": "year",
+							"value": "2010"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "busqueda ?pais y numberofarribals",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://sos2021-03.herokuapp.com/api/v1/international-tourisms/?country=francia&numberofarribals=206599000",
+					"protocol": "https",
+					"host": [
+						"sos2021-03",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"api",
+						"v1",
+						"international-tourisms",
+						""
+					],
+					"query": [
+						{
+							"key": "country",
+							"value": "francia"
+						},
+						{
+							"key": "numberofarribals",
+							"value": "206599000"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "busqueda ?numberofarribals y expenditures billion",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://sos2021-03.herokuapp.com/api/v1/international-tourisms/?numberofarribals=10497000&expendituresbillion=5213",
+					"protocol": "https",
+					"host": [
+						"sos2021-03",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"api",
+						"v1",
+						"international-tourisms",
+						""
+					],
+					"query": [
+						{
+							"key": "numberofarribals",
+							"value": "10497000"
+						},
+						{
+							"key": "expendituresbillion",
+							"value": "5213"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
 			"name": "búsqueda ?añox-añoy",
 			"event": [
 				{
