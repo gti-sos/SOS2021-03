@@ -1,6 +1,6 @@
 <script> 
 	import AirPollution from './air-pollution/air_pollution.svelte';
-	import InterTourism from './Inter-tourism/intertourism.svelte';
+	import InterTourism from './Inter-tourism/MiTable.svelte';
 	import {
     	Button,
     	Modal,
