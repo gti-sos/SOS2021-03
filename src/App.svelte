@@ -52,8 +52,38 @@
 	</ul>
 
 	<ul>
-		
+		---------------------
 		<li>Muertes por contaminación del aire: 
+			<p>
+				  <Button outline color="warning" on:click={toggleob}>Mostrar</Button>
+				  <Modal isOpen={openob} {toggleob} size= 'lg'>
+					<ModalHeader {toggleob}>Muertes por contaminación del aire:</ModalHeader>
+					<ModalBody>
+						<AirPollution/>
+					</ModalBody>
+					<ModalFooter>
+						  <Button color="secondary" on:click={toggleob}>Cerrar</Button>
+					</ModalFooter>
+				  </Modal>
+			</p>
+		</li>
+		<li>Datos de turismo internacional:
+		<p>
+		  <Button outline color="warning" on:click={toggle}>Mostrar</Button>
+		  <Modal isOpen={open} {toggle} size= 'lg'>
+			<ModalHeader {toggle}>Datos de turismo internacional:</ModalHeader>
+			<ModalBody>
+				<InterTourism/>
+			</ModalBody>
+			<ModalFooter>
+			  <Button color="secondary" on:click={toggle}>Cerrar</Button>
+			</ModalFooter>
+		  </Modal>
+		</p>
+		
+		</li>
+		---------------------
+		<!--<li>Muertes por contaminación del aire: 
 			<p>
 				  <Button outline color="warning" on:click={toggleob}>Abrir</Button>
 				  <Modal isOpen={openob} {toggleob} size= 'lg'>
@@ -82,7 +112,7 @@
 					</ModalFooter>
 				</Modal>
 			</p>
-		</li>
+		</li>-->
 	</ul>
 </main>
 <style>
