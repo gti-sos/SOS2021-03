@@ -10,14 +10,24 @@
         const res = await fetch("/api/v1/international-tourisms/loadInitialData");
         if(res.ok){
             console.log("OK.");
-            const json = await res.json();
-            intertourisms = json;
-            console.log(`We have received ${intertourisms.lenght} tourisms.`);
-        }else{
+            getRegisters(); }else{
             console.log("Error");
         }
     }
-    onMount(getInterTourisms);
+    async function getRegisters() {
+    	console.log("Fetching data...");
+   		const res = await fetch("/api/v1/international-tourisms/");
+		
+        if(res.ok){
+			console.log("Ok.");
+			const json = await res.json();
+			air_pollution = json;
+			console.log(`We have ${air_pollution.length} intertourisms.`)
+		}else{
+			console.log("Error");
+		}
+  	}
+    onMount(getRegisters);
 </script>
 
 <main>
