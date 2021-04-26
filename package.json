@@ -3,29 +3,11 @@
   "version": "1.0.0",
   "description": "Servidor JSON",
   "main": "index.js",
-<<<<<<< HEAD
   "scripts": {
     "build": "rollup -c",
     "dev": "rollup -c -w",
     "test": "echo \"Error: no test specified\" && exit 1",
-=======
-    
-    
-  "scripts": {
-    "build": "rollup -c",
-    "dev": "rollup -c -w",
->>>>>>> 562f5e777b7407d78ce6a5ce514218b07037f0c3
     "start": "node index"
-  },
-  "devDependencies": {
-    "@rollup/plugin-commonjs": "^17.0.0",
-    "@rollup/plugin-node-resolve": "^11.0.0",
-    "rollup": "^2.3.4",
-    "rollup-plugin-css-only": "^3.1.0",
-    "rollup-plugin-livereload": "^2.0.0",
-    "rollup-plugin-svelte": "^7.0.0",
-    "rollup-plugin-terser": "^7.0.0",
-    "svelte": "^3.37.0"
   },
   "repository": {
     "type": "git",
