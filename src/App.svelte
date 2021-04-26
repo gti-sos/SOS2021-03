@@ -1,5 +1,5 @@
 <script> 
-	import air_pollution from './air_pollution.svelte';
+	import AirPollution from './air-pollution/air_pollution.svelte';
 	import {
     	Button,
     	Modal,
@@ -57,7 +57,7 @@
 			  <Modal isOpen={openob} {toggleob} size= 'lg'>
 				<ModalHeader {toggleob}>Estadísticas de muertes por contaminación del aire</ModalHeader>
 				<ModalBody>
-					<air_pollution/>
+					<AirPollution/>
 				</ModalBody>
 				<ModalFooter>
 					  <Button color="secondary" on:click={toggleob}>Close</Button>
