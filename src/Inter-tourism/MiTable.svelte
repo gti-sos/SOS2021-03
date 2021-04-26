@@ -4,7 +4,7 @@
 	} from "svelte";
 		
     import Table from "sveltestrap/src/Table.svelte";
-    let inteltourisms=[];
+    let intertourisms=[];
     async function getInterTourisms() {
         console.log("Fetching tourisms...");
         const res = await fetch("/api/v1/international-tourisms/loadInitialData");
@@ -32,7 +32,7 @@
             </tr>
         </thread>
         <tbody>
-            {#each inteltourisms as datatourism}
+            {#each intertourisms as datatourism}
                 <tr>
                     <td>{datatourism.country}</td>
                     <td>{datatourism.year}</td>
