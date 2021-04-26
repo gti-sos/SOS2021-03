@@ -67,6 +67,8 @@
 				  </Modal>
 			</p>
 		</li>
+	</ul>	
+	<ul>
 		<li>Datos de turismo internacional: 
 			<p>
 				<Button outline color="primary" on:click={toggleob}>Abrir</Button>
