@@ -5,12 +5,13 @@
 		
     import Table from "sveltestrap/src/Table.svelte";
     let intertourisms=[];
-    async function getInterTourisms() {
-        console.log("Fetching tourisms...");
+    async function getIntertourisms() {
+        console.log("Loading tourisms...");
         const res = await fetch("/api/v1/international-tourisms/loadInitialData");
         if(res.ok){
-            console.log("OK.");
-            getRegisters(); }else{
+            console.log("Ok.");
+            getRegisters(); 
+        }else{
             console.log("Error");
         }
     }
@@ -21,8 +22,8 @@
         if(res.ok){
 			console.log("Ok.");
 			const json = await res.json();
-			air_pollution = json;
-			console.log(`We have ${air_pollution.length} intertourisms.`)
+			intertourisms = json;
+			console.log(`We have ${intertourisms.length} intertourisms.`)
 		}else{
 			console.log("Error");
 		}
