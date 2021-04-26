@@ -1,5 +1,27 @@
-<!DOCTYPE html>
-<html>
+<script> 
+	import air_pollution from './air_pollution.svelte';
+	import {
+    	Button,
+    	Modal,
+    	ModalBody,
+   		ModalFooter,
+   		ModalHeader,
+		Breadcrumb,
+		BreadcrumbItem
+  	} from 'sveltestrap';
+  let open = false;
+  let openob = false;
+  const toggle = () =>{
+  	
+  	(open = !open);
+  } 
+  
+  const toggleob = () =>{
+  	
+  	(openob = !openob);
+  } 
+</script>
+
 <head>
 <title>Readme fichero</title>
 </head>
@@ -27,26 +49,44 @@
 		<li><a href="https://sos2021-10.herokuapp.com/api/v1/quality-of-life">Quality of life</a> (developed by Ayman)</li>
 	</ul>
 </main>
+<ul>
+	
+	<li>Muertes por contaminación del aire: 
+		<p>
+			  <Button outline color="warning" on:click={toggleob}>Abrir</Button>
+			  <Modal isOpen={openob} {toggleob} size= 'lg'>
+				<ModalHeader {toggleob}>Estadísticas de muertes por contaminación del aire</ModalHeader>
+				<ModalBody>
+					<air_pollution/>
+				</ModalBody>
+				<ModalFooter>
+					  <Button color="secondary" on:click={toggleob}>Close</Button>
+				</ModalFooter>
+			  </Modal>
+		</p>
+	</li>
+</ul>
 
 <style>
 	main {
-		text-align: center;
+		text-align: left;
 		padding: 1em;
 		max-width: 240px;
 		margin: 0 auto;
 	}
-
 	h1 {
-		color: #ff3e00;
+		color: #5ea8d3;
 		text-transform: uppercase;
 		font-size: 4em;
 		font-weight: 100;
 	}
-
+	
+	ul {
+		width: fit-content;
+	}
 	@media (min-width: 640px) {
 		main {
 			max-width: none;
 		}
 	}
 </style>
-</html>
