@@ -55,16 +55,16 @@
 		
 		<li>Muertes por contaminación del aire: 
 			<p>
-				<Button outline color="primary" on:click={toggleob}>Abrir</Button>
-				<Modal isOpen={openob} {toggleob} size= 'lg'>
+				  <Button outline color="warning" on:click={toggleob}>Abrir</Button>
+				  <Modal isOpen={openob} {toggleob} size= 'lg'>
 					<ModalHeader {toggleob}>Estadísticas de muertes por contaminación del aire</ModalHeader>
 					<ModalBody>
 						<AirPollution/>
 					</ModalBody>
 					<ModalFooter>
-						<Button color="secondary" on:click={toggleob}>Close</Button>
+						  <Button color="secondary" on:click={toggleob}>Close</Button>
 					</ModalFooter>
-				</Modal>
+				  </Modal>
 			</p>
 		</li>
 		<li>Datos de turismo internacional: 

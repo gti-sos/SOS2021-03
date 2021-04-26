@@ -7,7 +7,7 @@
     let inteltourisms=[];
     async function getInterTourisms() {
         console.log("Fetching tourisms...");
-        const res = await fetch("/api/v1/international-tourisms");
+        const res = await fetch("/api/v1/international-tourisms/loadInitialData");
         if(res.ok){
             console.log("OK.");
             const json = await res.json();

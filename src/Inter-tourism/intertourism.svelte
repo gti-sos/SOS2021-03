@@ -1,12 +1,11 @@
 <script>
-	export let name;
 	import MiTable from './MiTable.svelte';
 </script>
 
 <main>
-	<h1>Hola {name}!</h1>
+	<h1>Hola personas!</h1>
 	<p>Aquí encontrará datos sobre el turismo internacional</p>
-    <MiTable/>
+    <MiTable></MiTable>
 </main>
 
 <style>
