@@ -46,9 +46,9 @@
 	<a href= "https://sos2021-03.herokuapp.com/api/v1/quality-of-life">[https://sos2021-03.herokuapp.com/api/v1/quality-of-life](https://sos2021-03.herokuapp.com/api/v1/international-tourisms) (developed by [Ayman Alaoui Mhammedi](https://github.com/AymanAlaouiMhammedi))</a></div>
 	
 	<ul>
-		<li><a href="https://sos2021-10.herokuapp.com/api/v1/air-pollution">Air-pollutions deaths</a> (developed by Joan Villalonga)</li>
-		<li><a href="https://sos2021-10.herokuapp.com/api/v1/inter-tourisms">Inter Tourism</a> (developed by Paula Garrido Lerma)</li>
-		<li><a href="https://sos2021-10.herokuapp.com/api/v1/quality-of-life">Quality of life</a> (developed by Ayman)</li>
+		<li><a href="https://sos2021-03.herokuapp.com/api/v1/air-pollution">Air-pollutions deaths</a> (developed by Joan Villalonga)</li>
+		<li><a href="https://sos2021-03.herokuapp.com/api/v1/inter-tourisms">Inter Tourism</a> (developed by Paula Garrido Lerma)</li>
+		<li><a href="https://sos2021-03.herokuapp.com/api/v1/quality-of-life">Quality of life</a> (developed by Ayman)</li>
 	</ul>
 
 	<ul>
