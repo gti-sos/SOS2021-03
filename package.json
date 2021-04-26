@@ -3,7 +3,6 @@
   "version": "1.0.0",
   "description": "Servidor JSON",
   "main": "index.js",
-  
   "scripts": {
     "build": "rollup -c",
     "dev": "rollup -c -w",
