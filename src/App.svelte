@@ -82,37 +82,7 @@
 		</p>
 		
 		</li>
-		---------------------
-		<!--<li>Muertes por contaminación del aire: 
-			<p>
-				  <Button outline color="warning" on:click={toggleob}>Abrir</Button>
-				  <Modal isOpen={openob} {toggleob} size= 'lg'>
-					<ModalHeader {toggleob}>Estadísticas de muertes por contaminación del aire</ModalHeader>
-					<ModalBody>
-						<AirPollution/>
-					</ModalBody>
-					<ModalFooter>
-						  <Button color="secondary" on:click={toggleob}>Close</Button>
-					</ModalFooter>
-				  </Modal>
-			</p>
-		</li>
-	</ul>	
-	<ul>
-		<li>Datos de turismo internacional: 
-			<p>
-				<Button outline color="primary" on:click={toggleob}>Abrir</Button>
-				<Modal isOpen={openob} {toggleob} size= 'lg'>
-					<ModalHeader {toggleob}>Estadísticas de turismo internacional</ModalHeader>
-					<ModalBody>
-						<InterTourism/>
-					</ModalBody>
-					<ModalFooter>
-						<Button color="secondary" on:click={toggleob}>Close</Button>
-					</ModalFooter>
-				</Modal>
-			</p>
-		</li>-->
+		
 	</ul>
 </main>
 <style>
