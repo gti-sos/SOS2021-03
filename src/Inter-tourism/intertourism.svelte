@@ -1,10 +1,12 @@
 <script>
 	export let name;
+	import MiTable from './MiTable.svelte';
 </script>
 
 <main>
-	<h1>Hello {name}!</h1>
-	<p>Visit the <a href="https://svelte.dev/tutorial">Svelte tutorial</a> to learn how to build Svelte apps.</p>
+	<h1>Hola {name}!</h1>
+	<p>Aquí encontrará datos sobre el turismo internacional</p>
+    <MiTable/>
 </main>
 
 <style>
@@ -16,7 +18,7 @@
 	}
 
 	h1 {
-		color: #ff3e00;
+		color: #28f1f1;
 		text-transform: uppercase;
 		font-size: 4em;
 		font-weight: 100;
