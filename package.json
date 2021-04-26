@@ -4,9 +4,7 @@
   "description": "Servidor JSON",
   "main": "index.js",
   "scripts": {
-    "build": "rollup -c",
-    "dev": "rollup -c -w",
-    "test": "echo \"Error: no test specified\" && exit 1",
+    
     "start": "node index"
   },
   "repository": {
