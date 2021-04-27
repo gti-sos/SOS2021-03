@@ -90,6 +90,18 @@
 	   </li>
 
 	   <li>Indices de calidad de vida: 
+			<p>
+				<Button outline color="warning" on:click={toggle}>Mostrar</Button>
+				<Modal isOpen={open} {toggle} size= 'lg'>
+				<ModalHeader {toggle}>Calidad de vida:</ModalHeader>
+				<ModalBody>
+					<Qof/>
+				</ModalBody>
+				<ModalFooter>
+				<Button color="secondary" on:click={toggle}>Cerrar</Button>
+				</ModalFooter>
+				</Modal>
+			</p>
 		   <p>
 			  <Button outline color="warning" on:click={toggleob}>Mostrar</Button>
 			  <Modal isOpen={openob} {toggleob} size= 'lg'>
