@@ -1,5 +1,6 @@
 <script> 
 	import AirPollution from './air-pollution/air_pollution.svelte';
+	import Qof from './quality-of-life/quality-of-life.svelte';
 	import {
     	Button,
     	Modal,
@@ -46,7 +47,7 @@
 	<ul>
 		<li><a href="https://sos2021-10.herokuapp.com/api/v1/air-pollution">Air-pollutions deaths</a> (developed by Joan Villalonga)</li>
 		<li><a href="https://sos2021-10.herokuapp.com/api/v1/inter-tourism">Inter Tourism</a> (developed by Paula Garrido Lerma)</li>
-		<li><a href="https://sos2021-10.herokuapp.com/api/v1/quality-of-life">Quality of life</a> (developed by Ayman)</li>
+		<li><a href="https://sos2021-10.herokuapp.com/api/v1/quality-of-life">Quality of life</a> (developed by Ayman Alaoui Mhammedi)</li>
 	</ul>
 </main>
 <ul>
@@ -58,6 +59,24 @@
 				<ModalHeader {toggleob}>Estadísticas de muertes por contaminación del aire</ModalHeader>
 				<ModalBody>
 					<AirPollution/>
+				</ModalBody>
+				<ModalFooter>
+					  <Button color="secondary" on:click={toggleob}>Close</Button>
+				</ModalFooter>
+			  </Modal>
+		</p>
+	</li>
+</ul>
+
+<ul>
+	
+	<li>Indices de calidad de vida: 
+		<p>
+			  <Button outline color="warning" on:click={toggleob}>Abrir</Button>
+			  <Modal isOpen={openob} {toggleob} size= 'lg'>
+				<ModalHeader {toggleob}>Estadísticas de calidad de vidae</ModalHeader>
+				<ModalBody>
+					<Qof/>
 				</ModalBody>
 				<ModalFooter>
 					  <Button color="secondary" on:click={toggleob}>Close</Button>
