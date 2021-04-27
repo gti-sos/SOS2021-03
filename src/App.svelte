@@ -73,6 +73,7 @@
 				  </Modal>
 			</p>
 		</li>
+
 		<li>Datos de turismo internacional:
 		<p>
 		  <Button outline color="warning" on:click={toggle}>Mostrar</Button>
@@ -87,6 +88,7 @@
 		  </Modal>
 		</p>
 	   </li>
+
 	   <li>Indices de calidad de vida: 
 		<p>
 			  <Button outline color="warning" on:click={toggleob}>Mostrar</Button>
@@ -103,7 +105,7 @@
 	</li>
 
 
-	</ul>
+
 	
 </main>
 
