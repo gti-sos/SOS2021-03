@@ -54,7 +54,7 @@
 				<td>{r.country}</td>
 				<td>{r.year}</td>
 				<td>{r.quality_of_life}</td>
-				<td>{r.purchacing_power}</td>
+				<td>{r.purchasing_power}</td>
 				<td>{r.health_care}</td>
 				
 				
