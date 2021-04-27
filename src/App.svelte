@@ -17,6 +17,7 @@
 
   let open = false;
   let openob = false;
+  let opena = false;
   const toggle = () =>{
   	
   	(open = !open);
@@ -25,6 +26,10 @@
   const toggleob = () =>{
   	
   	(openob = !openob);
+  } 
+  const togglea = () =>{
+  	
+  	(opena = !opena);
   } 
 </script>
 
@@ -91,14 +96,14 @@
 
 	   <li>Indices de calidad de vida: 
 			<p>
-				<Button outline color="warning" on:click={toggle}>Mostrar</Button>
-				<Modal isOpen={open} {toggle} size= 'lg'>
-				<ModalHeader {toggle}>Calidad de vida:</ModalHeader>
+				<Button outline color="warning" on:click={togglea}>Mostrar</Button>
+				<Modal isOpen={opena} {togglea} size= 'lg'>
+				<ModalHeader {togglea}>Calidad de vida:</ModalHeader>
 				<ModalBody>
 					<Qof/>
 				</ModalBody>
 				<ModalFooter>
-				<Button color="secondary" on:click={toggle}>Cerrar</Button>
+				<Button color="secondary" on:click={togglea}>Cerrar</Button>
 				</ModalFooter>
 				</Modal>
 			</p>
