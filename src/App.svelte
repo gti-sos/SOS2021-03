@@ -53,7 +53,7 @@
 
 		<li><a href="https://sos2021-10.herokuapp.com/api/v1/air-pollution">Air-pollutions deaths</a> (developed by Joan Villalonga)</li>
 		<li><a href="https://sos2021-10.herokuapp.com/api/v1/inter-tourism">Inter Tourism</a> (developed by Paula Garrido Lerma)</li>
-		<li><a href="https://sos2021-10.herokuapp.com/api/v1/quality-of-life">Quality of life</a> (developed by Ayman Alaoui Mhammedi)</li>
+		<li><a href="https://sos2021-10.herokuapp.com/api/v1/quality-of-life">Quality of life indexes</a> (developed by Ayman Alaoui Mhammedi)</li>
 
 	</ul>
 
