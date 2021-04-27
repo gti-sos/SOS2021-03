@@ -1,7 +1,7 @@
 <script> 
 	import AirPollution from './air-pollution/air_pollution.svelte';
 
-	import Qof from './quality_of_life/quality_of_life.svelte';
+	import Qof from './quality_of_life/App.svelte';
 
 	import InterTourism from './Inter-tourism/MiTable.svelte';
 
