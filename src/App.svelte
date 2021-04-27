@@ -46,7 +46,7 @@
 	<a href= "https://sos2021-03.herokuapp.com/api/v1/air-pollution">[https://sos2021-03.herokuapp.com/api/v1/air-pollution](https://sos2021-03.herokuapp.com/api/v1/air-pollution) (developed by [Joan Villalonga Alvaro](https://github.com/joavilalv))</a></div>
 	<div><a href="https://documenter.getpostman.com/view/9683446/TzJoE1Zk">- POSTMAN: https://documenter.getpostman.com/view/9683446/TzJoE1Zk</a>
 	<a href= "https://sos2021-03.herokuapp.com/api/v1/international-tourisms">[https://sos2021-03.herokuapp.com/api/v1/international-tourisms](https://sos2021-03.herokuapp.com/api/v1/international-tourisms) (developed by [Paula Garrido Lerma](https://github.com/Paula0008))</a></div>
-	<div><a href="https://documenter.getpostman.com/view/14967959/TzJoF1Kp">- POSTMAN: https://documenter.getpostman.com/view/9683446/TzJoE1Zk</a>
+	<div><a href="https://documenter.getpostman.com/view/14967959/TzJydbsW">- POSTMAN: https://documenter.getpostman.com/view/14967959/TzJydbsW</a>
 	<a href= "https://sos2021-03.herokuapp.com/api/v1/quality-of-life">[https://sos2021-03.herokuapp.com/api/v1/quality-of-life] (developed by [Ayman Alaoui Mhammedi](https://github.com/AymanAlaouiMhammedi))</a></div>
 	
 	<ul>
