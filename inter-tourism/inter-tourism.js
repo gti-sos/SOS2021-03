@@ -22,7 +22,7 @@ module.exports.register = (app) => {
             "expendituresbillion":5213 
         },
         {
-            "country":"rusian-federation",
+            "country":"rusia",
             "year":2010,
             "numberofarribals":22281000,
             "numberofdepartures":39232000,
