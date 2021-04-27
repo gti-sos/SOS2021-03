@@ -75,22 +75,22 @@
 		</li>
 
 		<li>Datos de turismo internacional:
-		<p>
-		  <Button outline color="warning" on:click={toggle}>Mostrar</Button>
-		  <Modal isOpen={open} {toggle} size= 'lg'>
-			<ModalHeader {toggle}>Datos de turismo internacional:</ModalHeader>
-			<ModalBody>
-				<InterTourism/>
-			</ModalBody>
-			<ModalFooter>
-			  <Button color="secondary" on:click={toggle}>Cerrar</Button>
-			</ModalFooter>
-		  </Modal>
-		</p>
+		 <p>
+		   	 <Button outline color="warning" on:click={toggle}>Mostrar</Button>
+		   	 <Modal isOpen={open} {toggle} size= 'lg'>
+				<ModalHeader {toggle}>Datos de turismo internacional:</ModalHeader>
+				<ModalBody>
+					<InterTourism/>
+				</ModalBody>
+				<ModalFooter>
+				  <Button color="secondary" on:click={toggle}>Cerrar</Button>
+				</ModalFooter>
+		  		</Modal>
+			</p>
 	   </li>
 
 	   <li>Indices de calidad de vida: 
-		<p>
+		   <p>
 			  <Button outline color="warning" on:click={toggleob}>Mostrar</Button>
 			  <Modal isOpen={openob} {toggleob} size= 'lg'>
 				<ModalHeader {toggleob}>Calidad de vida:</ModalHeader>
@@ -101,8 +101,9 @@
 					  <Button color="secondary" on:click={toggleob}>Cerrar</Button>
 				</ModalFooter>
 			  </Modal>
-		</p>
-	</li>
+		    </p>
+		</li>
+	</ul>
 
 
 
