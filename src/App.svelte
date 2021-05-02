@@ -66,7 +66,10 @@
 		---------------------
 		<li>Muertes por contaminación del aire: 
 			<p>
-				  <Button outline color="warning" on:click={toggleob}>Mostrar</Button>
+				<br /><a href="./air-pollution/air_pollution.svelte"
+				><button type="button" class="btn btn-primary"
+					>ACÁ</button></a>
+					<!--
 				  <Modal isOpen={openob} {toggleob} size= 'lg'>
 					<ModalHeader {toggleob}>Muertes por contaminación del aire:</ModalHeader>
 					<ModalBody>
@@ -75,7 +78,7 @@
 					<ModalFooter>
 						  <Button color="secondary" on:click={toggleob}>Cerrar</Button>
 					</ModalFooter>
-				  </Modal>
+				  </Modal>-->
 			</p>
 		</li>
 
@@ -96,7 +99,7 @@
 
 	   <li>Indices de calidad de vida: 
 			<p>
-				<a href="./air-pollution/air_pollution.svelte" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">Mostrar </a>
+				<Button outline color="warning" on:click={togglea}>Mostrar</Button>
 				<Modal isOpen={opena} {togglea} size= 'lg'>
 				<ModalHeader {togglea}>Calidad de vida:</ModalHeader>
 				<ModalBody>
