@@ -66,10 +66,7 @@
 		---------------------
 		<li>Muertes por contaminación del aire: 
 			<p>
-				<a href="SOS2021-03/src/air-pollution/air_pollution.svelte"
-				><button type="button" class="btn btn-primary"
-					>Abrir</button></a>
-					<!--
+				<Button outline color="warning" on:click={toggleob}>Mostrar</Button>
 				  <Modal isOpen={openob} {toggleob} size= 'lg'>
 					<ModalHeader {toggleob}>Muertes por contaminación del aire:</ModalHeader>
 					<ModalBody>
@@ -78,7 +75,7 @@
 					<ModalFooter>
 						  <Button color="secondary" on:click={toggleob}>Cerrar</Button>
 					</ModalFooter>
-				  </Modal>-->
+				  </Modal>
 			</p>
 		</li>
 
