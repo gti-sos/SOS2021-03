@@ -66,9 +66,9 @@
 		---------------------
 		<li>Muertes por contaminación del aire: 
 			<p>
-				<br /><a href="./air-pollution/air_pollution.svelte"
+				<br /><a href="#/air-pollution/air_pollution.svelte"
 				><button type="button" class="btn btn-primary"
-					>ACÁ</button></a>
+					>Abrir</button></a>
 					<!--
 				  <Modal isOpen={openob} {toggleob} size= 'lg'>
 					<ModalHeader {toggleob}>Muertes por contaminación del aire:</ModalHeader>
