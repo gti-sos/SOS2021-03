@@ -96,7 +96,7 @@
 
 	   <li>Indices de calidad de vida: 
 			<p>
-				<Button outline color="warning" on:click={togglea}>Mostrar</Button>
+				<a href="./air-pollution/air_pollution.svelte" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">Mostrar </a>
 				<Modal isOpen={opena} {togglea} size= 'lg'>
 				<ModalHeader {togglea}>Calidad de vida:</ModalHeader>
 				<ModalBody>
