@@ -66,7 +66,7 @@
 		---------------------
 		<li>Muertes por contaminación del aire: 
 			<p>
-				<a href="/air-pollution/air_pollution.svelte"
+				<a href="SOS2021-03/src/air-pollution/air_pollution.svelte"
 				><button type="button" class="btn btn-primary"
 					>Abrir</button></a>
 					<!--
