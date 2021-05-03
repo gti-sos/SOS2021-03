@@ -1,5 +1,5 @@
 <script> 
-	import AirPollution from './air-pollution/HomeAirPollution.svelte';
+	
 
 	import Qof from './quality_of_life/quality_of_life.svelte';
 
@@ -57,22 +57,10 @@
 		<li><a href="https://sos2021-03.herokuapp.com/api/v1/quality-of-life">Quality of life indexes</a> (developed by Ayman Alaoui Mhammedi)</li>
 
 	</ul>
-	<a href="#/AirPollution">Abrir estadisticas</a>
+	
 	<ul>
 		<li>Muertes por contaminación del aire: 
-			<p>
-				
-				<Button outline color="warning" on:click={toggleob}>Mostrar</Button>
-				  <Modal isOpen={openob} {toggleob} size= 'lg'>
-					<ModalHeader {toggleob}>Muertes por contaminación del aire:</ModalHeader>
-					<ModalBody>
-						<AirPollution/>
-					</ModalBody>
-					<ModalFooter>
-						  <Button color="secondary" on:click={toggleob}>Cerrar</Button>
-					</ModalFooter>
-				  </Modal>
-			</p>
+			<a href="#/AirPollution">Abrir estadisticas</a>
 		</li>
 
 		<li>Datos de turismo internacional:
