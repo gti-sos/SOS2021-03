@@ -60,7 +60,9 @@
 	
 	<ul>
 		<li>Muertes por contaminación del aire: 
-			<a href="#/air-pollution" class="btn btn-outline-success" role="button" aria-pressed="true">Abrir estadisticask</a>
+			<a href="#/air-pollution" class="btn btn-outline-info" role="button" aria-pressed="true">Abrir estadisticas(front-end)</a>
+			<a href="https://sos2021-03.herokuapp.com/api/v1/air-pollution" class="btn btn-outline-secondary" role="button" aria-pressed="true">API Muertes por contaminación del aire</a>
+			<a href="https://documenter.getpostman.com/view/14974548/TzJoE1G7" class="btn btn-outline-primary" role="button" aria-pressed="true">TEST de POSTMAN</a>
 
 		</li>
 

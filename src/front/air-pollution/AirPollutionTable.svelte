@@ -5,7 +5,7 @@
 
     import Table from "sveltestrap/src/Table.svelte";
     import Button from "sveltestrap/src/Button.svelte";
-import R from "../App.svelte";
+
     
 
  
@@ -92,11 +92,12 @@ import R from "../App.svelte";
     <h2>
         Tabla de estadisticas:
     </h2>
+    <Button on:click={loadInitialData}>Cargar registros</Button>
+    <Button on:click={deleteAll}>Borrar todos los registros</Button>
     <Table bordered>
         <thead>
             <tr>
-                <td><Button on:click={loadInitialData}>Cargar registros</Button></td>
-                <td><Button on:click={deleteAll}>Borrar todos los registros</Button></td>
+                
                 
             </tr>
             <tr>
@@ -111,10 +112,10 @@ import R from "../App.svelte";
         <tbody>
             <tr>
                 <td><input bind:value="{newRegister.country}"></td>
-					<td><input type=number bind:value="{newRegister.year}"></td>
-					<td><input type=number bind:value="{newRegister.deaths_ambient_particulate_matter_pollution}"></td>
-					<td><input type=number bind:value="{newRegister.deaths_household_air_pollution_from_solid_fuels}"></td>
-					<td><input type=number bind:value="{newRegister.deaths_air_pollution}"></td>
+					<td><input type=number bind:value={newRegister.year}></td>
+					<td><input type=number bind:value={newRegister.deaths_ambient_particulate_matter_pollution}></td>
+					<td><input type=number bind:value={newRegister.deaths_household_air_pollution_from_solid_fuels}></td>
+					<td><input type=number bind:value={newRegister.deaths_air_pollution}></td>
 					<td><Button on:click={insertRegister}>Añadir</Button>
                 </td>
             </tr>
@@ -126,7 +127,7 @@ import R from "../App.svelte";
                 <td>{r.deaths_household_air_pollution_from_solid_fuels}</td>
                 <td>{r.deaths_air_pollution}</td>
                 <td><Button on:click={deleteRegister(r.country, r.year)}>Borrar</Button>
-                <td><a href="#/air-pollution/{r.country}/{r.year}" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">Editar</a>
+                <a href="#/air-pollution/{r.country}/{r.year}" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">Editar</a>
                     
                     
                 </tr>

@@ -233,7 +233,13 @@ app.get(BASE_API_PATH+"/air-pollution", (req,res) =>{
 //POST 
 app.post(BASE_API_PATH+"/air-pollution",(req,res) =>{
 
-		var newregister = req.body;
+		var newregister = {
+            "country": req.body.country, 
+            "year": parseInt(req.body.year), 
+            "deaths_ambient_particulate_matter_pollution": parseFloat(req.body.deaths_ambient_particulate_matter_pollution), 
+            "deaths_household_air_pollution_from_solid_fuels": parseFloat(req.body.deaths_household_air_pollution_from_solid_fuels),
+            "deaths_air_pollution": parseFloat(req.body.deaths_air_pollution)
+        }
 		var country1 = req.body.country;
 		var year1 = parseInt(req.body.year);
         console.log(newregister);
@@ -278,7 +284,13 @@ app.put(BASE_API_PATH+"/air-pollution/:country/:year", (req, res) =>{
 
         var country1 = req.params.country;
         var year1 = parseInt(req.params.year);
-		var up = req.body;
+		var up = {
+            "country": req.body.country, 
+            "year": parseInt(req.body.year), 
+            "deaths_ambient_particulate_matter_pollution": parseFloat(req.body.deaths_ambient_particulate_matter_pollution), 
+            "deaths_household_air_pollution_from_solid_fuels": parseFloat(req.body.deaths_household_air_pollution_from_solid_fuels),
+            "deaths_air_pollution": parseFloat(req.body.deaths_air_pollution)
+        };
         console.log(up);
 		db.find({$and : [{country : country1}, {year : year1}]},(error,airpollution1)=>{
 			console.log(airpollution1);
