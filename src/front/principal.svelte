@@ -60,14 +60,22 @@
 	
 	<ul>
 		<li>Desarrollado por Joan Villalonga Alvaro.
+			<br>
+			<br>
 			<a href="https://github.com/joavilalv" class="btn btn-outline-info" role="button" aria-pressed="true">Cuenta de Github</a>
 			<a href="https://github.com/gti-sos/SOS2021-03.git" class="btn btn-outline-info" role="button" aria-pressed="true">Repositorio del grupo</a>
+			<a href="https://ourworldindata.org/grapher/death-rates-from-air-pollution" class="btn btn-outline-info" role="button" aria-pressed="true">Muertes por contaminación del aire(Fuente)</a>
+			<br>
+			<br>
 			
 			Estadísticas de muertes por contaminación del aire: 
 			<br>
+			<br>
 			<a href="#/air-pollution" class="btn btn-outline-info" role="button" aria-pressed="true">Abrir estadisticas(front-end)</a>
+			<br>
 			<a href="https://sos2021-03.herokuapp.com/api/v1/air-pollution" class="btn btn-outline-secondary" role="button" aria-pressed="true">API Muertes por contaminación del aire</a>
-			<a href="https://documenter.getpostman.com/view/14974548/TzJoE1G7" class="btn btn-outline-primary" role="button" aria-pressed="true">TEST de POSTMAN</a>
+			<br>
+			<a href="https://documenter.getpostman.com/view/14974548/TzJoE1G7" class="btn btn-outline-warning" role="button" aria-pressed="true">TEST de POSTMAN</a>
 
 		</li>
 
