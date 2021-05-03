@@ -60,7 +60,8 @@
 	
 	<ul>
 		<li>Muertes por contaminación del aire: 
-			<a href="#/air-pollution">Abrir estadisticas</a>
+			<a href="#/air-pollution" class="btn btn-outline-success" role="button" aria-pressed="true">Abrir estadisticask</a>
+
 		</li>
 
 		<li>Datos de turismo internacional:

@@ -126,7 +126,9 @@ import R from "../App.svelte";
                 <td>{r.deaths_household_air_pollution_from_solid_fuels}</td>
                 <td>{r.deaths_air_pollution}</td>
                 <td><Button on:click={deleteRegister(r.country, r.year)}>Borrar</Button>
-                
+                <td><a href="#/air-pollution/{r.country}/{r.year}" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">Editar</a>
+                    
+                    
                 </tr>
 
             {/each}
