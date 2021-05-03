@@ -16,17 +16,13 @@
   	} from 'sveltestrap';
 
   let open = false;
-  let openob = false;
   let opena = false;
   const toggle = () =>{
   	
   	(open = !open);
   } 
   
-  const toggleob = () =>{
-  	
-  	(openob = !openob);
-  } 
+  
   const togglea = () =>{
   	
   	(opena = !opena);
@@ -61,11 +57,11 @@
 		<li><a href="https://sos2021-03.herokuapp.com/api/v1/quality-of-life">Quality of life indexes</a> (developed by Ayman Alaoui Mhammedi)</li>
 
 	</ul>
-
+	<a href="#/AirPollution">Abrir estadisticas</a>
 	<ul>
 		<li>Muertes por contaminación del aire: 
 			<p>
-				<a href="#/AirPollution">Abrir estadisticas</a>
+				
 				<Button outline color="warning" on:click={toggleob}>Mostrar</Button>
 				  <Modal isOpen={openob} {toggleob} size= 'lg'>
 					<ModalHeader {toggleob}>Muertes por contaminación del aire:</ModalHeader>
