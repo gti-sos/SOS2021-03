@@ -130,7 +130,7 @@
                 <td>{r.deaths_air_pollution}</td>
                 <td><Button on:click={deleteRegister(r.country, r.year)}>Borrar</Button>
                     <br>
-                <a href="#/air-pollution/{r.country}/{r.year}" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">Editar</a>
+                <a href="#/air-pollution/{r.country}/{r.year}" class="btn btn-info active" role="button" aria-pressed="true">Editar</a>
                     
                     
                 </tr>

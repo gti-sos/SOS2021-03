@@ -34,7 +34,7 @@
 </head>
 
 <main>
-	<h1>## SOS2021-03</h1>
+	<h1>SOS2021-03</h1>
 
 	<a href="https://github.com/joavilalv"> - [Joan Villalonga Alvaro](https://github.com/joavilalv)</a>
 	<div> - [Paula Garrido Lerma](https://github.com/Paula0008)</div>
@@ -59,7 +59,12 @@
 	</ul>
 	
 	<ul>
-		<li>Muertes por contaminación del aire: 
+		<li>Desarrollado por Joan Villalonga Alvaro.
+			<a href="https://github.com/joavilalv" class="btn btn-outline-info" role="button" aria-pressed="true">Cuenta de Github</a>
+			<a href="https://github.com/gti-sos/SOS2021-03.git" class="btn btn-outline-info" role="button" aria-pressed="true">Repositorio del grupo</a>
+			
+			Estadísticas de muertes por contaminación del aire: 
+			<br>
 			<a href="#/air-pollution" class="btn btn-outline-info" role="button" aria-pressed="true">Abrir estadisticas(front-end)</a>
 			<a href="https://sos2021-03.herokuapp.com/api/v1/air-pollution" class="btn btn-outline-secondary" role="button" aria-pressed="true">API Muertes por contaminación del aire</a>
 			<a href="https://documenter.getpostman.com/view/14974548/TzJoE1G7" class="btn btn-outline-primary" role="button" aria-pressed="true">TEST de POSTMAN</a>
