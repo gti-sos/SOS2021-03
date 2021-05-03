@@ -92,8 +92,10 @@
     <h2>
         Tabla de estadisticas:
     </h2>
+    <br>
     <Button on:click={loadInitialData}>Cargar registros</Button>
     <Button on:click={deleteAll}>Borrar todos los registros</Button>
+    <br>
     <Table bordered>
         <thead>
             <tr>
@@ -127,6 +129,7 @@
                 <td>{r.deaths_household_air_pollution_from_solid_fuels}</td>
                 <td>{r.deaths_air_pollution}</td>
                 <td><Button on:click={deleteRegister(r.country, r.year)}>Borrar</Button>
+                    <br>
                 <a href="#/air-pollution/{r.country}/{r.year}" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">Editar</a>
                     
                     
