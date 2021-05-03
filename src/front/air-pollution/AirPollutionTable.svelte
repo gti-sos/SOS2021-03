@@ -5,7 +5,7 @@
 
     import Table from "sveltestrap/src/Table.svelte";
     import Button from "sveltestrap/src/Button.svelte";
-import R from "../r.svelte";
+import R from "../App.svelte";
     
 
  
