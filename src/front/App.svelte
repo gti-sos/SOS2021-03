@@ -66,6 +66,7 @@
 		---------------------
 		<li>Muertes por contaminación del aire: 
 			<p>
+				<a href="#/AirPollution">Abrir estadisticas</a>
 				<Button outline color="warning" on:click={toggleob}>Mostrar</Button>
 				  <Modal isOpen={openob} {toggleob} size= 'lg'>
 					<ModalHeader {toggleob}>Muertes por contaminación del aire:</ModalHeader>
