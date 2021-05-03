@@ -1,10 +1,10 @@
 <script> 
-	import AirPollution from './air-pollution/air_pollution.svelte';
+	import AirPollution from './air-pollution/HomeAirPollution.svelte';
 
 	import Qof from './quality_of_life/quality_of_life.svelte';
 
 	import InterTourism from './Inter-tourism/MiTable.svelte';
-
+	
 	import {
     	Button,
     	Modal,
@@ -63,7 +63,6 @@
 	</ul>
 
 	<ul>
-		---------------------
 		<li>Muertes por contaminación del aire: 
 			<p>
 				<a href="#/AirPollution">Abrir estadisticas</a>
