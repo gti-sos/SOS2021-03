@@ -1,6 +1,6 @@
 <script>
 	import Router from  'svelte-spa-router';
-	import AirPollution from './air-pollution/air_pollution.svelte';
+	import AirPollution from './air_pollution.svelte';
 	import Home from './Home.svelte';
 	import NotFound from './NotFound.svelte';
 
