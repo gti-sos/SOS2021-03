@@ -17,9 +17,7 @@
 		"/app": App,
         "/air-pollution": AirPollution,
 		"/air-pollution/:country/:year": EditAirPollution,
-        "*": NotFound
-        
-		
+        "*": NotFound	
 		
 	}
 	
