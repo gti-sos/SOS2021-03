@@ -62,37 +62,6 @@
 			</ul>
 		</div>
 	</nav>
-	<Navbar color="light" light expand="md">
-		<NavbarBrand href="/">SOS2021-03</NavbarBrand>
-		<NavbarToggler on:click={() => (isOpen = !isOpen)} />
-		<Collapse {isOpen} navbar expand="md" on:update={handleUpdate}>
-			<Nav class="ml-auto" navbar>
-				<NavItem>
-				<NavLink href="#/src/front/principal.Svelte/">Información</NavLink>
-				</NavItem>
-				
-				<!--Github-->
-
-				<Dropdown nav inNavbar>
-				<DropdownToggle nav caret>Muertes por contaminación del aire</DropdownToggle>
-				<DropdownMenu right>
-					<DropdownItem>
-						<NavLink href="#/src/front/air-pollution">Estadísticas</NavLink>
-					</DropdownItem>
-					<DropdownItem>
-						<NavLink href="https://sos2021-03.herokuapp.com/api/v1/air-pollution">API</NavLink>
-					</DropdownItem>
-					<DropdownItem divider />
-					<DropdownItem>
-						<NavLink href="https://documenter.getpostman.com/view/14974548/TzJoE1G7">Postman</NavLink>
-					</DropdownItem>
-					<DropdownItem>
-						<NavLink href="https://github.com/joavilalv">Usuario de Github</NavLink>
-					</DropdownItem>
-				</DropdownMenu>
-				</Dropdown>
-			</Nav>
-		</Collapse>
-	  </Navbar>
+	
 </body>
 </html>
