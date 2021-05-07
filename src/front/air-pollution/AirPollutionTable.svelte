@@ -159,7 +159,10 @@
 			console.log("OK");
 			const json = await res.json();
             console.log(json);
-			air_pollution = json;			
+			air_pollution = json;	
+            console.log("air_pollution now is that:");
+            console.log(air_pollution);	
+            console.log(air_pollution.length);
 			console.log("Encontrados " + air_pollution.length + " registros.");
             
             if(res.length > 0){
