@@ -158,11 +158,11 @@
 		if (res.ok) {
 			console.log("OK");
 			const json = await res.json();
-			res = json;			
-			console.log("Encontrados " + res.length + " registros.");
+			air_pollution = json;			
+			console.log("Encontrados " + air_pollution.length + " registros.");
             
             if(res.length > 0){
-                window.alert("Se han encontrado: "+ res.length + " resultados.");
+                window.alert("Se han encontrado: "+ air_pollution.length + " resultados.");
                 
             }
             else{
