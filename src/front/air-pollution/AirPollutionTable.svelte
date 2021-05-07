@@ -6,6 +6,9 @@
     import Table from "sveltestrap/src/Table.svelte";
     import Button from "sveltestrap/src/Button.svelte";
 	import { Pagination, PaginationItem, PaginationLink } from 'sveltestrap';
+    import FormGroup from "sveltestrap/src/FormGroup.svelte";
+    import Input from "sveltestrap/src/Input.svelte";
+    import Label from "sveltestrap/src/Label.svelte";
 
     
 
@@ -159,12 +162,11 @@
 			console.log("Encontrados " + res.length + " registros.");
             
             if(res.length > 0){
-                okMsg = "Se ha encontrado "+ res.length + " registros.";
-                errorMsg = false;
+                window.alert("Se han encontrado: "+ res.length + " resultados.");
+                
             }
             else{
-                okMsg = false;
-                errorMsg = "No se ha obtenido ningún registro.";
+                window.alert("No se han encontrado registros para esta busqueda");
             }
         } 
         else {
@@ -215,6 +217,16 @@
     <Button on:click={loadInitialData}>Cargar registros</Button>
     <Button on:click={deleteAll}>Borrar todos los registros</Button>
     <br>
+    <Button outline color="secondary" style="font-size: 16px;border-radius: 4px;background-color: white;" on:click="{buscaRegistro(searchcountry, searchyear)}" class="button-search"> Buscar </Button>
+    
+        <FormGroup> 
+			<Label for="selectCountry"> Búsqueda por país </Label>
+			<input type=number bind:value={searchcountry}>
+		</FormGroup>
+		<FormGroup>
+			<Label for="selectYear"> Búsqueda por año </Label>
+            <input type=number bind:value={searchyear}>
+		</FormGroup>
     <Table bordered>
         <thead>
             <tr>
