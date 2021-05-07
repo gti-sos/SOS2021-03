@@ -136,7 +136,7 @@
     async function buscaRegistro(country, year) {
 		console.log("Realizando búsqueda del país: " + country + " y del año: " + year);
         
-        //year=parseInt(year);
+        year=parseInt(year);
         
         var url = "/api/v1/air-pollution";
         
@@ -158,6 +158,7 @@
 		if (res.ok) {
 			console.log("OK");
 			const json = await res.json();
+            console.log(json);
 			air_pollution = json;			
 			console.log("Encontrados " + air_pollution.length + " registros.");
             
