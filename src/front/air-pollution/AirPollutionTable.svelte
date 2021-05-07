@@ -130,7 +130,51 @@
 						})
 		
 	}
+    async function buscaRegistro(country, year) {
+		console.log("Realizando búsqueda del país: " + country + " y del año: " + year);
+        
+        //year=parseInt(year);
+        
+        var url = "/api/v1/air-pollution";
+        
+		if (country != "" && year != "") {
+            url = url + "?country=" + country + "&year=" + year;
+            console.log(url);
+        } 
+        else if (country != "" && year == "") {
+            url = url + "?country=" + country;
+            console.log(url);
+        } 
+        else if (country == "" && year != "") {
+            url = url + "?year=" + year;
+            console.log(url);
+        }
+        
+        const res = await fetch(url);
+        
+		if (res.ok) {
+			console.log("OK");
+			const json = await res.json();
+			res = json;			
+			console.log("Encontrados " + res.length + " registros.");
+            
+            if(res.length > 0){
+                okMsg = "Se ha encontrado "+ res.length + " registros.";
+                errorMsg = false;
+            }
+            else{
+                okMsg = false;
+                errorMsg = "No se ha obtenido ningún registro.";
+            }
+        } 
+        else {
+			console.log("ERROR");
+		}
+		
+	}
 
+
+    /*
     async function buscaRegistro(country, year){
         var url = BASE_CONTACT_API_PATH+"/api/v1/air-pollution";
         if (country != "" && year != "") {
@@ -158,7 +202,7 @@
         }else{
             console.log("ERROR");
         }
-    }
+    }*/
 	
     onMount(getRegisters);
 </script>
@@ -237,7 +281,7 @@
 		</PaginationItem>
 		{/if}
 		<PaginationItem class="{moreRegisters ? '' : 'disabled'}">
-		  <PaginationLink next href="#/countries_for_equality_stats" on:click="{() => incrementOffset(1)}"/>
+		  <PaginationLink next href="#/air-pollution" on:click="{() => incrementOffset(1)}"/>
 		</PaginationItem>
 	</Pagination>
 </main>
