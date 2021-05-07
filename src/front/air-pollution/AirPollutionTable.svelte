@@ -129,7 +129,7 @@
                             }else if(res.status == 405){
                                 window.alert("No hay registros para eliminar. ");
                             }
-						    GetRegisters();
+						    getRegisters();
 						})
 		
 	}
@@ -221,7 +221,7 @@
     
         <FormGroup> 
 			<Label for="selectCountry"> Búsqueda por país </Label>
-			<input type=number bind:value={searchcountry}>
+			<input bind:value={searchcountry}>
 		</FormGroup>
 		<FormGroup>
 			<Label for="selectYear"> Búsqueda por año </Label>
