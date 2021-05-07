@@ -163,7 +163,7 @@
             console.log(air_pollution.length);
 			console.log("Encontrados " + air_pollution.length + " registros.");
             
-            if(air_pollution.length > 0){
+            if(air_pollution.length > 0 || air_pollution[0].country!=undefined){
                 window.alert("Se han encontrado: "+ air_pollution.length + " resultados.");
                 
             }
