@@ -21,7 +21,7 @@
         "deaths_household_air_pollution_from_solid_fuels": 0,
         "deaths_air_pollution": 0
 	}
-    let long = 2;
+    let long = 10;
     let searchcountry = "";
     let searchyear = 0;
     let offset = 0;
