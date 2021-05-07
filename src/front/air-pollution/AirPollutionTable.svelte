@@ -165,7 +165,7 @@
             console.log(air_pollution.length);
 			console.log("Encontrados " + air_pollution.length + " registros.");
             
-            if(res.length > 0){
+            if(air_pollution.length > 0){
                 window.alert("Se han encontrado: "+ air_pollution.length + " resultados.");
                 
             }
