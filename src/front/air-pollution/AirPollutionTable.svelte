@@ -6,9 +6,7 @@
     import Table from "sveltestrap/src/Table.svelte";
     import Button from "sveltestrap/src/Button.svelte";
 	import { Pagination, PaginationItem, PaginationLink } from 'sveltestrap';
-    import FormGroup from "sveltestrap/src/FormGroup.svelte";
-    import Input from "sveltestrap/src/Input.svelte";
-    import Label from "sveltestrap/src/Label.svelte";
+    
 
     
 
@@ -179,36 +177,6 @@
 		
 	}
 
-
-    /*
-    async function buscaRegistro(country, year){
-        var url = BASE_CONTACT_API_PATH+"/api/v1/air-pollution";
-        if (country != "" && year != "") {
-                url = url + "?year=" + year + "&country=" + country;
-        }else if (country != "" && year == "") {
-                url = url + "?country=" + country;
-        }else if (country == "" && year != "") {
-                url = url + "?year=" + year;
-        }
-        const res = await fetch(url);
-
-        if (res.ok) {
-            const json = await res.json();
-            countries = json;
-            if(year =="" && country==""){
-                window.alert("Introduzca los datos correspondientes al registro que desea buscar: ");
-            }else if(countries.length > 0  ){
-                
-                window.alert("Se han encontrado: "+ countries.length + " resultados.");
-            }else{
-            
-                window.alert("No se han encontrado registros para esta busqueda");
-            }
-
-        }else{
-            console.log("ERROR");
-        }
-    }*/
 	
     onMount(getRegisters);
 </script>
@@ -223,17 +191,11 @@
     <br>
     <Button outline color="secondary" style="font-size: 16px;border-radius: 4px;background-color: white;" on:click="{buscaRegistro(searchcountry, searchyear)}" class="button-search"> Buscar </Button>
     
-        <FormGroup> 
-			<Label for="selectCountry"> Búsqueda por país </Label>
-			<input bind:value={searchcountry}>
-		</FormGroup>
-		<FormGroup>
-			<Label for="selectYear"> Búsqueda por año </Label>
-            <input type=number bind:value={searchyear}>
-		</FormGroup>
+        
     <Table bordered>
         <thead>
             <tr>
+                    <td>Introducir datos para realizar una busqueda:</td>
                     <td>Pais</td>
                     <td><input bind:value="{searchcountry}"></td>
                     <td>Año</td>
