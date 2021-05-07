@@ -60,13 +60,13 @@
 		console.log("Fetching registers...");
 		const res = await fetch("/api/v1/air-pollution/loadInitialData").then( (res)=> {
                         if(res.status==200){
-                            getRegisters();
+                            
                             window.alert("Datos insertados correctamente.")
                         }else if (status==409){
-                            getRegisters();
+                            
                             window.alert("Los datos ya están cargados, si quiere volver a cargarlos deberá eliminar primero los actuales.")
                         }
-                        
+                        getRegisters();
 						})
 		
 	}
@@ -83,7 +83,7 @@
                                 }
                             }
                            ).then( (res) => {
-                            getRegisters();
+                            
                             if(res.status == 201){
 			                    window.alert("Nuevo registro creado correctamente. ");
 		                    }else if(res.status == 409){
@@ -91,7 +91,7 @@
 		                    }else if(res.status == 400){
 			                    window.alert("Datos no válidos(no puede quedarse vacío ningun campo. ");
 		                    }
-                                
+                            getRegisters();    
                            })
     }
     
@@ -103,12 +103,13 @@
                                 method: "DELETE"
                             }
                            ).then( (res) => {
-                            getRegisters();
+                            
                             if(res.status == 200){
                                 window.alert("Dato eliminado correctamente. ");
                             }else if(res.status == 404){
                                 window.alert("No existe ningun registro para eliminar con pais: " + country + " y año "+ year);
                             }
+                            getRegisters();
                            })
     }
 
@@ -119,19 +120,19 @@
 							method: "DELETE"
 							
 						}).then( (res)=> {
-                            getRegisters();
+                            
                             if(res.status == 200){
                                 window.alert("Registros eliminados correctamente. ");
                             }else if(res.status == 405){
                                 window.alert("No hay registros para eliminar. ");
                             }
-						    
+						    GetRegisters();
 						})
 		
 	}
 
     async function buscaRegistro(country, year){
-        var url = BASE_CONTACT_API_PATH+"/air-pollution";
+        var url = BASE_CONTACT_API_PATH+"/api/v1/air-pollution";
         if (country != "" && year != "") {
                 url = url + "?year=" + year + "&country=" + country;
         }else if (country != "" && year == "") {
