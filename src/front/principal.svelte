@@ -3,25 +3,18 @@
 
 	import Qof from './quality_of_life/quality_of_life.svelte';
 
-	import InterTourism from './Inter-tourism/MiTable.svelte';
+
 	
 	import {
     	Button,
     	Modal,
     	ModalBody,
    		ModalFooter,
-   		ModalHeader,
-		Breadcrumb,
-		BreadcrumbItem
+   		ModalHeader
   	} from 'sveltestrap';
 
-  let open = false;
   let opena = false;
-  const toggle = () =>{
-  	
-  	(open = !open);
-  } 
-  
+ 
   
   const togglea = () =>{
   	
@@ -90,11 +83,11 @@
 			Turismo internacional: 
 			<br>
 			<br>
-			<a href="#/air-pollution" class="btn btn-outline-info" role="button" aria-pressed="true">Ver estadísticas(front-end)</a>
+			<a href="#/inteTourism" class="btn btn-outline-info" role="button" aria-pressed="true">Ver estadísticas(front-end)</a>
 			<br>
-			<a href="https://sos2021-03.herokuapp.com/api/v1/international-tourisms" class="btn btn-outline-secondary" role="button" aria-pressed="true">API turismo internacional</a>
+			<a href="https://sos2021-03.herokuapp.com/api/v1/international-tourisms" class="btn btn-outline-info" role="button" aria-pressed="true">API turismo internacional</a>
 			<br>
-			<a href="https://documenter.getpostman.com/view/9683446/TzJoE1Zk" class="btn btn-outline-secondary" role="button" aria-pressed="true">Test de POSTMAN</a>
+			<a href="https://documenter.getpostman.com/view/9683446/TzJoE1Zk" class="btn btn-outline-info" role="button" aria-pressed="true">Test de POSTMAN</a>
 
 		</li>
 
