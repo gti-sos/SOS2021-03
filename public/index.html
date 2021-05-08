@@ -14,7 +14,8 @@
 	<script defer src='/build/bundle.js'></script>
 	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-	<script>import {
+	<script>
+	import {
 		Collapse,
 		Navbar,
 		NavbarToggler,
@@ -32,6 +33,7 @@
 
 		function handleUpdate(event) {
 			isOpen = event.detail.isOpen;
+		}
 	</script>
 
 </head>
@@ -92,27 +94,27 @@
 	</nav>
 
 	<Navbar color="light" light expand="md">
-  <NavbarBrand href="/">sveltestrap</NavbarBrand>
-  <NavbarToggler on:click={() => (isOpen = !isOpen)} />
-  <Collapse {isOpen} navbar expand="md" on:update={handleUpdate}>
-    <Nav class="ml-auto" navbar>
-      <NavItem>
-        <NavLink href="#components/">Components</NavLink>
-      </NavItem>
-      <NavItem>
-        <NavLink href="https://github.com/bestguy/sveltestrap">GitHub</NavLink>
-      </NavItem>
-      <Dropdown nav inNavbar>
-        <DropdownToggle nav caret>Options</DropdownToggle>
-        <DropdownMenu right>
-          <DropdownItem>Option 1</DropdownItem>
-          <DropdownItem>Option 2</DropdownItem>
-          <DropdownItem divider />
-          <DropdownItem>Reset</DropdownItem>
-        </DropdownMenu>
-      </Dropdown>
-    </Nav>
-  </Collapse>
-</Navbar>
+	<NavbarBrand href="/">sveltestrap</NavbarBrand>
+	<NavbarToggler on:click={() => (isOpen = !isOpen)} />
+		<Collapse {isOpen} navbar expand="md" on:update={handleUpdate}>
+			<Nav class="ml-auto" navbar>
+				<NavItem>
+					<NavLink href="#components/">Components</NavLink>
+				</NavItem>
+			<NavItem>
+				<NavLink href="https://github.com/bestguy/sveltestrap">GitHub</NavLink>
+			</NavItem>
+			<Dropdown nav inNavbar>
+				<DropdownToggle nav caret>Options</DropdownToggle>
+				<DropdownMenu right>
+					<DropdownItem>Option 1</DropdownItem>
+					<DropdownItem>Option 2</DropdownItem>
+					<DropdownItem divider />
+					<DropdownItem>Reset</DropdownItem>
+				</DropdownMenu>
+			</Dropdown>
+			</Nav>
+		</Collapse>
+	</Navbar>
 </body>
 </html>
