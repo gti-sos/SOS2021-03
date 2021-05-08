@@ -21,6 +21,8 @@
 		"/air-pollution/:country/:year": EditAirPollution,
 		"/international-tourisms": InterTourism,
 		"/international-tourisms/:country/:year": EditIntertourism,
+		"/international-tourisms/:country/": InterTourism,
+		"/international-tourisms/:year/": InterTourism,
         "*": NotFound
 	}
 	
