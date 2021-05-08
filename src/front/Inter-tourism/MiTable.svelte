@@ -262,8 +262,7 @@
 				<td><input type ="number" name="selectYear" id="selectYear" bind:value="{searchyear}"></td>
                 <td>
                     <div style="text-align:center;padding-bottom: 3%;margin-top: 6%;">
-                        <Button outline  color="primary" on:click="{buscaRegistro(searchcountry,searchyear)}" class="button-search" >Buscar</Button>
-                        <Button outline  color="secondary" href="javascript:location.reload()">Volver</Button>
+                        <Button outline href="#/international-tourisms/{r.country}/{r.year}" color="primary" on:click="{buscaRegistro(searchcountry,searchyear)}" >Buscar</Button>
                     </div>
                 </td>
             </tr>
