@@ -224,7 +224,7 @@
 				<td>{r.expendituresbillion}</td>
 				<td><Button on:click={deleteRegister(r.country, r.year)}>Borrar</Button>
                     <br>
-                <a href="#/inteTourism/{r.country}/{r.year}" class="btn btn-info active" role="button" aria-pressed="true">Editar</a>
+                <a href="#/international-tourisms/{r.country}/{r.year}" class="btn btn-info active" role="button" aria-pressed="true">Editar</a>
                    
 				
 				</tr>
