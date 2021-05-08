@@ -105,7 +105,7 @@
         </tbody>
         </Table>
     {#if !errorMsg}
-        <p style="color: green">{SuccessMsg}. País actualizado con éxito</p>
+        <p style="color: green">País actualizado con éxito</p>
     {/if}
     <Button outline color="secondary" on:click="{pop}">Volver</Button>
 </main>
