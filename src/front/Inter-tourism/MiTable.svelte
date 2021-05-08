@@ -5,8 +5,6 @@
 	
 	import Table from "sveltestrap/src/Table.svelte";
 	import Button from "sveltestrap/src/Button.svelte";
-	import Input from "sveltestrap/src/Input.svelte";
-	import FormGroup from "sveltestrap/src/FormGroup.svelte";
 	import { Pagination, PaginationItem, PaginationLink } from 'sveltestrap';
     
 	let inter_tourism = [];
@@ -18,18 +16,12 @@
         "expendituresbillion": 0
 	}
     let long = 10;
+    let searchcountry = "";
+    let searchyear = 0;
     let offset = 0;
     let moreRegisters = true;
     let pagActual = 1;
     const BASE_CONTACT_API_PATH = "/api/v1";
-
-	//busquedas
-	let actualCountry = "";
-    let actualYear = "";
-	let country = [];
-    let year = [];
-
-	onMount(getRegisters);
 
 	async function getRegisters() {
     	console.log("Fetching data...");
@@ -165,28 +157,21 @@
             console.log(interTourisms.length);
 			console.log("Encontrados " + interTourisms.length + " registros.");
 			
-			if(country =="" && year==""){
-				window.alert("Introduce datos");
-			}else if(interTourisms.length > 0){
-				window.alert("Datos encontrados");
-			}else{
-				window.alert("No hay resultados");
-			}
-			/*
             if(interTourisms.length > 0 || interTourisms[0]!=[]){
                 window.alert("Se han encontrado: "+ interTourisms.length + " resultados.");
                 
             }
             else{
                 window.alert("No se han encontrado registros para esta busqueda");
-            }*/
-        }else {
+            }
+        } 
+        else {
 			console.log("ERROR");
 		}
 		
 	}
 
-	
+	onMount(getRegisters);
 	
 </script>
 
@@ -194,54 +179,57 @@
 	<h2>
         Tabla de estadisticas:
     </h2>
-	
-	{#await inter_tourism}
-		Loading datas...
-	{:then inter_tourism}
-		<br>
-		<Button on:click={loadInitialData}>Cargar los datos</Button>
-		<Button on:click={deleteAll}>Borrar todos los datos</Button>
-		<br>
-		<Button outline color="info" style="font-size: 16px;border-radius: 4px;background-color: white;" on:click="{buscaRegistro(searchcountry, searchyear)}" class="button-search"> Buscar </Button>
-		
-		<Table bordered>
-			<thead>
+    <br>
+    <Button on:click={loadInitialData}>Cargar los datos</Button>
+    <Button on:click={deleteAll}>Borrar todos los datos</Button>
+    <br>
+    
+	<Table bordered>
+		<thead>
+			<tr>
+				<td>Introducir datos para realizar una búsqueda:</td>
+				<td>Pais</td>
+				<td><input bind:value="{searchcountry}"></td>
+				<td>Año</td>
+				<td><input type=number bind:value={searchyear}></td>
+				<td><Button on:click={buscaRegistro(searchcountry, searchyear)}>Buscar</Button>
+			</td>
+		</tr>
+			<tr>
+				<td>Pais</td>
+				<td>Año</td>
+				<td>Número de llegadas</td>
+				<td>Número de salidas</td>
+				<td>Gastos en billones</td>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+                <td><input bind:value="{newRegister.country}"></td>
+					<td><input type=number bind:value={newRegister.year}></td>
+					<td><input type=number bind:value={newRegister.numberofarribals}></td>
+					<td><input type=number bind:value={newRegister.numberofdepartures}></td>
+					<td><input type=number bind:value={newRegister.expendituresbillion}></td>
+					<td><Button on:click={insertRegister}>Añadir</Button>
+                </td>
+            </tr>
+			{#each inter_tourism as r}
 				<tr>
-					<td>Pais</td>
-					<td>Año</td>
-					<td>Número de llegadas</td>
-					<td>Número de salidas</td>
-					<td>Gastos en billones</td>
-				</tr>
-			</thead>
-			<tbody>
-				<tr>
-					<td><input bind:value="{newRegister.country}"></td>
-						<td><input type=number bind:value={newRegister.year}></td>
-						<td><input type=number bind:value={newRegister.numberofarribals}></td>
-						<td><input type=number bind:value={newRegister.numberofdepartures}></td>
-						<td><input type=number bind:value={newRegister.expendituresbillion}></td>
-						<td><Button on:click={insertRegister}>Añadir</Button>
-					</td>
-				</tr>
-				{#each inter_tourism as r}
-					<tr>
-					<td>{r.country}</td>
-					<td>{r.year}</td>
-					<td>{r.numberofarribals}</td>
-					<td>{r.numberofdepartures}</td>
-					<td>{r.expendituresbillion}</td>
-					<td><Button on:click={deleteRegister(r.country, r.year)}>Borrar</Button>
-						<br>
-					<a href="#/international-tourisms/{r.country}/{r.year}" class="btn btn-info active" role="button" aria-pressed="true">Editar</a></td>
-					
-					</tr>
-				{/each}
+				<td>{r.country}</td>
+				<td>{r.year}</td>
+				<td>{r.numberofarribals}</td>
+				<td>{r.numberofdepartures}</td>
+				<td>{r.expendituresbillion}</td>
+				<td><Button on:click={deleteRegister(r.country, r.year)}>Borrar</Button>
+                    <br>
+                <a href="#/international-tourisms/{r.country}/{r.year}" class="btn btn-info active" role="button" aria-pressed="true">Editar</a>
+                   
 				
-			</tbody>
-		</Table>
-	{/await}
-	
+				</tr>
+			{/each}
+			
+		</tbody>
+	</Table>
 	<Pagination style="float:center;" ariaLabel="Cambiar de página">
 		<PaginationItem class="{pagActual === 1 ? 'disabled' : ''}">
 		  <PaginationLink previous href="#/international-tourisms" on:click="{() => incrementOffset(-1)}" />
@@ -263,33 +251,4 @@
 		  <PaginationLink next href="#/international-tourisms" on:click="{() => incrementOffset(1)}"/>
 		</PaginationItem>
 	</Pagination>
-
-	<Table bordered>
-        <tbody>
-            <tr>
-                <td>
-                    <FormGroup style="width:50%;"> 
-                    <label >Indique el País:</label>
-                    <Input type ="text" name="selectCountry" id="selectCountry" bind:value="{actualCountry}">
-
-                    </Input>
-                    </FormGroup>
-                </td>
-                <td>
-                    <FormGroup style="width:50%;">
-                        <label > Seleccione el año: </label>
-                        <Input type ="number" name="selectYear" id="selectYear" bind:value="{actualYear}">
-
-                        </Input>
-                    </FormGroup>
-                </td>
-                <td>
-                    <div style="text-align:center;padding-bottom: 3%;margin-top: 6%;">
-                        <Button outline  color="primary" on:click="{buscaRegistro(actualCountry,actualYear)}" class="button-search" >Buscar</Button>
-                        <Button outline  color="secondary" href="javascript:location.reload()">Volver</Button>
-                    </div>
-                </td>
-            </tr>
-        </tbody>
-    </Table>
 </main>
