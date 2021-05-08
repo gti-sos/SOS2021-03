@@ -33,7 +33,7 @@
 <title>Readme fichero</title>
 </head>
 
-<main style="background-color: lightblue;">
+<main>
 	<h1>SOS2021-03</h1>
 	<h3>Github</h3>
 	<div> - [Joan Villalonga Alvaro]<a href="https://github.com/joavilalv">(https://github.com/joavilalv)</a></div>
@@ -83,18 +83,18 @@
 			<br>
 			<br>
 			<a href="https://github.com/Paula0008" class="btn btn-outline-info" role="button" aria-pressed="true">Cuenta de Github</a>
-			<a href="https://ourworldindata.org/grapher/death-rates-from-air-pollution" class="btn btn-outline-info" role="button" aria-pressed="true">Muertes por contaminación del aire(Fuente)</a>
+			<a href="https://data.worldbank.org/indicator/ST.INT.RCPT.XP.ZS?end=2018&most_recent_year_desc=false&start=2018&view=map&year=1995" class="btn btn-outline-info" role="button" aria-pressed="true">Fuente utilizada</a>
 			<br>
 			<br>
 			
-			Estadísticas de muertes por contaminación del aire: 
+			Turismo internacional: 
 			<br>
 			<br>
-			<a href="#/air-pollution" class="btn btn-outline-info" role="button" aria-pressed="true">Abrir estadisticas(front-end)</a>
+			<a href="#/air-pollution" class="btn btn-outline-info" role="button" aria-pressed="true">Ver estadísticas(front-end)</a>
 			<br>
-			<a href="https://sos2021-03.herokuapp.com/api/v1/air-pollution" class="btn btn-outline-secondary" role="button" aria-pressed="true">API Muertes por contaminación del aire</a>
+			<a href="https://sos2021-03.herokuapp.com/api/v1/international-tourisms" class="btn btn-outline-secondary" role="button" aria-pressed="true">API turismo internacional</a>
 			<br>
-			<a href="https://documenter.getpostman.com/view/14974548/TzJoE1G7" class="btn btn-outline-warning" role="button" aria-pressed="true">TEST de POSTMAN</a>
+			<a href="https://documenter.getpostman.com/view/9683446/TzJoE1Zk" class="btn btn-outline-secondary" role="button" aria-pressed="true">Test de POSTMAN</a>
 
 		</li>
 
