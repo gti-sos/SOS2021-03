@@ -262,8 +262,16 @@
 				<td><input type ="number" name="selectYear" id="selectYear" bind:value="{searchyear}"></td>
                 <td>
                     <div style="text-align:center;padding-bottom: 3%;margin-top: 6%;">
-                        <Button outline  color="primary" on:click="{buscaRegistro(searchcountry,searchyear)}" href="#/international-tourisms/{searchcountry}/{searchyear}">Buscar</Button>
-                    </div>
+						{#if searchcountry && searchyear}
+                        	<Button outline  color="primary" on:click="{buscaRegistro(searchcountry,searchyear)}" href="#/international-tourisms/{searchcountry}/{searchyear}">Buscar</Button>
+						{/if}
+						{#if searchcountry && !searchyear}
+                        	<Button outline  color="primary" on:click="{buscaRegistro(searchcountry,searchyear)}" href="#/international-tourisms/{searchcountry}/">Buscar</Button>
+						{/if}
+						{#if !searchcountry && searchyear}
+                        	<Button outline  color="primary" on:click="{buscaRegistro(searchcountry,searchyear)}" href="#/international-tourisms/{searchyear}/">Buscar</Button>
+						{/if}
+					</div>
                 </td>
             </tr>
         </tbody>
