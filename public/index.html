@@ -13,17 +13,28 @@
 	<script defer src='/build/bundle.js'></script>
 	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-	
+	<script>import {
+		Collapse,
+		Navbar,
+		NavbarToggler,
+		NavbarBrand,
+		Nav,
+		NavItem,
+		NavLink,
+		Dropdown,
+		DropdownToggle,
+		DropdownMenu,
+		DropdownItem
+	  } from 'sveltestrap'
+	</script>
 
 </head>
 <header style="background-image: url('header2.jpg'); background-size: 35%; padding: 3em;">
-</header>
-<body>
-	<nav class="navbar navbar-expand-lg navbar-light bg-light" >
+	<nav class="navbar navbar-expand-lg navbar-light bg-rgb(199, 254, 255)" >
 		<div class="collapse navbar-collapse" id="navbarSupportedContent">
 			<ul class="navbar-nav mr-auto">
 				<li class="nav-item active">
-					<a class="nav-link" href="#/">Información <span class="sr-only">(current)</span></a>
+					<a class="nav-link" href="#/info">Información <span class="sr-only">(current)</span></a>
 				</li>
 				<li class="nav-item dropdown active">
 					<a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -39,29 +50,42 @@
 					</div>
 				</li>
 				<li class="nav-item dropdown active">
-					<a href="#/" class="nav-link dropdown-toggle" id="navbardrop" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-					Online Media
+					<a class="nav-link dropdown-toggle" id="navbardrop" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+					APIs
 					</a>
 					<div class="dropdown-menu" aria-labelledby="navbarDropdown">
-						<a class="dropdown-item" href="#/onlinemedia-stats"> Api Front-end Online Media</a>
-						<a class="dropdown-item" href="/api/v1/onlinemedia-stats/">Back-end Online Media</a>
+						<a class="dropdown-item" href="https://sos2021-03.herokuapp.com/api/v1/air-pollution"> Contaminación del aire</a>
+						<a class="dropdown-item" href="https://sos2021-03.herokuapp.com/api/v1/international-tourisms">Turismo internacional</a>
+						<a class="dropdown-item" href="https://sos2021-03.herokuapp.com/api/v1/quality-of-life">Calidad de vida</a>
 					</div>
 				</li>
 				<li class="nav-item dropdown active">
-					<a href="#/" class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-						Streaming
+					<a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+						Estadísticas
 					</a>
 					<div class="dropdown-menu" aria-labelledby="navbarDropdown">
-					<a class="dropdown-item" href="#/streaming-stats"> Api Front-end Streaming</a>
-					<a class="dropdown-item" href="/api/v1/streaming-stats">Back-end Streaming</a>
+					<a class="dropdown-item" href="#/air-pollution"> Contaminación del aire</a>
+					<a class="dropdown-item" href="#/inteTourism">Turismo internacional</a>
+					<a class="dropdown-item" href="#/*">Calidad de vida</a>
 					</div>
 				</li>
-				<li class="nav-item active">
-					<a class="nav-link" href="#/info">Información <span class="sr-only"></span></a>
+				<li class="nav-item dropdown active">
+					<a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+						Postman
+					</a>
+					<div class="dropdown-menu" aria-labelledby="navbarDropdown">
+					<a class="dropdown-item" href="https://documenter.getpostman.com/view/14974548/TzJoE1G7"> Contaminación del aire</a>
+					<a class="dropdown-item" href="https://documenter.getpostman.com/view/9683446/TzJoE1Zk">Turismo internacional</a>
+					<a class="dropdown-item" href="https://documenter.getpostman.com/view/14967959/TzJydbsW">Calidad de vida</a>
+					</div>
 				</li>
 			</ul>
 		</div>
 	</nav>
+	
+
+</header>
+<body>
 	
 </body>
 </html>

@@ -37,7 +37,7 @@
 	<h1>SOS2021-03</h1>
 
 	<a href="https://github.com/joavilalv"> - [Joan Villalonga Alvaro](https://github.com/joavilalv)</a>
-	<div> - [Paula Garrido Lerma]<a href="https://github.com/joavilalv">(https://github.com/Paula0008)</a></div>
+	<div> - [Paula Garrido Lerma]<a href="https://github.com/Paula0008">(https://github.com/Paula0008)</a></div>
 	<div> - [Ayman Alaoui Mhammedi](https://github.com/AymanAlaouiMhammedi)</div>
 	<div> - *Project description*: Nuestras fuentes de información están orientadas a analizar la relación que existe entre como la calidad de vida puede influenciar al turismo y este ver si al viajar más, es decir, se usan más transportes, hace que aumente la contaminación del aire y las muertes que esto conlleva.</div>
 	<div> - *Repository*: [gti-sos/SOS2021-03](https://github.com/gti-sos/SOS2021-03.git)</div>
