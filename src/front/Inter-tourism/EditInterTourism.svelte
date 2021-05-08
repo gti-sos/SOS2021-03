@@ -6,7 +6,9 @@
     import {
         pop
     } from "svelte-spa-router";
-
+    
+    import { Alert } from 'sveltestrap';
+      
 
     import Table from "sveltestrap/src/Table.svelte";
     import Button from "sveltestrap/src/Button.svelte";
@@ -95,8 +97,16 @@
                 </tr>
         </tbody>
         </Table>
-    {#if errorMsg}
-        <p style="color: red">ERROR: {errorMsg}</p>
+    {#if errorMsg == "404"}
+        <Alert color="danger" dismissible>
+        No se ha podido actualizar su modificación, dato no encontrado.
+        </Alert>
     {/if}
+    {#if getRegisters} 
+      <Alert color="success" dismissible>
+       El dato ha sido actualizado con éxito!
+      </Alert>
+    {/if}
+
     <Button outline color="secondary" on:click="{pop}">Volver</Button>
 </main>
