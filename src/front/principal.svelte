@@ -33,15 +33,16 @@
 <title>Readme fichero</title>
 </head>
 
-<main>
+<main style="background-color: cadetblue;">
 	<h1>SOS2021-03</h1>
-
-	<a href="https://github.com/joavilalv"> - [Joan Villalonga Alvaro](https://github.com/joavilalv)</a>
+	<h3>Github</h3>
+	<div> - [Joan Villalonga Alvaro]<a href="https://github.com/joavilalv">(https://github.com/joavilalv)</a></div>
 	<div> - [Paula Garrido Lerma]<a href="https://github.com/Paula0008">(https://github.com/Paula0008)</a></div>
-	<div> - [Ayman Alaoui Mhammedi](https://github.com/AymanAlaouiMhammedi)</div>
+	<div> - [Ayman Alaoui Mhammedi]<a href="https://github.com/AymanAlaouiMhammedi">https://github.com/AymanAlaouiMhammedi)</a></div>
+	<h3>Proyecto</h3>
 	<div> - *Project description*: Nuestras fuentes de información están orientadas a analizar la relación que existe entre como la calidad de vida puede influenciar al turismo y este ver si al viajar más, es decir, se usan más transportes, hace que aumente la contaminación del aire y las muertes que esto conlleva.</div>
-	<div> - *Repository*: [gti-sos/SOS2021-03](https://github.com/gti-sos/SOS2021-03.git)</div>
-	<div> - *URL*: [http://sos2021-03.herokuapp.com](http://sos2021-03.herokuapp.com)</div>
+	<div> - *Repository*: [gti-sos/SOS2021-03] <a href="https://github.com/gti-sos/SOS2021-03.git">(https://github.com/gti-sos/SOS2021-03.git)</a></div>
+	<div> - *URL*: [http://sos2021-03.herokuapp.com] <a href="http://sos2021-03.herokuapp.com">(http://sos2021-03.herokuapp.com)</a></div>
 	<div> -  *APIs*:</div>
 	<div><a href="https://documenter.getpostman.com/view/14974548/TzJoE1G7">- POSTMAN: https://documenter.getpostman.com/view/14974548/TzJoE1G7</a>
 	<a href= "https://sos2021-03.herokuapp.com/api/v1/air-pollution">[https://sos2021-03.herokuapp.com/api/v1/air-pollution](https://sos2021-03.herokuapp.com/api/v1/air-pollution) (developed by [Joan Villalonga Alvaro](https://github.com/joavilalv))</a></div>
@@ -63,7 +64,6 @@
 			<br>
 			<br>
 			<a href="https://github.com/joavilalv" class="btn btn-outline-info" role="button" aria-pressed="true">Cuenta de Github</a>
-			<a href="https://github.com/gti-sos/SOS2021-03.git" class="btn btn-outline-info" role="button" aria-pressed="true">Repositorio del grupo</a>
 			<a href="https://ourworldindata.org/grapher/death-rates-from-air-pollution" class="btn btn-outline-info" role="button" aria-pressed="true">Muertes por contaminación del aire(Fuente)</a>
 			<br>
 			<br>
@@ -79,20 +79,24 @@
 
 		</li>
 
-		<li>Datos de turismo internacional:
-		 <p>
-		   	 <Button outline color="warning" on:click={toggle}>Mostrar</Button>
-		   	 <Modal isOpen={open} {toggle} size= 'lg'>
-				<ModalHeader {toggle}>Datos de turismo internacional:</ModalHeader>
-				<ModalBody>
-					<InterTourism/>
-				</ModalBody>
-				<ModalFooter>
-				  <Button color="secondary" on:click={toggle}>Cerrar</Button>
-				</ModalFooter>
-		  		</Modal>
-			</p>
-	   </li>
+		<li>Desarrollado por Paula Garrido Lerma.
+			<br>
+			<br>
+			<a href="https://github.com/Paula0008" class="btn btn-outline-info" role="button" aria-pressed="true">Cuenta de Github</a>
+			<a href="https://ourworldindata.org/grapher/death-rates-from-air-pollution" class="btn btn-outline-info" role="button" aria-pressed="true">Muertes por contaminación del aire(Fuente)</a>
+			<br>
+			<br>
+			
+			Estadísticas de muertes por contaminación del aire: 
+			<br>
+			<br>
+			<a href="#/air-pollution" class="btn btn-outline-info" role="button" aria-pressed="true">Abrir estadisticas(front-end)</a>
+			<br>
+			<a href="https://sos2021-03.herokuapp.com/api/v1/air-pollution" class="btn btn-outline-secondary" role="button" aria-pressed="true">API Muertes por contaminación del aire</a>
+			<br>
+			<a href="https://documenter.getpostman.com/view/14974548/TzJoE1G7" class="btn btn-outline-warning" role="button" aria-pressed="true">TEST de POSTMAN</a>
+
+		</li>
 
 	   <li>Indices de calidad de vida: 
 			<p>

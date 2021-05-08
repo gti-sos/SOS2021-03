@@ -27,6 +27,11 @@
 		DropdownMenu,
 		DropdownItem
 	  } from 'sveltestrap'
+
+		let isOpen = false;
+
+		function handleUpdate(event) {
+			isOpen = event.detail.isOpen;
 	</script>
 
 </head>
@@ -40,7 +45,7 @@
 					<a class="nav-link" href="#/info">Información <span class="sr-only">(current)</span></a>
 				</li>
 				<li class="nav-item dropdown">
-					<a href="#" class="nav-link dropdown-toggle" id="navbarDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+					<a href="" class="nav-link dropdown-toggle" id="navbarDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 						Github
 					</a>
 					<div class="dropdown-menu" aria-labelledby="navbarDropdown">
@@ -53,7 +58,7 @@
 					</div>
 				</li>
 				<li class="nav-item dropdown">
-					<a href="#" class="nav-link dropdown-toggle" id="navbardrop" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+					<a href="" class="nav-link dropdown-toggle" id="navbardrop" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 					APIs
 					</a>
 					<div class="dropdown-menu" aria-labelledby="navbarDropdown">
@@ -63,7 +68,7 @@
 					</div>
 				</li>
 				<li class="nav-item dropdown">
-					<a href="#" class="nav-link dropdown-toggle" id="navbarDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+					<a href="" class="nav-link dropdown-toggle" id="navbarDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 						Estadísticas
 					</a>
 					<div class="dropdown-menu" aria-labelledby="navbarDropdown">
@@ -73,7 +78,7 @@
 					</div>
 				</li>
 				<li class="nav-item dropdown">
-					<a href="#" class="nav-link dropdown-toggle" id="navbarDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+					<a href="" class="nav-link dropdown-toggle" id="navbarDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 						Postman
 					</a>
 					<div class="dropdown-menu" aria-labelledby="navbarDropdown">
@@ -85,5 +90,29 @@
 			</ul>
 		</div>
 	</nav>
+
+	<Navbar color="light" light expand="md">
+  <NavbarBrand href="/">sveltestrap</NavbarBrand>
+  <NavbarToggler on:click={() => (isOpen = !isOpen)} />
+  <Collapse {isOpen} navbar expand="md" on:update={handleUpdate}>
+    <Nav class="ml-auto" navbar>
+      <NavItem>
+        <NavLink href="#components/">Components</NavLink>
+      </NavItem>
+      <NavItem>
+        <NavLink href="https://github.com/bestguy/sveltestrap">GitHub</NavLink>
+      </NavItem>
+      <Dropdown nav inNavbar>
+        <DropdownToggle nav caret>Options</DropdownToggle>
+        <DropdownMenu right>
+          <DropdownItem>Option 1</DropdownItem>
+          <DropdownItem>Option 2</DropdownItem>
+          <DropdownItem divider />
+          <DropdownItem>Reset</DropdownItem>
+        </DropdownMenu>
+      </Dropdown>
+    </Nav>
+  </Collapse>
+</Navbar>
 </body>
 </html>
