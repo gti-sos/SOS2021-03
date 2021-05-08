@@ -193,49 +193,75 @@
 	<h2>
         Tabla de estadisticas:
     </h2>
-    <br>
-    <Button on:click={loadInitialData}>Cargar los datos</Button>
-    <Button on:click={deleteAll}>Borrar todos los datos</Button>
-    <br>
-    <Button outline color="info" style="font-size: 16px;border-radius: 4px;background-color: white;" on:click="{buscaRegistro(searchcountry, searchyear)}" class="button-search"> Buscar </Button>
-    
-	<Table bordered>
-		<thead>
-			<tr>
-				<td>Pais</td>
-				<td>Año</td>
-				<td>Número de llegadas</td>
-				<td>Número de salidas</td>
-				<td>Gastos en billones</td>
-			</tr>
-		</thead>
-		<tbody>
-			<tr>
-                <td><input bind:value="{newRegister.country}"></td>
-					<td><input type=number bind:value={newRegister.year}></td>
-					<td><input type=number bind:value={newRegister.numberofarribals}></td>
-					<td><input type=number bind:value={newRegister.numberofdepartures}></td>
-					<td><input type=number bind:value={newRegister.expendituresbillion}></td>
-					<td><Button on:click={insertRegister}>Añadir</Button>
-                </td>
-            </tr>
-			{#each inter_tourism as r}
+	{#await countries}
+		Loading datas...
+	{:then countries}
+		<br>
+		<Button on:click={loadInitialData}>Cargar los datos</Button>
+		<Button on:click={deleteAll}>Borrar todos los datos</Button>
+		<br>
+		<Button outline color="info" style="font-size: 16px;border-radius: 4px;background-color: white;" on:click="{buscaRegistro(searchcountry, searchyear)}" class="button-search"> Buscar </Button>
+		
+		<Table bordered>
+			<thead>
 				<tr>
-				<td>{r.country}</td>
-				<td>{r.year}</td>
-				<td>{r.numberofarribals}</td>
-				<td>{r.numberofdepartures}</td>
-				<td>{r.expendituresbillion}</td>
-				<td><Button on:click={deleteRegister(r.country, r.year)}>Borrar</Button>
-                    <br>
-                <a href="#/international-tourisms/{r.country}/{r.year}" class="btn btn-info active" role="button" aria-pressed="true">Editar</a>
-                   
-				
+					<td>Pais</td>
+					<td>Año</td>
+					<td>Número de llegadas</td>
+					<td>Número de salidas</td>
+					<td>Gastos en billones</td>
 				</tr>
-			{/each}
-			
-		</tbody>
-	</Table>
+			</thead>
+			<tbody>
+				<tr>
+					<td><input bind:value="{newRegister.country}"></td>
+						<td><input type=number bind:value={newRegister.year}></td>
+						<td><input type=number bind:value={newRegister.numberofarribals}></td>
+						<td><input type=number bind:value={newRegister.numberofdepartures}></td>
+						<td><input type=number bind:value={newRegister.expendituresbillion}></td>
+						<td><Button on:click={insertRegister}>Añadir</Button>
+					</td>
+				</tr>
+				{#each inter_tourism as r}
+					<tr>
+					<td>{r.country}</td>
+					<td>{r.year}</td>
+					<td>{r.numberofarribals}</td>
+					<td>{r.numberofdepartures}</td>
+					<td>{r.expendituresbillion}</td>
+					<td><Button on:click={deleteRegister(r.country, r.year)}>Borrar</Button>
+						<br>
+					<a href="#/international-tourisms/{r.country}/{r.year}" class="btn btn-info active" role="button" aria-pressed="true">Editar</a>
+					
+					
+					</tr>
+				{/each}
+				
+			</tbody>
+		</Table>
+	{/await}
+	
+	<Pagination style="float:center;" ariaLabel="Cambiar de página">
+		<PaginationItem class="{pagActual === 1 ? 'disabled' : ''}">
+		  <PaginationLink previous href="#/international-tourisms" on:click="{() => incrementOffset(-1)}" />
+		</PaginationItem>
+		{#if pagActual != 1}
+		<PaginationItem>
+			<PaginationLink href="#/international-tourisms" on:click="{() => incrementOffset(-1)}" >{pagActual - 1}</PaginationLink>
+		</PaginationItem>
+		{/if}
+		<PaginationItem active>
+			<PaginationLink href="#/international-tourisms" >{pagActual}</PaginationLink>
+		</PaginationItem>
+		{#if moreRegisters}
+		<PaginationItem >
+			<PaginationLink href="#/international-tourisms" on:click="{() => incrementOffset(1)}">{pagActual + 1}</PaginationLink>
+		</PaginationItem>
+		{/if}
+		<PaginationItem class="{moreRegisters ? '' : 'disabled'}">
+		  <PaginationLink next href="#/international-tourisms" on:click="{() => incrementOffset(1)}"/>
+		</PaginationItem>
+	</Pagination>
 
 	<Table bordered>
         <tbody>
@@ -265,25 +291,4 @@
             </tr>
         </tbody>
     </Table>
-	<Pagination style="float:center;" ariaLabel="Cambiar de página">
-		<PaginationItem class="{pagActual === 1 ? 'disabled' : ''}">
-		  <PaginationLink previous href="#/international-tourisms" on:click="{() => incrementOffset(-1)}" />
-		</PaginationItem>
-		{#if pagActual != 1}
-		<PaginationItem>
-			<PaginationLink href="#/international-tourisms" on:click="{() => incrementOffset(-1)}" >{pagActual - 1}</PaginationLink>
-		</PaginationItem>
-		{/if}
-		<PaginationItem active>
-			<PaginationLink href="#/international-tourisms" >{pagActual}</PaginationLink>
-		</PaginationItem>
-		{#if moreRegisters}
-		<PaginationItem >
-			<PaginationLink href="#/international-tourisms" on:click="{() => incrementOffset(1)}">{pagActual + 1}</PaginationLink>
-		</PaginationItem>
-		{/if}
-		<PaginationItem class="{moreRegisters ? '' : 'disabled'}">
-		  <PaginationLink next href="#/international-tourisms" on:click="{() => incrementOffset(1)}"/>
-		</PaginationItem>
-	</Pagination>
 </main>
