@@ -20,8 +20,8 @@
         "/air-pollution": AirPollution,
 		"/air-pollution/:country/:year": EditAirPollution,
         "*": NotFound,
-		"/inteTourism": InterTourism,
-		"/inter-tourism/:country/:year": EditIntertourism		
+		"/international-tourisms": InterTourism,
+		"/international-tourisms/:country/:year": EditIntertourism		
 	}
 	
  

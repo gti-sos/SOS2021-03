@@ -234,23 +234,23 @@
 	</Table>
 	<Pagination style="float:center;" ariaLabel="Cambiar de página">
 		<PaginationItem class="{pagActual === 1 ? 'disabled' : ''}">
-		  <PaginationLink previous href="#/inteTourism" on:click="{() => incrementOffset(-1)}" />
+		  <PaginationLink previous href="#/international-tourisms" on:click="{() => incrementOffset(-1)}" />
 		</PaginationItem>
 		{#if pagActual != 1}
 		<PaginationItem>
-			<PaginationLink href="#/inteTourism" on:click="{() => incrementOffset(-1)}" >{pagActual - 1}</PaginationLink>
+			<PaginationLink href="#/international-tourisms" on:click="{() => incrementOffset(-1)}" >{pagActual - 1}</PaginationLink>
 		</PaginationItem>
 		{/if}
 		<PaginationItem active>
-			<PaginationLink href="#/inteTourism" >{pagActual}</PaginationLink>
+			<PaginationLink href="#/international-tourisms" >{pagActual}</PaginationLink>
 		</PaginationItem>
 		{#if moreRegisters}
 		<PaginationItem >
-			<PaginationLink href="#/inteTourism" on:click="{() => incrementOffset(1)}">{pagActual + 1}</PaginationLink>
+			<PaginationLink href="#/international-tourisms" on:click="{() => incrementOffset(1)}">{pagActual + 1}</PaginationLink>
 		</PaginationItem>
 		{/if}
 		<PaginationItem class="{moreRegisters ? '' : 'disabled'}">
-		  <PaginationLink next href="#/inteTourism" on:click="{() => incrementOffset(1)}"/>
+		  <PaginationLink next href="#/international-tourisms" on:click="{() => incrementOffset(1)}"/>
 		</PaginationItem>
 	</Pagination>
 </main>
