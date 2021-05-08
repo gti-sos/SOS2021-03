@@ -20,7 +20,7 @@
     let updatedArribals = 0.0;
     let updatedDepartures = 0.0;
     let updatedExpenditures = 0.0;
-    let errorMsg = "";
+    let SuccessMsg = "";
 
     onMount(getRegisters);
 
@@ -80,32 +80,36 @@
 </script>
 <main>
     <h3>Editar registro con pais <strong>{params.country}</strong> y año <strong>{params.year}</strong></h3>
+    {#await register}
+        Loading countries...
+    {:then register}  
         <Table bordered>
-            <thead>
-                <tr>
-                    <th>Pais</th>
-                    <th>Año</th>
-                    <th>Número de llegadas</th>
-                    <th>Número de salidas</th>
-                    <th>Gastos en billones</th>
-                    <th>Acciones</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>{updatedCountry}</td>
-                    <td>{updatedYear}</td>
+                <thead>
+                    <tr>
+                        <th>Pais</th>
+                        <th>Año</th>
+                        <th>Número de llegadas</th>
+                        <th>Número de salidas</th>
+                        <th>Gastos en billones</th>
+                        <th>Acciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>{updatedCountry}</td>
+                        <td>{updatedYear}</td>
 
 
-                    <td><input bind:value="{updatedArribals}"></td>
-                    <td><input bind:value="{updatedDepartures}"></td>
-                    <td><input bind:value="{updatedExpenditures}"></td>
-                    <td> <Button outline  color="primary" on:click={updateRegister}>Actualizar</Button> </td>
-                </tr>
-        </tbody>
+                        <td><input type = "number" bind:value="{updatedArribals}"></td>
+                        <td><input type = "number" bind:value="{updatedDepartures}"></td>
+                        <td><input type = "number" bind:value="{updatedExpenditures}"></td>
+                        <td> <Button outline  color="primary" on:click={updateRegister}>Actualizar</Button> </td>
+                    </tr>
+            </tbody>
         </Table>
-    {#if !errorMsg}
-        <p style="color: green">País actualizado con éxito</p>
+    {/await}
+    {#if SuccessMsg}
+        <p style="color: green">{SuccessMsg}. País actualizado con éxito</p>
     {/if}
     <Button outline color="secondary" on:click="{pop}">Volver</Button>
 </main>

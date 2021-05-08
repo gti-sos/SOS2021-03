@@ -5,6 +5,9 @@
 	
 	import Table from "sveltestrap/src/Table.svelte";
 	import Button from "sveltestrap/src/Button.svelte";
+	import Input from "sveltestrap/src/Input.svelte";
+	import FormGroup from "sveltestrap/src/FormGroup.svelte";
+	import Label from "sveltestrap/src/Label.svelte";
 	import { Pagination, PaginationItem, PaginationLink } from 'sveltestrap';
     
 	let inter_tourism = [];
@@ -16,12 +19,16 @@
         "expendituresbillion": 0
 	}
     let long = 10;
-    let searchcountry = "";
-    let searchyear = 0;
     let offset = 0;
     let moreRegisters = true;
     let pagActual = 1;
     const BASE_CONTACT_API_PATH = "/api/v1";
+
+	//busquedas
+	let actualCountry = "";
+    let actualYear = "";
+	let country = [];
+    let year = [];
 
 	async function getRegisters() {
     	console.log("Fetching data...");
@@ -51,21 +58,20 @@
 		getRegisters();
     }
 
-	async function loadInitialData(){
-		console.log("Fetching registers...");
-		const res = await fetch("/api/v1/international-tourisms/loadInitialData").then( (res)=> {
-                        if(res.status==200){
-                            
-                            window.alert("Datos insertados correctamente.")
-                        }else if (status==409){
-                            
-                            window.alert("Los datos ya están cargados, si quiere volver a cargarlos deberá eliminar primero los actuales.")
-                        }
-                        getRegisters();
-						})
+	async function loadInitialData() {
+		const res = await fetch("/api/v1/international-tourisms/loadInitialData", {
+      		method: "GET"
+        }).then(function (res) {
+			if(res.status == 200){
+            	window.alert("Insetando elementos en la tabla");
+        	}else if(res.status == 409){
+            	window.alert("No es posible realizar la accion ya que hay elementos en ella,pulse el boton de eliminar para poder ejecutar esta accion");
+      	  }
+			getRegisters();
+			});
 		
 	}
-
+	     
 	async function insertRegister(){
         console.log("Inserting register "+ JSON.stringify(newRegister));
 
@@ -152,21 +158,28 @@
 			console.log("OK");
 			const json = await res.json();
             console.log(json);
-			interTourisms=[json];	
+			interTourisms=json;	
             console.log("international-tourisms now is that:");
             console.log(interTourisms);	
             console.log(interTourisms.length);
 			console.log("Encontrados " + interTourisms.length + " registros.");
-            
+			
+			if(country =="" && year==""){
+				window.alert("Introduce datos");
+			}else if(interTourisms.length > 0){
+				window.alert("Datos encontrados");
+			}else{
+				window.alert("No hay resultados");
+			}
+			/*
             if(interTourisms.length > 0 || interTourisms[0]!=[]){
                 window.alert("Se han encontrado: "+ interTourisms.length + " resultados.");
                 
             }
             else{
                 window.alert("No se han encontrado registros para esta busqueda");
-            }
-        } 
-        else {
+            }*/
+        }else {
 			console.log("ERROR");
 		}
 		
@@ -188,15 +201,6 @@
     
 	<Table bordered>
 		<thead>
-			<tr>
-				<td>Introducir datos para realizar una busqueda:</td>
-				<td>Pais</td>
-				<td><input bind:value="{searchcountry}"></td>
-				<td>Año</td>
-				<td><input type=number bind:value={searchyear}></td>
-				<td><Button on:click={buscaRegistro(searchcountry, searchyear)}>Buscar</Button>
-			</td>
-		</tr>
 			<tr>
 				<td>Pais</td>
 				<td>Año</td>
@@ -232,6 +236,35 @@
 			
 		</tbody>
 	</Table>
+
+	<Table bordered>
+        <tbody>
+            <tr>
+                <td>
+                    <FormGroup style="width:50%;"> 
+                    <Label >Indique el País:</Label>
+                    <Input type ="text" name="selectCountry" id="selectCountry" bind:value="{actualCountry}">
+
+                    </Input>
+                    </FormGroup>
+                </td>
+                <td>
+                    <FormGroup style="width:50%;">
+                        <Label > Seleccione el año: </Label>
+                        <Input type ="number" name="selectYear" id="selectYear" bind:value="{actualYear}">
+
+                        </Input>
+                    </FormGroup>
+                </td>
+                <td>
+                    <div style="text-align:center;padding-bottom: 3%;margin-top: 6%;">
+                        <Button outline  color="primary" on:click="{buscaRegistro(actualCountry,actualYear)}" class="button-search" >Buscar</Button>
+                        <Button outline  color="secondary" href="javascript:location.reload()">Volver</Button>
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </Table>
 	<Pagination style="float:center;" ariaLabel="Cambiar de página">
 		<PaginationItem class="{pagActual === 1 ? 'disabled' : ''}">
 		  <PaginationLink previous href="#/international-tourisms" on:click="{() => incrementOffset(-1)}" />
