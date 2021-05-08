@@ -193,9 +193,9 @@
 	<h2>
         Tabla de estadisticas:
     </h2>
-	{#await countries}
+	{#await inter_tourism}
 		Loading datas...
-	{:then countries}
+	{:then inter_tourism}
 		<br>
 		<Button on:click={loadInitialData}>Cargar los datos</Button>
 		<Button on:click={deleteAll}>Borrar todos los datos</Button>
