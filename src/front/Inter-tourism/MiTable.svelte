@@ -127,9 +127,7 @@
 
 	async function buscaRegistro(country, year) {
 		console.log("Realizando búsqueda del país: " + country + " y del año: " + year);
-        
-        year=parseInt(year);
-        
+                
         var url = "/api/v1/international-tourisms";
         
 		if (country != "" && year != "") {
@@ -215,7 +213,9 @@
             </tr>
 			{#each inter_tourism as r}
 				<tr>
-				<td>{r.country}</td>
+				<td>
+					<a href="#/happiness_rate/{c.country}/{c.year}">{c.country}</a>
+				</td>
 				<td>{r.year}</td>
 				<td>{r.numberofarribals}</td>
 				<td>{r.numberofdepartures}</td>
