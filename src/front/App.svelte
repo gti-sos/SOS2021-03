@@ -19,9 +19,9 @@
 		"/info": App,
         "/air-pollution": AirPollution,
 		"/air-pollution/:country/:year": EditAirPollution,
-        "*": NotFound,
 		"/international-tourisms": InterTourism,
-		"/international-tourisms/:country/:year": EditIntertourism		
+		"/international-tourisms/:country/:year": EditIntertourism,
+        "*": NotFound
 	}
 	
  
