@@ -15,22 +15,17 @@
     let register = {};
     let updatedCountry = "XXXX";
     let updatedYear = 1234;
-    let updateddeaths_ambient_particulate_matter_pollution = 12345;
-    let updateddeaths_household_air_pollution_from_solid_fuels = 12345;
-    let updateddeaths_air_pollution = 12345;
+    let updatedArribals = 12345;
+    let updatedDepartures = 12345;
+    let updatedExpenditures = 12345;
     let errorMsg = "";
-/*
-updated.deaths_ambient_particulate_matter_pollution
-updated.deaths_household_air_pollution_from_solid_fuels
-updated.deaths_air_pollution
-*/
 
     onMount(getRegisters);
 
     async function getRegisters() {
 
         console.log("Fetching registers...");
-        const res = await fetch("/api/v1/air-pollution/" + params.country+ "/"+params.year);
+        const res = await fetch("/api/v1/international-tourisms/" + params.country+ "/"+params.year);
 
         if (res.ok) {
             console.log("All OK");
@@ -38,9 +33,9 @@ updated.deaths_air_pollution
             register = json;
             updatedCountry = register.country;
             updatedYear = parseInt(register.year);
-            updateddeaths_ambient_particulate_matter_pollution = parseFloat(register.deaths_ambient_particulate_matter_pollution);
-            updateddeaths_household_air_pollution_from_solid_fuels = parseFloat(register.deaths_household_air_pollution_from_solid_fuels);
-            updateddeaths_air_pollution =parseFloat(register.deaths_air_pollution);
+            updatedArribals = parseFloat(register.numberofarribals);
+            updatedDepartures = parseFloat(register.numberofdepartures);
+            updatedExpenditures =parseFloat(register.expendituresbillion);
             console.log("Received register.");
         } else {
             errorMsg = res.status + ": " + res.statusText;
@@ -53,14 +48,14 @@ updated.deaths_air_pollution
 
         console.log("Updating register..." + JSON.stringify(params.country)+ ", " + JSON.stringify(params.year));
 
-        const res = await fetch("/api/v1/air-pollution/" + params.country+ "/"+params.year, {
+        const res = await fetch("/api/v1/international-tourisms/" + params.country+ "/"+params.year, {
             method: "PUT",
             body: JSON.stringify({
                 country: params.country,
                 year: params.year, 
-                deaths_ambient_particulate_matter_pollution: updateddeaths_ambient_particulate_matter_pollution,
-                deaths_household_air_pollution_from_solid_fuels: updateddeaths_household_air_pollution_from_solid_fuels,
-                deaths_air_pollution: updateddeaths_air_pollution
+                numberofarribals: updatedArribals,
+                numberofdepartures: updatedDepartures,
+                expendituresbillion: updatedExpenditures
                 
             }),
             headers: {
@@ -81,9 +76,9 @@ updated.deaths_air_pollution
                 <tr>
                     <th>Pais</th>
                     <th>Año</th>
-                    <th>Muertes por contaminación del aire de particulas</th>
-                    <th>Muertes por contaminación del aire por combustibles sólidos</th>
-                    <th>Muertes por contaminación del aire</th>
+                    <th>Número de llegadas</th>
+                    <th>Número de salidas</th>
+                    <th>Gastos en billones</th>
                     <th>Acciones</th>
                 </tr>
             </thead>
@@ -93,9 +88,9 @@ updated.deaths_air_pollution
                     <td>{updatedYear}</td>
 
 
-                    <td><input bind:value="{updateddeaths_ambient_particulate_matter_pollution}"></td>
-                    <td><input bind:value="{updateddeaths_household_air_pollution_from_solid_fuels}"></td>
-                    <td><input bind:value="{updateddeaths_air_pollution}"></td>
+                    <td><input bind:value="{updatedArribals}"></td>
+                    <td><input bind:value="{updatedDepartures}"></td>
+                    <td><input bind:value="{updatedExpenditures}"></td>
                     <td> <Button outline  color="primary" on:click={updateRegister}>Actualizar</Button> </td>
                 </tr>
         </tbody>

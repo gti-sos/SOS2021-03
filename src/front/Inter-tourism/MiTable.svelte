@@ -4,42 +4,199 @@
 	} from "svelte";
 	
 	import Table from "sveltestrap/src/Table.svelte";
+	import Button from "sveltestrap/src/Button.svelte";
+	import { Pagination, PaginationItem, PaginationLink } from 'sveltestrap';
+    
 	let inter_tourism = [];
-	
-	
-	async function RegisterData() {
-    	console.log("Loading data...");
-   		const res = await fetch("/api/v1/international-tourisms/loadInitialData");
-		
-        if(res.ok){
-			console.log("Ok.");
-			getRegisters();
-		}else{
-			console.log("Error");
-		}
-  	}
-	
+	let newRegister= {
+		"country": "", 
+        "year": 0, 
+        "numberofarribals": 0, 
+        "numberofdepartures": 0,
+        "expendituresbillion": 0
+	}
+    let long = 10;
+    let searchcountry = "";
+    let searchyear = 0;
+    let offset = 0;
+    let moreRegisters = true;
+    let pagActual = 1;
+    const BASE_CONTACT_API_PATH = "/api/v1";
+
 	async function getRegisters() {
     	console.log("Fetching data...");
-   		const res = await fetch("/api/v1/international-tourisms/");
-		
+   		const res = await fetch("/api/v1/international-tourisms?offset=" + long*offset+"&limit="+long);
+		const res2 = await fetch("/api/v1/international-tourisms?offset=" + long*(offset+1)+"&limit="+long);
+        
         if(res.ok){
 			console.log("Ok.");
 			const json = await res.json();
+			const json2 = await res2.json();
 			inter_tourism = json;
-			console.log(`We have ${inter_tourism.length} inter tourism.`)
+			if(json2.length==0){
+                moreRegisters=false;
+            }else{
+                moreRegisters = true;
+            }
+			console.log(`We have ${inter_tourism.length} registers.`);
+			console.log(JSON.stringify(inter_tourism));
 		}else{
-			console.log("Error");
+			console.log("Error!");
 		}
   	}
 	
+	function incrementOffset(num){
+		offset+=num;
+		pagActual+=num;
+		getRegisters();
+    }
+
+	async function loadInitialData(){
+		console.log("Fetching registers...");
+		const res = await fetch("/api/v1/international-tourisms/loadInitialData").then( (res)=> {
+                        if(res.status==200){
+                            
+                            window.alert("Datos insertados correctamente.")
+                        }else if (status==409){
+                            
+                            window.alert("Los datos ya están cargados, si quiere volver a cargarlos deberá eliminar primero los actuales.")
+                        }
+                        getRegisters();
+						})
+		
+	}
+
+	async function insertRegister(){
+        console.log("Inserting register "+ JSON.stringify(newRegister));
+
+        const res = await fetch(BASE_CONTACT_API_PATH+"/international-tourisms",
+                            {
+                                method: "POST",
+                                body: JSON.stringify(newRegister),
+                                headers:{
+                                    "Content-Type": "application/json"
+                                }
+                            }
+                           ).then( (res) => {
+                            
+                            if(res.status == 201){
+			                    window.alert("Nuevo registro creado correctamente. ");
+		                    }else if(res.status == 409){
+			                    window.alert("Dato ya existente. ");
+		                    }else if(res.status == 400){
+			                    window.alert("Datos no válidos(no puede quedarse vacío ningun campo. ");
+		                    }
+                            getRegisters();    
+                           })
+    }
+
+	async function deleteRegister(country, year){
+        console.log("Deleting register with country "+ country + " and year "+ year );
+
+        const res = await fetch(BASE_CONTACT_API_PATH+"/international-tourisms/"+country+"/"+year,
+                            {
+                                method: "DELETE"
+                            }
+                           ).then( (res) => {
+                            
+                            if(res.status == 200){
+                                window.alert("Dato eliminado correctamente. ");
+                            }else if(res.status == 404){
+                                window.alert("No existe ningun registro para eliminar con pais: " + country + " y año "+ year);
+                            }
+                            getRegisters();
+                           })
+    }
+
+	async function deleteAll(){
+		
+		const res = await fetch(BASE_CONTACT_API_PATH+"/international-tourisms",
+						{
+							method: "DELETE"
+							
+						}).then( (res)=> {
+                            
+                            if(res.status == 200){
+                                window.alert("Registros eliminados correctamente. ");
+                            }else if(res.status == 405){
+                                window.alert("No hay registros para eliminar. ");
+                            }
+						    getRegisters();
+						})
+		
+	}
+
+	async function buscaRegistro(country, year) {
+		console.log("Realizando búsqueda del país: " + country + " y del año: " + year);
+        
+        year=parseInt(year);
+        
+        var url = "/api/v1/international-tourisms";
+        
+		if (country != "" && year != "") {
+            url = url + "?country=" + country + "&year=" + year;
+            console.log(url);
+        } 
+        else if (country != "" && year == "") {
+            url = url + "?country=" + country;
+            console.log(url);
+        } 
+        else if (country == "" && year != "") {
+            url = url + "?year=" + year;
+            console.log(url);
+        }
+        
+        const res = await fetch(url);
+        
+		if (res.ok) {
+			console.log("OK");
+			const json = await res.json();
+            console.log(json);
+			interTourisms=[json];	
+            console.log("international-tourisms now is that:");
+            console.log(interTourisms);	
+            console.log(interTourisms.length);
+			console.log("Encontrados " + interTourisms.length + " registros.");
+            
+            if(interTourisms.length > 0 || interTourisms[0]!=[]){
+                window.alert("Se han encontrado: "+ interTourisms.length + " resultados.");
+                
+            }
+            else{
+                window.alert("No se han encontrado registros para esta busqueda");
+            }
+        } 
+        else {
+			console.log("ERROR");
+		}
+		
+	}
+
 	onMount(getRegisters);
 	
 </script>
 
 <main>
+	<h2>
+        Tabla de estadisticas:
+    </h2>
+    <br>
+    <Button on:click={loadInitialData}>Cargar los datos</Button>
+    <Button on:click={deleteAll}>Borrar todos los datos</Button>
+    <br>
+    <Button outline color="info" style="font-size: 16px;border-radius: 4px;background-color: white;" on:click="{buscaRegistro(searchcountry, searchyear)}" class="button-search"> Buscar </Button>
+    
 	<Table bordered>
 		<thead>
+			<tr>
+				<td>Introducir datos para realizar una busqueda:</td>
+				<td>Pais</td>
+				<td><input bind:value="{searchcountry}"></td>
+				<td>Año</td>
+				<td><input type=number bind:value={searchyear}></td>
+				<td><Button on:click={buscaRegistro(searchcountry, searchyear)}>Buscar</Button>
+			</td>
+		</tr>
 			<tr>
 				<td>Pais</td>
 				<td>Año</td>
@@ -49,6 +206,15 @@
 			</tr>
 		</thead>
 		<tbody>
+			<tr>
+                <td><input bind:value="{newRegister.country}"></td>
+					<td><input type=number bind:value={newRegister.year}></td>
+					<td><input type=number bind:value={newRegister.numberofarribals}></td>
+					<td><input type=number bind:value={newRegister.numberofdepartures}></td>
+					<td><input type=number bind:value={newRegister.expendituresbillion}></td>
+					<td><Button on:click={insertRegister}>Añadir</Button>
+                </td>
+            </tr>
 			{#each inter_tourism as r}
 				<tr>
 				<td>{r.country}</td>
@@ -56,11 +222,35 @@
 				<td>{r.numberofarribals}</td>
 				<td>{r.numberofdepartures}</td>
 				<td>{r.expendituresbillion}</td>
-				
+				<td><Button on:click={deleteRegister(r.country, r.year)}>Borrar</Button>
+                    <br>
+                <a href="#/inteTourism/{r.country}/{r.year}" class="btn btn-info active" role="button" aria-pressed="true">Editar</a>
+                   
 				
 				</tr>
 			{/each}
 			
 		</tbody>
 	</Table>
+	<Pagination style="float:center;" ariaLabel="Cambiar de página">
+		<PaginationItem class="{pagActual === 1 ? 'disabled' : ''}">
+		  <PaginationLink previous href="#/inteTourism" on:click="{() => incrementOffset(-1)}" />
+		</PaginationItem>
+		{#if pagActual != 1}
+		<PaginationItem>
+			<PaginationLink href="#/inteTourism" on:click="{() => incrementOffset(-1)}" >{pagActual - 1}</PaginationLink>
+		</PaginationItem>
+		{/if}
+		<PaginationItem active>
+			<PaginationLink href="#/inteTourism" >{pagActual}</PaginationLink>
+		</PaginationItem>
+		{#if moreRegisters}
+		<PaginationItem >
+			<PaginationLink href="#/inteTourism" on:click="{() => incrementOffset(1)}">{pagActual + 1}</PaginationLink>
+		</PaginationItem>
+		{/if}
+		<PaginationItem class="{moreRegisters ? '' : 'disabled'}">
+		  <PaginationLink next href="#/inteTourism" on:click="{() => incrementOffset(1)}"/>
+		</PaginationItem>
+	</Pagination>
 </main>
