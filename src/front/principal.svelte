@@ -33,7 +33,7 @@
 <title>Readme fichero</title>
 </head>
 
-<main style="background-color: cadetblue;">
+<main style="background-color: lightblue;">
 	<h1>SOS2021-03</h1>
 	<h3>Github</h3>
 	<div> - [Joan Villalonga Alvaro]<a href="https://github.com/joavilalv">(https://github.com/joavilalv)</a></div>

@@ -10,31 +10,12 @@
 	<link rel='stylesheet' href='/global.css'>
 	<link rel='stylesheet' href='/build/bundle.css'>
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"/>
-	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
 	<script defer src='/build/bundle.js'></script>
 	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-	<script>
-	import {
-		Collapse,
-		Navbar,
-		NavbarToggler,
-		NavbarBrand,
-		Nav,
-		NavItem,
-		NavLink,
-		Dropdown,
-		DropdownToggle,
-		DropdownMenu,
-		DropdownItem
-	  } from 'sveltestrap'
 
-		let isOpen = false;
-
-		function handleUpdate(event) {
-			isOpen = event.detail.isOpen;
-		}
-	</script>
 
 </head>
 <header style="background-image: url('header2.jpg'); background-size: 35%; padding: 3em;">
@@ -60,7 +41,7 @@
 					</div>
 				</li>
 				<li class="nav-item dropdown">
-					<a href="" class="nav-link dropdown-toggle" id="navbardrop" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+					<a href="#/" class="nav-link dropdown-toggle" id="navbardrop" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 					APIs
 					</a>
 					<div class="dropdown-menu" aria-labelledby="navbarDropdown">
@@ -70,13 +51,13 @@
 					</div>
 				</li>
 				<li class="nav-item dropdown">
-					<a href="" class="nav-link dropdown-toggle" id="navbarDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+					<a href="#" class="nav-link dropdown-toggle" id="navbarDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 						Estadísticas
 					</a>
 					<div class="dropdown-menu" aria-labelledby="navbarDropdown">
-					<a class="dropdown-item" href="#/air-pollution"> Contaminación del aire</a>
-					<a class="dropdown-item" href="#/inteTourism">Turismo internacional</a>
-					<a class="dropdown-item" href="#/*">Calidad de vida</a>
+						<a class="dropdown-item" href="#/air-pollution"> Contaminación del aire</a>
+						<a class="dropdown-item" href="#/inteTourism">Turismo internacional</a>
+						<a class="dropdown-item" href="#/*">Calidad de vida</a>
 					</div>
 				</li>
 				<li class="nav-item dropdown">
@@ -84,37 +65,13 @@
 						Postman
 					</a>
 					<div class="dropdown-menu" aria-labelledby="navbarDropdown">
-					<a class="dropdown-item" href="https://documenter.getpostman.com/view/14974548/TzJoE1G7"> Contaminación del aire</a>
-					<a class="dropdown-item" href="https://documenter.getpostman.com/view/9683446/TzJoE1Zk">Turismo internacional</a>
-					<a class="dropdown-item" href="https://documenter.getpostman.com/view/14967959/TzJydbsW">Calidad de vida</a>
+						<a class="dropdown-item" href="https://documenter.getpostman.com/view/14974548/TzJoE1G7"> Contaminación del aire</a>
+						<a class="dropdown-item" href="https://documenter.getpostman.com/view/9683446/TzJoE1Zk">Turismo internacional</a>
+						<a class="dropdown-item" href="https://documenter.getpostman.com/view/14967959/TzJydbsW">Calidad de vida</a>
 					</div>
 				</li>
 			</ul>
 		</div>
 	</nav>
-
-	<Navbar color="light" light expand="md">
-	<NavbarBrand href="/">sveltestrap</NavbarBrand>
-	<NavbarToggler on:click={() => (isOpen = !isOpen)} />
-		<Collapse {isOpen} navbar expand="md" on:update={handleUpdate}>
-			<Nav class="ml-auto" navbar>
-				<NavItem>
-					<NavLink href="#components/">Components</NavLink>
-				</NavItem>
-			<NavItem>
-				<NavLink href="https://github.com/bestguy/sveltestrap">GitHub</NavLink>
-			</NavItem>
-			<Dropdown nav inNavbar>
-				<DropdownToggle nav caret>Options</DropdownToggle>
-				<DropdownMenu right>
-					<DropdownItem>Option 1</DropdownItem>
-					<DropdownItem>Option 2</DropdownItem>
-					<DropdownItem divider />
-					<DropdownItem>Reset</DropdownItem>
-				</DropdownMenu>
-			</Dropdown>
-			</Nav>
-		</Collapse>
-	</Navbar>
 </body>
 </html>
