@@ -30,6 +30,8 @@
 	let country = [];
     let year = [];
 
+	onMount(getRegisters);
+	
 	async function getRegisters() {
     	console.log("Fetching data...");
    		const res = await fetch("/api/v1/international-tourisms?offset=" + long*offset+"&limit="+long);
@@ -185,7 +187,7 @@
 		
 	}
 
-	onMount(getRegisters);
+	
 	
 </script>
 
@@ -193,6 +195,7 @@
 	<h2>
         Tabla de estadisticas:
     </h2>
+	
 	{#await inter_tourism}
 		Loading datas...
 	{:then inter_tourism}
@@ -231,8 +234,7 @@
 					<td>{r.expendituresbillion}</td>
 					<td><Button on:click={deleteRegister(r.country, r.year)}>Borrar</Button>
 						<br>
-					<a href="#/international-tourisms/{r.country}/{r.year}" class="btn btn-info active" role="button" aria-pressed="true">Editar</a>
-					
+					<a href="#/international-tourisms/{r.country}/{r.year}" class="btn btn-info active" role="button" aria-pressed="true">Editar</a></td>
 					
 					</tr>
 				{/each}
