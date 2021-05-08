@@ -15,11 +15,11 @@
 
     export let params = {};
     let register = {};
-    let updatedCountry = "XXXX";
-    let updatedYear = 1234;
-    let updatedArribals = 12345;
-    let updatedDepartures = 12345;
-    let updatedExpenditures = 12345;
+    let updatedCountry = "";
+    let updatedYear = 0;
+    let updatedArribals = 0.0;
+    let updatedDepartures = 0.0;
+    let updatedExpenditures = 0.0;
     let errorMsg = "";
 
     onMount(getRegisters);
@@ -33,15 +33,15 @@
             console.log("All OK");
             const json = await res.json();
             register = json;
-            updatedCountry = register.country;
-            updatedYear = parseInt(register.year);
-            updatedArribals = parseFloat(register.numberofarribals);
-            updatedDepartures = parseFloat(register.numberofdepartures);
-            updatedExpenditures =parseFloat(register.expendituresbillion);
-            console.log("Received register.");
-        } else {
-            errorMsg = res.status + ": " + res.statusText;
-            console.log("ERROR!" + errorMsg);
+            updatedCountry = params.country;
+            updatedYear = parseInt(params.year);
+            updatedArribals = register.numberofarribals;
+            updatedDepartures = register.numberofdepartures;
+            updatedExpenditures = register.expendituresbillion;
+            console.log("Received modifications.");
+        } else if(res.status == 404){
+            window.alert("El dato: " + params.country + " " + params.year + " no existe");
+        
         }
     }
 
@@ -54,7 +54,7 @@
             method: "PUT",
             body: JSON.stringify({
                 country: params.country,
-                year: params.year, 
+                year: parseInt(params.year), 
                 numberofarribals: updatedArribals,
                 numberofdepartures: updatedDepartures,
                 expendituresbillion: updatedExpenditures
@@ -65,6 +65,13 @@
             }
         }).then(function (res) {
             getRegisters();
+            if(res.ok){
+                SuccessMsg = res.status + ": " + res.statusText;
+                console.log("OK!" + SuccessMsg);
+
+            }else if(res.status == 400){
+                window.alert("Datos no son válidos");
+            }
         });
 
 
@@ -97,16 +104,8 @@
                 </tr>
         </tbody>
         </Table>
-    {#if errorMsg == "404"}
-        <Alert color="danger" dismissible>
-        No se ha podido actualizar su modificación, dato no encontrado.
-        </Alert>
+    {#if !errorMsg}
+        <p style="color: green">{SuccessMsg}. País actualizado con éxito</p>
     {/if}
-    {#if getRegisters} 
-      <Alert color="success" dismissible>
-       El dato ha sido actualizado con éxito!
-      </Alert>
-    {/if}
-
     <Button outline color="secondary" on:click="{pop}">Volver</Button>
 </main>
