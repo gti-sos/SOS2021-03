@@ -7,7 +7,6 @@
 	import Button from "sveltestrap/src/Button.svelte";
 	import Input from "sveltestrap/src/Input.svelte";
 	import FormGroup from "sveltestrap/src/FormGroup.svelte";
-	import Label from "sveltestrap/src/Label.svelte";
 	import { Pagination, PaginationItem, PaginationLink } from 'sveltestrap';
     
 	let inter_tourism = [];
@@ -31,7 +30,7 @@
     let year = [];
 
 	onMount(getRegisters);
-	
+
 	async function getRegisters() {
     	console.log("Fetching data...");
    		const res = await fetch("/api/v1/international-tourisms?offset=" + long*offset+"&limit="+long);
@@ -270,7 +269,7 @@
             <tr>
                 <td>
                     <FormGroup style="width:50%;"> 
-                    <Label >Indique el País:</Label>
+                    <label >Indique el País:</label>
                     <Input type ="text" name="selectCountry" id="selectCountry" bind:value="{actualCountry}">
 
                     </Input>
@@ -278,7 +277,7 @@
                 </td>
                 <td>
                     <FormGroup style="width:50%;">
-                        <Label > Seleccione el año: </Label>
+                        <label > Seleccione el año: </label>
                         <Input type ="number" name="selectYear" id="selectYear" bind:value="{actualYear}">
 
                         </Input>
