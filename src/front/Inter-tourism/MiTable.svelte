@@ -127,7 +127,9 @@
 
 	async function buscaRegistro(country, year) {
 		console.log("Realizando búsqueda del país: " + country + " y del año: " + year);
-                
+        
+        year=parseInt(year);
+        
         var url = "/api/v1/international-tourisms";
         
 		if (country != "" && year != "") {
@@ -154,14 +156,21 @@
             console.log(interTourisms);	
             console.log(interTourisms.length);
 			console.log("Encontrados " + interTourisms.length + " registros.");
-			
+			/*
             if(interTourisms.length > 0 || interTourisms[0]!=[]){
                 window.alert("Se han encontrado: "+ interTourisms.length + " resultados.");
                 
             }
             else{
                 window.alert("No se han encontrado registros para esta busqueda");
-            }
+            }*/
+			if(country =="" && year==""){
+			window.alert("Introduce datos");
+			}else if(interTourisms.length > 0){
+				window.alert("Datos encontrados");
+			}else{
+				window.alert("No hay resultados");
+			}
         } 
         else {
 			console.log("ERROR");
@@ -213,9 +222,7 @@
             </tr>
 			{#each inter_tourism as r}
 				<tr>
-				<td>
-					<a href="#/happiness_rate/{c.country}/{c.year}">{c.country}</a>
-				</td>
+				<td>{r.country}</td>
 				<td>{r.year}</td>
 				<td>{r.numberofarribals}</td>
 				<td>{r.numberofdepartures}</td>
