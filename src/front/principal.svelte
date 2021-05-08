@@ -83,7 +83,7 @@
 			Turismo internacional: 
 			<br>
 			<br>
-			<a href="#/international-tourisms" class="btn btn-outline-info" role="button" aria-pressed="true">Ver estadísticas(front-end)</a>
+			<a href="/international-tourisms" class="btn btn-outline-info" role="button" aria-pressed="true">Ver estadísticas(front-end)</a>
 			<br>
 			<a href="https://sos2021-03.herokuapp.com/api/v1/international-tourisms" class="btn btn-outline-info" role="button" aria-pressed="true">API turismo internacional</a>
 			<br>
