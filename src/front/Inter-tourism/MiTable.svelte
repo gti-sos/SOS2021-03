@@ -165,9 +165,12 @@
 			}else{
 				window.alert("No se han encontrado registros para esta busqueda");
 			}
+
         }else {
 			console.log("ERROR");
 		}
+
+		getRegisters();
 		
 	}
 
