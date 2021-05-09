@@ -1,8 +1,9 @@
 <script>
 	import { Collapse,Navbar,NavbarToggler,NavbarBrand,Nav,NavItem,NavLink,Dropdown,UncontrolledDropdown,DropdownToggle,DropdownMenu,DropdownItem } from 'sveltestrap';
 	let isOpen=false;
-	let isOpena=false;
-	let isOpenb=false;
+	function handleUpdate(event) {
+    isOpen = event.detail.isOpen;
+  }
 	import Router from 'svelte-spa-router';
 	import NotFound from './NotFound.svelte';
 	
@@ -34,57 +35,61 @@
 <main>
 	<body >
 		<Navbar color="light" light expand="md" >
-			<Nav navbar >
-			  <NavItem  >
-				<NavLink  active href="#/">Inicio</NavLink>
-			  </NavItem>
-			  <NavItem  >
-				<NavLink  active href="#/info">Información</NavLink>
-			  </NavItem>
-			  <NavItem>
-				<NavLink href="#/air-pollution">Contaminación del aire</NavLink>
-			  </NavItem>
-			  <NavItem>
-				<NavLink href="#/international-tourisms">Turismo Internacional</NavLink>
-			  </NavItem>
-			  <Dropdown  nav {isOpen} toggle="{() => isOpen = !isOpen}" >
-				<DropdownToggle nav caret>
-				  APIs
-				</DropdownToggle>
-				<DropdownMenu>
-				  <DropdownItem href="https://sos2021-03.herokuapp.com/api/v1/air-pollution">Contaminación del aire</DropdownItem>
-				  <DropdownItem href="https://sos2021-03.herokuapp.com/api/v1/international-tourisms">Turismo internacional</DropdownItem>
-				  <DropdownItem href= "https://sos2021-03.herokuapp.com/api/v1/quality-of-life">Calidad de vida</DropdownItem>
-				</DropdownMenu>
-			</Dropdown>
-			  <Dropdown  nav {isOpenb} togglb="{() => isOpenb = !isOpenb}" >
-				<DropdownToggle nav caret>
-				  Postman
-				</DropdownToggle>
-				<DropdownMenu>
-				  <DropdownItem header>Recursos</DropdownItem>
-				  <DropdownItem href="https://documenter.getpostman.com/view/14974548/TzJoE1G7">Contaminación del aire</DropdownItem>
-				  <DropdownItem href="https://documenter.getpostman.com/view/9683446/TzJoE1Zk">Turismo internacional</DropdownItem>
-				  <DropdownItem href= "https://documenter.getpostman.com/view/14967959/TzJydbsW">Calidad de vida</DropdownItem>
-				</DropdownMenu>
-			</Dropdown>
-			<NavItem>
-				<Dropdown  nav {isOpen} toggle="{() => isOpen = !isOpen}" >
-					<DropdownToggle nav caret>
-					Github
-					</DropdownToggle>
-					<DropdownMenu>
-					<DropdownItem header>Individual</DropdownItem>
-					<DropdownItem href="https://github.com/joavilalv">Joan</DropdownItem>
-					<DropdownItem href="https://github.com/Paula0008">Paula</DropdownItem>
-					<DropdownItem href= "https://github.com/AymanAlaouiMhammedi">Ayman</DropdownItem>
-					<DropdownItem divider />
-					<DropdownItem header>Grupal</DropdownItem>
-					<DropdownItem href="https://github.com/gti-sos/SOS2021-03.git">Todos</DropdownItem>
-					</DropdownMenu>
-				</Dropdown>		
-			</NavItem>	
-			</Nav>
+			<NavbarToggler on:click={() => (isOpen = !isOpen)} />
+				<Collapse {isOpen} navbar expand="md" on:update={handleUpdate}>
+				
+					<Nav navbar >
+					<NavItem  >
+						<NavLink  active href="#/">Inicio</NavLink>
+					</NavItem>
+					<NavItem  >
+						<NavLink  active href="#/info">Información</NavLink>
+					</NavItem>
+					<NavItem>
+						<NavLink href="#/air-pollution">Contaminación del aire</NavLink>
+					</NavItem>
+					<NavItem>
+						<NavLink href="#/international-tourisms">Turismo Internacional</NavLink>
+					</NavItem>
+					<Dropdown  >
+						<DropdownToggle nav caret>
+						APIs
+						</DropdownToggle>
+						<DropdownMenu>
+						<DropdownItem href="https://sos2021-03.herokuapp.com/api/v1/air-pollution">Contaminación del aire</DropdownItem>
+						<DropdownItem href="https://sos2021-03.herokuapp.com/api/v1/international-tourisms">Turismo internacional</DropdownItem>
+						<DropdownItem href= "https://sos2021-03.herokuapp.com/api/v1/quality-of-life">Calidad de vida</DropdownItem>
+						</DropdownMenu>
+					</Dropdown>
+					<Dropdown >
+						<DropdownToggle nav caret>
+						Postman
+						</DropdownToggle>
+						<DropdownMenu>
+						<DropdownItem header>Recursos</DropdownItem>
+						<DropdownItem href="https://documenter.getpostman.com/view/14974548/TzJoE1G7">Contaminación del aire</DropdownItem>
+						<DropdownItem href="https://documenter.getpostman.com/view/9683446/TzJoE1Zk">Turismo internacional</DropdownItem>
+						<DropdownItem href= "https://documenter.getpostman.com/view/14967959/TzJydbsW">Calidad de vida</DropdownItem>
+						</DropdownMenu>
+					</Dropdown>
+					<NavItem>
+						<Dropdown >
+							<DropdownToggle nav caret>
+							Github
+							</DropdownToggle>
+							<DropdownMenu>
+							<DropdownItem header>Individual</DropdownItem>
+							<DropdownItem href="https://github.com/joavilalv">Joan</DropdownItem>
+							<DropdownItem href="https://github.com/Paula0008">Paula</DropdownItem>
+							<DropdownItem href= "https://github.com/AymanAlaouiMhammedi">Ayman</DropdownItem>
+							<DropdownItem divider />
+							<DropdownItem header>Grupal</DropdownItem>
+							<DropdownItem href="https://github.com/gti-sos/SOS2021-03.git">Todos</DropdownItem>
+							</DropdownMenu>
+						</Dropdown>		
+					</NavItem>	
+					</Nav>
+				</Collapse>
 		</Navbar>
 	
 	</body>

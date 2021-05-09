@@ -150,11 +150,11 @@
 			console.log("OK");
 			const json = await res.json();
             console.log(json);
-			inter_tourisms=[json];	
-			console.log("Encontrados " + inter_tourisms.length + " registros.");
+			inter_tourism=[json];	
+			console.log("Encontrados " + inter_tourism.length + " registros.");
             
-            if(inter_tourism.length > 0 || inter_tourisms[0]!=[]){
-                window.alert("Se han encontrado: "+ inter_tourisms.length + " resultados.");
+            if(inter_tourism.length > 0 || inter_tourism[0]!=[]){
+                window.alert("Se han encontrado: "+ inter_tourism.length + " resultados.");
                 
             }
             else{
@@ -177,9 +177,6 @@
         Tabla de estadisticas:
     </h2>
     <br>
-	{#await inter_tourism}
-        Loading datas...
-	{:then inter_tourism}
 		<Button on:click={loadInitialData}>Cargar los datos</Button>
 		<Button on:click={deleteAll}>Borrar todos los datos</Button>
 		<br>
@@ -232,7 +229,6 @@
 				
 			</tbody>
 		</Table>
-	{/await}
 	<Pagination style="float:center;" ariaLabel="Cambiar de página">
 		<PaginationItem class="{pagActual === 1 ? 'disabled' : ''}">
 		  <PaginationLink previous href="#/international-tourisms" on:click="{() => incrementOffset(-1)}" />
