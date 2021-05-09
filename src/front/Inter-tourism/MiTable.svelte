@@ -130,7 +130,7 @@
         
         var url = "/api/v1/international-tourisms";
         
-		if (country != str && year != 0 ){
+		if (country != "" && year != 0 ){
             url = url + "?country=" + country + "&year=" + year;
            
         } 
@@ -149,10 +149,10 @@
 			console.log("OK");
 			const json = await res.json();
             console.log(json);
-			inter_tourism=json;	
+			inter_tourism=[json];	
 			console.log("Encontrados " + inter_tourism.length + " registros.");
 				
-			if(year =="" && country==" "){
+			if(year =="" && country==""){
 				console.log(inter_tourism.country);
 			}else if(inter_tourism.length == 1 ){
         
