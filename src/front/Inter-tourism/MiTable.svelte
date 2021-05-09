@@ -8,6 +8,7 @@
 	import { Pagination, PaginationItem, PaginationLink } from 'sveltestrap';
     
 	let inter_tourism = [];
+	let inter = [];
 	let newRegister= {
 		"country": "", 
         "year": 0, 
