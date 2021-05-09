@@ -1,7 +1,8 @@
 <script>
-	import { Jumbotron } from "sveltestrap";
 	import { Collapse,Navbar,NavbarToggler,NavbarBrand,Nav,NavItem,NavLink,Dropdown,UncontrolledDropdown,DropdownToggle,DropdownMenu,DropdownItem } from 'sveltestrap';
 	let isOpen=false;
+	let isOpena=false;
+	let isOpenb=false;
 	import Router from 'svelte-spa-router';
 	import NotFound from './NotFound.svelte';
 	
@@ -32,10 +33,7 @@
 </script>
 <main>
 	<body >
-		<Jumbotron class="p-5" >
-			<h1 style="text-align:center;" class="display-3">SOS1920-12</h1>
-		</Jumbotron>
-		<Navbar color="dark" dark expand="md" >
+		<Navbar color="light" light expand="md" >
 			<Nav navbar >
 			  <NavItem  >
 				<NavLink  active href="#/">Inicio</NavLink>
@@ -59,7 +57,7 @@
 				  <DropdownItem href= "https://sos2021-03.herokuapp.com/api/v1/quality-of-life">Calidad de vida</DropdownItem>
 				</DropdownMenu>
 			</Dropdown>
-			  <Dropdown  nav {isOpen} toggle="{() => isOpen = !isOpen}" >
+			  <Dropdown  nav {isOpenb} toggle="{() => isOpenb = !isOpenb}" >
 				<DropdownToggle nav caret>
 				  Postman
 				</DropdownToggle>
@@ -70,7 +68,7 @@
 				  <DropdownItem href= "https://documenter.getpostman.com/view/14967959/TzJydbsW">Calidad de vida</DropdownItem>
 				</DropdownMenu>
 			</Dropdown>
-			<Dropdown  nav {isOpen} toggle="{() => isOpen = !isOpen}" >
+			<Dropdown  nav {isOpena} toggle="{() => isOpena = !isOpena}" >
 				<DropdownToggle nav caret>
 				  Github
 				</DropdownToggle>
@@ -83,11 +81,7 @@
 				  <DropdownItem header>Grupal</DropdownItem>
 				  <DropdownItem href="https://github.com/gti-sos/SOS2021-03.git">Todos</DropdownItem>
 				</DropdownMenu>
-			</Dropdown>
-			<NavItem>
-				<NavLink  href="#/integrations">Integraciones</NavLink>
-			</NavItem>
-			
+			</Dropdown>			
 			</Nav>
 		</Navbar>
 	

@@ -25,8 +25,22 @@
 
 	async function getRegisters() {
     	console.log("Fetching data...");
-   		const res = await fetch("/api/v1/international-tourisms?offset=" + long*offset+"&limit="+long);
-		const res2 = await fetch("/api/v1/international-tourisms?offset=" + long*(offset+1)+"&limit="+long);
+   		var url = "/api/v1/international-tourisms";
+		if(searchcountry!="" &&searchcountry!=null){
+			url = url+"?country="+searchcountry;
+		}
+		
+		if(searchyear!="" && searchyear!=null){
+			url = url+"?year="+searchyear;
+		}
+		if(searchyear!=null && searchcountry!=null){
+			url = url+"?country="+searchcountry+"&year="+searchyear;
+		}
+		else{
+			url = "/api/v1/international-tourisms";
+		}
+		const res = await fetch(url+"?offset=" + long*offset+"&limit="+long);
+		const res2 = await fetch(url+"?offset=" + long*(offset+1)+"&limit="+long);
         
         if(res.ok){
 			console.log("Ok.");
@@ -262,15 +276,11 @@
 				<td><input type ="number" name="selectYear" id="selectYear" bind:value="{searchyear}"></td>
                 <td>
                     <div style="text-align:center;padding-bottom: 3%;margin-top: 6%;">
-						{#if searchcountry && searchyear}
+						<!--{#if searchcountry && searchyear}
                         	<Button outline  color="primary" on:click="{buscaRegistro(searchcountry,searchyear)}" href="#/international-tourisms/{searchcountry}/{searchyear}">Buscar</Button>
-						{/if}
-						{#if searchcountry && !searchyear}
-                        	<Button outline  color="primary" on:click="{buscaRegistro(searchcountry,searchyear)}" href="#/international-tourisms/{searchcountry}/">Buscar</Button>
-						{/if}
-						{#if !searchcountry && searchyear}
-                        	<Button outline  color="primary" on:click="{buscaRegistro(searchcountry,searchyear)}" href="#/international-tourisms/{searchyear}/">Buscar</Button>
-						{/if}
+						{/if}-->
+						<Button outline  color="primary" on:click="{buscaRegistro(searchcountry,searchyear)}">Buscar</Button>
+						
 					</div>
                 </td>
             </tr>
