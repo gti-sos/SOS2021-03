@@ -149,15 +149,13 @@
 		if (res.ok) {
 			console.log("OK");
 			const json = await res.json();
-			const json2 = await res.json();
             console.log(json);
 			inter_tourism=json;	
-			inter = [json2];
 			console.log("Encontrados " + inter_tourism.length + " registros.");
 				
-			if(year =="" && country==""){
-				window.alert("INTRODUCE DATOS");
-			}else if(inter_tourism.length > 0  || inter[0]!=[]){
+			if(year =="" && country==" "){
+				console.log(inter_tourism.country);
+			}else if(inter_tourism.length > 0 ){
         
         		window.alert("SE HA ENCONTRADO "+inter_tourism.length +" RESULTADOS");
 			}else{
