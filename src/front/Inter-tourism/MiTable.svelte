@@ -150,32 +150,23 @@
 			console.log("OK");
 			const json = await res.json();
             console.log(json);
-			interTourisms=json;	
-            console.log("international-tourisms now is that:");
-            console.log(interTourisms);	
-            console.log(interTourisms.length);
-			console.log("Encontrados " + interTourisms.length + " registros.");
-			
-            if(interTourisms.length > 0 || interTourisms[0]!=[]){
-                window.alert("Se han encontrado: "+ interTourisms.length + " resultados.");
+			inter_tourisms=[json];	
+			console.log("Encontrados " + inter_tourisms.length + " registros.");
+            
+            if(inter_tourism.length > 0 || inter_tourisms[0]!=[]){
+                window.alert("Se han encontrado: "+ inter_tourisms.length + " resultados.");
                 
             }
             else{
                 window.alert("No se han encontrado registros para esta busqueda");
             }
-			/*if(country =="" && year==""){
-			window.alert("Introduce datos");
-			}else if(interTourisms.length > 0){
-				window.alert("Datos encontrados");
-			}else{
-				window.alert("No hay resultados");
-			}*/
         } 
         else {
 			console.log("ERROR");
 		}
 		
 	}
+
 
 	onMount(getRegisters);
 	

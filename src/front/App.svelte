@@ -69,7 +69,7 @@
 				</DropdownMenu>
 			</Dropdown>
 			<NavItem>
-				<Dropdown  nav {isOpena} toggle="{() => isOpena = !isOpena}" >
+				<Dropdown  nav {isOpen} toggle="{() => isOpen = !isOpen}" >
 					<DropdownToggle nav caret>
 					Github
 					</DropdownToggle>
