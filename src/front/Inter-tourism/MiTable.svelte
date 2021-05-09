@@ -150,11 +150,12 @@
 			const json = await res.json();
             console.log(json);
 			inter_tourism=json;	
+			inter = [json];
 			console.log("Encontrados " + inter_tourism.length + " registros.");
 				
 			if(year =="" && country==""){
 				window.alert("INTRODUCE DATOS");
-			}else if(inter_tourism.length > 0  ){
+			}else if(inter_tourism.length > 0  || inter[0]!=[]){
         
         		window.alert("SE HA ENCONTRADO "+inter_tourism.length +" RESULTADOS");
 			}else{
