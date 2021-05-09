@@ -130,7 +130,7 @@
         
         var url = "/api/v1/international-tourisms";
         
-		if (country != country && year != 0 ){
+		if (country != str && year != 0 ){
             url = url + "?country=" + country + "&year=" + year;
            
         } 
