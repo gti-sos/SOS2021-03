@@ -145,6 +145,7 @@
 			console.log(country + " y " + year);
           
         }
+		console.log(url);
         
         const res = await fetch(url);
         
@@ -152,19 +153,17 @@
 			console.log("OK");
 			const json = await res.json();
             console.log(json);
-			inter_tourism=json;	
+			inter_tourism=[json];	
 			console.log("Encontrados " + inter_tourism.length + " registros.");
 				
-			if(year =="" && country==""){
-				console.log(inter_tourism.country);
-			}else if(inter_tourism.length == 1 ){
+			if(inter_tourism.length == 1 ){
         
         		window.alert("Se ha encontrado 1 resultado");
 			}else if(inter_tourism.length > 1 ){
 			
-			window.alert("Se han encontrado "+inter_tourism.length +" resultados");
+				window.alert("Se han encontrado "+inter_tourism.length +" resultados");
 			}else{
-					window.alert("No se han encontrado registros para esta busqueda");
+				window.alert("No se han encontrado registros para esta busqueda");
 			}
         }else {
 			console.log("ERROR");
