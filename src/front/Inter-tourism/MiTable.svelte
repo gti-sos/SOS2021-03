@@ -132,15 +132,15 @@
         
 		if (country != "" && year != "") {
             url = url + "?country=" + country + "&year=" + year;
-            console.log(url);
+           
         } 
         else if (country != "" && year == "") {
             url = url + "?country=" + country;
-            console.log(url);
+           
         } 
         else if (country == "" && year != "") {
             url = url + "?year=" + year;
-            console.log(url);
+          
         }
         
         const res = await fetch(url);
@@ -149,12 +149,10 @@
 			console.log("OK");
 			const json = await res.json();
             console.log(json);
-			inter_tourism=json;	
+			inter_tourism=[json];	
 			console.log("Encontrados " + inter_tourism.length + " registros.");
             
-            if(year =="" && country==""){
-        		window.alert("INTRODUCE DATOS");
-   		 	}else if(inter_tourism.length > 0  ){
+            if(inter_tourism.length > 0  ){
         
         		window.alert("SE HA ENCONTRADO "+inter_tourism.length +" RESULTADOS");
 			}else{
