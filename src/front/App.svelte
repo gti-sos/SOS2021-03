@@ -51,7 +51,7 @@
 					<NavItem>
 						<NavLink href="#/international-tourisms">Turismo Internacional</NavLink>
 					</NavItem>
-					<Dropdown   {isOpen}>
+					<Dropdown {isOpen} toggle="{() => isOpen = !isOpen}>
 						<DropdownToggle nav caret>
 						APIs
 						</DropdownToggle>
@@ -61,33 +61,6 @@
 						<DropdownItem href= "https://sos2021-03.herokuapp.com/api/v1/quality-of-life">Calidad de vida</DropdownItem>
 						</DropdownMenu>
 					</Dropdown>
-					<Dropdown >
-						<DropdownToggle nav caret>
-						Postman
-						</DropdownToggle>
-						<DropdownMenu>
-						<DropdownItem header>Recursos</DropdownItem>
-						<DropdownItem href="https://documenter.getpostman.com/view/14974548/TzJoE1G7">Contaminación del aire</DropdownItem>
-						<DropdownItem href="https://documenter.getpostman.com/view/9683446/TzJoE1Zk">Turismo internacional</DropdownItem>
-						<DropdownItem href= "https://documenter.getpostman.com/view/14967959/TzJydbsW">Calidad de vida</DropdownItem>
-						</DropdownMenu>
-					</Dropdown>
-					<NavItem>
-						<Dropdown  {isOpen}>
-							<DropdownToggle nav caret>
-							Github
-							</DropdownToggle>
-							<DropdownMenu>
-							<DropdownItem header>Individual</DropdownItem>
-							<DropdownItem href="https://github.com/joavilalv">Joan</DropdownItem>
-							<DropdownItem href="https://github.com/Paula0008">Paula</DropdownItem>
-							<DropdownItem href= "https://github.com/AymanAlaouiMhammedi">Ayman</DropdownItem>
-							<DropdownItem divider />
-							<DropdownItem header>Grupal</DropdownItem>
-							<DropdownItem href="https://github.com/gti-sos/SOS2021-03.git">Todos</DropdownItem>
-							</DropdownMenu>
-						</Dropdown>		
-					</NavItem>	
 					</Nav>
 				</Collapse>
 		</Navbar>

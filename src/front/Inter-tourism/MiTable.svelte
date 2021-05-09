@@ -153,11 +153,12 @@
 			inter_tourism=[json];	
 			console.log("Encontrados " + inter_tourism.length + " registros.");
             
-            if(inter_tourism.length > 0){
-                window.alert("Se han encontrado: "+ inter_tourism.length + " resultados.");
-                
-            }
-            else{
+            if(year =="" && country==""){
+        		window.alert("INTRODUCE DATOS");
+   		 	}else if(inter_tourism.length > 0  ){
+        
+        		window.alert("SE HA ENCONTRADO UNO O VARIOS RESULTADOS");
+			}else{
                 window.alert("No se han encontrado registros para esta busqueda");
             }
         } 
