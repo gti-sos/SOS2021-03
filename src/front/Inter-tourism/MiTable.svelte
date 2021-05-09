@@ -75,7 +75,7 @@
                                     "Content-Type": "application/json"
                                 }
                             }
-                           ).then( (res) => {
+                           ).then(function (res) {
                             
                             if(res.status == 201){
 			                    window.alert("Nuevo registro creado correctamente. ");
@@ -85,7 +85,7 @@
 			                    window.alert("Datos no válidos(no puede quedarse vacío ningun campo. ");
 		                    }
                             getRegisters();    
-                           })
+                           });
     }
 
 	async function deleteRegister(country, year){
@@ -103,7 +103,7 @@
                                 window.alert("No existe ningun registro para eliminar con pais: " + country + " y año "+ year);
                             }
                             getRegisters();
-                           })
+                           });
     }
 
 	async function deleteAll(){
@@ -120,7 +120,7 @@
                                 window.alert("No hay registros para eliminar. ");
                             }
 						    getRegisters();
-						})
+						});
 		
 	}
 
@@ -149,10 +149,12 @@
 			console.log("OK");
 			const json = await res.json();
             console.log(json);
-			inter_tourism=[json];	
+			inter_tourism=json;	
 			console.log("Encontrados " + inter_tourism.length + " registros.");
-            
-            if(inter_tourism.length > 0  ){
+				
+			if(year =="" && country==""){
+				window.alert("INTRODUCE DATOS");
+			}else if(inter_tourism.length > 0  ){
         
         		window.alert("SE HA ENCONTRADO "+inter_tourism.length +" RESULTADOS");
 			}else{
@@ -201,7 +203,7 @@
 				</tr>
 			</thead>
 			<tbody>
-				{#if !buscaRegistro}
+				
 				<tr>
 					<td><input bind:value="{newRegister.country}"></td>
 						<td><input type=number bind:value={newRegister.year}></td>
@@ -211,7 +213,7 @@
 						<td><Button on:click={insertRegister}>Añadir</Button>
 					</td>
 				</tr>
-				{/if}
+			
 				
 				
 				{#each inter_tourism as r}
