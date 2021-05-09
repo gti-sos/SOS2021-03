@@ -191,6 +191,15 @@
                		</td>
             	</tr>
 				<tr>
+					<td><input bind:value="{newRegister.country}"></td>
+						<td><input type=number bind:value={newRegister.year}></td>
+						<td><input type=number bind:value={newRegister.numberofarribals}></td>
+						<td><input type=number bind:value={newRegister.numberofdepartures}></td>
+						<td><input type=number bind:value={newRegister.expendituresbillion}></td>
+						<td><Button on:click={insertRegister}>Añadir</Button>
+					</td>
+				</tr>
+				<tr>
 					<td>Pais</td>
 					<td>Año</td>
 					<td>Número de llegadas</td>
@@ -200,15 +209,7 @@
 				</tr>
 			</thead>
 			<tbody>
-				<tr>
-					<td><input bind:value="{newRegister.country}"></td>
-						<td><input type=number bind:value={newRegister.year}></td>
-						<td><input type=number bind:value={newRegister.numberofarribals}></td>
-						<td><input type=number bind:value={newRegister.numberofdepartures}></td>
-						<td><input type=number bind:value={newRegister.expendituresbillion}></td>
-						<td><Button on:click={insertRegister}>Añadir</Button>
-					</td>
-				</tr>
+				
 				
 				{#each inter_tourism as r}
 					<tr>
