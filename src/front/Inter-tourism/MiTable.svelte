@@ -25,23 +25,8 @@
 
 	async function getRegisters() {
     	console.log("Fetching data...");
-   		var url = "/api/v1/international-tourisms";
-		if(searchcountry!="" &&searchcountry!=null){
-			url = url+"?country="+searchcountry;
-		}
-		
-		if(searchyear!="" && searchyear!=null){
-			url = url+"?year="+searchyear;
-		}
-		if(searchyear!=null && searchcountry!=null){
-			url = url+"?country="+searchcountry+"&year="+searchyear;
-		}
-		else{
-			url = "/api/v1/international-tourisms";
-		}
-		const res = await fetch(url+"?offset=" + long*offset+"&limit="+long);
-		const res2 = await fetch(url+"?offset=" + long*(offset+1)+"&limit="+long);
-        
+   		const res = await fetch("/api/v1/international-tourisms?offset=" + long*offset+"&limit="+long);
+		const res2 = await fetch("/api/v1/international-tourisms?offset=" + long*(offset+1)+"&limit="+long);
         if(res.ok){
 			console.log("Ok.");
 			const json = await res.json();
@@ -170,21 +155,21 @@
             console.log(interTourisms);	
             console.log(interTourisms.length);
 			console.log("Encontrados " + interTourisms.length + " registros.");
-			/*
+			
             if(interTourisms.length > 0 || interTourisms[0]!=[]){
                 window.alert("Se han encontrado: "+ interTourisms.length + " resultados.");
                 
             }
             else{
                 window.alert("No se han encontrado registros para esta busqueda");
-            }*/
-			if(country =="" && year==""){
+            }
+			/*if(country =="" && year==""){
 			window.alert("Introduce datos");
 			}else if(interTourisms.length > 0){
 				window.alert("Datos encontrados");
 			}else{
 				window.alert("No hay resultados");
-			}
+			}*/
         } 
         else {
 			console.log("ERROR");
@@ -271,9 +256,9 @@
         <tbody>
             <tr>
 				<td >Selecciona el País:</td>
-				<td><input type ="text" name="selectCountry" id="selectCountry" bind:value="{searchcountry}"></td>
+				<td><input type ="text" bind:value="{searchcountry}"></td>
 				<td >Seleccione el año: </td>
-				<td><input type ="number" name="selectYear" id="selectYear" bind:value="{searchyear}"></td>
+				<td><input type ="number" bind:value="{searchyear}"></td>
                 <td>
                     <div style="text-align:center;padding-bottom: 3%;margin-top: 6%;">
 						<!--{#if searchcountry && searchyear}

@@ -57,7 +57,7 @@
 				  <DropdownItem href= "https://sos2021-03.herokuapp.com/api/v1/quality-of-life">Calidad de vida</DropdownItem>
 				</DropdownMenu>
 			</Dropdown>
-			  <Dropdown  nav {isOpenb} toggle="{() => isOpenb = !isOpenb}" >
+			  <Dropdown  nav {isOpenb} toggleA="{() => isOpenb = !isOpenb}" >
 				<DropdownToggle nav caret>
 				  Postman
 				</DropdownToggle>
@@ -68,7 +68,7 @@
 				  <DropdownItem href= "https://documenter.getpostman.com/view/14967959/TzJydbsW">Calidad de vida</DropdownItem>
 				</DropdownMenu>
 			</Dropdown>
-			<Dropdown  nav {isOpena} toggle="{() => isOpena = !isOpena}" >
+			<Dropdown  nav {isOpena} toggleB="{() => isOpena = !isOpena}" >
 				<DropdownToggle nav caret>
 				  Github
 				</DropdownToggle>
