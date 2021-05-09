@@ -1,4 +1,7 @@
 <script>
+	import { Jumbotron } from "sveltestrap";
+	import { Collapse,Navbar,NavbarToggler,NavbarBrand,Nav,NavItem,NavLink,Dropdown,UncontrolledDropdown,DropdownToggle,DropdownMenu,DropdownItem } from 'sveltestrap';
+	let isOpen=false;
 	import Router from 'svelte-spa-router';
 	import NotFound from './NotFound.svelte';
 	
@@ -21,8 +24,6 @@
 		"/air-pollution/:country/:year": EditAirPollution,
 		"/international-tourisms": InterTourism,
 		"/international-tourisms/:country/:year": EditIntertourism,
-		"/international-tourisms/:country/": InterTourism,
-		"/international-tourisms/:year/": InterTourism,
         "*": NotFound
 	}
 	
@@ -30,6 +31,66 @@
   
 </script>
 <main>
+	<body >
+		<Jumbotron class="p-5" >
+			<h1 style="text-align:center;" class="display-3">SOS1920-12</h1>
+		</Jumbotron>
+		<Navbar color="dark" dark expand="md" >
+			<Nav navbar >
+			  <NavItem  >
+				<NavLink  active href="#/">Inicio</NavLink>
+			  </NavItem>
+			  <NavItem  >
+				<NavLink  active href="#/info">Información</NavLink>
+			  </NavItem>
+			  <NavItem>
+				<NavLink href="#/air-pollution">Contaminación del aire</NavLink>
+			  </NavItem>
+			  <NavItem>
+				<NavLink href="#/international-tourisms">Turismo Internacional</NavLink>
+			  </NavItem>
+			  <Dropdown  nav {isOpen} toggle="{() => isOpen = !isOpen}" >
+				<DropdownToggle nav caret>
+				  APIs
+				</DropdownToggle>
+				<DropdownMenu>
+				  <DropdownItem href="https://sos2021-03.herokuapp.com/api/v1/air-pollution">Contaminación del aire</DropdownItem>
+				  <DropdownItem href="https://sos2021-03.herokuapp.com/api/v1/international-tourisms">Turismo internacional</DropdownItem>
+				  <DropdownItem href= "https://sos2021-03.herokuapp.com/api/v1/quality-of-life">Calidad de vida</DropdownItem>
+				</DropdownMenu>
+			</Dropdown>
+			  <Dropdown  nav {isOpen} toggle="{() => isOpen = !isOpen}" >
+				<DropdownToggle nav caret>
+				  Postman
+				</DropdownToggle>
+				<DropdownMenu>
+				  <DropdownItem header>Recursos</DropdownItem>
+				  <DropdownItem href="https://documenter.getpostman.com/view/14974548/TzJoE1G7">Contaminación del aire</DropdownItem>
+				  <DropdownItem href="https://documenter.getpostman.com/view/9683446/TzJoE1Zk">Turismo internacional</DropdownItem>
+				  <DropdownItem href= "https://documenter.getpostman.com/view/14967959/TzJydbsW">Calidad de vida</DropdownItem>
+				</DropdownMenu>
+			</Dropdown>
+			<Dropdown  nav {isOpen} toggle="{() => isOpen = !isOpen}" >
+				<DropdownToggle nav caret>
+				  Github
+				</DropdownToggle>
+				<DropdownMenu>
+				  <DropdownItem header>Individual</DropdownItem>
+				  <DropdownItem href="https://github.com/joavilalv">Joan</DropdownItem>
+				  <DropdownItem href="https://github.com/Paula0008">Paula</DropdownItem>
+				  <DropdownItem href= "https://github.com/AymanAlaouiMhammedi">Ayman</DropdownItem>
+				  <DropdownItem divider />
+				  <DropdownItem header>Grupal</DropdownItem>
+				  <DropdownItem href="https://github.com/gti-sos/SOS2021-03.git">Todos</DropdownItem>
+				</DropdownMenu>
+			</Dropdown>
+			<NavItem>
+				<NavLink  href="#/integrations">Integraciones</NavLink>
+			</NavItem>
+			
+			</Nav>
+		</Navbar>
 	
+	</body>
 	<Router {routes}/>
 </main>
