@@ -1,8 +1,9 @@
 <script>
 	import { Collapse,Navbar,NavbarToggler,NavbarBrand,Nav,NavItem,NavLink,Dropdown,UncontrolledDropdown,DropdownToggle,DropdownMenu,DropdownItem } from 'sveltestrap';
 	let isOpen=false;
+	let isOpena=false;
 	function handleUpdate(event) {
-    isOpen = event.detail.isOpen;
+    isOpena = event.detail.isOpen;
   }
 	import Router from 'svelte-spa-router';
 	import NotFound from './NotFound.svelte';
@@ -35,8 +36,8 @@
 <main>
 	<body >
 		<Navbar color="light" light expand="md" >
-			<NavbarToggler on:click={() => (isOpen = !isOpen)} />
-				<Collapse {isOpen} navbar expand="md" on:update={handleUpdate}>
+			<NavbarToggler on:click={() => (isOpena = !isOpena)} />
+				<Collapse {isOpena} navbar expand="md" on:update={handleUpdate}>
 					<Nav navbar >
 						<NavItem  >
 							<NavLink  active href="#/">Inicio</NavLink>

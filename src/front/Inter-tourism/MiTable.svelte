@@ -127,7 +127,6 @@
 	async function buscaRegistro(country, year) {
 		console.log("Realizando búsqueda del país: " + country + " y del año: " + year);
         
-        year=parseInt(year);
         
         var url = "/api/v1/international-tourisms";
         
@@ -150,14 +149,14 @@
 			console.log("OK");
 			const json = await res.json();
             console.log(json);
-			inter_tourism=[json];	
+			inter_tourism=json;	
 			console.log("Encontrados " + inter_tourism.length + " registros.");
             
             if(year =="" && country==""){
         		window.alert("INTRODUCE DATOS");
    		 	}else if(inter_tourism.length > 0  ){
         
-        		window.alert("SE HA ENCONTRADO UNO O VARIOS RESULTADOS");
+        		window.alert("SE HA ENCONTRADO "+inter_tourism.length +" RESULTADOS");
 			}else{
                 window.alert("No se han encontrado registros para esta busqueda");
             }
