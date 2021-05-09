@@ -130,7 +130,7 @@
         
         var url = "/api/v1/international-tourisms";
         
-		if (country != "" && year != 0 ){
+		if (country != country && year != 0 ){
             url = url + "?country=" + country + "&year=" + year;
            
         } 
@@ -154,14 +154,16 @@
 				
 			if(year =="" && country==" "){
 				console.log(inter_tourism.country);
-			}else if(inter_tourism.length > 0 ){
+			}else if(inter_tourism.length == 1 ){
         
-        		window.alert("SE HA ENCONTRADO "+inter_tourism.length +" RESULTADOS");
+        		window.alert("Se ha encontrado 1 resultado");
+			}else if(inter_tourism.length > 1 ){
+			
+			window.alert("Se han encontrado "+inter_tourism.length +" resultados");
 			}else{
-                window.alert("No se han encontrado registros para esta busqueda");
-            }
-        } 
-        else {
+					window.alert("No se han encontrado registros para esta busqueda");
+			}
+        }else {
 			console.log("ERROR");
 		}
 		
