@@ -51,7 +51,7 @@
 					<NavItem>
 						<NavLink href="#/international-tourisms">Turismo Internacional</NavLink>
 					</NavItem>
-					<Dropdown  >
+					<Dropdown   {isOpen}>
 						<DropdownToggle nav caret>
 						APIs
 						</DropdownToggle>
@@ -73,7 +73,7 @@
 						</DropdownMenu>
 					</Dropdown>
 					<NavItem>
-						<Dropdown >
+						<Dropdown  {isOpen}>
 							<DropdownToggle nav caret>
 							Github
 							</DropdownToggle>

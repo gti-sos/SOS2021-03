@@ -153,7 +153,7 @@
 			inter_tourism=[json];	
 			console.log("Encontrados " + inter_tourism.length + " registros.");
             
-            if(inter_tourism.length > 0 || inter_tourism[0]!=[]){
+            if(inter_tourism.length > 0){
                 window.alert("Se han encontrado: "+ inter_tourism.length + " resultados.");
                 
             }
