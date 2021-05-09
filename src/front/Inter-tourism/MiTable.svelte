@@ -165,12 +165,13 @@
 			}else{
 				window.alert("No se han encontrado registros para esta busqueda");
 			}
+			getRegisters();
 
         }else {
 			console.log("ERROR");
 		}
 
-		getRegisters();
+		
 		
 	}
 
