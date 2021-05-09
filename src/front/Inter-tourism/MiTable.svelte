@@ -8,7 +8,6 @@
 	import { Pagination, PaginationItem, PaginationLink } from 'sveltestrap';
     
 	let inter_tourism = [];
-	let inter = [];
 	let newRegister= {
 		"country": "", 
         "year": 0, 
@@ -178,21 +177,15 @@
         Tabla de estadisticas:
     </h2>
     <br>
+	{#await inter_tourism}
+	Loading datas...
+	{:then inter_tourism}
 		<Button on:click={loadInitialData}>Cargar los datos</Button>
 		<Button on:click={deleteAll}>Borrar todos los datos</Button>
 		<br>
 		
 		<Table bordered>
 			<thead>
-				<tr>
-                    <td>Introducir datos para realizar una busqueda:</td>
-                    <td>Pais</td>
-                    <td><input bind:value="{searchcountry}"></td>
-                    <td>Año</td>
-					<td><input type=number bind:value={searchyear}></td>
-					<td><Button on:click={buscaRegistro(searchcountry, searchyear)}>Buscar</Button>
-               		</td>
-            	</tr>
 				
 				<tr>
 					<td>Pais</td>
@@ -219,7 +212,9 @@
 				
 				{#each inter_tourism as r}
 					<tr>
-					<td>{r.country}</td>
+					<td>
+						<a href="#/international-tourisms/{r.country}/{r.year}">{r.country}</a>
+					</td>
 					<td>{r.year}</td>
 					<td>{r.numberofarribals}</td>
 					<td>{r.numberofdepartures}</td>
@@ -234,6 +229,7 @@
 				
 			</tbody>
 		</Table>
+		{/await}
 	<Pagination style="float:center;" ariaLabel="Cambiar de página">
 		<PaginationItem class="{pagActual === 1 ? 'disabled' : ''}">
 		  <PaginationLink previous href="#/international-tourisms" on:click="{() => incrementOffset(-1)}" />
@@ -255,4 +251,17 @@
 		  <PaginationLink next href="#/international-tourisms" on:click="{() => incrementOffset(1)}"/>
 		</PaginationItem>
 	</Pagination>
+	<Table bordered>
+        <tbody>
+            <tr> 
+				<td>Introducir datos para realizar una busqueda:</td>
+				<td>Pais</td>
+				<td><input bind:value="{searchcountry}"></td>
+				<td>Año</td>
+				<td><input type=number bind:value={searchyear}></td>
+				<td><Button color="primary" on:click={buscaRegistro(searchcountry, searchyear)}>Buscar</Button>
+				</td>
+            </tr>
+        </tbody>
+    </Table>
 </main>
