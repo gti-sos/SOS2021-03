@@ -149,9 +149,10 @@
 		if (res.ok) {
 			console.log("OK");
 			const json = await res.json();
+			const json2 = await res.json();
             console.log(json);
 			inter_tourism=json;	
-			inter = [json];
+			inter = [json2];
 			console.log("Encontrados " + inter_tourism.length + " registros.");
 				
 			if(year =="" && country==""){
