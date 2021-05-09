@@ -83,9 +83,9 @@ module.exports.register = (app) => {
                         inter_tourismsInDB.forEach( (v) => {
                             delete v._id;
                         });
-                        res.send(JSON.stringify(inter_tourismsInDB[0],null,2));
+                        res.send(JSON.stringify(inter_tourismsInDB,null,2));
                     
-                        console.log("Data sent:"+JSON.stringify(inter_tourismsInDB[0],null,2));
+                        console.log("Data sent:"+JSON.stringify(inter_tourismsInDB,null,2));
                     } 
                 }
             });    
