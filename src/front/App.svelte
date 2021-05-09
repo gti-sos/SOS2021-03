@@ -41,6 +41,20 @@
 			  <NavItem  >
 				<NavLink  active href="#/info">Información</NavLink>
 			  </NavItem>
+			  <Dropdown  nav {isOpena} togglea="{() => isOpena = !isOpena}" >
+				<DropdownToggle nav caret>
+				  Github
+				</DropdownToggle>
+				<DropdownMenu>
+				  <DropdownItem header>Individual</DropdownItem>
+				  <DropdownItem href="https://github.com/joavilalv">Joan</DropdownItem>
+				  <DropdownItem href="https://github.com/Paula0008">Paula</DropdownItem>
+				  <DropdownItem href= "https://github.com/AymanAlaouiMhammedi">Ayman</DropdownItem>
+				  <DropdownItem divider />
+				  <DropdownItem header>Grupal</DropdownItem>
+				  <DropdownItem href="https://github.com/gti-sos/SOS2021-03.git">Todos</DropdownItem>
+				</DropdownMenu>
+			</Dropdown>	
 			  <NavItem>
 				<NavLink href="#/air-pollution">Contaminación del aire</NavLink>
 			  </NavItem>
@@ -57,7 +71,7 @@
 				  <DropdownItem href= "https://sos2021-03.herokuapp.com/api/v1/quality-of-life">Calidad de vida</DropdownItem>
 				</DropdownMenu>
 			</Dropdown>
-			  <Dropdown  nav {isOpenb} toggleA="{() => isOpenb = !isOpenb}" >
+			  <Dropdown  nav {isOpenb} togglbb="{() => isOpenb = !isOpenb}" >
 				<DropdownToggle nav caret>
 				  Postman
 				</DropdownToggle>
@@ -68,20 +82,7 @@
 				  <DropdownItem href= "https://documenter.getpostman.com/view/14967959/TzJydbsW">Calidad de vida</DropdownItem>
 				</DropdownMenu>
 			</Dropdown>
-			<Dropdown  nav {isOpena} toggleB="{() => isOpena = !isOpena}" >
-				<DropdownToggle nav caret>
-				  Github
-				</DropdownToggle>
-				<DropdownMenu>
-				  <DropdownItem header>Individual</DropdownItem>
-				  <DropdownItem href="https://github.com/joavilalv">Joan</DropdownItem>
-				  <DropdownItem href="https://github.com/Paula0008">Paula</DropdownItem>
-				  <DropdownItem href= "https://github.com/AymanAlaouiMhammedi">Ayman</DropdownItem>
-				  <DropdownItem divider />
-				  <DropdownItem header>Grupal</DropdownItem>
-				  <DropdownItem href="https://github.com/gti-sos/SOS2021-03.git">Todos</DropdownItem>
-				</DropdownMenu>
-			</Dropdown>			
+					
 			</Nav>
 		</Navbar>
 	

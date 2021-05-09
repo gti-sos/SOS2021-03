@@ -213,6 +213,15 @@
 						<td><Button on:click={insertRegister}>Añadir</Button>
 					</td>
 				</tr>
+				<tr>
+                    <td>Introducir datos para realizar una busqueda:</td>
+                    <td>Pais</td>
+                    <td><input bind:value="{searchcountry}"></td>
+                    <td>Año</td>
+					<td><input type=number bind:value={searchyear}></td>
+					<td><Button on:click={buscaRegistro(searchcountry, searchyear)}>Buscar</Button>
+                </td>
+            </tr>
 				{#each inter_tourism as r}
 					<tr>
 					<td>{r.country}</td>
@@ -252,23 +261,4 @@
 		  <PaginationLink next href="#/international-tourisms" on:click="{() => incrementOffset(1)}"/>
 		</PaginationItem>
 	</Pagination>
-	<Table bordered>
-        <tbody>
-            <tr>
-				<td >Selecciona el País:</td>
-				<td><input type ="text" bind:value="{searchcountry}"></td>
-				<td >Seleccione el año: </td>
-				<td><input type ="number" bind:value="{searchyear}"></td>
-                <td>
-                    <div style="text-align:center;padding-bottom: 3%;margin-top: 6%;">
-						<!--{#if searchcountry && searchyear}
-                        	<Button outline  color="primary" on:click="{buscaRegistro(searchcountry,searchyear)}" href="#/international-tourisms/{searchcountry}/{searchyear}">Buscar</Button>
-						{/if}-->
-						<Button outline  color="primary" on:click="{buscaRegistro(searchcountry,searchyear)}">Buscar</Button>
-						
-					</div>
-                </td>
-            </tr>
-        </tbody>
-    </Table>
 </main>
