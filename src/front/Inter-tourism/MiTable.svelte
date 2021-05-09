@@ -196,11 +196,21 @@
 		<Table bordered>
 			<thead>
 				<tr>
+                    <td>Introducir datos para realizar una busqueda:</td>
+                    <td>Pais</td>
+                    <td><input bind:value="{searchcountry}"></td>
+                    <td>Año</td>
+					<td><input type=number bind:value={searchyear}></td>
+					<td><Button on:click={buscaRegistro(searchcountry, searchyear)}>Buscar</Button>
+               		</td>
+            	</tr>
+				<tr>
 					<td>Pais</td>
 					<td>Año</td>
 					<td>Número de llegadas</td>
 					<td>Número de salidas</td>
 					<td>Gastos en billones</td>
+					<td>Acciones</td>
 				</tr>
 			</thead>
 			<tbody>
@@ -213,15 +223,7 @@
 						<td><Button on:click={insertRegister}>Añadir</Button>
 					</td>
 				</tr>
-				<tr>
-                    <td>Introducir datos para realizar una busqueda:</td>
-                    <td>Pais</td>
-                    <td><input bind:value="{searchcountry}"></td>
-                    <td>Año</td>
-					<td><input type=number bind:value={searchyear}></td>
-					<td><Button on:click={buscaRegistro(searchcountry, searchyear)}>Buscar</Button>
-                </td>
-            </tr>
+				
 				{#each inter_tourism as r}
 					<tr>
 					<td>{r.country}</td>
