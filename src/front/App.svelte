@@ -37,30 +37,29 @@
 		<Navbar color="light" light expand="md" >
 			<NavbarToggler on:click={() => (isOpen = !isOpen)} />
 				<Collapse {isOpen} navbar expand="md" on:update={handleUpdate}>
-				
 					<Nav navbar >
-					<NavItem  >
-						<NavLink  active href="#/">Inicio</NavLink>
-					</NavItem>
-					<NavItem  >
-						<NavLink  active href="#/info">Información</NavLink>
-					</NavItem>
-					<NavItem>
-						<NavLink href="#/air-pollution">Contaminación del aire</NavLink>
-					</NavItem>
-					<NavItem>
-						<NavLink href="#/international-tourisms">Turismo Internacional</NavLink>
-					</NavItem>
-					<Dropdown {isOpen} toggle="{() => isOpen = !isOpen}>
-						<DropdownToggle nav caret>
-						APIs
-						</DropdownToggle>
-						<DropdownMenu>
-						<DropdownItem href="https://sos2021-03.herokuapp.com/api/v1/air-pollution">Contaminación del aire</DropdownItem>
-						<DropdownItem href="https://sos2021-03.herokuapp.com/api/v1/international-tourisms">Turismo internacional</DropdownItem>
-						<DropdownItem href= "https://sos2021-03.herokuapp.com/api/v1/quality-of-life">Calidad de vida</DropdownItem>
-						</DropdownMenu>
-					</Dropdown>
+						<NavItem  >
+							<NavLink  active href="#/">Inicio</NavLink>
+						</NavItem>
+						<NavItem  >
+							<NavLink  active href="#/info">Información</NavLink>
+						</NavItem>
+						<NavItem>
+							<NavLink href="#/air-pollution">Contaminación del aire</NavLink>
+						</NavItem>
+						<NavItem>
+							<NavLink href="#/international-tourisms">Turismo Internacional</NavLink>
+						</NavItem>
+						<Dropdown {isOpen} toggle="{() => isOpen = !isOpen}">
+							<DropdownToggle nav caret>
+							APIs
+							</DropdownToggle>
+							<DropdownMenu>
+								<DropdownItem href= "https://sos2021-03.herokuapp.com/api/v1/air-pollution">Contaminación del aire</DropdownItem>
+								<DropdownItem href="https://sos2021-03.herokuapp.com/api/v1/international-tourisms">Turismo internacional</DropdownItem>
+								<DropdownItem href= "https://sos2021-03.herokuapp.com/api/v1/quality-of-life">Calidad de vida</DropdownItem>
+							</DropdownMenu>
+						</Dropdown>
 					</Nav>
 				</Collapse>
 		</Navbar>
