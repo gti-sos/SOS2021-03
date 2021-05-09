@@ -130,15 +130,15 @@
         
         var url = "/api/v1/international-tourisms";
         
-		if (country != "" && year != "") {
+		if (country != "" && year != 0 ){
             url = url + "?country=" + country + "&year=" + year;
            
         } 
-        else if (country != "" && year == "") {
+        else if (country != "" && (year == "" || year == 0)) {
             url = url + "?country=" + country;
            
         } 
-        else if (country == "" && year != "") {
+        else if (country == "" && (year != 0 || year != "")) {
             url = url + "?year=" + year;
           
         }
@@ -190,15 +190,7 @@
 					<td><Button on:click={buscaRegistro(searchcountry, searchyear)}>Buscar</Button>
                		</td>
             	</tr>
-				<tr>
-					<td><input bind:value="{newRegister.country}"></td>
-						<td><input type=number bind:value={newRegister.year}></td>
-						<td><input type=number bind:value={newRegister.numberofarribals}></td>
-						<td><input type=number bind:value={newRegister.numberofdepartures}></td>
-						<td><input type=number bind:value={newRegister.expendituresbillion}></td>
-						<td><Button on:click={insertRegister}>Añadir</Button>
-					</td>
-				</tr>
+				
 				<tr>
 					<td>Pais</td>
 					<td>Año</td>
@@ -209,6 +201,17 @@
 				</tr>
 			</thead>
 			<tbody>
+				{#if !buscaRegistro}
+				<tr>
+					<td><input bind:value="{newRegister.country}"></td>
+						<td><input type=number bind:value={newRegister.year}></td>
+						<td><input type=number bind:value={newRegister.numberofarribals}></td>
+						<td><input type=number bind:value={newRegister.numberofdepartures}></td>
+						<td><input type=number bind:value={newRegister.expendituresbillion}></td>
+						<td><Button on:click={insertRegister}>Añadir</Button>
+					</td>
+				</tr>
+				{/if}
 				
 				
 				{#each inter_tourism as r}
