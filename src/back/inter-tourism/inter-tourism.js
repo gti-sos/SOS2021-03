@@ -63,7 +63,9 @@ module.exports.register = (app) => {
         var numberofarribals = parseInt(req.query.numberofarribals);
         var numberofdepartures = parseInt(req.query.numberofdepartures);
         var expendituresbillion = parseInt(req.query.expendituresbillion);
-
+        var x = country | year | numberofarribals | numberofdepartures | expendituresbillion;
+        var y = country | year | numberofarribals | numberofdepartures | expendituresbillion;
+       
         var fromYear = parseInt(req.query.fromYear);
         var toYear = parseInt(req.query.toYear);
         console.log("country="+country+", year="+year+", numberofarribals="+numberofarribals+", numberofdepartures="+numberofdepartures+", expendituresbillion="+expendituresbillion+", fromYear="+fromYear+", toYear="+toYear);
@@ -164,15 +166,26 @@ module.exports.register = (app) => {
                     }   
                 }
             });
-       }
-       var x = country | year | numberofarribals | numberofdepartures | expendituresbillion;
-       var y = country | year | numberofarribals | numberofdepartures | expendituresbillion;
-       if(x && y){
-        var c = req.query.c!=undefined?String(req.query.c):"";
-        var a = req.query.e!=undefined?parseFloat(req.query.a):0;
-
-            if(x!=y){
-                db.find({$and:[{x:c},{y:a}]}).skip(offset).limit(limit).exec(function(err, inter_tourismsInDB) {
+        }
+        
+        else if(x && y){
+            if (x!=y && x!=ciudad && y!=year){
+                db.find({x: {$gte: x, $lt: y}}).sort({x: 1}).skip(offset).limit(limit).exec(function(err, inter_tourismsInDB) {
+                    if(err){
+                        res.sendStatus(500);
+                    }else {
+                        
+                            inter_tourismsInDB.forEach( (v) => {
+                                delete v._id;
+                            });
+                            res.send(JSON.stringify(inter_tourismsInDB,null,2));
+                            
+                            console.log("Data sent:"+JSON.stringify(inter_tourismsInDB,null,2));
+                       
+                    }
+                });
+            }else if(x!=y && x == ciudad && y ==year){
+                db.find({$and:[{x:{$gt:x, $lt:x}},{y:{$gte:y, $lt:y}}]}).skip(offset).limit(limit).exec(function(err, inter_tourismsInDB) {
                     if(err){
                         res.sendStatus(500);
                     }else {
