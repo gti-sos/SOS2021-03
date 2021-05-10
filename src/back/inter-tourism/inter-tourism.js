@@ -169,8 +169,8 @@ module.exports.register = (app) => {
         }
         
         else if(x && y){
-            if (x!=y && x!=ciudad && y!=year){
-                db.find({x: {$gte: x, $lt: y}}).sort({x: 1}).skip(offset).limit(limit).exec(function(err, inter_tourismsInDB) {
+            if(x == ciudad && y == year){
+                db.find({y:{$gte:x, $lt:y}}).sort({y: 1}).skip(offset).limit(limit).exec(function(err, inter_tourismsInDB) {
                     if(err){
                         res.sendStatus(500);
                     }else {
@@ -184,8 +184,8 @@ module.exports.register = (app) => {
                        
                     }
                 });
-            }else if(x == ciudad && y ==year){
-                db.find({x:{$gte:y, $lt:y}}).sort({x: 1}).skip(offset).limit(limit).exec(function(err, inter_tourismsInDB) {
+            }else if (x!=y){
+                db.find({x: {$gte: x, $lt: y}}).sort({x: 1}).skip(offset).limit(limit).exec(function(err, inter_tourismsInDB) {
                     if(err){
                         res.sendStatus(500);
                     }else {
