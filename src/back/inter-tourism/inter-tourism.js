@@ -168,7 +168,7 @@ module.exports.register = (app) => {
         var y = country | year | numberofarribals | numberofdepartures | expendituresbillion;
         }else if(x && y){
             if(x!=y){
-                db.find({x: {$gte: x, $lt: y}}).sort({x: 1}).skip(offset).limit(limit).exec(function(err, inter_tourismsInDB) {
+                db.find({x: {$in: x, $in: y}}).sort({x: 1}).skip(offset).limit(limit).exec(function(err, inter_tourismsInDB) {
                     if(err){
                         res.sendStatus(500);
                     }else {
