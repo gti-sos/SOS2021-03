@@ -217,7 +217,7 @@
                     <td><input type=number bind:value={searchcountry}></td>
                     <td>Al año:</td>
 					<td><input type=number bind:value={searchyear}></td>
-					<td><Button on:click={buscaRegistro(searchcountry, searchyear)}>Buscar</Button>
+					<td><Button color="warning" on:click={buscaRegistro(searchcountry, searchyear)}>Buscar</Button>
                 </td>
             </tr>
             <tr>

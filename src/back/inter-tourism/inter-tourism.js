@@ -15,25 +15,25 @@ module.exports.register = (app) => {
     var inter_tourisms = [];
     var inter_tourisms_initial = [
         {
-            country:"portugal",
-            year:2014,
-            numberofarribals:10497000,
-            numberofdepartures:1502000,
-            expendituresbillion:5213 
+            "country":"portugal",
+            "year":2014,
+            "numberofarribals":10497000,
+            "numberofdepartures":1502000,
+            "expendituresbillion":5213 
         },
         {
-            country:"rusia",
-            year:2010,
-            numberofarribals:22281000,
-            numberofdepartures:39232000,
-            expendituresbillion:30169
+            "country":"rusia",
+            "year":2010,
+            "numberofarribals":22281000,
+            "numberofdepartures":39232000,
+            "expendituresbillion":30169
         },
         {
-            country:"francia",
-            year:2014,
-            numberofarribals:206599000,
-            numberofdepartures:31941000,
-            expendituresbillion:58464
+            "country":"francia",
+            "year":2014,
+            "numberofarribals":206599000,
+            "numberofdepartures":31941000,
+            "expendituresbillion":58464
         }
     ];
 
@@ -74,19 +74,13 @@ module.exports.register = (app) => {
                     console.error("ERROR accesing a DB in GET: " + err);
                     res.sendStats(500);
                 } else{
-                    if(inter_tourismsInDB.lengh === 1){
-                        delete inter_tourismsInDB[0]._id;
-                        res.send(JSON.stringify(inter_tourismsInDB[0],null,2));
-                    
-                        console.log("Data sent:"+JSON.stringify(inter_tourismsInDB[0],null,2));
-                    }else{
-                        inter_tourismsInDB.forEach( (v) => {
-                            delete v._id;
-                        });
-                        res.send(JSON.stringify(inter_tourismsInDB,null,2));
-                    
-                        console.log("Data sent:"+JSON.stringify(inter_tourismsInDB,null,2));
-                    } 
+                    inter_tourismsInDB.forEach( (v) => {
+                        delete v._id;
+                    });
+                    res.send(JSON.stringify(inter_tourismsInDB,null,2));
+                
+                    console.log("Data sent:"+JSON.stringify(inter_tourismsInDB,null,2));
+                
                 }
             });    
         }else if(year){
@@ -94,19 +88,14 @@ module.exports.register = (app) => {
                 if(err){
                     res.sendStatus(500);
                 }else {
-                    if(inter_tourismsInDB.length===1){
-                        delete inter_tourismsInDB[0]._id;
-                        res.send(JSON.stringify(inter_tourismsInDB[0],null,2));
+                
+                    inter_tourismsInDB.forEach( (v) => {
+                        delete v._id;
+                    });
+                    res.send(JSON.stringify(inter_tourismsInDB,null,2));
+                
+                    console.log("Data sent:"+JSON.stringify(inter_tourismsInDB,null,2));
                     
-                        console.log("Data sent:"+JSON.stringify(inter_tourismsInDB[0],null,2));
-                    }else{
-                        inter_tourismsInDB.forEach( (v) => {
-                            delete v._id;
-                        });
-                        res.send(JSON.stringify(inter_tourismsInDB,null,2));
-                    
-                        console.log("Data sent:"+JSON.stringify(inter_tourismsInDB,null,2));
-                    }   
                 }
             });
         }else if(numberofarribals){
@@ -114,19 +103,14 @@ module.exports.register = (app) => {
                 if(err){
                     res.sendStatus(500);
                 }else {
-                    if(inter_tourismsInDB.length===1){
-                        delete inter_tourismsInDB[0]._id;
-                        res.send(JSON.stringify(inter_tourismsInDB[0],null,2));
-                    
-                        console.log("Data sent:"+JSON.stringify(inter_tourismsInDB[0],null,2));
-                    }else{
-                        inter_tourismsInDB.forEach( (v) => {
-                            delete v._id;
-                        });
-                        res.send(JSON.stringify(inter_tourismsInDB[0],null,2));
+                
+                    inter_tourismsInDB.forEach( (v) => {
+                        delete v._id;
+                    });
+                    res.send(JSON.stringify(inter_tourismsInDB[0],null,2));
 
-                        console.log("Data sent:"+JSON.stringify(inter_tourismsInDB,null,2));
-                    }
+                    console.log("Data sent:"+JSON.stringify(inter_tourismsInDB,null,2));
+                
                 
                 }
             });
@@ -135,19 +119,14 @@ module.exports.register = (app) => {
                 if(err){
                     res.sendStatus(500);
                 }else {
-                    if(inter_tourismsInDB.length===1){
-                        delete inter_tourismsInDB[0]._id;
-                        res.send(JSON.stringify(inter_tourismsInDB[0],null,2));
-                    
-                        console.log("Data sent:"+JSON.stringify(inter_tourismsInDB[0],null,2));
-                    }else{
-                        inter_tourismsInDB.forEach( (v) => {
-                            delete v._id;
-                        });
-                        res.send(JSON.stringify(inter_tourismsInDB,null,2));
-                    
-                        console.log("Data sent:"+JSON.stringify(inter_tourismsInDB,null,2));
-                    }                    
+                   
+                    inter_tourismsInDB.forEach( (v) => {
+                        delete v._id;
+                    });
+                    res.send(JSON.stringify(inter_tourismsInDB,null,2));
+                
+                    console.log("Data sent:"+JSON.stringify(inter_tourismsInDB,null,2));
+                                    
                 }
             });
         }else if(expendituresbillion){
@@ -155,19 +134,14 @@ module.exports.register = (app) => {
                 if(err){
                     res.sendStatus(500);
                 }else {
-                    if(inter_tourismsInDB.length===1){
-                        delete inter_tourismsInDB[0]._id;
-                        res.send(JSON.stringify(inter_tourismsInDB[0],null,2));
+                 
+                    inter_tourismsInDB.forEach( (v) => {
+                        delete v._id;
+                    });
+                    res.send(JSON.stringify(inter_tourismsInDB,null,2));
+                
+                    console.log("Data sent:"+JSON.stringify(inter_tourismsInDB,null,2));
                     
-                        console.log("Data sent:"+JSON.stringify(inter_tourismsInDB[0],null,2));
-                    }else{
-                        inter_tourismsInDB.forEach( (v) => {
-                            delete v._id;
-                        });
-                        res.send(JSON.stringify(inter_tourismsInDB,null,2));
-                    
-                        console.log("Data sent:"+JSON.stringify(inter_tourismsInDB,null,2));
-                    }    
                 }
             });
         }else if(fromYear && toYear){
