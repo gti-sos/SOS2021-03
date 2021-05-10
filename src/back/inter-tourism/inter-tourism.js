@@ -167,17 +167,24 @@ module.exports.register = (app) => {
                 }
             });
         }else if (x!=y){
-            db.find({x: {$gte: x, $lte: y}, y:{$gte: x, $lte: y} }).sort({x: 1, y: -1}).skip(offset).limit(limit).exec(function(err, inter_tourismsInDB) {
+            db.find({x:x }).sort({x: 1}).skip(offset).limit(limit).exec(function(err, inter_tourismsInDB) {
                 if(err){
                     res.sendStatus(500);
                 }else {
-                    if(inter_tourismsInDB.lenght == 1){}
-                    inter_tourismsInDB.forEach( (v) => {
-                        delete v._id;
+                    db.find({y: y}).sort({ y: 1}).skip(offset).limit(limit).exec(function(err, inter_tourismsInDB) {
+                        if(err){
+                            res.sendStatus(500);
+                        }else {
+                            if(inter_tourismsInDB.lenght == 1){}
+                            inter_tourismsInDB.forEach( (v) => {
+                                delete v._id;
+                            });
+                            res.send(JSON.stringify(inter_tourismsInDB,null,2));
+                            
+                            console.log("Data sent:"+JSON.stringify(inter_tourismsInDB,null,2));
+                            
+                        }
                     });
-                    res.send(JSON.stringify(inter_tourismsInDB,null,2));
-                    
-                    console.log("Data sent:"+JSON.stringify(inter_tourismsInDB,null,2));
                     
                 }
             });
