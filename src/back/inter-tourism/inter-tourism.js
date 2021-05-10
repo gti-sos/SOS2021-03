@@ -170,9 +170,9 @@ module.exports.register = (app) => {
         
         else if(x && y){
             if(x == country && y == year){
-                var ciu = req.params.country;
-	            var ye = req.params.year;
-                db.find({$and:[{country: ciu, year: ye}]}).sort({x:1, y: -1}).skip(offset).limit(limit).exec(function(err, inter_tourismsInDB) {
+                var ciu = req.query.country;
+	            var ye = req.query.year;
+                db.find({$and:[{country: ciu, year: ye}]}).skip(offset).limit(limit).exec(function(err, inter_tourismsInDB) {
                     if(err){
                         res.sendStatus(500);
                     }else {
