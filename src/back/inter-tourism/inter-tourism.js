@@ -15,25 +15,25 @@ module.exports.register = (app) => {
     var inter_tourisms = [];
     var inter_tourisms_initial = [
         {
-            "country":"portugal",
-            "year":2014,
-            "numberofarribals":10497000,
-            "numberofdepartures":1502000,
-            "expendituresbillion":5213 
+            country:"portugal",
+            year:2014,
+            numberofarribals:10497000,
+            numberofdepartures:1502000,
+            expendituresbillion:5213 
         },
         {
-            "country":"rusia",
-            "year":2010,
-            "numberofarribals":22281000,
-            "numberofdepartures":39232000,
-            "expendituresbillion":30169
+            country:"rusia",
+            year:2010,
+            numberofarribals:22281000,
+            numberofdepartures:39232000,
+            expendituresbillion:30169
         },
         {
-            "country":"francia",
-            "year":2014,
-            "numberofarribals":206599000,
-            "numberofdepartures":31941000,
-            "expendituresbillion":58464
+            country:"francia",
+            year:2014,
+            numberofarribals:206599000,
+            numberofdepartures:31941000,
+            expendituresbillion:58464
         }
     ];
 

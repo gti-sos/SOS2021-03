@@ -165,7 +165,7 @@
 			}else{
 				window.alert("No se han encontrado registros para esta busqueda");
 			}
-			getRegisters();
+			
 
         }else {
 			console.log("ERROR");
@@ -185,9 +185,9 @@
         Tabla de estadisticas:
     </h2>
     <br>
-	{#await inter_tourism}
+	<!--{#await inter_tourism}
 	Loading datas...
-	{:then inter_tourism}
+	{:then inter_tourism}-->
 		<Button on:click={loadInitialData}>Cargar los datos</Button>
 		<Button on:click={deleteAll}>Borrar todos los datos</Button>
 		<br>
@@ -237,7 +237,7 @@
 				
 			</tbody>
 		</Table>
-		{/await}
+		<!--{/await}-->
 	<Pagination style="float:center;" ariaLabel="Cambiar de página">
 		<PaginationItem class="{pagActual === 1 ? 'disabled' : ''}">
 		  <PaginationLink previous href="#/international-tourisms" on:click="{() => incrementOffset(-1)}" />
