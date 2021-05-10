@@ -185,7 +185,7 @@ module.exports.register = (app) => {
                     }
                 });
             }else if(x!=y && x == ciudad && y ==year){
-                db.find({$and:[{x:{$gt:x, $lt:x}},{y:{$gte:y, $lt:y}}]}).skip(offset).limit(limit).exec(function(err, inter_tourismsInDB) {
+                db.find({$and:[{x:{$in:x}},{y:{$in:y}}]}).skip(offset).limit(limit).exec(function(err, inter_tourismsInDB) {
                     if(err){
                         res.sendStatus(500);
                     }else {
