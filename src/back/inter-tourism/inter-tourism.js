@@ -164,9 +164,13 @@ module.exports.register = (app) => {
                     }   
                 }
             });
-        var x = country | year | numberofarribals | numberofdepartures | expendituresbillion;
-        var y = country | year | numberofarribals | numberofdepartures | expendituresbillion;
-        }else if(x && y){
+       }
+       var x = country | year | numberofarribals | numberofdepartures | expendituresbillion;
+       var y = country | year | numberofarribals | numberofdepartures | expendituresbillion;
+       if(x && y){
+        var c = req.query.c!=undefined?String(req.query.c):"";
+        var y = req.query.y!=undefined?parseFloat(req.query.y):0;
+
             if(x!=y){
                 db.find({$and:[{x},{y}]}).skip(offset).limit(limit).exec(function(err, inter_tourismsInDB) {
                     if(err){
