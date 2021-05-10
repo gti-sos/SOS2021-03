@@ -166,7 +166,7 @@ module.exports.register = (app) => {
                     }   
                 }
             });
-        }
+       /* }
         
         else if(x && y){
             if(x == country && y == year){
@@ -201,9 +201,10 @@ module.exports.register = (app) => {
                        
                     }
                 });
-            }else{
-                res.sendStatus(500);
             }
+            else{
+                res.sendStatus(500);
+            }*/
         }else{
             db.find({}).skip(offset).limit(limit).exec( (err, inter_tourismsInDB) => {
                 if(err){
