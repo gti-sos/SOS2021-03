@@ -166,45 +166,22 @@ module.exports.register = (app) => {
                     }   
                 }
             });
-        }
+        }else if (x!=y){
+            db.find({x: {$gte: x, $lt: y}}).sort({x: 1, y: -1}).skip(offset).limit(limit).exec(function(err, inter_tourismsInDB) {
+                if(err){
+                    res.sendStatus(500);
+                }else {
+                    
+                        inter_tourismsInDB.forEach( (v) => {
+                            delete v._id;
+                        });
+                        res.send(JSON.stringify(inter_tourismsInDB,null,2));
+                        
+                        console.log("Data sent:"+JSON.stringify(inter_tourismsInDB,null,2));
+                    
+                }
+            });
         
-        else if(x && y){
-            if(x == country && y == year){
-                var ciu = req.query.country;
-	            var ye = req.query.year;
-                db.find({$and:[{country: ciu, year: ye}]}).skip(offset).limit(limit).exec(function(err, inter_tourismsInDB) {
-                    if(err){
-                        res.sendStatus(500);
-                    }else {
-                        
-                            inter_tourismsInDB.forEach( (v) => {
-                                delete v._id;
-                            });
-                            res.send(JSON.stringify(inter_tourismsInDB,null,2));
-                            
-                            console.log("Data sent:"+JSON.stringify(inter_tourismsInDB,null,2));
-                       
-                    }
-                });
-            }else if (x!=y){
-                db.find({x: {$gte: x, $lt: y}}).sort({x: 1}).skip(offset).limit(limit).exec(function(err, inter_tourismsInDB) {
-                    if(err){
-                        res.sendStatus(500);
-                    }else {
-                        
-                            inter_tourismsInDB.forEach( (v) => {
-                                delete v._id;
-                            });
-                            res.send(JSON.stringify(inter_tourismsInDB,null,2));
-                            
-                            console.log("Data sent:"+JSON.stringify(inter_tourismsInDB,null,2));
-                       
-                    }
-                });
-            }
-            else{
-                res.sendStatus(500);
-            }
         }else{
             db.find({}).skip(offset).limit(limit).exec( (err, inter_tourismsInDB) => {
                 if(err){
