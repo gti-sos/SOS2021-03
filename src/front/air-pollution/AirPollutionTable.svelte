@@ -67,8 +67,7 @@
                         if(res.status==200){
                             okMsg="Datos insertados correctamente.";
                             errorMsg = false;
-                        }else if (status==409){
-                            window.alert("Los datos ya están cargados, para volver a cargarlos debe eliminar los actuales. ");
+                        }else if (res.status==409){
                             errorMsg = "Los datos ya están cargados, si quiere volver a cargarlos deberá eliminar primero los actuales.";
                             //windows.alert(errorMsg);
                             okMsg = false;
