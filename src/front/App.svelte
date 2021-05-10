@@ -53,7 +53,7 @@
 						</NavItem>
 						<Dropdown {isOpen} toggle="{() => isOpen = !isOpen}">
 							<DropdownToggle nav caret>
-							BackEnd
+							API's
 							</DropdownToggle>
 							<DropdownMenu>
 								<DropdownItem href= "https://sos2021-03.herokuapp.com/api/v1/air-pollution">Contaminación del aire</DropdownItem>

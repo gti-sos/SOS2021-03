@@ -139,16 +139,14 @@
         
         var url = "/api/v1/air-pollution";
         
-		if (fromYear != "" && toYear != "") {
+		if (fromYear != "" && toYear != "" && fromYear>0 && toYear>0) {
             url = url + "?fromYear=" + fromYear + "&toYear=" + toYear;
             console.log(url);
         } 
-        else if (fromYear != "" && toYear == "") {
+        else {
             window.alert("Completar todos los campos para realizar la búsqueda. ")
         } 
-        else if (fromYear == "" && toYear != "") {
-            window.alert("Completar todos los campos para realizar la búsqueda. ")
-        }
+        
         
         const res = await fetch(url);
         
@@ -188,7 +186,7 @@
     <Button on:click={loadInitialData}>Cargar registros</Button>
     <Button on:click={deleteAll}>Borrar todos los registros</Button>
     <br>
-    
+    <br>
         
     <Table bordered>
         <thead>
