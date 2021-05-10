@@ -62,10 +62,12 @@
 		const res = await fetch("/api/v1/air-pollution/loadInitialData").then( (res)=> {
                         if(res.status==200){
                             
-                            window.alert("Datos insertados correctamente.")
+                            okMsg="Datos insertados correctamente.";
+                            errorMsg = false;
                         }else if (status==409){
                             
-                            window.alert("Los datos ya están cargados, si quiere volver a cargarlos deberá eliminar primero los actuales.")
+                            errorMsg = "Los datos ya están cargados, si quiere volver a cargarlos deberá eliminar primero los actuales.";
+                            okMsg = false;
                         }
                         getRegisters();
 						})
@@ -86,11 +88,14 @@
                            ).then( (res) => {
                             
                             if(res.status == 201){
-			                    window.alert("Nuevo registro creado correctamente. ");
+			                    okMsg = "Nuevo registro creado correctamente. ";
+                                errorMsg = false;
 		                    }else if(res.status == 409){
-			                    window.alert("Dato ya existente. ");
+			                    errorMsg = "Dato ya existente. ";
+                                okMsg = false;
 		                    }else if(res.status == 400){
-			                    window.alert("Datos no válidos(no puede quedarse vacío ningun campo. ");
+			                    errorMsg = "Datos no válidos(no puede quedarse vacío ningun campo. ";
+                                okMsg = false;
 		                    }
                             getRegisters();    
                            })
@@ -106,9 +111,11 @@
                            ).then( (res) => {
                             
                             if(res.status == 200){
-                                window.alert("Dato eliminado correctamente. ");
+                                okMsg= "Dato eliminado correctamente. ";
+                                errorMsg = false;
                             }else if(res.status == 404){
-                                window.alert("No existe ningun registro para eliminar con pais: " + country + " y año "+ year);
+                                errorMsg= "No existe ningun registro para eliminar con pais: " + country + " y año "+ year;
+                                okMsg =false;
                             }
                             getRegisters();
                            })
@@ -123,9 +130,11 @@
 						}).then( (res)=> {
                             
                             if(res.status == 200){
-                                window.alert("Registros eliminados correctamente. ");
+                                okMsg= "Registros eliminados correctamente. ";
+                                errorMsg =false;
                             }else if(res.status == 405){
-                                window.alert("No hay registros para eliminar. ");
+                                errorMsg = "No hay registros para eliminar. ";
+                                okMsg =false;
                             }
 						    getRegisters();
 						})
@@ -142,35 +151,37 @@
 		if (fromYear != "" && toYear != "" && fromYear>0 && toYear>0) {
             url = url + "?fromYear=" + fromYear + "&toYear=" + toYear;
             console.log(url);
+            if (res.ok) {
+                console.log("OK");
+                const json = await res.json();
+                console.log(json);
+                air_pollution=json;	
+                console.log("air_pollution now is that:");
+                console.log(air_pollution);	
+                console.log(air_pollution.length);
+                console.log("Encontrados " + air_pollution.length + " registros.");
+                
+                if(air_pollution.length > 0){
+                    okMsg = "Se han encontrado: "+ air_pollution.length + " resultados.";
+                    errorMsg = false;
+                }
+                else{
+                    okMsg = false;
+                    errorMsg= "No se han encontrado registros para esta busqueda";
+                }
+            }else {
+			console.log("ERROR");
+		    }
         } 
         else {
-            window.alert("Completar todos los campos para realizar la búsqueda. ")
+            errorMsg= "Completar todos los campos para realizar la búsqueda. ";
+            okMsg = false;
         } 
         
         
         const res = await fetch(url);
         
-		if (res.ok) {
-			console.log("OK");
-			const json = await res.json();
-            console.log(json);
-			air_pollution=json;	
-            console.log("air_pollution now is that:");
-            console.log(air_pollution);	
-            console.log(air_pollution.length);
-			console.log("Encontrados " + air_pollution.length + " registros.");
-            
-            if(air_pollution.length > 0 || air_pollution[0]!=[]){
-                window.alert("Se han encontrado: "+ air_pollution.length + " resultados.");
-                
-            }
-            else{
-                window.alert("No se han encontrado registros para esta busqueda");
-            }
-        } 
-        else {
-			console.log("ERROR");
-		}
+		
 		
 	}
 
@@ -187,7 +198,13 @@
     <Button on:click={deleteAll}>Borrar todos los registros</Button>
     <br>
     <br>
-        
+    {#if errorMsg}
+        <p style="color: red">ERROR: {errorMsg}</p>
+    {/if}
+    {#if okMsg}
+        <p style="color: green">ÉXITO: {okMsg}</p>
+    {/if}
+
     <Table bordered>
         <thead>
             <tr>

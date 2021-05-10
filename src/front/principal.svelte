@@ -42,7 +42,7 @@
 		<li><a href="https://sos2021-03.herokuapp.com/api/v1/quality-of-life">Quality of life indexes</a> (developed by Ayman Alaoui Mhammedi)</li>
 
 	</ul>
-	
+	<h3>Miembros del grupo</h3>
 	<ul>
 		<li>Desarrollado por Joan Villalonga Alvaro.
 			<br>
