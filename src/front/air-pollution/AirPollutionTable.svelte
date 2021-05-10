@@ -134,7 +134,8 @@
     async function buscaRegistro(fromYear, toYear) {
 		console.log("Realizando búsqueda de registros del año: " + fromYear + " al año: " + toYear);
         
-        year=parseInt(year);
+        fromYear=parseInt(fromYear);
+        toYear=parseInt(toYear);
         
         var url = "/api/v1/air-pollution";
         
@@ -157,7 +158,7 @@
 			console.log("OK");
 			const json = await res.json();
             console.log(json);
-			air_pollution=[json];	
+			air_pollution=json;	
             console.log("air_pollution now is that:");
             console.log(air_pollution);	
             console.log(air_pollution.length);
@@ -196,7 +197,7 @@
             <tr>
                     <td>Introducir datos para realizar una busqueda:</td>
                     <td>Del año:</td>
-                    <td><input bind:value="{searchcountry}"></td>
+                    <td><input type=number bind:value={searchcountry}></td>
                     <td>Al año:</td>
 					<td><input type=number bind:value={searchyear}></td>
 					<td><Button on:click={buscaRegistro(searchcountry, searchyear)}>Buscar</Button>
