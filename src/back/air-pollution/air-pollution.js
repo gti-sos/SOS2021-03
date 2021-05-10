@@ -190,19 +190,20 @@ app.get(BASE_API_PATH+"/air-pollution", (req,res) =>{
                 if(err){
                     res.sendStatus(500);
                 }else {
+                    /*
                     if(airpollution1.length===1){
                         delete airpollution1[0]._id;
                         res.send(JSON.stringify(airpollution1[0],null,2));
                     
                         console.log("Data sent:"+JSON.stringify(airpollution1[0],null,2));
-                    }else{
+                    }else{*/
                     airpollution1.forEach( (v) => {
                         delete v._id;
                     });
                     res.send(JSON.stringify(airpollution1,null,2));
                     
                         console.log("Data sent:"+JSON.stringify(airpollution1,null,2));
-                    }
+                    //}
                     
                 }
 			});

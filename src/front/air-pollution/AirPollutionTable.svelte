@@ -131,23 +131,23 @@
 						})
 		
 	}
-    async function buscaRegistro(country, year) {
-		console.log("Realizando búsqueda del país: " + country + " y del año: " + year);
+    async function buscaRegistro(fromYear, toYear) {
+		console.log("Realizando búsqueda de registros del año: " + fromYear + " al año: " + toYear);
         
         year=parseInt(year);
         
         var url = "/api/v1/air-pollution";
         
-		if (country != "" && year != "") {
-            url = url + "?country=" + country + "&year=" + year;
+		if (fromYear != "" && toYear != "") {
+            url = url + "?fromYear=" + fromYear + "&toYear=" + toYear;
             console.log(url);
         } 
-        else if (country != "" && year == "") {
-            url = url + "?country=" + country;
+        else if (fromYear != "" && toYear == "") {
+            url = url + "?fromYear=" + fromYear+ "&toYear=" + 40000;
             console.log(url);
         } 
-        else if (country == "" && year != "") {
-            url = url + "?year=" + year;
+        else if (fromYear == "" && toYear != "") {
+            url = url + "?fromYear=" + 0 + "&toYear=" + toYear;
             console.log(url);
         }
         
@@ -189,16 +189,15 @@
     <Button on:click={loadInitialData}>Cargar registros</Button>
     <Button on:click={deleteAll}>Borrar todos los registros</Button>
     <br>
-    <Button outline color="secondary" style="font-size: 16px;border-radius: 4px;background-color: white;" on:click="{buscaRegistro(searchcountry, searchyear)}" class="button-search"> Buscar </Button>
     
         
     <Table bordered>
         <thead>
             <tr>
                     <td>Introducir datos para realizar una busqueda:</td>
-                    <td>Pais</td>
+                    <td>Del año:</td>
                     <td><input bind:value="{searchcountry}"></td>
-                    <td>Año</td>
+                    <td>Al año:</td>
 					<td><input type=number bind:value={searchyear}></td>
 					<td><Button on:click={buscaRegistro(searchcountry, searchyear)}>Buscar</Button>
                 </td>
