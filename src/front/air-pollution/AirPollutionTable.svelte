@@ -25,6 +25,8 @@
     let offset = 0;
     let moreRegisters = true;
     let pagActual = 1;
+    let okMsg = false;
+    let errorMsg = false;
     const BASE_CONTACT_API_PATH = "/api/v1";
 
     
