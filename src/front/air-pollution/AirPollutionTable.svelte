@@ -135,7 +135,7 @@
 		console.log("Realizando búsqueda de registros del año: " + fromYear + " al año: " + toYear);
         
         fromYear=parseInt(fromYear);
-        toYear=parseInt(toYear);
+        toYear=parseInt(toYear)+1;
         
         var url = "/api/v1/air-pollution";
         
@@ -144,12 +144,10 @@
             console.log(url);
         } 
         else if (fromYear != "" && toYear == "") {
-            url = url + "?fromYear=" + fromYear+ "&toYear=" + 40000;
-            console.log(url);
+            window.alert("Completar todos los campos para realizar la búsqueda. ")
         } 
         else if (fromYear == "" && toYear != "") {
-            url = url + "?fromYear=" + 0 + "&toYear=" + toYear;
-            console.log(url);
+            window.alert("Completar todos los campos para realizar la búsqueda. ")
         }
         
         const res = await fetch(url);
