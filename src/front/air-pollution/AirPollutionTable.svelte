@@ -68,14 +68,15 @@
                             
                             okMsg="Datos insertados correctamente.";
                             errorMsg = false;
-                            getRegisters();
+                           
                         }else if (status==409){
-                            getRegisters();
+                            
                             errorMsg = "Los datos ya están cargados, si quiere volver a cargarlos deberá eliminar primero los actuales.";
+                            //windows.alert(errorMsg);
                             okMsg = false;
                         }
-                        
-						})
+                        getRegisters();
+						});
 		
 	}
 

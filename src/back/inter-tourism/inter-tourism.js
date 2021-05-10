@@ -172,13 +172,14 @@ module.exports.register = (app) => {
                     if(err){
                         res.sendStatus(500);
                     }else {
+                        
                             inter_tourismsInDB.forEach( (v) => {
                                 delete v._id;
                             });
                             res.send(JSON.stringify(inter_tourismsInDB,null,2));
                             
                             console.log("Data sent:"+JSON.stringify(inter_tourismsInDB,null,2));
-                          
+                       
                     }
                 });
             }else{
@@ -189,19 +190,14 @@ module.exports.register = (app) => {
                 if(err){
                     res.sendStatus(500);
                 }else {
-                    if(inter_tourismsInDB.length===1){
-                        delete inter_tourismsInDB[0]._id;
-                        res.send(JSON.stringify(inter_tourismsInDB[0],null,2));
-                    
-                        console.log("Data sent:"+JSON.stringify(inter_tourismsInDB[0],null,2));
-                    }else{
+                   
                         inter_tourismsInDB.forEach( (v) => {
                             delete v._id;
                         });
                         res.send(JSON.stringify(inter_tourismsInDB,null,2));
                 
                         console.log("Data sent:"+JSON.stringify(inter_tourismsInDB,null,2));
-                    }
+                
                 }
             });
         }
