@@ -61,7 +61,9 @@
 
     async function loadInitialData(){
 		console.log("Fetching registers...");
-		const res = await fetch("/api/v1/air-pollution/loadInitialData").then( (res)=> {
+		const res = await fetch("/api/v1/air-pollution/loadInitialData", {
+            method:"GET"
+        }).then( (res)=> {
                         if(res.status==200){
                             
                             okMsg="Datos insertados correctamente.";
