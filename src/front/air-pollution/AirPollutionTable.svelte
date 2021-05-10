@@ -66,12 +66,13 @@
                             
                             okMsg="Datos insertados correctamente.";
                             errorMsg = false;
+                            getRegisters();
                         }else if (status==409){
-                            
+                            getRegisters();
                             errorMsg = "Los datos ya están cargados, si quiere volver a cargarlos deberá eliminar primero los actuales.";
                             okMsg = false;
                         }
-                        getRegisters();
+                        
 						})
 		
 	}
@@ -96,7 +97,7 @@
 			                    errorMsg = "Dato ya existente. ";
                                 okMsg = false;
 		                    }else if(res.status == 400){
-			                    errorMsg = "Datos no válidos(no puede quedarse vacío ningun campo. ";
+			                    errorMsg = "Datos no válidos(no puede dejar vacío ningun campo). ";
                                 okMsg = false;
 		                    }
                             getRegisters();    
