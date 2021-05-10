@@ -167,7 +167,7 @@ module.exports.register = (app) => {
                 }
             });
         }else if (x!=y){
-            db.find({$and: [{x: {$gte: x, $lte: y}, y: {$gte: x, $lte: y}}]}).sort({x: 1, y: -1}).skip(offset).limit(limit).exec(function(err, inter_tourismsInDB) {
+            db.find({x: {$gte: x, $lte: y}}).sort({x: 1, y: -1}).skip(offset).limit(limit).exec(function(err, inter_tourismsInDB) {
                 if(err){
                     res.sendStatus(500);
                 }else {
@@ -178,12 +178,25 @@ module.exports.register = (app) => {
                     res.send(JSON.stringify(inter_tourismsInDB,null,2));
                     
                     console.log("Data sent:"+JSON.stringify(inter_tourismsInDB,null,2));
-
-                    
                     
                 }
             });
         
+        }else{
+            db.find({}).skip(offset).limit(limit).exec( (err, inter_tourismsInDB) => {
+                if(err){
+                    res.sendStatus(500);
+                }else {
+                   
+                        inter_tourismsInDB.forEach( (v) => {
+                            delete v._id;
+                        });
+                        res.send(JSON.stringify(inter_tourismsInDB,null,2));
+                
+                        console.log("Data sent:"+JSON.stringify(inter_tourismsInDB,null,2));
+                
+                }
+            });
         }
     });
  
