@@ -169,7 +169,9 @@ module.exports.register = (app) => {
         }
         
         else if(x && y){
-            if(x == ciudad && y == year){
+            if(x == country && y == year){
+                var ciu = req.params.country;
+	            var yearTF = req.params.year;
                 db.find({$and:[{ciudad: {}, year: {}}]}).skip(offset).limit(limit).exec(function(err, inter_tourismsInDB) {
                     if(err){
                         res.sendStatus(500);
