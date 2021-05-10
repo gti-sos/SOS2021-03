@@ -201,7 +201,7 @@ module.exports.register = (app) => {
                        
                     }
                 });
-            }*/
+            }
             else{
                 res.sendStatus(500);
             }
