@@ -153,6 +153,7 @@
 		if (fromYear != "" && toYear != "" && fromYear>0 && toYear>0) {
             url = url + "?fromYear=" + fromYear + "&toYear=" + toYear;
             console.log(url);
+            const res = await fetch(url);
             if (res.ok) {
                 console.log("OK");
                 const json = await res.json();
@@ -181,7 +182,7 @@
         } 
         
         
-        const res = await fetch(url);
+        
         
 		
 		
@@ -204,7 +205,7 @@
         <p style="color: red">ERROR: {errorMsg}</p>
     {/if}
     {#if okMsg}
-        <p style="color: green">ÉXITO: {okMsg}</p>
+        <p style="color: green"> {okMsg}</p>
     {/if}
 
     <Table bordered>
