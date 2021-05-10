@@ -167,7 +167,7 @@ module.exports.register = (app) => {
                 }
             });
         }else if (x!=y){
-            db.find({$and: [{x: {$gte: x, $lt: y}}]}).sort({x: 1, y: -1}).skip(offset).limit(limit).exec(function(err, inter_tourismsInDB) {
+            db.find({$and: [{x: {$gte: x, $lte: y}}]}).sort({x: 1, y: -1}).skip(offset).limit(limit).exec(function(err, inter_tourismsInDB) {
                 if(err){
                     res.sendStatus(500);
                 }else {
