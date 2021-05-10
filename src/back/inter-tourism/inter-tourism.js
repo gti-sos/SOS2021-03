@@ -171,18 +171,27 @@ module.exports.register = (app) => {
                 if(err){
                     res.sendStatus(500);
                 }else {
+                    if(inter_tourismsInDB.lenght == 1){
+                    inter_tourismsInDB.forEach( (v) => {
+                        delete v._id;
+                    });
+                    res.send(JSON.stringify(inter_tourismsInDB,null,2));
                     
-                        inter_tourismsInDB.forEach( (v) => {
-                            delete v._id;
-                        });
-                        res.send(JSON.stringify(inter_tourismsInDB,null,2));
-                        
-                        console.log("Data sent:"+JSON.stringify(inter_tourismsInDB,null,2));
+                    console.log("Data sent:"+JSON.stringify(inter_tourismsInDB,null,2));
+
+                }else{
+                    inter_tourismsInDB.forEach( (y) => {
+                        delete ;
+                    });
+                    res.send(JSON.stringify(inter_tourismsInDB,null,2));
+                    
+                    console.log("Data sent:"+JSON.stringify(inter_tourismsInDB,null,2));
+                }
                     
                 }
             });
         
-        }else{
+        }/*else{
             db.find({}).skip(offset).limit(limit).exec( (err, inter_tourismsInDB) => {
                 if(err){
                     res.sendStatus(500);
@@ -197,7 +206,8 @@ module.exports.register = (app) => {
                 
                 }
             });
-        }
+        }*/
+        
     });
  
     //hacer un post
