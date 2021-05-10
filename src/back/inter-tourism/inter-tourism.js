@@ -170,7 +170,7 @@ module.exports.register = (app) => {
         
         else if(x && y){
             if(x == ciudad && y == year){
-                db.find({y:{$gte:x, $lt:y}}).sort({y: 1}).skip(offset).limit(limit).exec(function(err, inter_tourismsInDB) {
+                db.find({$and:[{ciudad: {}, year: {}}]}).skip(offset).limit(limit).exec(function(err, inter_tourismsInDB) {
                     if(err){
                         res.sendStatus(500);
                     }else {
