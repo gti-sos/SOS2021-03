@@ -166,13 +166,13 @@ module.exports.register = (app) => {
                     }   
                 }
             });
-       /* }
+        }
         
         else if(x && y){
             if(x == country && y == year){
                 var ciu = req.params.country;
 	            var ye = req.params.year;
-                db.find({country: ciu, year: ye}).skip(offset).limit(limit).exec(function(err, inter_tourismsInDB) {
+                db.find({country: ciu, year: ye}).sort({y: 1}).skip(offset).limit(limit).exec(function(err, inter_tourismsInDB) {
                     if(err){
                         res.sendStatus(500);
                     }else {
@@ -201,10 +201,10 @@ module.exports.register = (app) => {
                        
                     }
                 });
-            }
+            }*/
             else{
                 res.sendStatus(500);
-            }*/
+            }
         }else{
             db.find({}).skip(offset).limit(limit).exec( (err, inter_tourismsInDB) => {
                 if(err){
