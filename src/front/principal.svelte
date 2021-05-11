@@ -48,7 +48,7 @@
 			<br>
 			<br>
 			<a href="https://github.com/joavilalv" class="btn btn-outline-info" role="button" aria-pressed="true">Cuenta de Github</a>
-			<a href="https://ourworldindata.org/grapher/death-rates-from-air-pollution" class="btn btn-outline-info" role="button" aria-pressed="true">Fuente utilizada</a>
+			<a href="https://ourworldindata.org/grapher/death-rates-from-air-pollution" class="btn btn-outline-info" role="button" aria-pressed="true">Fuente utilizada: air-pollution</a>
 			<br>
 			<br>
 			
@@ -67,7 +67,7 @@
 			<br>
 			<br>
 			<a href="https://github.com/Paula0008" class="btn btn-outline-info" role="button" aria-pressed="true">Cuenta de Github</a>
-			<a href="https://data.worldbank.org/indicator/ST.INT.RCPT.XP.ZS?end=2018&most_recent_year_desc=false&start=2018&view=map&year=1995" class="btn btn-outline-info" role="button" aria-pressed="true">Fuente utilizada</a>
+			<a href="https://data.worldbank.org/indicator/ST.INT.RCPT.XP.ZS?end=2018&most_recent_year_desc=false&start=2018&view=map&year=1995" class="btn btn-outline-info" role="button" aria-pressed="true">Fuente utilizada: international-tourisms</a>
 			<br>
 			<br>
 			
