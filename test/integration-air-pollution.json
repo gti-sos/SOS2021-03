@@ -776,7 +776,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n\"country\": \"PRUEBA\",\r\n\"year\": 2014,\r\n\"deaths_ambient_particulate_matter_pollution\": 33,\r\n\"deaths_household_air_pollution_from_solid_fuels\": 1.02,\r\n\"deaths_air_pollution\": 34.6\r\n}",
+					"raw": "{\r\n\"country\": \"PRUE\",\r\n\"year\": 2014,\r\n\"deaths_ambient_particulate\": 33,\r\n\"deaths_household_air_pollution_from_solid_fuels\": 1.02,\r\n\"deaths_air_pollution\": 34.6\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
