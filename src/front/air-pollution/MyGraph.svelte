@@ -71,12 +71,13 @@
 				deathsairpollution.push({name: key , data: value})
 			});
 		loadGraph();
+        console.log("Ya se deberia de haber cargadi la grafica");
 		
     }   
     
     onMount(getData);
-  async function loadGraph(){  
-  console.log(dictDeathsAirPollution);
+    async function loadGraph(){  
+    console.log(dictDeathsAirPollution);
     Highcharts.chart('container', {
         title: {
             text: 'Datos de muertes por contaminación del aire'
@@ -116,7 +117,9 @@
                 }
             }]
         }
+        
     });
+    
   }
 </script>
 
@@ -129,7 +132,7 @@
 </svelte:head>
 
 <main>
-<Header/>
+
 <br>
 <br>
     <figure class="highcharts-figure">
