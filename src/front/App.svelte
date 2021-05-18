@@ -17,6 +17,7 @@
 	import EditAirPollution from './air-pollution/EditAirPollution.svelte';
 	import InterTourism from './Inter-tourism/HomeInterTourism.svelte';
 	import EditIntertourism from './Inter-tourism/EditInterTourism.svelte';
+import MyGraph from './air-pollution/MyGraph.svelte';
 
     
 	
@@ -25,6 +26,7 @@
 		"/info": App,
         "/air-pollution": AirPollution,
 		"/air-pollution/:country/:year": EditAirPollution,
+		"/air-pollution/graph": MyGraph,
 		"/international-tourisms": InterTourism,
 		"/international-tourisms/:country/:year": EditIntertourism,
         "*": NotFound
