@@ -1,123 +1,123 @@
 
 <script>
+	import Header from '../Header.svelte';
     import {
         onMount
     } from "svelte";
-
-    import Table from "sveltestrap/src/Table.svelte";
-    import Button from "sveltestrap/src/Button.svelte";
-	import { Pagination, PaginationItem, PaginationLink } from 'sveltestrap';
-    
-
-    
-
- 
-    let air_pollution = [];
-    let newRegister= {
-		"country": "", 
-        "year": 0, 
-        "deaths_ambient_particulate_matter_pollution": 0, 
-        "deaths_household_air_pollution_from_solid_fuels": 0,
-        "deaths_air_pollution": 0
-	}
-    
-    const BASE_CONTACT_API_PATH = "/api/v1";
-
-    
-    async function getRegisters(){
-        console.log("Fetching registers...");
-		const res = await fetch("/api/v1/air-pollution");
-        
-		
-		if(res.ok){
-			console.log("All OK");
-			const json = await res.json();
-			air_pollution= json ;
-			console.log(`We have ${air_pollution.length} registers.`);
-			console.log(JSON.stringify(air_pollution));
-		}else{
-			console.log("Error!");
+ 	
+	var BASE_CONTACT_API_PATH= "/api/v1";
+	const paises = new Set();
+	let years = new Set();
+	var dictDeathsAirPollution ={};
+	let deathsairpollution = [];
+	
+	var dictAnyoPais ={};
+	
+	
+    let data = [];
+    async function getData(){
+        console.log("Fetching data...");
+        const res = await fetch(BASE_CONTACT_API_PATH + "/air-pollution");
+        if(res.ok){
+            console.log("Ok.");
+            const json = await res.json();
+            data = json;
+            console.log(`We have received ${data.length} data points.`);
+			let i=0;
+			data.reverse();
+			while(i<data.length){
+				years.add(data[i].year);
+				if(dictDeathsAirPollution[data[i].country]){
+					dictDeathsAirPollution[data[i].country].push(data[i].deaths_air_pollution);
+				}
+				else{
+					dictDeathsAirPollution[data[i].country]=[parseInt(data[i].deaths_air_pollution)];
+				}
+				
+				
+				
+				
+				if(dictAnyoPais[data[i].country]){
+					dictAnyoPais[data[i].country].push(data[i].year);
+				}
+				else{
+					dictAnyoPais[data[i].country]=[parseInt(data[i].year)];
+				}
+				i++;
+			}
+			console.log(dictDeathsAirPollution);
+			
+			
+        }else{
+            console.log("Error!");
+        }
+		let paises= Object.keys(dictDeathsAirPollution);
+		for(let p=0; p<paises.length; p++){
+			if(dictAnyoPais[paises[p]]){
+				let anyos=dictAnyoPais[paises[p]].sort();
+				let a=0;
+					while(a<Array.from(years).length){
+						let ord =Array.from(years).sort();
+						if(!anyos.includes(ord[a])){
+							dictDeathsAirPollution[paises[p]].splice(a, 0, null);
+						}
+						a++
+					}
+			}
 		}
-    } 
-
-    async function loadGraph(){
-        Highcharts.chart('container', {
-
+	
+		Object.entries(dictDeathsAirPollution).forEach(([key, value]) => {
+			
+				deathsairpollution.push({name: key , data: value})
+			});
+		loadGraph();
+		
+    }   
+    
+    onMount(getData);
+  async function loadGraph(){  
+  console.log(dictDeathsAirPollution);
+    Highcharts.chart('container', {
+        title: {
+            text: 'Datos de muertes por contaminación del aire'
+        },
+        yAxis: {
             title: {
-                text: 'Deaths by air-pollution in some countries'
-            },
-
-            subtitle: {
-                text: 'Source: SOS2021-03/api/v1/air-pollution.com'
-            },
-
-            yAxis: {
-                title: {
-                    text: 'Number of deahts'
-                }
-            },
-
-            xAxis: {
-                accessibility: {
-                    rangeDescription: 'Range: 1990 to 2016'
-                }
-            },
-
-            legend: {
-                layout: 'vertical',
-                align: 'right',
-                verticalAlign: 'middle'
-            },
-
-            plotOptions: {
-                series: {
-                    label: {
-                        connectorAllowed: false
-                    },
-                    pointStart: 2010
-                }
-            },
-
-            series: [{
-                name: 'Installation',
-                data: [43934, 52503, 57177, 69658, 97031, 119931, 137133, 154175]
-            }, {
-                name: 'Manufacturing',
-                data: [24916, 24064, 29742, 29851, 32490, 30282, 38121, 40434]
-            }, {
-                name: 'Sales & Distribution',
-                data: [11744, 17722, 16005, 19771, 20185, 24377, 32147, 39387]
-            }, {
-                name: 'Project Development',
-                data: [null, null, 7988, 12169, 15112, 22452, 34400, 34227]
-            }, {
-                name: 'Other',
-                data: [12908, 5948, 8105, 11248, 8989, 11816, 18274, 18111]
-            }],
-
-            responsive: {
-                rules: [{
-                    condition: {
-                        maxWidth: 500
-                    },
-                    chartOptions: {
-                        legend: {
-                            layout: 'horizontal',
-                            align: 'center',
-                            verticalAlign: 'bottom'
-                        }
-                    }
-                }]
+                text: 'Muertes por contaminación del aire(en millones)'
             }
-
-        });
-    }
-    
-
-    onMount(getRegisters);
-
-
-    
+        },
+        xAxis: {
+           categories: Array.from(years)
+        },
+        legend: {
+            layout: 'vertical',
+            align: 'right',
+            verticalAlign: 'middle'
+        },
+        plotOptions: {
+            series: {
+                label: {
+                    connectorAllowed: false
+                },
+            }
+        },
+        series: deathsairpollution,
+        responsive: {
+            rules: [{
+                condition: {
+                    maxWidth: 500
+                },
+                chartOptions: {
+                    legend: {
+                        layout: 'horizontal',
+                        align: 'center',
+                        verticalAlign: 'bottom'
+                    }
+                }
+            }]
+        }
+    });
+  }
 </script>
 
 <svelte:head>
@@ -127,50 +127,122 @@
     <script src="https://code.highcharts.com/modules/export-data.js"></script>
     <script src="https://code.highcharts.com/modules/accessibility.js" on:load="{loadGraph}"></script>
 </svelte:head>
+
 <main>
-    <h2>
-        Gráfica de estadísticas:
-    </h2>
+<Header/>
+<br>
+<br>
     <figure class="highcharts-figure">
         <div id="container"></div>
         <p class="highcharts-description">
-            Basic line chart showing stadistics of deaths by air-pollution
+        
         </p>
-    </figure>
-    
+    </figure>  
 </main>
-<style>
-    .highcharts-figure, .highcharts-data-table table {
-    min-width: 360px; 
-    max-width: 800px;
-    margin: 1em auto;
-    }
+<!--<script>
+    import {
+        onMount
+    } from "svelte";
+    let paises=[];
+    let years = [];
+    let dair_pollution = [];
+    let dparticulas = [];
+    let dhousehold = [];
+    let data = [];
+    async function getData(){
+        console.log("Fetching data...");
+        const res = await fetch("/api/v1/air-pollution");
+        if(res.ok){
+            console.log("Ok.");
+            const json = await res.json();
+            data = json;
+            let i=0;
+            let max=0;
+            while(i<data.length){
+                paises.push[data[i].country];//MIRAR EL DE ANTONIO Y EL DE ALI. UN ARRAY POR REGISTRO
+                dair_pollution.push[data[i].deaths_air_pollution];
+                dparticulas.push[data[i].deaths_ambient_particulate_matter_pollution];
+                dhousehold.push[data[i].deaths_household_air_pollution_from_solid_fuels];
+                years.push[data[i].year];
+                
+                i++;
+            }
+            console.log(`We have received ${data.length} data points.`);
+        }else{
+            console.log("Error!");
+        }
+    }   
+    
+    onMount(getData);
+  async function loadGraph(){  
+    Highcharts.chart('container', {
+        title: {
+            text: 'My data'
+        },
+        yAxis: {
+            title: {
+                text: 'Deaths'
+            }
+        },
+        xAxis: {
+            accessibility: {
+                rangeDescription: 'Year'
+            }, 
+            categories: years
+        },
+        legend: {
+            layout: 'vertical',
+            align: 'right',
+            verticalAlign: 'middle'
+        },
+        plotOptions: {
+            series: {
+                label: {
+                    connectorAllowed: false
+                },
+                pointStart: 2010
+            }
+        },
+        series: [{
+            name: 'Deaths by air-pollution',
+            data: dair_pollution
+        }, 
+        {
 
-    .highcharts-data-table table {
-        font-family: Verdana, sans-serif;
-        border-collapse: collapse;
-        border: 1px solid #EBEBEB;
-        margin: 10px auto;
-        text-align: center;
-        width: 100%;
-        max-width: 500px;
-    }
-    .highcharts-data-table caption {
-        padding: 1em 0;
-        font-size: 1.2em;
-        color: #555;
-    }
-    .highcharts-data-table th {
-        font-weight: 600;
-        padding: 0.5em;
-    }
-    .highcharts-data-table td, .highcharts-data-table th, .highcharts-data-table caption {
-        padding: 0.5em;
-    }
-    .highcharts-data-table thead tr, .highcharts-data-table tr:nth-child(even) {
-        background: #f8f8f8;
-    }
-    .highcharts-data-table tr:hover {
-        background: #f1f7ff;
-    }
-</style>
+        }],
+        responsive: {
+            rules: [{
+                condition: {
+                    maxWidth: 500
+                },
+                chartOptions: {
+                    legend: {
+                        layout: 'horizontal',
+                        align: 'center',
+                        verticalAlign: 'bottom'
+                    }
+                }
+            }]
+        }
+    });
+  }
+</script>
+
+<svelte:head>
+    <script src="https://code.highcharts.com/highcharts.js"></script>
+    <script src="https://code.highcharts.com/modules/series-label.js"></script>
+    <script src="https://code.highcharts.com/modules/exporting.js"></script>
+    <script src="https://code.highcharts.com/modules/export-data.js"></script>
+    <script src="https://code.highcharts.com/modules/accessibility.js" on:load="{loadGraph}"></script>
+</svelte:head>
+
+<main>
+    <figure class="highcharts-figure">
+        <div id="container"></div>
+        <p class="highcharts-description">
+            Basic line chart showing trends in a dataset. This chart includes the
+            <code>series-label</code> module, which adds a label to each line for
+            enhanced readability.
+        </p>
+    </figure>  
+</main> -->

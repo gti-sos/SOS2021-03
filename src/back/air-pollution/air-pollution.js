@@ -42,7 +42,77 @@ module.exports.all = (app) => {
             "deaths_ambient_particulate_matter_pollution": 20.0514327372541, 
             "deaths_household_air_pollution_from_solid_fuels": 150.277007171104,
             "deaths_air_pollution": 171.975241436558
-        }
+        },
+        {
+            "country": "AFGANISTAN", 
+            "year": 2015, 
+            "deaths_ambient_particulate_matter_pollution": 47.334536914397916, 
+            "deaths_household_air_pollution_from_solid_fuels": 141.3542376454552,
+            "deaths_air_pollution": 191.8011189732795
+        },
+        {
+            "country": "AFGANISTAN", 
+            "year": 2014, 
+            "deaths_ambient_particulate_matter_pollution": 45.19389822935474,
+            "deaths_household_air_pollution_from_solid_fuels": 147.1349129005796 ,
+            "deaths_air_pollution": 195.43695820699548
+        },
+        {
+            "country": "ANDORRA", 
+            "year": 1990, 
+            "deaths_ambient_particulate_matter_pollution": 25.338300470305498,
+            "deaths_household_air_pollution_from_solid_fuels": 1.0047451735791857 ,
+            "deaths_air_pollution": 29.02388062025666
+        },
+        {
+            "country": "ANDORRA", 
+            "year": 2014, 
+            "deaths_ambient_particulate_matter_pollution": 14.19962499022684,
+            "deaths_household_air_pollution_from_solid_fuels": 0.17168795776875057 ,
+            "deaths_air_pollution": 16.652145832769765
+        },
+        {
+            "country": "BELGIUM", 
+            "year": 1990, 
+            "deaths_ambient_particulate_matter_pollution": 37.0224027144499,
+            "deaths_household_air_pollution_from_solid_fuels": 0.6841685227347136,
+            "deaths_air_pollution": 40.20601539563806
+        },
+        {
+            "country": "BELGIUM", 
+            "year": 2014, 
+            "deaths_ambient_particulate_matter_pollution": 18.098626508325612,
+            "deaths_household_air_pollution_from_solid_fuels": 0.12003941258315064,
+            "deaths_air_pollution": 20.193664782882074
+        },
+        {
+            "country": "LITHUANIA", 
+            "year": 1990, 
+            "deaths_ambient_particulate_matter_pollution": 52.32639488468969,
+            "deaths_household_air_pollution_from_solid_fuels": 2.2335803481745398,
+            "deaths_air_pollution": 56.61234090982057 
+        }, 
+        {
+            "country": "LITHUANIA", 
+            "year": 2015, 
+            "deaths_ambient_particulate_matter_pollution": 32.890370223967935,
+            "deaths_household_air_pollution_from_solid_fuels": 1.020798248649292,
+            "deaths_air_pollution": 34.738008760660385 
+        },
+        {
+            "country": "BENIN", 
+            "year": 2014, 
+            "deaths_ambient_particulate_matter_pollution": 17.959697793971948,
+            "deaths_household_air_pollution_from_solid_fuels": 101.30052435565311,
+            "deaths_air_pollution": 120.75976564689653
+        },
+        {
+            "country": "BENIN", 
+            "year": 2015, 
+            "deaths_ambient_particulate_matter_pollution": 20.0514327372541, 
+            "deaths_household_air_pollution_from_solid_fuels": 150.277007171104,
+            "deaths_air_pollution": 171.975241436558
+        }, 
     ];
 db.insert(airpollutioninfo);
 //loadInitialData GET
