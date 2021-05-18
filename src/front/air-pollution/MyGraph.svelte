@@ -71,7 +71,7 @@
 				deathsairpollution.push({name: key , data: value})
 			});
 		loadGraph();
-        console.log("Ya se deberia de haber cargadi la grafica");
+        console.log("Ya se deberia de haber cargado la grafica");
 		
     }   
     
