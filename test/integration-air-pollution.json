@@ -492,10 +492,6 @@
 							"pm.test(\"Status code is 200\", function () {\r",
 							"    pm.response.to.have.status(200);\r",
 							"});\r",
-							"pm.test(\"Your test name\", function () {\r",
-							"    var jsonData = pm.response.json();\r",
-							"    pm.expect(jsonData.length).to.eql(3);\r",
-							"});\r",
 							""
 						],
 						"type": "text/javascript"
@@ -677,6 +673,110 @@
 				"body": {
 					"mode": "raw",
 					"raw": "{\r\n\"country\": \"PRUEBA\",\r\n\"year\": 2014,\r\n\"deaths_ambient_particulate_matter_pollution\": 33,\r\n\"deaths_household_air_pollution_from_solid_fuels\": 1.02,\r\n\"deaths_air_pollution\": 35\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://sos2021-03.herokuapp.com/api/v1/air-pollution/",
+					"protocol": "https",
+					"host": [
+						"sos2021-03",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"api",
+						"v1",
+						"air-pollution",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "air-pollution Copy",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 409\", function () {",
+							"    pm.response.to.have.status(409);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\"country\": \"PRUEBA\",\r\n\"year\": 2014,\r\n\"deaths_ambient_particulate_matter_pollution\": 33,\r\n\"deaths_household_air_pollution_from_solid_fuels\": 1.02,\r\n\"deaths_air_pollution\": 35\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://sos2021-03.herokuapp.com/api/v1/air-pollution/",
+					"protocol": "https",
+					"host": [
+						"sos2021-03",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"api",
+						"v1",
+						"air-pollution",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "air-pollution Copy 2",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 400\", function () {",
+							"    pm.response.to.have.status(400);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\"country\": \"PRUEBA\",\r\n\"year\": 2014,\r\n\"deaths_ambient_particulate_matter_pollution\": 33,\r\n\"deaths_household_air_pollution_from_solid_fuels\": 1.02,\r\n\"deaths_air_pollution\": 34.6\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
