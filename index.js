@@ -2,8 +2,11 @@ var express = require("express");
 var path = require("path");
 var PORT = (process.env.PORT || 1607);
 var app = express();
+var cors = require("cors");
 
 app.use(express.json());
+
+app.use(cors());
 
 app.use("/", express.static(path.join(__dirname,"public")));
 
