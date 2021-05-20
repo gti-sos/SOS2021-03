@@ -465,7 +465,7 @@ app.delete(BASE_API_PATH+"/air-pollution/:country/:year", (req,res)=>{
     });	
 
 
-app.use(BASE_API_PATH+"/proxyHeroku", function(req, res) {
+app.use("/proxyHeroku", function(req, res) {
     console.log(`New Proxy Call!`);
 
     var apiServerHost = 'https://sos2021-10.herokuapp.com/api/v2/sanity-stats';    //aqui la direccion de la api a la que me quiero conectar
