@@ -463,4 +463,20 @@ app.delete(BASE_API_PATH+"/air-pollution/:country/:year", (req,res)=>{
             }
         })
     });	
+
+
+app.use(BASE_API_PATH+"/proxyHeroku", function(req, res) {
+    console.log(`New Proxy Call!`);
+
+    var apiServerHost = 'https://sos2021-10.herokuapp.com/api/v2/sanity-stats';    //aqui la direccion de la api a la que me quiero conectar
+    console.log(`apiServerHost = <${apiServerHost}>`);
+    console.log(`baseURL = <${req.baseUrl}>`);
+    console.log(`url = <${req.url}>`);
+   
+    var url = apiServerHost + req.url;
+
+    console.log(`piped: ${req.baseUrl}${req.url} -> ${url}`);
+
+    req.pipe(request(url)).pipe(res);
+  });
 }
