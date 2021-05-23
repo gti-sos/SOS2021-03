@@ -15,6 +15,13 @@ module.exports.register = (app) => {
     var inter_tourisms = [];
     var inter_tourisms_initial = [
         {
+            "country":"Portugal",
+            "year":2014,
+            "numberofarribals":10497000,
+            "numberofdepartures":1502000,
+            "expendituresbillion":5213 
+        },
+        {
             "country":"China",
             "year":2011,
             "numberofarribals":135423,

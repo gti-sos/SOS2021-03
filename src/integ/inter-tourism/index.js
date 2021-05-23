@@ -118,6 +118,13 @@ module.exports.register = (app) => {
             "expendituresbillion":85334
         },
         {
+            "country":"Portugal",
+            "year":2014,
+            "numberofarribals":10497000,
+            "numberofdepartures":1502000,
+            "expendituresbillion":5213 
+        },
+        {
             "country":"France",
             "year":2015,
             "numberofarribals":203302,
