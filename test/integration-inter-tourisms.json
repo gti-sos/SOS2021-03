@@ -247,7 +247,7 @@
 					"raw": ""
 				},
 				"url": {
-					"raw": "https://sos2021-03.herokuapp.com/api/v1/international-tourisms/portugal/2012",
+					"raw": "https://sos2021-03.herokuapp.com/api/v1/international-tourisms/Portugal/2012",
 					"protocol": "https",
 					"host": [
 						"sos2021-03",
@@ -258,7 +258,7 @@
 						"api",
 						"v1",
 						"international-tourisms",
-						"portugal",
+						"Portugal",
 						"2012"
 					]
 				}

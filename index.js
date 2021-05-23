@@ -17,6 +17,9 @@ app.get("/info/international-tourisms", (req, res) => {
 var intertourism = require("./src/back/inter-tourism/inter-tourism.js");
 intertourism.register(app);
 
+var intertourismInte = require("./src/integ/inter-tourism/index.js");
+intertourismInte.register(app);
+
 
 app.listen(PORT, () => {
 	console.log("Server ready at port " + PORT +"!");
