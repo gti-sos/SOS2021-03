@@ -194,7 +194,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n        \"country\": \"portugal\",\r\n        \"year\": 2012, \r\n        \"numberofarribals\": 7503100, \r\n        \"numberofdepartures\": 1361000, \r\n        \"expendituresbillion\": 4483\r\n    }",
+					"raw": "{\r\n        \"country\": \"Portugal\",\r\n        \"year\": 2012, \r\n        \"numberofarribals\": 7503100, \r\n        \"numberofdepartures\": 1361000, \r\n        \"expendituresbillion\": 4483\r\n    }",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -422,7 +422,7 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "https://sos2021-03.herokuapp.com/api/v1/international-tourisms/?country=francia",
+					"raw": "https://sos2021-03.herokuapp.com/api/v1/international-tourisms/?country=France",
 					"protocol": "https",
 					"host": [
 						"sos2021-03",
@@ -438,7 +438,7 @@
 					"query": [
 						{
 							"key": "country",
-							"value": "francia"
+							"value": "France"
 						}
 					]
 				}
@@ -508,11 +508,13 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "localhost:1607/api/v1/international-tourisms/?numberofarribals=22281000",
+					"raw": "https://sos2021-03.herokuapp.com/api/v1/international-tourisms/?numberofarribals=22281",
+					"protocol": "https",
 					"host": [
-						"localhost"
+						"sos2021-03",
+						"herokuapp",
+						"com"
 					],
-					"port": "1607",
 					"path": [
 						"api",
 						"v1",
@@ -522,7 +524,7 @@
 					"query": [
 						{
 							"key": "numberofarribals",
-							"value": "22281000"
+							"value": "22281"
 						}
 					]
 				}
@@ -635,7 +637,7 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "https://sos2021-03.herokuapp.com/api/v1/international-tourisms/?country=rusian-federation&year=2010",
+					"raw": "https://sos2021-03.herokuapp.com/api/v1/international-tourisms/?country=Russian_Federation&year=2010",
 					"protocol": "https",
 					"host": [
 						"sos2021-03",
@@ -651,7 +653,7 @@
 					"query": [
 						{
 							"key": "country",
-							"value": "rusian-federation"
+							"value": "Russian_Federation"
 						},
 						{
 							"key": "year",
@@ -682,7 +684,7 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "https://sos2021-03.herokuapp.com/api/v1/international-tourisms/?country=francia&numberofarribals=206599000",
+					"raw": "https://sos2021-03.herokuapp.com/api/v1/international-tourisms/?country=France&numberofarribals=206599",
 					"protocol": "https",
 					"host": [
 						"sos2021-03",
@@ -698,11 +700,11 @@
 					"query": [
 						{
 							"key": "country",
-							"value": "francia"
+							"value": "France"
 						},
 						{
 							"key": "numberofarribals",
-							"value": "206599000"
+							"value": "206599"
 						}
 					]
 				}
@@ -881,7 +883,7 @@
 					}
 				},
 				"url": {
-					"raw": "https://sos2021-03.herokuapp.com/api/v1/international-tourisms/portugal/2012",
+					"raw": "https://sos2021-03.herokuapp.com/api/v1/international-tourisms/Portugal/2012",
 					"protocol": "https",
 					"host": [
 						"sos2021-03",
@@ -892,7 +894,7 @@
 						"api",
 						"v1",
 						"international-tourisms",
-						"portugal",
+						"Portugal",
 						"2012"
 					]
 				}
@@ -930,7 +932,7 @@
 					}
 				},
 				"url": {
-					"raw": "https://sos2021-03.herokuapp.com/api/v1/international-tourisms/portugal/2012",
+					"raw": "https://sos2021-03.herokuapp.com/api/v1/international-tourisms/Portugal/2012",
 					"protocol": "https",
 					"host": [
 						"sos2021-03",
@@ -941,7 +943,7 @@
 						"api",
 						"v1",
 						"international-tourisms",
-						"portugal",
+						"Portugal",
 						"2012"
 					]
 				}
@@ -1030,7 +1032,7 @@
 					}
 				},
 				"url": {
-					"raw": "https://sos2021-03.herokuapp.com/api/v1/international-tourisms/portugal/2014",
+					"raw": "https://sos2021-03.herokuapp.com/api/v1/international-tourisms/Portugal/2014",
 					"protocol": "https",
 					"host": [
 						"sos2021-03",
@@ -1041,7 +1043,7 @@
 						"api",
 						"v1",
 						"international-tourisms",
-						"portugal",
+						"Portugal",
 						"2014"
 					]
 				}
@@ -1077,7 +1079,7 @@
 					}
 				},
 				"url": {
-					"raw": "https://sos2021-03.herokuapp.com/api/v1/international-tourisms/portugal/2014",
+					"raw": "https://sos2021-03.herokuapp.com/api/v1/international-tourisms/Portugal/2014",
 					"protocol": "https",
 					"host": [
 						"sos2021-03",
@@ -1088,7 +1090,7 @@
 						"api",
 						"v1",
 						"international-tourisms",
-						"portugal",
+						"Portugal",
 						"2014"
 					]
 				}
@@ -1124,7 +1126,7 @@
 					}
 				},
 				"url": {
-					"raw": "https://sos2021-03.herokuapp.com/api/v1/international-tourisms/portugal/2014",
+					"raw": "https://sos2021-03.herokuapp.com/api/v1/international-tourisms/Portugal/2014",
 					"protocol": "https",
 					"host": [
 						"sos2021-03",
@@ -1135,7 +1137,7 @@
 						"api",
 						"v1",
 						"international-tourisms",
-						"portugal",
+						"Portugal",
 						"2014"
 					]
 				}

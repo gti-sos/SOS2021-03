@@ -5,6 +5,9 @@ module.exports.register = (app) => {
     const dbFileName = path.join(__dirname, "inteTourism.db");
     var db = new Datastore({
         filename: dbFileName, 
+        autoload: true,
+        autoload: true,
+        autoload: true,
         autoload: true
     });
 
@@ -104,13 +107,6 @@ module.exports.register = (app) => {
             "expendituresbillion":30169
         },
         {
-            "country":"Russian_Federation",
-            "year":2010,
-            "numberofarribals":22281,
-            "numberofdepartures":39232,
-            "expendituresbillion":30169
-        }, 
-        {
             "country":"Germany",
             "year":2015,
             "numberofarribals":34970,
@@ -140,7 +136,7 @@ module.exports.register = (app) => {
         }
     ];
    
-    db.insert(inter_tourisms);
+    //db.insert(inter_tourisms);
     /*
     //GET load initial data
     app.get(BASE_API_PATH+"/international-tourisms/loadInitialData", (req, res)=>{   

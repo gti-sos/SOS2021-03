@@ -113,13 +113,6 @@ module.exports.register = (app) => {
             "expendituresbillion":30169
         },
         {
-            "country":"Russian_Federation",
-            "year":2010,
-            "numberofarribals":22281,
-            "numberofdepartures":39232,
-            "expendituresbillion":30169
-        }, 
-        {
             "country":"Germany",
             "year":2015,
             "numberofarribals":34970,
