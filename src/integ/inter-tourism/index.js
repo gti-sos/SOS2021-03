@@ -1,9 +1,5 @@
-
-////////////////////////////////////////////////////////
-//INTERNATIONAL-TOURISMS
-////////////////////////////////////////////////////////
 module.exports.register = (app) => {
-    var BASE_API_PATH = "/api/v1";
+    var BASE_API_PATH = "/api/integration/inter-tourisms";
     var Datastore = require("nedb");
     var path = require("path");
     const dbFileName = path.join(__dirname, "inteTourism.db");
@@ -11,6 +7,9 @@ module.exports.register = (app) => {
         filename: dbFileName, 
         autoload: true
     });
+
+    var cors = require("cors");
+    app.use(cors());
 
     var inter_tourisms = [];
     var inter_tourisms_initial = [
