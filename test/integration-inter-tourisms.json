@@ -131,19 +131,22 @@
 							"pm.test(\"Status code is 200\", function () {\r",
 							"    pm.response.to.have.status(200);\r",
 							"});\r",
-							"\r",
-							"pm.test(\"Your test name\", function () {\r",
-							"    var jsonData = pm.response.json();\r",
-							"    pm.expect(jsonData.length).to.eql(3);\r",
-							"});"
+							""
 						],
 						"type": "text/javascript"
 					}
 				}
 			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
 			"request": {
 				"method": "GET",
 				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
 				"url": {
 					"raw": "https://sos2021-03.herokuapp.com/api/v1/international-tourisms/",
 					"protocol": "https",
@@ -1019,7 +1022,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n        \"country\": \"portugal\",\r\n        \"year\": 2014, \r\n        \"numberofarribals\": 7503, \r\n        \"numberofdepartures\": 13610, \r\n        \"expendituresbillion\": 44835\r\n    }",
+					"raw": "{\r\n        \"country\": \"Portugal\",\r\n        \"year\": 2014, \r\n        \"numberofarribals\": 7503, \r\n        \"numberofdepartures\": 13610, \r\n        \"expendituresbillion\": 44835\r\n    }",
 					"options": {
 						"raw": {
 							"language": "json"
