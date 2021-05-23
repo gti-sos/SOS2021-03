@@ -1,5 +1,5 @@
 module.exports.register = (app) => {
-    var BASE_API_PATH = "/api/integration/inter-tourisms";
+    var BASE_API_PATH = "/api/integration/";
     var Datastore = require("nedb");
     var path = require("path");
     const dbFileName = path.join(__dirname, "inteTourism.db");
@@ -9,7 +9,7 @@ module.exports.register = (app) => {
     });
 
     var cors = require("cors");
-    app.use(cors());
+   
 
     var inter_tourisms = [
         {
@@ -139,7 +139,7 @@ module.exports.register = (app) => {
             "expendituresbillion":58464
         }
     ];
-
+   
     db.insert(inter_tourisms);
     /*
     //GET load initial data
@@ -154,7 +154,7 @@ module.exports.register = (app) => {
             console.log("Initial Countries for International Tourisms "+JSON.stringify(inter_tourisms_initial,null,2))
         }
     });*/
-    
+    app.use(cors());
     //GET todo, paginación y búsquedas
     app.get(BASE_API_PATH+"/international-tourisms", (req, res)=>{
         var limit = req.query.limit;
