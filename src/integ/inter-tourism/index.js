@@ -11,8 +11,7 @@ module.exports.register = (app) => {
     var cors = require("cors");
     app.use(cors());
 
-    var inter_tourisms = [];
-    var inter_tourisms_initial = [
+    var inter_tourisms = [
         {
             "country":"China",
             "year":2011,
@@ -135,7 +134,7 @@ module.exports.register = (app) => {
     ];
 
     db.insert(inter_tourisms);
-
+    /*
     //GET load initial data
     app.get(BASE_API_PATH+"/international-tourisms/loadInitialData", (req, res)=>{   
         var fichero = db.getAllData();
@@ -147,7 +146,7 @@ module.exports.register = (app) => {
             res.sendStatus(200);
             console.log("Initial Countries for International Tourisms "+JSON.stringify(inter_tourisms_initial,null,2))
         }
-    });
+    });*/
     
     //GET todo, paginación y búsquedas
     app.get(BASE_API_PATH+"/international-tourisms", (req, res)=>{
