@@ -1,5 +1,5 @@
 module.exports.register = (app) => {
-    var BASE_API_PATH = "/api/integration/";
+    var BASE_API_PATH = "/api/integration";
     var Datastore = require("nedb");
     var path = require("path");
     const dbFileName = path.join(__dirname, "inteTourism.db");
