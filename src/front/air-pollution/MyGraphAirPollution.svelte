@@ -4,6 +4,9 @@
     import {
         onMount
     } from "svelte";
+
+    
+
  	
 	var BASE_CONTACT_API_PATH= "/api/v1";
 	const paises = new Set();
@@ -91,7 +94,7 @@
             }
         },
         xAxis: {
-           categories: Array.from(years)
+           categories: Array.from(years).sort()
         },
         legend: {
             layout: 'vertical',
@@ -124,20 +127,32 @@
     });
     
   }
-
-        var data1 = {
-        // A labels array that can contain any sort of values
-        labels: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri'],
-        // Our series array that contains series objects or in this case series data arrays
+  async function loadGraph2(){  
+      console.log("grafica 2")
+        var chart = new Chartist.Line('.ct-chart', {
+        labels: Array.from(years),
         series: [
-            [5, 2, 4, 2, 0]
+            [5, 5, 10, 8, 7, 5, 4, null, null, null, 10, 10, 7, 8, 6, 9],
+            [10, 15, null, 12, null, 10, 12, 15, null, null, 12, null, 14, null, null, null],
+            [null, null, null, null, 3, 4, 1, 3, 4,  6,  7,  9, 5, null, null, null],
+            [{x:3, y: 3},{x: 4, y: 3}, {x: 5, y: undefined}, {x: 6, y: 4}, {x: 7, y: null}, {x: 8, y: 4}, {x: 9, y: 4}]
         ]
-        };
+        }, {
+        fullWidth: false,
+        chartPadding: {
+            right: 10
+        },
+        lineSmooth: Chartist.Interpolation.cardinal({
+            fillHoles: true,
+        }),
+        low: 0
+        });
+        console.log(Array.from(years))
+        console.log(deathsairpollution)
+    
+  }
 
-        // Create a new line chart object where as first parameter we pass in a selector
-        // that is resolving to our chart container element. The Second parameter
-        // is the actual data object.
-        const myChart = new Chartist.Line('.ct-chart', data1);
+
     
 </script>
 
@@ -149,7 +164,7 @@
     <script src="https://code.highcharts.com/modules/export-data.js"></script>
     <script src="https://code.highcharts.com/modules/accessibility.js" on:load="{loadGraph}"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/chartist.js/latest/chartist.min.css">
-    <script src="https://cdn.jsdelivr.net/chartist.js/latest/chartist.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/chartist.js/latest/chartist.min.js" on:load="{loadGraph2}"></script>
 </svelte:head>
 
 <main>
@@ -173,68 +188,10 @@
         <h5>
             Gráfica con Chartist
         </h5>
+        <div class = "chart">
         <div class="ct-chart ct-perfect-fourth"></div>
-        <script>
-            async function getData(){
-                console.log("Fetching data...");
-                const res = await fetch(BASE_CONTACT_API_PATH + "/air-pollution");
-                if(res.ok){
-                    console.log("Ok.");
-                    const json = await res.json();
-                    data = json;
-                    console.log(`We have received ${data.length} data points.`);
-                    let i=0;
-                    data.reverse();
-                    while(i<data.length){
-                        years.add(data[i].year);
-                        if(dictDeathsAirPollution[data[i].country]){
-                            dictDeathsAirPollution[data[i].country].push(data[i].deaths_air_pollution);
-                        }
-                        else{
-                            dictDeathsAirPollution[data[i].country]=[parseInt(data[i].deaths_air_pollution)];
-                        }
-                        
-                        
-                        
-                        
-                        if(dictAnyoPais[data[i].country]){
-                            dictAnyoPais[data[i].country].push(data[i].year);
-                        }
-                        else{
-                            dictAnyoPais[data[i].country]=[parseInt(data[i].year)];
-                        }
-                        i++;
-                    }
-                    console.log(dictDeathsAirPollution);
-                    
-                    
-                }else{
-                    console.log("Error!");
-                }
-                let paises= Object.keys(dictDeathsAirPollution);
-                for(let p=0; p<paises.length; p++){
-                    if(dictAnyoPais[paises[p]]){
-                        let anyos=dictAnyoPais[paises[p]].sort();
-                        let a=0;
-                            while(a<Array.from(years).length){
-                                let ord =Array.from(years).sort();
-                                if(!anyos.includes(ord[a])){
-                                    dictDeathsAirPollution[paises[p]].splice(a, 0, null);
-                                }
-                                a++
-                            }
-                    }
-                }
-            
-                Object.entries(dictDeathsAirPollution).forEach(([key, value]) => {
-                    
-                        deathsairpollution.push({name: key , data: value})
-                    });
-                loadGraph();
-                console.log("Ya se deberia de haber cargado la grafica");
-                
-            }
-        </script>
+        </div>
+        
     </div>
             
         
@@ -242,10 +199,14 @@
         
       
     
-    <script>
-        
-
-    </script>
+    
     
     
 </main>
+<style>
+    .chart { 
+        height: 80px; 
+        padding: 0.5em;
+    }
+    
+</style>
