@@ -79,6 +79,9 @@
     async function loadGraph(){  
     console.log(dictDeathsAirPollution);
     Highcharts.chart('container', {
+        chart: {
+        type: 'area'
+        },
         title: {
             text: 'Datos de muertes por contaminación del aire'
         },
@@ -139,6 +142,7 @@
 </script>
 
 <svelte:head>
+
     <script src="https://code.highcharts.com/highcharts.js"></script>
     <script src="https://code.highcharts.com/modules/series-label.js"></script>
     <script src="https://code.highcharts.com/modules/exporting.js"></script>
@@ -152,16 +156,96 @@
 
 <br>
 <br>
-    <figure class="highcharts-figure">
+    
+    <div>
+        <h5>
+            Gráfica Highchart
+        </h5>
+        <figure class="highcharts-figure">
         <div id="container"></div>
         <p class="highcharts-description">
             
         </p>
+        </figure>
+    </div>
+            
+    <div>
+        <h5>
+            Gráfica con Chartist
+        </h5>
+        <div class="ct-chart ct-perfect-fourth"></div>
+        <script>
+            async function getData(){
+                console.log("Fetching data...");
+                const res = await fetch(BASE_CONTACT_API_PATH + "/air-pollution");
+                if(res.ok){
+                    console.log("Ok.");
+                    const json = await res.json();
+                    data = json;
+                    console.log(`We have received ${data.length} data points.`);
+                    let i=0;
+                    data.reverse();
+                    while(i<data.length){
+                        years.add(data[i].year);
+                        if(dictDeathsAirPollution[data[i].country]){
+                            dictDeathsAirPollution[data[i].country].push(data[i].deaths_air_pollution);
+                        }
+                        else{
+                            dictDeathsAirPollution[data[i].country]=[parseInt(data[i].deaths_air_pollution)];
+                        }
+                        
+                        
+                        
+                        
+                        if(dictAnyoPais[data[i].country]){
+                            dictAnyoPais[data[i].country].push(data[i].year);
+                        }
+                        else{
+                            dictAnyoPais[data[i].country]=[parseInt(data[i].year)];
+                        }
+                        i++;
+                    }
+                    console.log(dictDeathsAirPollution);
+                    
+                    
+                }else{
+                    console.log("Error!");
+                }
+                let paises= Object.keys(dictDeathsAirPollution);
+                for(let p=0; p<paises.length; p++){
+                    if(dictAnyoPais[paises[p]]){
+                        let anyos=dictAnyoPais[paises[p]].sort();
+                        let a=0;
+                            while(a<Array.from(years).length){
+                                let ord =Array.from(years).sort();
+                                if(!anyos.includes(ord[a])){
+                                    dictDeathsAirPollution[paises[p]].splice(a, 0, null);
+                                }
+                                a++
+                            }
+                    }
+                }
+            
+                Object.entries(dictDeathsAirPollution).forEach(([key, value]) => {
+                    
+                        deathsairpollution.push({name: key , data: value})
+                    });
+                loadGraph();
+                console.log("Ya se deberia de haber cargado la grafica");
+                
+            }
+        </script>
+    </div>
+            
         
-    </figure>  
-    <div class="ct-chart ct-perfect-fourth"></div>
+        
+        
+      
+    
     <script>
         
 
     </script>
+    
+    
 </main>
