@@ -1,3 +1,4 @@
 node_modules
 svelte-template/public/build
 svelte-template/node_modules
+src/front/air-pollution/bower_components

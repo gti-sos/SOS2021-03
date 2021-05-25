@@ -121,114 +121,7 @@
     });
     
   }
-</script>
-
-<svelte:head>
-    <script src="https://code.highcharts.com/highcharts.js"></script>
-    <script src="https://code.highcharts.com/modules/series-label.js"></script>
-    <script src="https://code.highcharts.com/modules/exporting.js"></script>
-    <script src="https://code.highcharts.com/modules/export-data.js"></script>
-    <script src="https://code.highcharts.com/modules/accessibility.js" on:load="{loadGraph}"></script>
-</svelte:head>
-
-<main>
-
-<br>
-<br>
-    <figure class="highcharts-figure">
-        <div id="container"></div>
-        <p class="highcharts-description">
-        
-        </p>
-    </figure>  
-</main>
-<!--<script>
-    import {
-        onMount
-    } from "svelte";
-    let paises=[];
-    let years = [];
-    let dair_pollution = [];
-    let dparticulas = [];
-    let dhousehold = [];
-    let data = [];
-    async function getData(){
-        console.log("Fetching data...");
-        const res = await fetch("/api/v1/air-pollution");
-        if(res.ok){
-            console.log("Ok.");
-            const json = await res.json();
-            data = json;
-            let i=0;
-            let max=0;
-            while(i<data.length){
-                paises.push[data[i].country];//MIRAR EL DE ANTONIO Y EL DE ALI. UN ARRAY POR REGISTRO
-                dair_pollution.push[data[i].deaths_air_pollution];
-                dparticulas.push[data[i].deaths_ambient_particulate_matter_pollution];
-                dhousehold.push[data[i].deaths_household_air_pollution_from_solid_fuels];
-                years.push[data[i].year];
-                
-                i++;
-            }
-            console.log(`We have received ${data.length} data points.`);
-        }else{
-            console.log("Error!");
-        }
-    }   
     
-    onMount(getData);
-  async function loadGraph(){  
-    Highcharts.chart('container', {
-        title: {
-            text: 'My data'
-        },
-        yAxis: {
-            title: {
-                text: 'Deaths'
-            }
-        },
-        xAxis: {
-            accessibility: {
-                rangeDescription: 'Year'
-            }, 
-            categories: years
-        },
-        legend: {
-            layout: 'vertical',
-            align: 'right',
-            verticalAlign: 'middle'
-        },
-        plotOptions: {
-            series: {
-                label: {
-                    connectorAllowed: false
-                },
-                pointStart: 2010
-            }
-        },
-        series: [{
-            name: 'Deaths by air-pollution',
-            data: dair_pollution
-        }, 
-        {
-
-        }],
-        responsive: {
-            rules: [{
-                condition: {
-                    maxWidth: 500
-                },
-                chartOptions: {
-                    legend: {
-                        layout: 'horizontal',
-                        align: 'center',
-                        verticalAlign: 'bottom'
-                    }
-                }
-            }]
-        }
-    });
-  }
 </script>
 
 <svelte:head>
@@ -237,15 +130,35 @@
     <script src="https://code.highcharts.com/modules/exporting.js"></script>
     <script src="https://code.highcharts.com/modules/export-data.js"></script>
     <script src="https://code.highcharts.com/modules/accessibility.js" on:load="{loadGraph}"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/chartist.js/latest/chartist.min.css">
+    <script src="https://cdn.jsdelivr.net/chartist.js/latest/chartist.min.js"></script>
 </svelte:head>
 
 <main>
+
+<br>
+<br>
     <figure class="highcharts-figure">
         <div id="container"></div>
         <p class="highcharts-description">
-            Basic line chart showing trends in a dataset. This chart includes the
-            <code>series-label</code> module, which adds a label to each line for
-            enhanced readability.
+            
         </p>
+        
     </figure>  
-</main> -->
+    <div class="ct-chart ct-perfect-fourth"></div>
+    <script>
+        var data1 = {
+        // A labels array that can contain any sort of values
+        labels: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri'],
+        // Our series array that contains series objects or in this case series data arrays
+        series: [
+            [5, 2, 4, 2, 0]
+        ]
+        };
+
+        // Create a new line chart object where as first parameter we pass in a selector
+        // that is resolving to our chart container element. The Second parameter
+        // is the actual data object.
+        var myChart = new Chartist.Line('.ct-chart', data1);
+    </script>
+</main>

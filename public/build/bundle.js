@@ -17435,6 +17435,9 @@ var app = (function () {
     	let script3_src_value;
     	let script4;
     	let script4_src_value;
+    	let link;
+    	let script5;
+    	let script5_src_value;
     	let t0;
     	let main;
     	let br0;
@@ -17442,9 +17445,13 @@ var app = (function () {
     	let br1;
     	let t2;
     	let figure;
-    	let div;
+    	let div0;
     	let t3;
     	let p;
+    	let t4;
+    	let div1;
+    	let t5;
+    	let script6;
     	let mounted;
     	let dispose;
 
@@ -17455,6 +17462,8 @@ var app = (function () {
     			script2 = element("script");
     			script3 = element("script");
     			script4 = element("script");
+    			link = element("link");
+    			script5 = element("script");
     			t0 = space();
     			main = element("main");
     			br0 = element("br");
@@ -17462,28 +17471,41 @@ var app = (function () {
     			br1 = element("br");
     			t2 = space();
     			figure = element("figure");
-    			div = element("div");
+    			div0 = element("div");
     			t3 = space();
     			p = element("p");
+    			t4 = space();
+    			div1 = element("div");
+    			t5 = space();
+    			script6 = element("script");
+    			script6.textContent = "var data1 = {\r\n        // A labels array that can contain any sort of values\r\n        labels: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri'],\r\n        // Our series array that contains series objects or in this case series data arrays\r\n        series: [\r\n            [5, 2, 4, 2, 0]\r\n        ]\r\n        };\r\n\r\n        // Create a new line chart object where as first parameter we pass in a selector\r\n        // that is resolving to our chart container element. The Second parameter\r\n        // is the actual data object.\r\n        var myChart = new Chartist.Line('.ct-chart', data1);";
     			if (script0.src !== (script0_src_value = "https://code.highcharts.com/highcharts.js")) attr_dev(script0, "src", script0_src_value);
-    			add_location(script0, file$1, 126, 4, 3191);
+    			add_location(script0, file$1, 127, 4, 3197);
     			if (script1.src !== (script1_src_value = "https://code.highcharts.com/modules/series-label.js")) attr_dev(script1, "src", script1_src_value);
-    			add_location(script1, file$1, 127, 4, 3262);
+    			add_location(script1, file$1, 128, 4, 3268);
     			if (script2.src !== (script2_src_value = "https://code.highcharts.com/modules/exporting.js")) attr_dev(script2, "src", script2_src_value);
-    			add_location(script2, file$1, 128, 4, 3343);
+    			add_location(script2, file$1, 129, 4, 3349);
     			if (script3.src !== (script3_src_value = "https://code.highcharts.com/modules/export-data.js")) attr_dev(script3, "src", script3_src_value);
-    			add_location(script3, file$1, 129, 4, 3421);
+    			add_location(script3, file$1, 130, 4, 3427);
     			if (script4.src !== (script4_src_value = "https://code.highcharts.com/modules/accessibility.js")) attr_dev(script4, "src", script4_src_value);
-    			add_location(script4, file$1, 130, 4, 3501);
-    			add_location(br0, file$1, 135, 0, 3629);
-    			add_location(br1, file$1, 136, 0, 3635);
-    			attr_dev(div, "id", "container");
-    			add_location(div, file$1, 138, 8, 3689);
+    			add_location(script4, file$1, 131, 4, 3507);
+    			attr_dev(link, "rel", "stylesheet");
+    			attr_dev(link, "href", "https://cdn.jsdelivr.net/chartist.js/latest/chartist.min.css");
+    			add_location(link, file$1, 132, 4, 3611);
+    			if (script5.src !== (script5_src_value = "https://cdn.jsdelivr.net/chartist.js/latest/chartist.min.js")) attr_dev(script5, "src", script5_src_value);
+    			add_location(script5, file$1, 133, 4, 3708);
+    			add_location(br0, file$1, 138, 0, 3821);
+    			add_location(br1, file$1, 139, 0, 3827);
+    			attr_dev(div0, "id", "container");
+    			add_location(div0, file$1, 141, 8, 3881);
     			attr_dev(p, "class", "highcharts-description");
-    			add_location(p, file$1, 139, 8, 3725);
+    			add_location(p, file$1, 142, 8, 3917);
     			attr_dev(figure, "class", "highcharts-figure");
-    			add_location(figure, file$1, 137, 4, 3645);
-    			add_location(main, file$1, 133, 0, 3619);
+    			add_location(figure, file$1, 140, 4, 3837);
+    			attr_dev(div1, "class", "ct-chart ct-perfect-fourth");
+    			add_location(div1, file$1, 147, 4, 4012);
+    			add_location(script6, file$1, 148, 4, 4064);
+    			add_location(main, file$1, 136, 0, 3811);
     		},
     		l: function claim(nodes) {
     			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
@@ -17494,6 +17516,8 @@ var app = (function () {
     			append_dev(document.head, script2);
     			append_dev(document.head, script3);
     			append_dev(document.head, script4);
+    			append_dev(document.head, link);
+    			append_dev(document.head, script5);
     			insert_dev(target, t0, anchor);
     			insert_dev(target, main, anchor);
     			append_dev(main, br0);
@@ -17501,9 +17525,13 @@ var app = (function () {
     			append_dev(main, br1);
     			append_dev(main, t2);
     			append_dev(main, figure);
-    			append_dev(figure, div);
+    			append_dev(figure, div0);
     			append_dev(figure, t3);
     			append_dev(figure, p);
+    			append_dev(main, t4);
+    			append_dev(main, div1);
+    			append_dev(main, t5);
+    			append_dev(main, script6);
 
     			if (!mounted) {
     				dispose = listen_dev(script4, "load", /*loadGraph*/ ctx[0], false, false, false);
@@ -17519,6 +17547,8 @@ var app = (function () {
     			detach_dev(script2);
     			detach_dev(script3);
     			detach_dev(script4);
+    			detach_dev(link);
+    			detach_dev(script5);
     			if (detaching) detach_dev(t0);
     			if (detaching) detach_dev(main);
     			mounted = false;
