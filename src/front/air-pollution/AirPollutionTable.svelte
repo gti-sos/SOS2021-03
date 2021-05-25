@@ -200,8 +200,7 @@
     <br>
     <Button on:click={loadInitialData}>Cargar registros</Button>
     <Button on:click={deleteAll}>Borrar todos los registros</Button>
-    <a href="#/air-pollution/graph">Grafica</a> 
-    <a href="#/air-pollution/graph" class="btn btn-outline-warning" role="button" aria-pressed="true">GRÁFICA(HIGHCHART)</a>
+    <a href="#/air-pollution/graph" class="btn btn-outline-warning" role="button" aria-pressed="true">GRÁFICAS</a>
     <br>
     <br>
     {#if errorMsg}

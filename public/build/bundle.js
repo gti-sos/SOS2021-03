@@ -11970,7 +11970,7 @@ var app = (function () {
     	return block;
     }
 
-    // (207:4) {#if errorMsg}
+    // (206:4) {#if errorMsg}
     function create_if_block_3(ctx) {
     	let p;
     	let t0;
@@ -11982,7 +11982,7 @@ var app = (function () {
     			t0 = text("ERROR: ");
     			t1 = text(/*errorMsg*/ ctx[7]);
     			set_style(p, "color", "red");
-    			add_location(p, file$8, 207, 8, 7273);
+    			add_location(p, file$8, 206, 8, 7213);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, p, anchor);
@@ -12001,14 +12001,14 @@ var app = (function () {
     		block,
     		id: create_if_block_3.name,
     		type: "if",
-    		source: "(207:4) {#if errorMsg}",
+    		source: "(206:4) {#if errorMsg}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (210:4) {#if okMsg}
+    // (209:4) {#if okMsg}
     function create_if_block_2(ctx) {
     	let p;
     	let t;
@@ -12018,7 +12018,7 @@ var app = (function () {
     			p = element("p");
     			t = text(/*okMsg*/ ctx[6]);
     			set_style(p, "color", "green");
-    			add_location(p, file$8, 210, 8, 7354);
+    			add_location(p, file$8, 209, 8, 7294);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, p, anchor);
@@ -12036,14 +12036,14 @@ var app = (function () {
     		block,
     		id: create_if_block_2.name,
     		type: "if",
-    		source: "(210:4) {#if okMsg}",
+    		source: "(209:4) {#if okMsg}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (222:9) <Button color="warning" on:click={buscaRegistro(searchcountry, searchyear)}>
+    // (221:9) <Button color="warning" on:click={buscaRegistro(searchcountry, searchyear)}>
     function create_default_slot_12$2(ctx) {
     	let t;
 
@@ -12063,14 +12063,14 @@ var app = (function () {
     		block,
     		id: create_default_slot_12$2.name,
     		type: "slot",
-    		source: "(222:9) <Button color=\\\"warning\\\" on:click={buscaRegistro(searchcountry, searchyear)}>",
+    		source: "(221:9) <Button color=\\\"warning\\\" on:click={buscaRegistro(searchcountry, searchyear)}>",
     		ctx
     	});
 
     	return block;
     }
 
-    // (241:9) <Button on:click={insertRegister}>
+    // (240:9) <Button on:click={insertRegister}>
     function create_default_slot_11$2(ctx) {
     	let t;
 
@@ -12090,14 +12090,14 @@ var app = (function () {
     		block,
     		id: create_default_slot_11$2.name,
     		type: "slot",
-    		source: "(241:9) <Button on:click={insertRegister}>",
+    		source: "(240:9) <Button on:click={insertRegister}>",
     		ctx
     	});
 
     	return block;
     }
 
-    // (251:20) <Button on:click={deleteRegister(r.country, r.year)}>
+    // (250:20) <Button on:click={deleteRegister(r.country, r.year)}>
     function create_default_slot_10$2(ctx) {
     	let t;
 
@@ -12117,14 +12117,14 @@ var app = (function () {
     		block,
     		id: create_default_slot_10$2.name,
     		type: "slot",
-    		source: "(251:20) <Button on:click={deleteRegister(r.country, r.year)}>",
+    		source: "(250:20) <Button on:click={deleteRegister(r.country, r.year)}>",
     		ctx
     	});
 
     	return block;
     }
 
-    // (244:12) {#each air_pollution as r}
+    // (243:12) {#each air_pollution as r}
     function create_each_block$1(ctx) {
     	let tr;
     	let td0;
@@ -12196,19 +12196,19 @@ var app = (function () {
     			a = element("a");
     			t12 = text("Editar");
     			t13 = space();
-    			add_location(td0, file$8, 245, 16, 8909);
-    			add_location(td1, file$8, 246, 16, 8947);
-    			add_location(td2, file$8, 247, 16, 8982);
-    			add_location(td3, file$8, 248, 16, 9056);
-    			add_location(td4, file$8, 249, 16, 9134);
-    			add_location(br, file$8, 251, 20, 9279);
+    			add_location(td0, file$8, 244, 16, 8849);
+    			add_location(td1, file$8, 245, 16, 8887);
+    			add_location(td2, file$8, 246, 16, 8922);
+    			add_location(td3, file$8, 247, 16, 8996);
+    			add_location(td4, file$8, 248, 16, 9074);
+    			add_location(br, file$8, 250, 20, 9219);
     			attr_dev(a, "href", a_href_value = "#/air-pollution/" + /*r*/ ctx[28].country + "/" + /*r*/ ctx[28].year);
     			attr_dev(a, "class", "btn btn-info active");
     			attr_dev(a, "role", "button");
     			attr_dev(a, "aria-pressed", "true");
-    			add_location(a, file$8, 252, 16, 9301);
-    			add_location(td5, file$8, 250, 16, 9185);
-    			add_location(tr, file$8, 244, 16, 8887);
+    			add_location(a, file$8, 251, 16, 9241);
+    			add_location(td5, file$8, 249, 16, 9125);
+    			add_location(tr, file$8, 243, 16, 8827);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, tr, anchor);
@@ -12275,14 +12275,14 @@ var app = (function () {
     		block,
     		id: create_each_block$1.name,
     		type: "each",
-    		source: "(244:12) {#each air_pollution as r}",
+    		source: "(243:12) {#each air_pollution as r}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (214:4) <Table bordered>
+    // (213:4) <Table bordered>
     function create_default_slot_9$2(ctx) {
     	let thead;
     	let tr0;
@@ -12438,42 +12438,42 @@ var app = (function () {
     				each_blocks[i].c();
     			}
 
-    			add_location(td0, file$8, 216, 20, 7482);
-    			add_location(td1, file$8, 217, 20, 7557);
+    			add_location(td0, file$8, 215, 20, 7422);
+    			add_location(td1, file$8, 216, 20, 7497);
     			attr_dev(input0, "type", "number");
-    			add_location(input0, file$8, 218, 24, 7600);
-    			add_location(td2, file$8, 218, 20, 7596);
-    			add_location(td3, file$8, 219, 20, 7673);
+    			add_location(input0, file$8, 217, 24, 7540);
+    			add_location(td2, file$8, 217, 20, 7536);
+    			add_location(td3, file$8, 218, 20, 7613);
     			attr_dev(input1, "type", "number");
-    			add_location(input1, file$8, 220, 9, 7700);
-    			add_location(td4, file$8, 220, 5, 7696);
-    			add_location(td5, file$8, 221, 5, 7755);
-    			add_location(tr0, file$8, 215, 12, 7456);
-    			add_location(td6, file$8, 225, 16, 7928);
-    			add_location(td7, file$8, 226, 16, 7959);
-    			add_location(td8, file$8, 227, 16, 7989);
-    			add_location(td9, file$8, 228, 16, 8064);
-    			add_location(td10, file$8, 229, 16, 8150);
-    			add_location(td11, file$8, 230, 16, 8211);
-    			add_location(tr1, file$8, 224, 12, 7906);
-    			add_location(thead, file$8, 214, 8, 7435);
-    			add_location(input2, file$8, 235, 20, 8322);
-    			add_location(td12, file$8, 235, 16, 8318);
+    			add_location(input1, file$8, 219, 9, 7640);
+    			add_location(td4, file$8, 219, 5, 7636);
+    			add_location(td5, file$8, 220, 5, 7695);
+    			add_location(tr0, file$8, 214, 12, 7396);
+    			add_location(td6, file$8, 224, 16, 7868);
+    			add_location(td7, file$8, 225, 16, 7899);
+    			add_location(td8, file$8, 226, 16, 7929);
+    			add_location(td9, file$8, 227, 16, 8004);
+    			add_location(td10, file$8, 228, 16, 8090);
+    			add_location(td11, file$8, 229, 16, 8151);
+    			add_location(tr1, file$8, 223, 12, 7846);
+    			add_location(thead, file$8, 213, 8, 7375);
+    			add_location(input2, file$8, 234, 20, 8262);
+    			add_location(td12, file$8, 234, 16, 8258);
     			attr_dev(input3, "type", "number");
-    			add_location(input3, file$8, 236, 9, 8380);
-    			add_location(td13, file$8, 236, 5, 8376);
+    			add_location(input3, file$8, 235, 9, 8320);
+    			add_location(td13, file$8, 235, 5, 8316);
     			attr_dev(input4, "type", "number");
-    			add_location(input4, file$8, 237, 9, 8445);
-    			add_location(td14, file$8, 237, 5, 8441);
+    			add_location(input4, file$8, 236, 9, 8385);
+    			add_location(td14, file$8, 236, 5, 8381);
     			attr_dev(input5, "type", "number");
-    			add_location(input5, file$8, 238, 9, 8549);
-    			add_location(td15, file$8, 238, 5, 8545);
+    			add_location(input5, file$8, 237, 9, 8489);
+    			add_location(td15, file$8, 237, 5, 8485);
     			attr_dev(input6, "type", "number");
-    			add_location(input6, file$8, 239, 9, 8657);
-    			add_location(td16, file$8, 239, 5, 8653);
-    			add_location(td17, file$8, 240, 5, 8734);
-    			add_location(tr2, file$8, 234, 12, 8296);
-    			add_location(tbody, file$8, 233, 8, 8275);
+    			add_location(input6, file$8, 238, 9, 8597);
+    			add_location(td16, file$8, 238, 5, 8593);
+    			add_location(td17, file$8, 239, 5, 8674);
+    			add_location(tr2, file$8, 233, 12, 8236);
+    			add_location(tbody, file$8, 232, 8, 8215);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, thead, anchor);
@@ -12667,14 +12667,14 @@ var app = (function () {
     		block,
     		id: create_default_slot_9$2.name,
     		type: "slot",
-    		source: "(214:4) <Table bordered>",
+    		source: "(213:4) <Table bordered>",
     		ctx
     	});
 
     	return block;
     }
 
-    // (264:2) <PaginationItem class="{pagActual === 1 ? 'disabled' : ''}">
+    // (263:2) <PaginationItem class="{pagActual === 1 ? 'disabled' : ''}">
     function create_default_slot_8$2(ctx) {
     	let paginationlink;
     	let current;
@@ -12713,14 +12713,14 @@ var app = (function () {
     		block,
     		id: create_default_slot_8$2.name,
     		type: "slot",
-    		source: "(264:2) <PaginationItem class=\\\"{pagActual === 1 ? 'disabled' : ''}\\\">",
+    		source: "(263:2) <PaginationItem class=\\\"{pagActual === 1 ? 'disabled' : ''}\\\">",
     		ctx
     	});
 
     	return block;
     }
 
-    // (267:2) {#if pagActual != 1}
+    // (266:2) {#if pagActual != 1}
     function create_if_block_1$1(ctx) {
     	let paginationitem;
     	let current;
@@ -12768,14 +12768,14 @@ var app = (function () {
     		block,
     		id: create_if_block_1$1.name,
     		type: "if",
-    		source: "(267:2) {#if pagActual != 1}",
+    		source: "(266:2) {#if pagActual != 1}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (269:3) <PaginationLink href="#/air-pollution" on:click="{() => incrementOffset(-1)}" >
+    // (268:3) <PaginationLink href="#/air-pollution" on:click="{() => incrementOffset(-1)}" >
     function create_default_slot_7$2(ctx) {
     	let t_value = /*pagActual*/ ctx[5] - 1 + "";
     	let t;
@@ -12799,14 +12799,14 @@ var app = (function () {
     		block,
     		id: create_default_slot_7$2.name,
     		type: "slot",
-    		source: "(269:3) <PaginationLink href=\\\"#/air-pollution\\\" on:click=\\\"{() => incrementOffset(-1)}\\\" >",
+    		source: "(268:3) <PaginationLink href=\\\"#/air-pollution\\\" on:click=\\\"{() => incrementOffset(-1)}\\\" >",
     		ctx
     	});
 
     	return block;
     }
 
-    // (268:2) <PaginationItem>
+    // (267:2) <PaginationItem>
     function create_default_slot_6$2(ctx) {
     	let paginationlink;
     	let current;
@@ -12857,14 +12857,14 @@ var app = (function () {
     		block,
     		id: create_default_slot_6$2.name,
     		type: "slot",
-    		source: "(268:2) <PaginationItem>",
+    		source: "(267:2) <PaginationItem>",
     		ctx
     	});
 
     	return block;
     }
 
-    // (273:3) <PaginationLink href="#/air-pollution" >
+    // (272:3) <PaginationLink href="#/air-pollution" >
     function create_default_slot_5$2(ctx) {
     	let t;
 
@@ -12887,14 +12887,14 @@ var app = (function () {
     		block,
     		id: create_default_slot_5$2.name,
     		type: "slot",
-    		source: "(273:3) <PaginationLink href=\\\"#/air-pollution\\\" >",
+    		source: "(272:3) <PaginationLink href=\\\"#/air-pollution\\\" >",
     		ctx
     	});
 
     	return block;
     }
 
-    // (272:2) <PaginationItem active>
+    // (271:2) <PaginationItem active>
     function create_default_slot_4$2(ctx) {
     	let paginationlink;
     	let current;
@@ -12943,14 +12943,14 @@ var app = (function () {
     		block,
     		id: create_default_slot_4$2.name,
     		type: "slot",
-    		source: "(272:2) <PaginationItem active>",
+    		source: "(271:2) <PaginationItem active>",
     		ctx
     	});
 
     	return block;
     }
 
-    // (275:2) {#if moreRegisters}
+    // (274:2) {#if moreRegisters}
     function create_if_block$3(ctx) {
     	let paginationitem;
     	let current;
@@ -12998,14 +12998,14 @@ var app = (function () {
     		block,
     		id: create_if_block$3.name,
     		type: "if",
-    		source: "(275:2) {#if moreRegisters}",
+    		source: "(274:2) {#if moreRegisters}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (277:3) <PaginationLink href="#/air-pollution" on:click="{() => incrementOffset(1)}">
+    // (276:3) <PaginationLink href="#/air-pollution" on:click="{() => incrementOffset(1)}">
     function create_default_slot_3$2(ctx) {
     	let t_value = /*pagActual*/ ctx[5] + 1 + "";
     	let t;
@@ -13029,14 +13029,14 @@ var app = (function () {
     		block,
     		id: create_default_slot_3$2.name,
     		type: "slot",
-    		source: "(277:3) <PaginationLink href=\\\"#/air-pollution\\\" on:click=\\\"{() => incrementOffset(1)}\\\">",
+    		source: "(276:3) <PaginationLink href=\\\"#/air-pollution\\\" on:click=\\\"{() => incrementOffset(1)}\\\">",
     		ctx
     	});
 
     	return block;
     }
 
-    // (276:2) <PaginationItem >
+    // (275:2) <PaginationItem >
     function create_default_slot_2$4(ctx) {
     	let paginationlink;
     	let current;
@@ -13087,14 +13087,14 @@ var app = (function () {
     		block,
     		id: create_default_slot_2$4.name,
     		type: "slot",
-    		source: "(276:2) <PaginationItem >",
+    		source: "(275:2) <PaginationItem >",
     		ctx
     	});
 
     	return block;
     }
 
-    // (280:2) <PaginationItem class="{moreRegisters ? '' : 'disabled'}">
+    // (279:2) <PaginationItem class="{moreRegisters ? '' : 'disabled'}">
     function create_default_slot_1$4(ctx) {
     	let paginationlink;
     	let current;
@@ -13133,14 +13133,14 @@ var app = (function () {
     		block,
     		id: create_default_slot_1$4.name,
     		type: "slot",
-    		source: "(280:2) <PaginationItem class=\\\"{moreRegisters ? '' : 'disabled'}\\\">",
+    		source: "(279:2) <PaginationItem class=\\\"{moreRegisters ? '' : 'disabled'}\\\">",
     		ctx
     	});
 
     	return block;
     }
 
-    // (263:4) <Pagination style="float:center;" ariaLabel="Cambiar de página">
+    // (262:4) <Pagination style="float:center;" ariaLabel="Cambiar de página">
     function create_default_slot$6(ctx) {
     	let paginationitem0;
     	let t0;
@@ -13313,7 +13313,7 @@ var app = (function () {
     		block,
     		id: create_default_slot$6.name,
     		type: "slot",
-    		source: "(263:4) <Pagination style=\\\"float:center;\\\" ariaLabel=\\\"Cambiar de página\\\">",
+    		source: "(262:4) <Pagination style=\\\"float:center;\\\" ariaLabel=\\\"Cambiar de página\\\">",
     		ctx
     	});
 
@@ -13330,18 +13330,16 @@ var app = (function () {
     	let t3;
     	let button1;
     	let t4;
-    	let a0;
+    	let a;
     	let t6;
-    	let a1;
-    	let t8;
     	let br1;
-    	let t9;
+    	let t7;
     	let br2;
+    	let t8;
+    	let t9;
     	let t10;
-    	let t11;
-    	let t12;
     	let table;
-    	let t13;
+    	let t11;
     	let pagination;
     	let current;
 
@@ -13398,34 +13396,29 @@ var app = (function () {
     			t3 = space();
     			create_component(button1.$$.fragment);
     			t4 = space();
-    			a0 = element("a");
-    			a0.textContent = "Grafica";
+    			a = element("a");
+    			a.textContent = "GRÁFICAS";
     			t6 = space();
-    			a1 = element("a");
-    			a1.textContent = "GRÁFICA(HIGHCHART)";
-    			t8 = space();
     			br1 = element("br");
-    			t9 = space();
+    			t7 = space();
     			br2 = element("br");
-    			t10 = space();
+    			t8 = space();
     			if (if_block0) if_block0.c();
-    			t11 = space();
+    			t9 = space();
     			if (if_block1) if_block1.c();
-    			t12 = space();
+    			t10 = space();
     			create_component(table.$$.fragment);
-    			t13 = space();
+    			t11 = space();
     			create_component(pagination.$$.fragment);
     			add_location(h2, file$8, 196, 4, 6854);
     			add_location(br0, file$8, 199, 4, 6907);
-    			attr_dev(a0, "href", "#/air-pollution/graph");
-    			add_location(a0, file$8, 202, 4, 7053);
-    			attr_dev(a1, "href", "#/air-pollution/graph");
-    			attr_dev(a1, "class", "btn btn-outline-warning");
-    			attr_dev(a1, "role", "button");
-    			attr_dev(a1, "aria-pressed", "true");
-    			add_location(a1, file$8, 203, 4, 7103);
-    			add_location(br1, file$8, 204, 4, 7229);
-    			add_location(br2, file$8, 205, 4, 7239);
+    			attr_dev(a, "href", "#/air-pollution/graph");
+    			attr_dev(a, "class", "btn btn-outline-warning");
+    			attr_dev(a, "role", "button");
+    			attr_dev(a, "aria-pressed", "true");
+    			add_location(a, file$8, 202, 4, 7053);
+    			add_location(br1, file$8, 203, 4, 7169);
+    			add_location(br2, file$8, 204, 4, 7179);
     			add_location(main, file$8, 195, 0, 6842);
     		},
     		l: function claim(nodes) {
@@ -13441,20 +13434,18 @@ var app = (function () {
     			append_dev(main, t3);
     			mount_component(button1, main, null);
     			append_dev(main, t4);
-    			append_dev(main, a0);
+    			append_dev(main, a);
     			append_dev(main, t6);
-    			append_dev(main, a1);
-    			append_dev(main, t8);
     			append_dev(main, br1);
-    			append_dev(main, t9);
+    			append_dev(main, t7);
     			append_dev(main, br2);
-    			append_dev(main, t10);
+    			append_dev(main, t8);
     			if (if_block0) if_block0.m(main, null);
-    			append_dev(main, t11);
+    			append_dev(main, t9);
     			if (if_block1) if_block1.m(main, null);
-    			append_dev(main, t12);
+    			append_dev(main, t10);
     			mount_component(table, main, null);
-    			append_dev(main, t13);
+    			append_dev(main, t11);
     			mount_component(pagination, main, null);
     			current = true;
     		},
@@ -13480,7 +13471,7 @@ var app = (function () {
     				} else {
     					if_block0 = create_if_block_3(ctx);
     					if_block0.c();
-    					if_block0.m(main, t11);
+    					if_block0.m(main, t9);
     				}
     			} else if (if_block0) {
     				if_block0.d(1);
@@ -13493,7 +13484,7 @@ var app = (function () {
     				} else {
     					if_block1 = create_if_block_2(ctx);
     					if_block1.c();
-    					if_block1.m(main, t12);
+    					if_block1.m(main, t10);
     				}
     			} else if (if_block1) {
     				if_block1.d(1);
@@ -17484,14 +17475,11 @@ var app = (function () {
     	let t5;
     	let p;
     	let t6;
-    	let div3;
+    	let div4;
     	let h51;
     	let t8;
+    	let div3;
     	let div2;
-    	let t9;
-    	let script6;
-    	let t11;
-    	let script7;
     	let mounted;
     	let dispose;
 
@@ -17519,48 +17507,44 @@ var app = (function () {
     			t5 = space();
     			p = element("p");
     			t6 = space();
-    			div3 = element("div");
+    			div4 = element("div");
     			h51 = element("h5");
     			h51.textContent = "Gráfica con Chartist";
     			t8 = space();
+    			div3 = element("div");
     			div2 = element("div");
-    			t9 = space();
-    			script6 = element("script");
-    			script6.textContent = "async function getData(){\r\n                console.log(\"Fetching data...\");\r\n                const res = await fetch(BASE_CONTACT_API_PATH + \"/air-pollution\");\r\n                if(res.ok){\r\n                    console.log(\"Ok.\");\r\n                    const json = await res.json();\r\n                    data = json;\r\n                    console.log(`We have received ${data.length} data points.`);\r\n                    let i=0;\r\n                    data.reverse();\r\n                    while(i<data.length){\r\n                        years.add(data[i].year);\r\n                        if(dictDeathsAirPollution[data[i].country]){\r\n                            dictDeathsAirPollution[data[i].country].push(data[i].deaths_air_pollution);\r\n                        }\r\n                        else{\r\n                            dictDeathsAirPollution[data[i].country]=[parseInt(data[i].deaths_air_pollution)];\r\n                        }\r\n                        \r\n                        \r\n                        \r\n                        \r\n                        if(dictAnyoPais[data[i].country]){\r\n                            dictAnyoPais[data[i].country].push(data[i].year);\r\n                        }\r\n                        else{\r\n                            dictAnyoPais[data[i].country]=[parseInt(data[i].year)];\r\n                        }\r\n                        i++;\r\n                    }\r\n                    console.log(dictDeathsAirPollution);\r\n                    \r\n                    \r\n                }else{\r\n                    console.log(\"Error!\");\r\n                }\r\n                let paises= Object.keys(dictDeathsAirPollution);\r\n                for(let p=0; p<paises.length; p++){\r\n                    if(dictAnyoPais[paises[p]]){\r\n                        let anyos=dictAnyoPais[paises[p]].sort();\r\n                        let a=0;\r\n                            while(a<Array.from(years).length){\r\n                                let ord =Array.from(years).sort();\r\n                                if(!anyos.includes(ord[a])){\r\n                                    dictDeathsAirPollution[paises[p]].splice(a, 0, null);\r\n                                }\r\n                                a++\r\n                            }\r\n                    }\r\n                }\r\n            \r\n                Object.entries(dictDeathsAirPollution).forEach(([key, value]) => {\r\n                    \r\n                        deathsairpollution.push({name: key , data: value})\r\n                    });\r\n                loadGraph();\r\n                console.log(\"Ya se deberia de haber cargado la grafica\");\r\n                \r\n            }";
-    			t11 = space();
-    			script7 = element("script");
     			if (script0.src !== (script0_src_value = "https://code.highcharts.com/highcharts.js")) attr_dev(script0, "src", script0_src_value);
-    			add_location(script0, file$1, 145, 4, 3835);
+    			add_location(script0, file$1, 160, 4, 4156);
     			if (script1.src !== (script1_src_value = "https://code.highcharts.com/modules/series-label.js")) attr_dev(script1, "src", script1_src_value);
-    			add_location(script1, file$1, 146, 4, 3906);
+    			add_location(script1, file$1, 161, 4, 4227);
     			if (script2.src !== (script2_src_value = "https://code.highcharts.com/modules/exporting.js")) attr_dev(script2, "src", script2_src_value);
-    			add_location(script2, file$1, 147, 4, 3987);
+    			add_location(script2, file$1, 162, 4, 4308);
     			if (script3.src !== (script3_src_value = "https://code.highcharts.com/modules/export-data.js")) attr_dev(script3, "src", script3_src_value);
-    			add_location(script3, file$1, 148, 4, 4065);
+    			add_location(script3, file$1, 163, 4, 4386);
     			if (script4.src !== (script4_src_value = "https://code.highcharts.com/modules/accessibility.js")) attr_dev(script4, "src", script4_src_value);
-    			add_location(script4, file$1, 149, 4, 4145);
+    			add_location(script4, file$1, 164, 4, 4466);
     			attr_dev(link, "rel", "stylesheet");
     			attr_dev(link, "href", "https://cdn.jsdelivr.net/chartist.js/latest/chartist.min.css");
-    			add_location(link, file$1, 150, 4, 4249);
+    			add_location(link, file$1, 165, 4, 4570);
     			if (script5.src !== (script5_src_value = "https://cdn.jsdelivr.net/chartist.js/latest/chartist.min.js")) attr_dev(script5, "src", script5_src_value);
-    			add_location(script5, file$1, 151, 4, 4346);
-    			add_location(br0, file$1, 156, 0, 4459);
-    			add_location(br1, file$1, 157, 0, 4465);
-    			add_location(h50, file$1, 160, 8, 4496);
+    			add_location(script5, file$1, 166, 4, 4667);
+    			add_location(br0, file$1, 171, 0, 4803);
+    			add_location(br1, file$1, 172, 0, 4809);
+    			add_location(h50, file$1, 175, 8, 4840);
     			attr_dev(div0, "id", "container");
-    			add_location(div0, file$1, 164, 8, 4600);
+    			add_location(div0, file$1, 179, 8, 4944);
     			attr_dev(p, "class", "highcharts-description");
-    			add_location(p, file$1, 165, 8, 4636);
+    			add_location(p, file$1, 180, 8, 4980);
     			attr_dev(figure, "class", "highcharts-figure");
-    			add_location(figure, file$1, 163, 8, 4556);
-    			add_location(div1, file$1, 159, 4, 4481);
-    			add_location(h51, file$1, 172, 8, 4764);
+    			add_location(figure, file$1, 178, 8, 4900);
+    			add_location(div1, file$1, 174, 4, 4825);
+    			add_location(h51, file$1, 187, 8, 5108);
     			attr_dev(div2, "class", "ct-chart ct-perfect-fourth");
-    			add_location(div2, file$1, 175, 8, 4827);
-    			add_location(script6, file$1, 176, 8, 4883);
-    			add_location(div3, file$1, 171, 4, 4749);
-    			add_location(script7, file$1, 244, 4, 7642);
-    			add_location(main, file$1, 154, 0, 4449);
+    			add_location(div2, file$1, 191, 8, 5202);
+    			attr_dev(div3, "class", "chart svelte-hekld0");
+    			add_location(div3, file$1, 190, 8, 5171);
+    			add_location(div4, file$1, 186, 4, 5093);
+    			add_location(main, file$1, 169, 0, 4793);
     		},
     		l: function claim(nodes) {
     			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
@@ -17587,17 +17571,18 @@ var app = (function () {
     			append_dev(figure, t5);
     			append_dev(figure, p);
     			append_dev(main, t6);
-    			append_dev(main, div3);
-    			append_dev(div3, h51);
-    			append_dev(div3, t8);
+    			append_dev(main, div4);
+    			append_dev(div4, h51);
+    			append_dev(div4, t8);
+    			append_dev(div4, div3);
     			append_dev(div3, div2);
-    			append_dev(div3, t9);
-    			append_dev(div3, script6);
-    			append_dev(main, t11);
-    			append_dev(main, script7);
 
     			if (!mounted) {
-    				dispose = listen_dev(script4, "load", /*loadGraph*/ ctx[0], false, false, false);
+    				dispose = [
+    					listen_dev(script4, "load", /*loadGraph*/ ctx[0], false, false, false),
+    					listen_dev(script5, "load", /*loadGraph2*/ ctx[1], false, false, false)
+    				];
+
     				mounted = true;
     			}
     		},
@@ -17615,7 +17600,7 @@ var app = (function () {
     			if (detaching) detach_dev(t0);
     			if (detaching) detach_dev(main);
     			mounted = false;
-    			dispose();
+    			run_all(dispose);
     		}
     	};
 
@@ -17718,7 +17703,7 @@ var app = (function () {
     					text: "Muertes por contaminación del aire(en millones)"
     				}
     			},
-    			xAxis: { categories: Array.from(years) },
+    			xAxis: { categories: Array.from(years).sort() },
     			legend: {
     				layout: "vertical",
     				align: "right",
@@ -17745,17 +17730,54 @@ var app = (function () {
     		});
     	}
 
-    	var data1 = {
-    		// A labels array that can contain any sort of values
-    		labels: ["Mon", "Tue", "Wed", "Thu", "Fri"],
-    		// Our series array that contains series objects or in this case series data arrays
-    		series: [[5, 2, 4, 2, 0]]
-    	};
+    	async function loadGraph2() {
+    		console.log("grafica 2");
 
-    	// Create a new line chart object where as first parameter we pass in a selector
-    	// that is resolving to our chart container element. The Second parameter
-    	// is the actual data object.
-    	const myChart = new Chartist.Line(".ct-chart", data1);
+    		new Chartist.Line(".ct-chart",
+    		{
+    				labels: Array.from(years),
+    				series: [
+    					[5, 5, 10, 8, 7, 5, 4, null, null, null, 10, 10, 7, 8, 6, 9],
+    					[
+    						10,
+    						15,
+    						null,
+    						12,
+    						null,
+    						10,
+    						12,
+    						15,
+    						null,
+    						null,
+    						12,
+    						null,
+    						14,
+    						null,
+    						null,
+    						null
+    					],
+    					[null, null, null, null, 3, 4, 1, 3, 4, 6, 7, 9, 5, null, null, null],
+    					[
+    						{ x: 3, y: 3 },
+    						{ x: 4, y: 3 },
+    						{ x: 5, y: undefined },
+    						{ x: 6, y: 4 },
+    						{ x: 7, y: null },
+    						{ x: 8, y: 4 },
+    						{ x: 9, y: 4 }
+    					]
+    				]
+    			},
+    		{
+    				fullWidth: false,
+    				chartPadding: { right: 10 },
+    				lineSmooth: Chartist.Interpolation.cardinal({ fillHoles: true }),
+    				low: 0
+    			});
+
+    		console.log(Array.from(years));
+    		console.log(deathsairpollution);
+    	}
 
     	const writable_props = [];
 
@@ -17774,8 +17796,7 @@ var app = (function () {
     		data,
     		getData,
     		loadGraph,
-    		data1,
-    		myChart
+    		loadGraph2
     	});
 
     	$$self.$inject_state = $$props => {
@@ -17785,14 +17806,13 @@ var app = (function () {
     		if ("deathsairpollution" in $$props) deathsairpollution = $$props.deathsairpollution;
     		if ("dictAnyoPais" in $$props) dictAnyoPais = $$props.dictAnyoPais;
     		if ("data" in $$props) data = $$props.data;
-    		if ("data1" in $$props) data1 = $$props.data1;
     	};
 
     	if ($$props && "$$inject" in $$props) {
     		$$self.$inject_state($$props.$$inject);
     	}
 
-    	return [loadGraph];
+    	return [loadGraph, loadGraph2];
     }
 
     class MyGraphAirPollution extends SvelteComponentDev {
