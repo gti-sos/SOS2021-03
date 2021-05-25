@@ -1,6 +1,6 @@
 <script>
     import MyChart from "./inter.js";
-    import {RadialBarChart} from './modules/reaviz';
+    import {RadialBarChart} from 'reaviz';
     import {
         onMount
     } from "svelte";
