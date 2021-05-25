@@ -17478,34 +17478,33 @@ var app = (function () {
     			div1 = element("div");
     			t5 = space();
     			script6 = element("script");
-    			script6.textContent = "var data1 = {\r\n        // A labels array that can contain any sort of values\r\n        labels: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri'],\r\n        // Our series array that contains series objects or in this case series data arrays\r\n        series: [\r\n            [5, 2, 4, 2, 0]\r\n        ]\r\n        };\r\n\r\n        // Create a new line chart object where as first parameter we pass in a selector\r\n        // that is resolving to our chart container element. The Second parameter\r\n        // is the actual data object.\r\n        var myChart = new Chartist.Line('.ct-chart', data1);";
     			if (script0.src !== (script0_src_value = "https://code.highcharts.com/highcharts.js")) attr_dev(script0, "src", script0_src_value);
-    			add_location(script0, file$1, 129, 4, 3203);
+    			add_location(script0, file$1, 141, 4, 3781);
     			if (script1.src !== (script1_src_value = "https://code.highcharts.com/modules/series-label.js")) attr_dev(script1, "src", script1_src_value);
-    			add_location(script1, file$1, 130, 4, 3274);
+    			add_location(script1, file$1, 142, 4, 3852);
     			if (script2.src !== (script2_src_value = "https://code.highcharts.com/modules/exporting.js")) attr_dev(script2, "src", script2_src_value);
-    			add_location(script2, file$1, 131, 4, 3355);
+    			add_location(script2, file$1, 143, 4, 3933);
     			if (script3.src !== (script3_src_value = "https://code.highcharts.com/modules/export-data.js")) attr_dev(script3, "src", script3_src_value);
-    			add_location(script3, file$1, 132, 4, 3433);
+    			add_location(script3, file$1, 144, 4, 4011);
     			if (script4.src !== (script4_src_value = "https://code.highcharts.com/modules/accessibility.js")) attr_dev(script4, "src", script4_src_value);
-    			add_location(script4, file$1, 133, 4, 3513);
+    			add_location(script4, file$1, 145, 4, 4091);
     			attr_dev(link, "rel", "stylesheet");
     			attr_dev(link, "href", "https://cdn.jsdelivr.net/chartist.js/latest/chartist.min.css");
-    			add_location(link, file$1, 134, 4, 3617);
+    			add_location(link, file$1, 146, 4, 4195);
     			if (script5.src !== (script5_src_value = "https://cdn.jsdelivr.net/chartist.js/latest/chartist.min.js")) attr_dev(script5, "src", script5_src_value);
-    			add_location(script5, file$1, 135, 4, 3714);
-    			add_location(br0, file$1, 140, 0, 3827);
-    			add_location(br1, file$1, 141, 0, 3833);
+    			add_location(script5, file$1, 147, 4, 4292);
+    			add_location(br0, file$1, 152, 0, 4405);
+    			add_location(br1, file$1, 153, 0, 4411);
     			attr_dev(div0, "id", "container");
-    			add_location(div0, file$1, 143, 8, 3887);
+    			add_location(div0, file$1, 155, 8, 4465);
     			attr_dev(p, "class", "highcharts-description");
-    			add_location(p, file$1, 144, 8, 3923);
+    			add_location(p, file$1, 156, 8, 4501);
     			attr_dev(figure, "class", "highcharts-figure");
-    			add_location(figure, file$1, 142, 4, 3843);
+    			add_location(figure, file$1, 154, 4, 4421);
     			attr_dev(div1, "class", "ct-chart ct-perfect-fourth");
-    			add_location(div1, file$1, 149, 4, 4018);
-    			add_location(script6, file$1, 150, 4, 4070);
-    			add_location(main, file$1, 138, 0, 3817);
+    			add_location(div1, file$1, 161, 4, 4596);
+    			add_location(script6, file$1, 162, 4, 4648);
+    			add_location(main, file$1, 150, 0, 4395);
     		},
     		l: function claim(nodes) {
     			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
@@ -17681,6 +17680,18 @@ var app = (function () {
     		});
     	}
 
+    	var data1 = {
+    		// A labels array that can contain any sort of values
+    		labels: ["Mon", "Tue", "Wed", "Thu", "Fri"],
+    		// Our series array that contains series objects or in this case series data arrays
+    		series: [[5, 2, 4, 2, 0]]
+    	};
+
+    	// Create a new line chart object where as first parameter we pass in a selector
+    	// that is resolving to our chart container element. The Second parameter
+    	// is the actual data object.
+    	const myChart = new Chartist.Line(".ct-chart", data1);
+
     	const writable_props = [];
 
     	Object_1.keys($$props).forEach(key => {
@@ -17697,7 +17708,9 @@ var app = (function () {
     		dictAnyoPais,
     		data,
     		getData,
-    		loadGraph
+    		loadGraph,
+    		data1,
+    		myChart
     	});
 
     	$$self.$inject_state = $$props => {
@@ -17707,6 +17720,7 @@ var app = (function () {
     		if ("deathsairpollution" in $$props) deathsairpollution = $$props.deathsairpollution;
     		if ("dictAnyoPais" in $$props) dictAnyoPais = $$props.dictAnyoPais;
     		if ("data" in $$props) data = $$props.data;
+    		if ("data1" in $$props) data1 = $$props.data1;
     	};
 
     	if ($$props && "$$inject" in $$props) {

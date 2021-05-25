@@ -27,6 +27,10 @@ app.listen(PORT, () => {
 
 var airpollution = require("./src/back/air-pollution/air-pollution.js");
 airpollution.all(app);
+
+var airpollutionintegrations = require("./src/back/air-pollution/integrations.js");
+airpollutionintegrations.all(app);
+
 var qof = require("./src/back/quality-of-life/quality-of-life.js");
 qof.all(app);
 
