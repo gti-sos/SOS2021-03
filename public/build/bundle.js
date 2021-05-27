@@ -17733,35 +17733,35 @@ var app = (function () {
     			t8 = space();
     			div2 = element("div");
     			if (script0.src !== (script0_src_value = "https://code.highcharts.com/highcharts.js")) attr_dev(script0, "src", script0_src_value);
-    			add_location(script0, file$2, 213, 4, 5379);
+    			add_location(script0, file$2, 207, 4, 5267);
     			if (script1.src !== (script1_src_value = "https://code.highcharts.com/modules/series-label.js")) attr_dev(script1, "src", script1_src_value);
-    			add_location(script1, file$2, 214, 4, 5450);
+    			add_location(script1, file$2, 208, 4, 5338);
     			if (script2.src !== (script2_src_value = "https://code.highcharts.com/modules/exporting.js")) attr_dev(script2, "src", script2_src_value);
-    			add_location(script2, file$2, 215, 4, 5531);
+    			add_location(script2, file$2, 209, 4, 5419);
     			if (script3.src !== (script3_src_value = "https://code.highcharts.com/modules/export-data.js")) attr_dev(script3, "src", script3_src_value);
-    			add_location(script3, file$2, 216, 4, 5609);
+    			add_location(script3, file$2, 210, 4, 5497);
     			if (script4.src !== (script4_src_value = "https://code.highcharts.com/modules/accessibility.js")) attr_dev(script4, "src", script4_src_value);
-    			add_location(script4, file$2, 217, 4, 5689);
+    			add_location(script4, file$2, 211, 4, 5577);
     			attr_dev(link, "rel", "stylesheet");
     			attr_dev(link, "href", "https://cdn.jsdelivr.net/chartist.js/latest/chartist.min.css");
-    			add_location(link, file$2, 218, 4, 5771);
+    			add_location(link, file$2, 212, 4, 5659);
     			if (script5.src !== (script5_src_value = "https://cdn.jsdelivr.net/chartist.js/latest/chartist.min.js")) attr_dev(script5, "src", script5_src_value);
-    			add_location(script5, file$2, 219, 4, 5868);
-    			add_location(br0, file$2, 224, 0, 5982);
-    			add_location(br1, file$2, 225, 0, 5988);
-    			add_location(h50, file$2, 228, 8, 6019);
+    			add_location(script5, file$2, 213, 4, 5756);
+    			add_location(br0, file$2, 218, 0, 5870);
+    			add_location(br1, file$2, 219, 0, 5876);
+    			add_location(h50, file$2, 222, 8, 5907);
     			attr_dev(div0, "id", "container");
-    			add_location(div0, file$2, 232, 8, 6125);
+    			add_location(div0, file$2, 226, 8, 6013);
     			attr_dev(p, "class", "highcharts-description");
-    			add_location(p, file$2, 233, 8, 6161);
+    			add_location(p, file$2, 227, 8, 6049);
     			attr_dev(figure, "class", "highcharts-figure c svelte-rco0tv");
-    			add_location(figure, file$2, 231, 8, 6079);
-    			add_location(div1, file$2, 227, 4, 6004);
-    			add_location(h51, file$2, 240, 8, 6289);
+    			add_location(figure, file$2, 225, 8, 5967);
+    			add_location(div1, file$2, 221, 4, 5892);
+    			add_location(h51, file$2, 234, 8, 6177);
     			attr_dev(div2, "class", "ct-chart ct-perfect-fourth c svelte-rco0tv");
-    			add_location(div2, file$2, 244, 8, 6362);
-    			add_location(div3, file$2, 239, 4, 6274);
-    			add_location(main, file$2, 222, 0, 5972);
+    			add_location(div2, file$2, 238, 8, 6250);
+    			add_location(div3, file$2, 233, 4, 6162);
+    			add_location(main, file$2, 216, 0, 5860);
     		},
     		l: function claim(nodes) {
     			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
@@ -17824,13 +17824,13 @@ var app = (function () {
     	let { $$slots: slots = {}, $$scope } = $$props;
     	validate_slots("MyGraphAirPollution", slots, []);
     	var BASE_CONTACT_API_PATH = "/api/v1";
-    	const paises = new Set();
+    	const paises2 = new Set();
     	let years = new Set();
     	var dictDeathsAirPollution = {};
     	let deathsairpollution = [];
-    	let anyos2 = [];
     	var dictAnyoPais = {};
-    	var res = [];
+    	let anyos2 = [];
+    	var res = {};
     	let data = [];
 
     	async function getData() {
@@ -17846,6 +17846,7 @@ var app = (function () {
     			data.reverse();
 
     			while (i < data.length) {
+    				paises2.add(data[i].country);
     				years.add(data[i].year);
 
     				if (dictDeathsAirPollution[data[i].country]) {
@@ -17863,7 +17864,7 @@ var app = (function () {
     				i++;
     			}
 
-    			console.log(dictDeathsAirPollution);
+    			console.log(paises2);
 
     			for (let j of years) {
     				anyos2.push(j);
@@ -17949,14 +17950,8 @@ var app = (function () {
 
     		new Chartist.Bar(".ct-chart",
     		{
-    				labels: anyos2,
-    				series: [
-    					[5, 4, 3, 7, 5],
-    					[3, 2, 9, 5, 7],
-    					[1, 5, 8, 4, 5],
-    					[2, 3, 4, 6, 7],
-    					[4, 1, 2, 1, 7]
-    				]
+    				labels: Array.from(paises2),
+    				series: deathsairpollution
     			},
     		{
     				// Default mobile configuration
@@ -17978,7 +17973,7 @@ var app = (function () {
     						reverseData: true,
     						horizontalBars: true,
     						axisX: { labelInterpolationFnc: Chartist.noop },
-    						axisY: { offset: 60 }
+    						axisY: { offset: 40 }
     					}
     				],
     				// Options override for media > 800px
@@ -18023,12 +18018,12 @@ var app = (function () {
     	$$self.$capture_state = () => ({
     		onMount,
     		BASE_CONTACT_API_PATH,
-    		paises,
+    		paises2,
     		years,
     		dictDeathsAirPollution,
     		deathsairpollution,
-    		anyos2,
     		dictAnyoPais,
+    		anyos2,
     		res,
     		data,
     		getData,
@@ -18041,8 +18036,8 @@ var app = (function () {
     		if ("years" in $$props) years = $$props.years;
     		if ("dictDeathsAirPollution" in $$props) dictDeathsAirPollution = $$props.dictDeathsAirPollution;
     		if ("deathsairpollution" in $$props) deathsairpollution = $$props.deathsairpollution;
-    		if ("anyos2" in $$props) anyos2 = $$props.anyos2;
     		if ("dictAnyoPais" in $$props) dictAnyoPais = $$props.dictAnyoPais;
+    		if ("anyos2" in $$props) anyos2 = $$props.anyos2;
     		if ("res" in $$props) res = $$props.res;
     		if ("data" in $$props) data = $$props.data;
     	};
