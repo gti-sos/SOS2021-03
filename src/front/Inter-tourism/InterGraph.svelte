@@ -1,5 +1,5 @@
 <script>
-    import MyChart from "./inter.js";
+    
   
     import {
         onMount
