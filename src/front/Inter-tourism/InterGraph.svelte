@@ -71,10 +71,7 @@
 		
     }   
     
-    onMount(getData);
-    async function loadGraph(){  
-    console.log(dictInter);
-    MyChart;
+  
     
   }
 </script>
