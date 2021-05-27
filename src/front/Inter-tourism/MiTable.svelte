@@ -190,6 +190,7 @@
 	{:then inter_tourism}-->
 		<Button on:click={loadInitialData}>Cargar los datos</Button>
 		<Button on:click={deleteAll}>Borrar todos los datos</Button>
+		<Button on:click={alert}>Gráfica</Button>
 		<br>
 		
 		<Table bordered>
