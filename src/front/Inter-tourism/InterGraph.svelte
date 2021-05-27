@@ -1,6 +1,6 @@
 <script>
     import MyChart from "./inter.js";
-    import {RadialBarChart} from 'reaviz';
+  
     import {
         onMount
     } from "svelte";
@@ -31,10 +31,7 @@
 				}
 				else{
 					dictInter[data[i].country]=[parseInt(data[i].inter)];
-				}jj
-				
-				
-				
+				}
 				
 				if(dictAnyoPais[data[i].country]){
 					dictAnyoPais[data[i].country].push(data[i].year);
@@ -86,8 +83,6 @@
 
     <br>
     <br>
-    <div style={{ width: '50vw', height: '75vh', border: 'solid 1px red' }}>
-        <RadialBarChart data={data} />
-    </div>
+  
 </main>
     
