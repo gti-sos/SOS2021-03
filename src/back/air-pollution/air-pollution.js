@@ -219,6 +219,181 @@ module.exports.all = (app) => {
             "deaths_air_pollution":  19.127512733372576
 
         },
+        {
+            "country": "CHINA", 
+            "year": 2007, 
+            "deaths_ambient_particulate_matter_pollution":56.03075191952254,
+            "deaths_household_air_pollution_from_solid_fuels": 31.909869012073564,
+            "deaths_air_pollution":  97.83587858207461
+        },
+	    {
+            "country": "CHINA", 
+            "year": 2008, 
+            "deaths_ambient_particulate_matter_pollution": 56.482741980369,
+            "deaths_household_air_pollution_from_solid_fuels": 29.46463845165397,
+            "deaths_air_pollution":  95.43912890437898
+        },
+	    {
+            "country": "CHINA", 
+            "year": 2009, 
+            "deaths_ambient_particulate_matter_pollution": 57.52544268971824,
+            "deaths_household_air_pollution_from_solid_fuels": 27.471811315084842,
+            "deaths_air_pollution":  94.24721802309006
+        },
+	    {
+            "country": "CHINA", 
+            "year": 2010, 
+            "deaths_ambient_particulate_matter_pollution": 58.41215079376876,
+            "deaths_household_air_pollution_from_solid_fuels": 25.541573303355555,
+            "deaths_air_pollution":  92.97014294146548
+        },
+	    {
+            "country": "CHINA", 
+            "year": 2011, 
+            "deaths_ambient_particulate_matter_pollution": 58.74084547779062,
+            "deaths_household_air_pollution_from_solid_fuels": 23.3218830475631,
+            "deaths_air_pollution": 90.65488369677888
+        },
+        {
+            "country": "GERMANY", 
+            "year": 2007, 
+            "deaths_ambient_particulate_matter_pollution":21.278546337893406,
+            "deaths_household_air_pollution_from_solid_fuels": 0.4476152121828848,
+            "deaths_air_pollution":  23.4585023550537
+        },
+	    {
+            "country": "GERMANY", 
+            "year": 2008, 
+            "deaths_ambient_particulate_matter_pollution": 21.126482433516603,
+            "deaths_household_air_pollution_from_solid_fuels": 0.4110438420176187,
+            "deaths_air_pollution":  23.303104698731985
+        },
+	    {
+            "country": "GERMANY", 
+            "year": 2009, 
+            "deaths_ambient_particulate_matter_pollution": 21.04022903758618,
+            "deaths_household_air_pollution_from_solid_fuels": 0.38914270241364507,
+            "deaths_air_pollution":  23.238679895498663
+        },
+	    {
+            "country": "GERMANY", 
+            "year": 2010, 
+            "deaths_ambient_particulate_matter_pollution": 20.68905286671175,
+            "deaths_household_air_pollution_from_solid_fuels": 0.3530432220577874,
+            "deaths_air_pollution":  22.868639030093235
+        },
+	    {
+            "country": "GERMANY", 
+            "year": 2011, 
+            "deaths_ambient_particulate_matter_pollution": 19.907600055009738,
+            "deaths_household_air_pollution_from_solid_fuels": 0.3342961598233201,
+            "deaths_air_pollution": 22.071574989229063
+        },
+        {
+            "country": "INDIA", 
+            "year": 2007, 
+            "deaths_ambient_particulate_matter_pollution":62.099053854061516,
+            "deaths_household_air_pollution_from_solid_fuels": 76.24102732884097,
+            "deaths_air_pollution":  148.05627209360725
+        },
+	    {
+            "country": "INDIA", 
+            "year": 2008, 
+            "deaths_ambient_particulate_matter_pollution": 63.575442513089826,
+            "deaths_household_air_pollution_from_solid_fuels": 74.03378250100018,
+            "deaths_air_pollution":  147.32481232703338
+        },
+	    {
+            "country": "INDIA", 
+            "year": 2009, 
+            "deaths_ambient_particulate_matter_pollution": 64.4532424014687,
+            "deaths_household_air_pollution_from_solid_fuels": 71.73601914254124,
+            "deaths_air_pollution":  145.87361424853114
+        },
+	    {
+            "country": "INDIA", 
+            "year": 2010, 
+            "deaths_ambient_particulate_matter_pollution": 65.61668921511249,
+            "deaths_household_air_pollution_from_solid_fuels": 69.91364358537496,
+            "deaths_air_pollution":  145.220559610492
+        },
+	    {
+            "country": "INDIA", 
+            "year": 2011, 
+            "deaths_ambient_particulate_matter_pollution": 67.17222333873804,
+            "deaths_household_air_pollution_from_solid_fuels": 67.91702867237429,
+            "deaths_air_pollution": 144.74345237213464
+        },
+        {
+            "country": "SPAIN", 
+            "year": 2007, 
+            "deaths_ambient_particulate_matter_pollution":16.971786724060184,
+            "deaths_household_air_pollution_from_solid_fuels": 0.8489929449037286,
+            "deaths_air_pollution":  20.653582098038086
+        },
+	    {
+            "country": "SPAIN", 
+            "year": 2008, 
+            "deaths_ambient_particulate_matter_pollution": 16.40830230706153,
+            "deaths_household_air_pollution_from_solid_fuels": 0.7771692558096521,
+            "deaths_air_pollution":  19.940107676471055
+        },
+	    {
+            "country": "SPAIN", 
+            "year": 2009, 
+            "deaths_ambient_particulate_matter_pollution": 15.545645850804119,
+            "deaths_household_air_pollution_from_solid_fuels": 0.6843055489717949,
+            "deaths_air_pollution":  18.878241876784262
+        },
+	    {
+            "country": "SPAIN", 
+            "year": 2010, 
+            "deaths_ambient_particulate_matter_pollution": 14.776872623217473,
+            "deaths_household_air_pollution_from_solid_fuels": 0.621369488359192,
+            "deaths_air_pollution":  17.960684845994948
+        },
+	    {
+            "country": "SPAIN", 
+            "year": 2011, 
+            "deaths_ambient_particulate_matter_pollution": 15.040427212251279,
+            "deaths_household_air_pollution_from_solid_fuels": 0.5774207348444119,
+            "deaths_air_pollution": 18.146961195551377
+        },
+        {
+            "country": "UNITED-STATES", 
+            "year": 2007, 
+            "deaths_ambient_particulate_matter_pollution":21.495669050966843,
+            "deaths_household_air_pollution_from_solid_fuels": 0.13077047071445816,
+            "deaths_air_pollution":  25.117557371038547
+        },
+	    {
+            "country": "UNITED-STATES",  
+            "year": 2008, 
+            "deaths_ambient_particulate_matter_pollution": 20.999778503957813,
+            "deaths_household_air_pollution_from_solid_fuels": 0.1241665689146574,
+            "deaths_air_pollution":  24.654823568542454
+        },
+	    {
+            "country": "UNITED-STATES", 
+            "year": 2009, 
+            "deaths_ambient_particulate_matter_pollution": 20.298196024326433,
+            "deaths_household_air_pollution_from_solid_fuels": 0.11667254564853219,
+            "deaths_air_pollution":  23.931274856601522
+        },
+	    {
+            "country": "UNITED-STATES", 
+            "year": 2010, 
+            "deaths_ambient_particulate_matter_pollution": 19.38970129779831,
+            "deaths_household_air_pollution_from_solid_fuels": 0.10838182983773656,
+            "deaths_air_pollution":  22.972047035270514
+        },
+	    {
+            "country": "UNITED-STATES", 
+            "year": 2011, 
+            "deaths_ambient_particulate_matter_pollution": 19.773824419965283,
+            "deaths_household_air_pollution_from_solid_fuels": 0.1044533855520735,
+            "deaths_air_pollution": 23.396665887702326
+        },
     ];
 db.insert(airpollutioninfo);
 //loadInitialData GET

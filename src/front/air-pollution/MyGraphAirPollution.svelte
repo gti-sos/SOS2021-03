@@ -13,8 +13,9 @@
 	let years = new Set();
 	var dictDeathsAirPollution ={};
 	let deathsairpollution = [];
-	
+	let anyos2 = [];
 	var dictAnyoPais ={};
+    var res = [];
 	
 	
     let data = [];
@@ -29,6 +30,7 @@
 			let i=0;
 			data.reverse();
 			while(i<data.length){
+                
 				years.add(data[i].year);
 				if(dictDeathsAirPollution[data[i].country]){
 					dictDeathsAirPollution[data[i].country].push(data[i].deaths_air_pollution);
@@ -49,7 +51,13 @@
 				i++;
 			}
 			console.log(dictDeathsAirPollution);
-			
+           
+            
+            
+            for(let j of years){
+                anyos2.push(j);
+            }
+			console.log("anyos:" + anyos2);
 			
         }else{
             console.log("Error!");
@@ -74,6 +82,7 @@
 				deathsairpollution.push({name: key , data: value})
 			});
 		loadGraph();
+        loadGraph2();
         console.log("Ya se deberia de haber cargado la grafica");
 		
     }   
@@ -127,28 +136,72 @@
     });
     
   }
+  
   async function loadGraph2(){  
       console.log("grafica 2")
-        var chart = new Chartist.Line('.ct-chart', {
-        labels: Array.from(years),
+      new Chartist.Bar('.ct-chart', {
+        labels: anyos2,
         series: [
-            [5, 5, 10, 8, 7, 5, 4, null, null, null, 10, 10, 7, 8, 6, 9],
-            [10, 15, null, 12, null, 10, 12, 15, null, null, 12, null, 14, null, null, null],
-            [null, null, null, null, 3, 4, 1, 3, 4,  6,  7,  9, 5, null, null, null],
-            [{x:3, y: 3},{x: 4, y: 3}, {x: 5, y: undefined}, {x: 6, y: 4}, {x: 7, y: null}, {x: 8, y: 4}, {x: 9, y: 4}]
+            [5, 4, 3, 7, 5],
+            [3, 2, 9, 5, 7],
+            [1, 5, 8, 4, 5],
+            [2, 3, 4, 6, 7],
+            [4, 1, 2, 1, 7]
         ]
+        }, {
+        // Default mobile configuration
+        stackBars: true,
+        axisX: {
+            labelInterpolationFnc: function(value) {
+            return value.split(/\s+/).map(function(word) {
+                return word[0];
+            }).join('');
+            }
+        },
+        axisY: {
+            offset: 20
+        }
+        }, [
+        // Options override for media > 400px
+        ['screen and (min-width: 400px)', {
+            reverseData: true,
+            horizontalBars: true,
+            axisX: {
+            labelInterpolationFnc: Chartist.noop
+            },
+            axisY: {
+            offset: 60
+            }
+        }],
+        // Options override for media > 800px
+        ['screen and (min-width: 800px)', {
+            stackBars: false,
+            seriesBarDistance: 10
+        }],
+        // Options override for media > 1000px
+        ['screen and (min-width: 1000px)', {
+            reverseData: false,
+            horizontalBars: false,
+            seriesBarDistance: 15
+        }]
+        ])
+        /*
+        var chart = new Chartist.Line('.ct-chart', {
+        labels: anyos2.sort(),
+        series: deathsairpollution
         }, {
         fullWidth: false,
         chartPadding: {
             right: 10
         },
+        showArea: true,
         lineSmooth: Chartist.Interpolation.cardinal({
             fillHoles: true,
         }),
         low: 0
         });
-        console.log(Array.from(years))
-        console.log(deathsairpollution)
+        console.log("anyossss:" + anyos2)
+        console.log(deathsairpollution)*/
     
   }
 
@@ -162,9 +215,9 @@
     <script src="https://code.highcharts.com/modules/series-label.js"></script>
     <script src="https://code.highcharts.com/modules/exporting.js"></script>
     <script src="https://code.highcharts.com/modules/export-data.js"></script>
-    <script src="https://code.highcharts.com/modules/accessibility.js" on:load="{loadGraph}"></script>
+    <script src="https://code.highcharts.com/modules/accessibility.js"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/chartist.js/latest/chartist.min.css">
-    <script src="https://cdn.jsdelivr.net/chartist.js/latest/chartist.min.js" on:load="{loadGraph2}"></script>
+    <script src="https://cdn.jsdelivr.net/chartist.js/latest/chartist.min.js" ></script>
 </svelte:head>
 
 <main>
@@ -176,7 +229,7 @@
         <h5>
             Gráfica Highchart
         </h5>
-        <figure class="highcharts-figure">
+        <figure class="highcharts-figure c">
         <div id="container"></div>
         <p class="highcharts-description">
             
@@ -188,9 +241,9 @@
         <h5>
             Gráfica con Chartist
         </h5>
-        <div class = "chart">
-        <div class="ct-chart ct-perfect-fourth"></div>
-        </div>
+        
+        <div class="ct-chart ct-perfect-fourth c"></div>
+        
         
     </div>
             
@@ -204,9 +257,9 @@
     
 </main>
 <style>
-    .chart { 
-        height: 80px; 
-        padding: 0.5em;
+    .c { 
+        width: 50%; 
+       
     }
     
 </style>
