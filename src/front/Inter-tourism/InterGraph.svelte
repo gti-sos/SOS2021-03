@@ -70,10 +70,7 @@
         console.log("Ya se deberia de haber cargado la grafica");
 		
     }   
-    
-  
-    
-  }
+
 </script>
 
 <main>
