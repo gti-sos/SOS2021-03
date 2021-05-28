@@ -9,13 +9,13 @@
 
  	
 	var BASE_CONTACT_API_PATH= "/api/v1";
-	const paises = new Set();
+	const paises2 = new Set();
 	let years = new Set();
 	var dictDeathsAirPollution ={};
 	let deathsairpollution = [];
-	let anyos2 = [];
 	var dictAnyoPais ={};
-    var res = [];
+    let anyos2 = [];
+    var res = {};
 	
 	
     let data = [];
@@ -30,7 +30,7 @@
 			let i=0;
 			data.reverse();
 			while(i<data.length){
-                
+                paises2.add(data[i].country);
 				years.add(data[i].year);
 				if(dictDeathsAirPollution[data[i].country]){
 					dictDeathsAirPollution[data[i].country].push(data[i].deaths_air_pollution);
@@ -50,7 +50,7 @@
 				}
 				i++;
 			}
-			console.log(dictDeathsAirPollution);
+			console.log(paises2);
            
             
             
@@ -140,14 +140,8 @@
   async function loadGraph2(){  
       console.log("grafica 2")
       new Chartist.Bar('.ct-chart', {
-        labels: anyos2,
-        series: [
-            [5, 4, 3, 7, 5],
-            [3, 2, 9, 5, 7],
-            [1, 5, 8, 4, 5],
-            [2, 3, 4, 6, 7],
-            [4, 1, 2, 1, 7]
-        ]
+        labels: Array.from(paises2),
+        series: deathsairpollution
         }, {
         // Default mobile configuration
         stackBars: true,
@@ -170,7 +164,7 @@
             labelInterpolationFnc: Chartist.noop
             },
             axisY: {
-            offset: 60
+            offset: 40
             }
         }],
         // Options override for media > 800px
