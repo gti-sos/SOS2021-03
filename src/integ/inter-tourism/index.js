@@ -15,119 +15,119 @@ module.exports.register = (app) => {
         {
             "country":"China",
             "year":2011,
-            "numberofarribals":135423,
+            "numberofarrivals":135423,
             "numberofdepartures":70250,
             "expendituresbillion":2136 
         },
         {
             "country":"China",
             "year":2008,
-            "numberofarribals":130027,
+            "numberofarrivals":130027,
             "numberofdepartures":45844,
             "expendituresbillion":14169 
         },
         {
             "country":"Spain",
             "year":2009,
-            "numberofarribals":91899,
+            "numberofarrivals":91899,
             "numberofdepartures":13754,
             "expendituresbillion":7119 
         },
         {
             "country":"Spain",
             "year":2015,
-            "numberofarribals":109834,
+            "numberofarrivals":109834,
             "numberofdepartures":17625,
             "expendituresbillion":6163 
         },
         {
             "country":"Greece",
             "year":2011,
-            "numberofarribals":10112,
+            "numberofarrivals":10112,
             "numberofdepartures":4681,
             "expendituresbillion":3809
         },
         {
             "country":"Greece",
             "year":2010,
-            "numberofarribals":17284,
+            "numberofarrivals":17284,
             "numberofdepartures":4941,
             "expendituresbillion":3535
         },
         {
             "country":"Germany",
             "year":2011,
-            "numberofarribals":28374,
+            "numberofarrivals":28374,
             "numberofdepartures":84692,
             "expendituresbillion":99909 
         },
         {
             "country":"Germany",
             "year":2007,
-            "numberofarribals":24421,
+            "numberofarrivals":24421,
             "numberofdepartures":82099,
             "expendituresbillion":9617 
         },
         {
             "country":"India",
             "year":2011,
-            "numberofarribals":6309,
+            "numberofarrivals":6309,
             "numberofdepartures":13994,
             "expendituresbillion":19184 
         },
         {
             "country":"India",
             "year":2008,
-            "numberofarribals":5283,
+            "numberofarrivals":5283,
             "numberofdepartures":10868,
             "expendituresbillion":12083
         },
         {
             "country":"United_States",
             "year":2011,
-            "numberofarribals":147271,
+            "numberofarrivals":147271,
             "numberofdepartures":114089,
             "expendituresbillion":130606
         },
         {
             "country":"United_States",
             "year":2010,
-            "numberofarribals":162275,
+            "numberofarrivals":162275,
             "numberofdepartures":121574,
             "expendituresbillion":123831
         },
         {
             "country":"Russian_Federation",
             "year":2010,
-            "numberofarribals":22281,
+            "numberofarrivals":22281,
             "numberofdepartures":39232,
             "expendituresbillion":30169
         },
         {
             "country":"Germany",
             "year":2015,
-            "numberofarribals":34970,
+            "numberofarrivals":34970,
             "numberofdepartures":83737,
             "expendituresbillion":85334
         },
         {
             "country":"Portugal",
             "year":2014,
-            "numberofarribals":10497000,
+            "numberofarrivals":10497000,
             "numberofdepartures":1502000,
             "expendituresbillion":5213 
         },
         {
             "country":"France",
             "year":2015,
-            "numberofarribals":203302,
+            "numberofarrivals":203302,
             "numberofdepartures":30608,
             "expendituresbillion":47713
         },
         {
             "country":"France",
             "year":2014,
-            "numberofarribals":206599,
+            "numberofarrivals":206599,
             "numberofdepartures":31941,
             "expendituresbillion":58464
         }
