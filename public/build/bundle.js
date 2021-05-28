@@ -10661,14 +10661,14 @@ var app = (function () {
     const { console: console_1$7 } = globals;
     const file$c = "src\\front\\quality_of_life\\quality_of_life.svelte";
 
-    function get_each_context$2(ctx, list, i) {
+    function get_each_context$3(ctx, list, i) {
     	const child_ctx = ctx.slice();
     	child_ctx[3] = list[i];
     	return child_ctx;
     }
 
     // (52:3) {#each quality_of_life as r}
-    function create_each_block$2(ctx) {
+    function create_each_block$3(ctx) {
     	let tr;
     	let td0;
     	let t0_value = /*r*/ ctx[3].country + "";
@@ -10748,7 +10748,7 @@ var app = (function () {
 
     	dispatch_dev("SvelteRegisterBlock", {
     		block,
-    		id: create_each_block$2.name,
+    		id: create_each_block$3.name,
     		type: "each",
     		source: "(52:3) {#each quality_of_life as r}",
     		ctx
@@ -10777,7 +10777,7 @@ var app = (function () {
     	let each_blocks = [];
 
     	for (let i = 0; i < each_value.length; i += 1) {
-    		each_blocks[i] = create_each_block$2(get_each_context$2(ctx, each_value, i));
+    		each_blocks[i] = create_each_block$3(get_each_context$3(ctx, each_value, i));
     	}
 
     	const block = {
@@ -10840,12 +10840,12 @@ var app = (function () {
     				let i;
 
     				for (i = 0; i < each_value.length; i += 1) {
-    					const child_ctx = get_each_context$2(ctx, each_value, i);
+    					const child_ctx = get_each_context$3(ctx, each_value, i);
 
     					if (each_blocks[i]) {
     						each_blocks[i].p(child_ctx, dirty);
     					} else {
-    						each_blocks[i] = create_each_block$2(child_ctx);
+    						each_blocks[i] = create_each_block$3(child_ctx);
     						each_blocks[i].c();
     						each_blocks[i].m(tbody, null);
     					}
@@ -11910,7 +11910,7 @@ var app = (function () {
     const { console: console_1$6 } = globals;
     const file$a = "src\\front\\air-pollution\\AirPollutionTable.svelte";
 
-    function get_each_context$1(ctx, list, i) {
+    function get_each_context$2(ctx, list, i) {
     	const child_ctx = ctx.slice();
     	child_ctx[28] = list[i];
     	return child_ctx;
@@ -12125,7 +12125,7 @@ var app = (function () {
     }
 
     // (243:12) {#each air_pollution as r}
-    function create_each_block$1(ctx) {
+    function create_each_block$2(ctx) {
     	let tr;
     	let td0;
     	let t0_value = /*r*/ ctx[28].country + "";
@@ -12273,7 +12273,7 @@ var app = (function () {
 
     	dispatch_dev("SvelteRegisterBlock", {
     		block,
-    		id: create_each_block$1.name,
+    		id: create_each_block$2.name,
     		type: "each",
     		source: "(243:12) {#each air_pollution as r}",
     		ctx
@@ -12365,7 +12365,7 @@ var app = (function () {
     	let each_blocks = [];
 
     	for (let i = 0; i < each_value.length; i += 1) {
-    		each_blocks[i] = create_each_block$1(get_each_context$1(ctx, each_value, i));
+    		each_blocks[i] = create_each_block$2(get_each_context$2(ctx, each_value, i));
     	}
 
     	const out = i => transition_out(each_blocks[i], 1, 1, () => {
@@ -12607,13 +12607,13 @@ var app = (function () {
     				let i;
 
     				for (i = 0; i < each_value.length; i += 1) {
-    					const child_ctx = get_each_context$1(ctx, each_value, i);
+    					const child_ctx = get_each_context$2(ctx, each_value, i);
 
     					if (each_blocks[i]) {
     						each_blocks[i].p(child_ctx, dirty);
     						transition_in(each_blocks[i], 1);
     					} else {
-    						each_blocks[i] = create_each_block$1(child_ctx);
+    						each_blocks[i] = create_each_block$2(child_ctx);
     						each_blocks[i].c();
     						transition_in(each_blocks[i], 1);
     						each_blocks[i].m(tbody, null);
@@ -14693,7 +14693,7 @@ var app = (function () {
     const { console: console_1$4 } = globals;
     const file$6 = "src\\front\\Inter-tourism\\MiTable.svelte";
 
-    function get_each_context(ctx, list, i) {
+    function get_each_context$1(ctx, list, i) {
     	const child_ctx = ctx.slice();
     	child_ctx[26] = list[i];
     	return child_ctx;
@@ -14835,7 +14835,7 @@ var app = (function () {
     }
 
     // (222:4) {#each inter_tourism as r}
-    function create_each_block(ctx) {
+    function create_each_block$1(ctx) {
     	let tr;
     	let td0;
     	let a0;
@@ -14994,7 +14994,7 @@ var app = (function () {
 
     	dispatch_dev("SvelteRegisterBlock", {
     		block,
-    		id: create_each_block.name,
+    		id: create_each_block$1.name,
     		type: "each",
     		source: "(222:4) {#each inter_tourism as r}",
     		ctx
@@ -15057,7 +15057,7 @@ var app = (function () {
     	let each_blocks = [];
 
     	for (let i = 0; i < each_value.length; i += 1) {
-    		each_blocks[i] = create_each_block(get_each_context(ctx, each_value, i));
+    		each_blocks[i] = create_each_block$1(get_each_context$1(ctx, each_value, i));
     	}
 
     	const out = i => transition_out(each_blocks[i], 1, 1, () => {
@@ -15231,13 +15231,13 @@ var app = (function () {
     				let i;
 
     				for (i = 0; i < each_value.length; i += 1) {
-    					const child_ctx = get_each_context(ctx, each_value, i);
+    					const child_ctx = get_each_context$1(ctx, each_value, i);
 
     					if (each_blocks[i]) {
     						each_blocks[i].p(child_ctx, dirty);
     						transition_in(each_blocks[i], 1);
     					} else {
-    						each_blocks[i] = create_each_block(child_ctx);
+    						each_blocks[i] = create_each_block$1(child_ctx);
     						each_blocks[i].c();
     						transition_in(each_blocks[i], 1);
     						each_blocks[i].m(tbody, null);
@@ -17670,6 +17670,45 @@ var app = (function () {
     const { Object: Object_1, console: console_1$1 } = globals;
     const file$2 = "src\\front\\air-pollution\\MyGraphAirPollution.svelte";
 
+    function get_each_context(ctx, list, i) {
+    	const child_ctx = ctx.slice();
+    	child_ctx[12] = list[i];
+    	return child_ctx;
+    }
+
+    // (226:12) {#each Array.from(paises2) as r}
+    function create_each_block(ctx) {
+    	let li;
+    	let t_value = /*r*/ ctx[12] + "";
+    	let t;
+
+    	const block = {
+    		c: function create() {
+    			li = element("li");
+    			t = text(t_value);
+    			add_location(li, file$2, 226, 20, 5969);
+    		},
+    		m: function mount(target, anchor) {
+    			insert_dev(target, li, anchor);
+    			append_dev(li, t);
+    		},
+    		p: noop$1,
+    		d: function destroy(detaching) {
+    			if (detaching) detach_dev(li);
+    		}
+    	};
+
+    	dispatch_dev("SvelteRegisterBlock", {
+    		block,
+    		id: create_each_block.name,
+    		type: "each",
+    		source: "(226:12) {#each Array.from(paises2) as r}",
+    		ctx
+    	});
+
+    	return block;
+    }
+
     function create_fragment$2(ctx) {
     	let script0;
     	let script0_src_value;
@@ -17693,15 +17732,32 @@ var app = (function () {
     	let div1;
     	let h50;
     	let t4;
+    	let br2;
+    	let t5;
     	let figure;
     	let div0;
-    	let t5;
-    	let p;
     	let t6;
+    	let p;
+    	let t7;
     	let div3;
     	let h51;
-    	let t8;
+    	let t9;
+    	let br3;
+    	let t10;
     	let div2;
+    	let t11;
+    	let ul;
+    	let t12;
+    	let br4;
+    	let t13;
+    	let br5;
+    	let each_value = Array.from(/*paises2*/ ctx[0]);
+    	validate_each_argument(each_value);
+    	let each_blocks = [];
+
+    	for (let i = 0; i < each_value.length; i += 1) {
+    		each_blocks[i] = create_each_block(get_each_context(ctx, each_value, i));
+    	}
 
     	const block = {
     		c: function create() {
@@ -17722,46 +17778,66 @@ var app = (function () {
     			h50 = element("h5");
     			h50.textContent = "Gráfica Highchart";
     			t4 = space();
+    			br2 = element("br");
+    			t5 = space();
     			figure = element("figure");
     			div0 = element("div");
-    			t5 = space();
-    			p = element("p");
     			t6 = space();
+    			p = element("p");
+    			t7 = space();
     			div3 = element("div");
     			h51 = element("h5");
     			h51.textContent = "Gráfica con Chartist";
-    			t8 = space();
+    			t9 = space();
+    			br3 = element("br");
+    			t10 = space();
     			div2 = element("div");
+    			t11 = space();
+    			ul = element("ul");
+
+    			for (let i = 0; i < each_blocks.length; i += 1) {
+    				each_blocks[i].c();
+    			}
+
+    			t12 = space();
+    			br4 = element("br");
+    			t13 = space();
+    			br5 = element("br");
     			if (script0.src !== (script0_src_value = "https://code.highcharts.com/highcharts.js")) attr_dev(script0, "src", script0_src_value);
-    			add_location(script0, file$2, 207, 4, 5267);
+    			add_location(script0, file$2, 191, 4, 4838);
     			if (script1.src !== (script1_src_value = "https://code.highcharts.com/modules/series-label.js")) attr_dev(script1, "src", script1_src_value);
-    			add_location(script1, file$2, 208, 4, 5338);
+    			add_location(script1, file$2, 192, 4, 4909);
     			if (script2.src !== (script2_src_value = "https://code.highcharts.com/modules/exporting.js")) attr_dev(script2, "src", script2_src_value);
-    			add_location(script2, file$2, 209, 4, 5419);
+    			add_location(script2, file$2, 193, 4, 4990);
     			if (script3.src !== (script3_src_value = "https://code.highcharts.com/modules/export-data.js")) attr_dev(script3, "src", script3_src_value);
-    			add_location(script3, file$2, 210, 4, 5497);
+    			add_location(script3, file$2, 194, 4, 5068);
     			if (script4.src !== (script4_src_value = "https://code.highcharts.com/modules/accessibility.js")) attr_dev(script4, "src", script4_src_value);
-    			add_location(script4, file$2, 211, 4, 5577);
+    			add_location(script4, file$2, 195, 4, 5148);
     			attr_dev(link, "rel", "stylesheet");
     			attr_dev(link, "href", "https://cdn.jsdelivr.net/chartist.js/latest/chartist.min.css");
-    			add_location(link, file$2, 212, 4, 5659);
+    			add_location(link, file$2, 196, 4, 5230);
     			if (script5.src !== (script5_src_value = "https://cdn.jsdelivr.net/chartist.js/latest/chartist.min.js")) attr_dev(script5, "src", script5_src_value);
-    			add_location(script5, file$2, 213, 4, 5756);
-    			add_location(br0, file$2, 218, 0, 5870);
-    			add_location(br1, file$2, 219, 0, 5876);
-    			add_location(h50, file$2, 222, 8, 5907);
+    			add_location(script5, file$2, 197, 4, 5327);
+    			add_location(br0, file$2, 202, 0, 5441);
+    			add_location(br1, file$2, 203, 0, 5447);
+    			add_location(h50, file$2, 206, 8, 5478);
+    			add_location(br2, file$2, 209, 8, 5538);
     			attr_dev(div0, "id", "container");
-    			add_location(div0, file$2, 226, 8, 6013);
+    			add_location(div0, file$2, 211, 8, 5598);
     			attr_dev(p, "class", "highcharts-description");
-    			add_location(p, file$2, 227, 8, 6049);
-    			attr_dev(figure, "class", "highcharts-figure c svelte-rco0tv");
-    			add_location(figure, file$2, 225, 8, 5967);
-    			add_location(div1, file$2, 221, 4, 5892);
-    			add_location(h51, file$2, 234, 8, 6177);
-    			attr_dev(div2, "class", "ct-chart ct-perfect-fourth c svelte-rco0tv");
-    			add_location(div2, file$2, 238, 8, 6250);
-    			add_location(div3, file$2, 233, 4, 6162);
-    			add_location(main, file$2, 216, 0, 5860);
+    			add_location(p, file$2, 212, 8, 5634);
+    			attr_dev(figure, "class", "highcharts-figure c svelte-blvhzp");
+    			add_location(figure, file$2, 210, 8, 5552);
+    			add_location(div1, file$2, 205, 4, 5463);
+    			add_location(h51, file$2, 219, 8, 5762);
+    			add_location(br3, file$2, 222, 8, 5825);
+    			attr_dev(div2, "class", "ct-chart ct-perfect-fourth c svelte-blvhzp");
+    			add_location(div2, file$2, 223, 8, 5839);
+    			add_location(ul, file$2, 224, 8, 5897);
+    			add_location(div3, file$2, 218, 4, 5747);
+    			add_location(br4, file$2, 231, 4, 6043);
+    			add_location(br5, file$2, 232, 4, 6053);
+    			add_location(main, file$2, 200, 0, 5431);
     		},
     		l: function claim(nodes) {
     			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
@@ -17783,17 +17859,56 @@ var app = (function () {
     			append_dev(main, div1);
     			append_dev(div1, h50);
     			append_dev(div1, t4);
+    			append_dev(div1, br2);
+    			append_dev(div1, t5);
     			append_dev(div1, figure);
     			append_dev(figure, div0);
-    			append_dev(figure, t5);
+    			append_dev(figure, t6);
     			append_dev(figure, p);
-    			append_dev(main, t6);
+    			append_dev(main, t7);
     			append_dev(main, div3);
     			append_dev(div3, h51);
-    			append_dev(div3, t8);
+    			append_dev(div3, t9);
+    			append_dev(div3, br3);
+    			append_dev(div3, t10);
     			append_dev(div3, div2);
+    			append_dev(div3, t11);
+    			append_dev(div3, ul);
+
+    			for (let i = 0; i < each_blocks.length; i += 1) {
+    				each_blocks[i].m(ul, null);
+    			}
+
+    			append_dev(main, t12);
+    			append_dev(main, br4);
+    			append_dev(main, t13);
+    			append_dev(main, br5);
     		},
-    		p: noop$1,
+    		p: function update(ctx, [dirty]) {
+    			if (dirty & /*Array, paises2*/ 1) {
+    				each_value = Array.from(/*paises2*/ ctx[0]);
+    				validate_each_argument(each_value);
+    				let i;
+
+    				for (i = 0; i < each_value.length; i += 1) {
+    					const child_ctx = get_each_context(ctx, each_value, i);
+
+    					if (each_blocks[i]) {
+    						each_blocks[i].p(child_ctx, dirty);
+    					} else {
+    						each_blocks[i] = create_each_block(child_ctx);
+    						each_blocks[i].c();
+    						each_blocks[i].m(ul, null);
+    					}
+    				}
+
+    				for (; i < each_blocks.length; i += 1) {
+    					each_blocks[i].d(1);
+    				}
+
+    				each_blocks.length = each_value.length;
+    			}
+    		},
     		i: noop$1,
     		o: noop$1,
     		d: function destroy(detaching) {
@@ -17806,6 +17921,7 @@ var app = (function () {
     			detach_dev(script5);
     			if (detaching) detach_dev(t0);
     			if (detaching) detach_dev(main);
+    			destroy_each(each_blocks, detaching);
     		}
     	};
 
@@ -17864,7 +17980,7 @@ var app = (function () {
     				i++;
     			}
 
-    			console.log(paises2);
+    			console.log("pasies:" + Array.from(paises2));
 
     			for (let j of years) {
     				anyos2.push(j);
@@ -17950,7 +18066,7 @@ var app = (function () {
 
     		new Chartist.Bar(".ct-chart",
     		{
-    				labels: Array.from(paises2),
+    				labels: Array.from(Array.from(years)),
     				series: deathsairpollution
     			},
     		{
@@ -17973,7 +18089,7 @@ var app = (function () {
     						reverseData: true,
     						horizontalBars: true,
     						axisX: { labelInterpolationFnc: Chartist.noop },
-    						axisY: { offset: 40 }
+    						axisY: { offset: 20 }
     					}
     				],
     				// Options override for media > 800px
@@ -17991,23 +18107,7 @@ var app = (function () {
     					}
     				]
     			]);
-    	} /*
-    var chart = new Chartist.Line('.ct-chart', {
-    labels: anyos2.sort(),
-    series: deathsairpollution
-    }, {
-    fullWidth: false,
-    chartPadding: {
-        right: 10
-    },
-    showArea: true,
-    lineSmooth: Chartist.Interpolation.cardinal({
-        fillHoles: true,
-    }),
-    low: 0
-    });
-    console.log("anyossss:" + anyos2)
-    console.log(deathsairpollution)*/
+    	}
 
     	const writable_props = [];
 
@@ -18046,7 +18146,7 @@ var app = (function () {
     		$$self.$inject_state($$props.$$inject);
     	}
 
-    	return [];
+    	return [paises2];
     }
 
     class MyGraphAirPollution extends SvelteComponentDev {

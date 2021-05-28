@@ -50,7 +50,7 @@
 				}
 				i++;
 			}
-			console.log(paises2);
+			console.log("pasies:"+ Array.from(paises2));
            
             
             
@@ -140,7 +140,7 @@
   async function loadGraph2(){  
       console.log("grafica 2")
       new Chartist.Bar('.ct-chart', {
-        labels: Array.from(paises2),
+        labels: Array.from(Array.from(years)),
         series: deathsairpollution
         }, {
         // Default mobile configuration
@@ -150,7 +150,7 @@
             return value.split(/\s+/).map(function(word) {
                 return word[0];
             }).join('');
-            }
+            },
         },
         axisY: {
             offset: 20
@@ -164,7 +164,7 @@
             labelInterpolationFnc: Chartist.noop
             },
             axisY: {
-            offset: 40
+            offset: 20
             }
         }],
         // Options override for media > 800px
@@ -179,23 +179,7 @@
             seriesBarDistance: 15
         }]
         ])
-        /*
-        var chart = new Chartist.Line('.ct-chart', {
-        labels: anyos2.sort(),
-        series: deathsairpollution
-        }, {
-        fullWidth: false,
-        chartPadding: {
-            right: 10
-        },
-        showArea: true,
-        lineSmooth: Chartist.Interpolation.cardinal({
-            fillHoles: true,
-        }),
-        low: 0
-        });
-        console.log("anyossss:" + anyos2)
-        console.log(deathsairpollution)*/
+        
     
   }
 
@@ -223,6 +207,7 @@
         <h5>
             Gráfica Highchart
         </h5>
+        <br>
         <figure class="highcharts-figure c">
         <div id="container"></div>
         <p class="highcharts-description">
@@ -235,24 +220,27 @@
         <h5>
             Gráfica con Chartist
         </h5>
-        
+        <br>
         <div class="ct-chart ct-perfect-fourth c"></div>
-        
-        
+        <ul>
+            {#each Array.from(paises2) as r}
+                    <li>{r}</li>
+            {/each}
+        </ul>
     </div>
-            
-        
-        
-        
       
-    
+    <br>
+    <br>    
     
     
     
 </main>
 <style>
     .c { 
-        width: 50%; 
+        width: 75%; 
+        height: 512px;
+        margin-left: auto;
+        margin-right: auto;
        
     }
     
