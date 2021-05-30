@@ -1009,7 +1009,7 @@
 							"    const jsonData = JSON.parse(pm.request.body.raw);\r",
 							"    pm.expect(jsonData.country).to.be.a(\"string\");\r",
 							"    pm.expect(jsonData.year).to.be.a(\"number\");\r",
-							"    pm.expect(jsonData['numberofarribals']).to.be.a(\"number\");\r",
+							"    pm.expect(jsonData['numberofarrivals']).to.be.a(\"number\");\r",
 							"    pm.expect(jsonData['numberofdepartures']).to.be.a(\"number\");\r",
 							"    pm.expect(jsonData['expendituresbillion']).to.be.a(\"number\");\r",
 							"});"
