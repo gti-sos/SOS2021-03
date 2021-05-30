@@ -10,4 +10,4 @@ jobs :
       - uses: actions/checkout@v2
       - run: npm install
       - run: npm start &
-      - run: npx newman run test/integration-air-pollution.json && npx newman run test/integration-inter-tourisms.json && test/integration-inter-tourismsv2.json
+      - run: npx newman run test/integration-air-pollution.json && npx newman run test/integration-inter-tourisms.json && npx newman run test/integration-inter-tourismsv2.json

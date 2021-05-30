@@ -110,6 +110,8 @@
 			<a href="https://sos2021-03.herokuapp.com/api/v2/international-tourisms" class="btn btn-outline-info" role="button" aria-pressed="true">API turismo internacional v2</a>
 			<br>
 			<a href="https://documenter.getpostman.com/view/9683446/TzJoE1Zk" class="btn btn-outline-info" role="button" aria-pressed="true">Test de POSTMAN v1</a>
+			<br>
+			<a href="https://documenter.getpostman.com/view/9683446/TzXzEHnh" class="btn btn-outline-info" role="button" aria-pressed="true">Test de POSTMAN v2</a>
 
 		</li>
 
