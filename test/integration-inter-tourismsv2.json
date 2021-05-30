@@ -293,7 +293,7 @@
 					}
 				},
 				"url": {
-					"raw": "https://sos2021-03.herokuapp.com/api/v1/international-tourisms/",
+					"raw": "https://sos2021-03.herokuapp.com/api/v2/international-tourisms/",
 					"protocol": "https",
 					"host": [
 						"sos2021-03",
@@ -302,7 +302,7 @@
 					],
 					"path": [
 						"api",
-						"v1",
+						"v2",
 						"international-tourisms",
 						""
 					]
