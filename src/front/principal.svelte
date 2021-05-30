@@ -37,7 +37,7 @@
 	<ul>
 
 		<li><a href="https://sos2021-03.herokuapp.com/api/v1/air-pollution">Air-pollutions deaths</a> (developed by Joan Villalonga)</li>
-		<li><a href="https://sos2021-03.herokuapp.com/api/v1/international-tourisms">Inter Tourisms</a> (developed by Paula Garrido Lerma)</li>
+		<li><a href="https://sos2021-03.herokuapp.com/api/v2/international-tourisms">Inter Tourisms</a> (developed by Paula Garrido Lerma)</li>
 		<li><a href="https://sos2021-03.herokuapp.com/api/v1/quality-of-life">Quality of life indexes</a> (developed by Ayman Alaoui Mhammedi)</li>
 
 	</ul>
@@ -105,9 +105,11 @@
 			<br>
 			<a href="#/international-tourisms" class="btn btn-outline-info" role="button" aria-pressed="true">Ver estadísticas(front-end)</a>
 			<br>
-			<a href="https://sos2021-03.herokuapp.com/api/v1/international-tourisms" class="btn btn-outline-info" role="button" aria-pressed="true">API turismo internacional</a>
+			<a href="https://sos2021-03.herokuapp.com/api/v1/international-tourisms" class="btn btn-outline-info" role="button" aria-pressed="true">API turismo internacional v1</a>
 			<br>
-			<a href="https://documenter.getpostman.com/view/9683446/TzJoE1Zk" class="btn btn-outline-info" role="button" aria-pressed="true">Test de POSTMAN</a>
+			<a href="https://sos2021-03.herokuapp.com/api/v2/international-tourisms" class="btn btn-outline-info" role="button" aria-pressed="true">API turismo internacional v2</a>
+			<br>
+			<a href="https://documenter.getpostman.com/view/9683446/TzJoE1Zk" class="btn btn-outline-info" role="button" aria-pressed="true">Test de POSTMAN v1</a>
 
 		</li>
 

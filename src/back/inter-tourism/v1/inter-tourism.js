@@ -15,122 +15,24 @@ module.exports.register = (app) => {
     var inter_tourisms = [];
     var inter_tourisms_initial = [
         {
-            "country":"Portugal",
+            "country":"portugal",
             "year":2014,
             "numberofarribals":10497000,
             "numberofdepartures":1502000,
             "expendituresbillion":5213 
         },
         {
-            "country":"China",
-            "year":2011,
-            "numberofarribals":135423,
-            "numberofdepartures":70250,
-            "expendituresbillion":2136 
-        },
-        {
-            "country":"China",
-            "year":2008,
-            "numberofarribals":130027,
-            "numberofdepartures":45844,
-            "expendituresbillion":14169 
-        },
-        {
-            "country":"Spain",
-            "year":2009,
-            "numberofarribals":91899,
-            "numberofdepartures":13754,
-            "expendituresbillion":7119 
-        },
-        {
-            "country":"Spain",
-            "year":2015,
-            "numberofarribals":109834,
-            "numberofdepartures":17625,
-            "expendituresbillion":6163 
-        },
-        {
-            "country":"Greece",
-            "year":2011,
-            "numberofarribals":10112,
-            "numberofdepartures":4681,
-            "expendituresbillion":3809
-        },
-        {
-            "country":"Greece",
+            "country":"rusia",
             "year":2010,
-            "numberofarribals":17284,
-            "numberofdepartures":4941,
-            "expendituresbillion":3535
-        },
-        {
-            "country":"Germany",
-            "year":2011,
-            "numberofarribals":28374,
-            "numberofdepartures":84692,
-            "expendituresbillion":99909 
-        },
-        {
-            "country":"Germany",
-            "year":2007,
-            "numberofarribals":24421,
-            "numberofdepartures":82099,
-            "expendituresbillion":9617 
-        },
-        {
-            "country":"India",
-            "year":2011,
-            "numberofarribals":6309,
-            "numberofdepartures":13994,
-            "expendituresbillion":19184 
-        },
-        {
-            "country":"India",
-            "year":2008,
-            "numberofarribals":5283,
-            "numberofdepartures":10868,
-            "expendituresbillion":12083
-        },
-        {
-            "country":"United_States",
-            "year":2011,
-            "numberofarribals":147271,
-            "numberofdepartures":114089,
-            "expendituresbillion":130606
-        },
-        {
-            "country":"United_States",
-            "year":2010,
-            "numberofarribals":162275,
-            "numberofdepartures":121574,
-            "expendituresbillion":123831
-        },
-        {
-            "country":"Russian_Federation",
-            "year":2010,
-            "numberofarribals":22281,
-            "numberofdepartures":39232,
+            "numberofarribals":22281000,
+            "numberofdepartures":39232000,
             "expendituresbillion":30169
         },
         {
-            "country":"Germany",
-            "year":2015,
-            "numberofarribals":34970,
-            "numberofdepartures":83737,
-            "expendituresbillion":85334
-        },
-        {
-            "country":"France",
-            "year":2015,
-            "numberofarribals":203302,
-            "numberofdepartures":30608,
-            "expendituresbillion":47713
-        },
-        {
-            "country":"France",
+            "country":"francia",
             "year":2014,
-            "numberofarribals":206599,
-            "numberofdepartures":31941,
+            "numberofarribals":206599000,
+            "numberofdepartures":31941000,
             "expendituresbillion":58464
         }
     ];

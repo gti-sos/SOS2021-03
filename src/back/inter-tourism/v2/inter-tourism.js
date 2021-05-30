@@ -1,17 +1,26 @@
+
+////////////////////////////////////////////////////////
+//INTERNATIONAL-TOURISMS
+////////////////////////////////////////////////////////
 module.exports.register = (app) => {
-    var BASE_API_PATH = "/api/integration";
+    var BASE_API_PATH = "/api/v2";
     var Datastore = require("nedb");
     var path = require("path");
     const dbFileName = path.join(__dirname, "inteTourism.db");
     var db = new Datastore({
         filename: dbFileName, 
-        autoload: true,
-        autoload: true,
-        autoload: true,
         autoload: true
     });
 
-    var inter_tourisms = [
+    var inter_tourisms = [];
+    var inter_tourisms_initial = [
+        {
+            "country":"Portugal",
+            "year":2014,
+            "numberofarrivals":10497000,
+            "numberofdepartures":1502000,
+            "expendituresbillion":5213 
+        },
         {
             "country":"China",
             "year":2011,
@@ -111,13 +120,6 @@ module.exports.register = (app) => {
             "expendituresbillion":85334
         },
         {
-            "country":"Portugal",
-            "year":2014,
-            "numberofarrivals":10497000,
-            "numberofdepartures":1502000,
-            "expendituresbillion":5213 
-        },
-        {
             "country":"France",
             "year":2015,
             "numberofarrivals":203302,
@@ -132,9 +134,9 @@ module.exports.register = (app) => {
             "expendituresbillion":58464
         }
     ];
-   
+
     db.insert(inter_tourisms);
-    /*
+
     //GET load initial data
     app.get(BASE_API_PATH+"/international-tourisms/loadInitialData", (req, res)=>{   
         var fichero = db.getAllData();
@@ -146,8 +148,8 @@ module.exports.register = (app) => {
             res.sendStatus(200);
             console.log("Initial Countries for International Tourisms "+JSON.stringify(inter_tourisms_initial,null,2))
         }
-    });*/
-
+    });
+    
     //GET todo, paginación y búsquedas
     app.get(BASE_API_PATH+"/international-tourisms", (req, res)=>{
         var limit = req.query.limit;

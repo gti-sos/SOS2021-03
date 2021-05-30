@@ -11,7 +11,7 @@
 	let newRegister= {
 		"country": "", 
         "year": 0, 
-        "numberofarribals": 0, 
+        "numberofarrivals": 0, 
         "numberofdepartures": 0,
         "expendituresbillion": 0
 	}
@@ -21,12 +21,12 @@
     let offset = 0;
     let moreRegisters = true;
     let pagActual = 1;
-    const BASE_CONTACT_API_PATH = "/api/v1";
+    const BASE_CONTACT_API_PATH = "/api/v2";
 
 	async function getRegisters() {
     	console.log("Fetching data...");
-   		const res = await fetch("/api/v1/international-tourisms?offset=" + long*offset+"&limit="+long);
-		const res2 = await fetch("/api/v1/international-tourisms?offset=" + long*(offset+1)+"&limit="+long);
+   		const res = await fetch("/api/v2/international-tourisms?offset=" + long*offset+"&limit="+long);
+		const res2 = await fetch("/api/v2/international-tourisms?offset=" + long*(offset+1)+"&limit="+long);
         if(res.ok){
 			console.log("Ok.");
 			const json = await res.json();
@@ -51,7 +51,7 @@
     }
 
 	async function loadInitialData() {
-		const res = await fetch("/api/v1/international-tourisms/loadInitialData", {
+		const res = await fetch("/api/v2/international-tourisms/loadInitialData", {
       		method: "GET"
         }).then(function (res) {
 			if(res.status == 200){
@@ -128,7 +128,7 @@
 		console.log("Realizando búsqueda del país: " + country + " y del año: " + year);
         
         
-        var url = "/api/v1/international-tourisms";
+        var url = "/api/v2/international-tourisms";
         
 		if (country != "" &&  (year != 0 || year != "") ){
             url = url + "?country=" + country + "&year=" + year;
@@ -190,7 +190,7 @@
 	{:then inter_tourism}-->
 		<Button on:click={loadInitialData}>Cargar los datos</Button>
 		<Button on:click={deleteAll}>Borrar todos los datos</Button>
-		<Button on:click={alert}>Gráfica</Button>
+		<a href="#/international-tourisms/graph" class="btn btn-outline-dark" role="button" aria-pressed="true">Gráfica</a>
 		<br>
 		
 		<Table bordered>
@@ -210,7 +210,7 @@
 				<tr>
 					<td><input bind:value="{newRegister.country}"></td>
 						<td><input type=number bind:value={newRegister.year}></td>
-						<td><input type=number bind:value={newRegister.numberofarribals}></td>
+						<td><input type=number bind:value={newRegister.numberofarrivals}></td>
 						<td><input type=number bind:value={newRegister.numberofdepartures}></td>
 						<td><input type=number bind:value={newRegister.expendituresbillion}></td>
 						<td><Button on:click={insertRegister}>Añadir</Button>
@@ -225,13 +225,11 @@
 						<a href="#/international-tourisms/{r.country}/{r.year}">{r.country}</a>
 					</td>
 					<td>{r.year}</td>
-					<td>{r.numberofarribals}</td>
+					<td>{r.numberofarrivals}</td>
 					<td>{r.numberofdepartures}</td>
 					<td>{r.expendituresbillion}</td>
 					<td><Button on:click={deleteRegister(r.country, r.year)}>Borrar</Button>
 						<br>
-					<a href="#/international-tourisms/{r.country}/{r.year}" class="btn btn-info active" role="button" aria-pressed="true">Editar</a>
-					
 					
 					</tr>
 				{/each}

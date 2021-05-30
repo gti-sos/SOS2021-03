@@ -5,7 +5,7 @@
         onMount
     } from "svelte";
  	
-	var BASE_CONTACT_API_PATH= "/api/v1";
+	var BASE_CONTACT_API_PATH= "/api/v2";
 	const paises = new Set();
 	let years = new Set();
 	var dictInter ={};
@@ -61,13 +61,7 @@
 					}
 			}
 		}
-	
-		Object.entries(dictInter).forEach(([key, value]) => {
-			
-				inter.push({name: key , data: value})
-			});
-		loadGraph();
-        console.log("Ya se deberia de haber cargado la grafica");
+		onMount(getData);
 		
     }   
 
@@ -76,6 +70,7 @@
 <main>
 
     <br>
+	<p>hola</p>
     <br>
   
 </main>

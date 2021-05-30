@@ -27,7 +27,7 @@
     async function getRegisters() {
 
         console.log("Fetching registers...");
-        const res = await fetch("/api/v1/international-tourisms/" + params.country+ "/"+params.year);
+        const res = await fetch("/api/v2/international-tourisms/" + params.country+ "/"+params.year);
 
         if (res.ok) {
             console.log("All OK");
@@ -50,7 +50,7 @@
 
         console.log("Updating register..." + JSON.stringify(params.country)+ ", " + JSON.stringify(params.year));
 
-        const res = await fetch("/api/v1/international-tourisms/" + params.country+ "/"+params.year, {
+        const res = await fetch("/api/v2/international-tourisms/" + params.country+ "/"+params.year, {
             method: "PUT",
             body: JSON.stringify({
                 country: params.country,

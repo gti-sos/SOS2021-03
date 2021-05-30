@@ -63,7 +63,7 @@
 							</DropdownToggle>
 							<DropdownMenu>
 								<DropdownItem href= "https://sos2021-03.herokuapp.com/api/v1/air-pollution">Contaminación del aire</DropdownItem>
-								<DropdownItem href="https://sos2021-03.herokuapp.com/api/v1/international-tourisms">Turismo internacional</DropdownItem>
+								<DropdownItem href="https://sos2021-03.herokuapp.com/api/v2/international-tourisms">Turismo internacional</DropdownItem>
 								<DropdownItem href= "https://sos2021-03.herokuapp.com/api/v1/quality-of-life">Calidad de vida</DropdownItem>
 							</DropdownMenu>
 						</Dropdown>
