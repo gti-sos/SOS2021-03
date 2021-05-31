@@ -1,10 +1,12 @@
 <script>
     
-  
+	
     import {
         onMount
     } from "svelte";
- 	
+	
+    
+
 	var BASE_CONTACT_API_PATH= "/api/v2";
 	const paises = new Set();
 	let years = new Set();
@@ -14,6 +16,12 @@
 	var dictAnyoPais ={};
 
     let data = [];
+
+	onMount(async function() {
+        const response = await fetch(apiURL);
+        data = await response.json();
+    });
+
     async function getData(){
         console.log("Fetching data...");
         const res = await fetch(BASE_CONTACT_API_PATH + "/international-tourisms");
@@ -61,17 +69,52 @@
 					}
 			}
 		}
+		Object.entries(dictInter).forEach(([key, value]) => {
+			
+			inter.push({name: key , data: value})
+		});
+		
 		onMount(getData);
 		
-    }   
+	loadGraph();
+	
+	console.log("Ya se deberia de haber cargado la grafica");
+
+	
+
+	}
+
+	async function loadGraph(){
+
+	}
 
 </script>
 
+<svelte:head>
+
+
+</svelte:head>
+
 <main>
 
-    <br>
-	<p>hola</p>
-    <br>
+<br>
+<br>
+
+<div>
+	<h5>
+		Gráfica 
+	</h5>
+	<br>
+	
+</div>
+		
+
   
+<br>
+<br>    
+
+
+
 </main>
+
     
