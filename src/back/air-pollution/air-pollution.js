@@ -324,35 +324,35 @@ module.exports.all = (app) => {
             "deaths_air_pollution": 18.146961195551377
         },
         {
-            "country": "UNITED-STATES", 
+            "country": "UNITED_STATES", 
             "year": 2007, 
             "deaths_ambient_particulate_matter_pollution":21.495669050966843,
             "deaths_household_air_pollution_from_solid_fuels": 0.13077047071445816,
             "deaths_air_pollution":  25.117557371038547
         },
 	    {
-            "country": "UNITED-STATES",  
+            "country": "UNITED_STATES",  
             "year": 2008, 
             "deaths_ambient_particulate_matter_pollution": 20.999778503957813,
             "deaths_household_air_pollution_from_solid_fuels": 0.1241665689146574,
             "deaths_air_pollution":  24.654823568542454
         },
 	    {
-            "country": "UNITED-STATES", 
+            "country": "UNITED_STATES", 
             "year": 2009, 
             "deaths_ambient_particulate_matter_pollution": 20.298196024326433,
             "deaths_household_air_pollution_from_solid_fuels": 0.11667254564853219,
             "deaths_air_pollution":  23.931274856601522
         },
 	    {
-            "country": "UNITED-STATES", 
+            "country": "UNITED_STATES", 
             "year": 2010, 
             "deaths_ambient_particulate_matter_pollution": 19.38970129779831,
             "deaths_household_air_pollution_from_solid_fuels": 0.10838182983773656,
             "deaths_air_pollution":  22.972047035270514
         },
 	    {
-            "country": "UNITED-STATES", 
+            "country": "UNITED_STATES", 
             "year": 2011, 
             "deaths_ambient_particulate_matter_pollution": 19.773824419965283,
             "deaths_household_air_pollution_from_solid_fuels": 0.1044533855520735,

@@ -2,6 +2,7 @@
     import Button from "sveltestrap/src/Button.svelte"
     var registrosAirPollution = [];
     var registrosSanity = [];
+    var paises = new Set();
     
 
     async function getRegisters(){
@@ -17,8 +18,8 @@
         console.log("Fetching sanity data...");
         const res1 = await fetch("https://sanity-integration.herokuapp.com/sanity-stats");
         if (res1.ok) {
-            const json = await res1.json();
-            registrosSanity = json;
+            const json2 = await res1.json();
+            registrosSanity = json2;
             console.log(`We have received ${registrosSanity.length} stats.`);
         } else {
             console.log("ERROR!" + errorMsg);
@@ -30,15 +31,23 @@
         var registros = {};
         var registrosAP = [];
         var registrosSNT = [];
-        console.log("Registros Air-Pollution:");
-        registrosAirPollution.forEach((c)=>{
-            var r = [c.year, c.country.toUpperCase(), c.deaths_air_pollution];
-            registrosAP.push(r);
-        });
+        
         registrosSanity.forEach((d)=>{
             var a = [d.year, d.country.toUpperCase(), d.hospital_bed/1000000];
             registrosSNT.push(a);
+            paises.add(d.country.toUpperCase());
         });
+        var paises2= Array.from(paises);
+        console.log("Paises" + paises2);
+        registrosAirPollution.forEach((c)=>{
+            console.log(paises2.includes(c.country.toUpperCase()));
+            if(paises2.includes(c.country.toUpperCase())){
+                var r = [c.year, c.country.toUpperCase(), c.deaths_air_pollution];
+                registrosAP.push(r);
+            }
+            
+        });
+        
         console.log(registrosSNT);
         console.log(registrosAP);
         for(let r of registrosAP){
