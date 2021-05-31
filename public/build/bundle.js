@@ -18193,7 +18193,7 @@ var app = (function () {
     const { console: console_1 } = globals;
     const file$1 = "src\\front\\air-pollution\\integraciones\\sanityApi.svelte";
 
-    // (69:4) <Button on:click={onLoad}>
+    // (78:4) <Button on:click={onLoad}>
     function create_default_slot$1(ctx) {
     	let t;
 
@@ -18213,7 +18213,7 @@ var app = (function () {
     		block,
     		id: create_default_slot$1.name,
     		type: "slot",
-    		source: "(69:4) <Button on:click={onLoad}>",
+    		source: "(78:4) <Button on:click={onLoad}>",
     		ctx
     	});
 
@@ -18256,11 +18256,11 @@ var app = (function () {
     			br1 = element("br");
     			t4 = space();
     			br2 = element("br");
-    			add_location(h2, file$1, 64, 4, 2156);
-    			add_location(br0, file$1, 67, 4, 2209);
-    			add_location(br1, file$1, 69, 4, 2276);
-    			add_location(br2, file$1, 70, 4, 2286);
-    			add_location(main, file$1, 63, 0, 2144);
+    			add_location(h2, file$1, 73, 4, 2457);
+    			add_location(br0, file$1, 76, 4, 2510);
+    			add_location(br1, file$1, 78, 4, 2577);
+    			add_location(br2, file$1, 79, 4, 2587);
+    			add_location(main, file$1, 72, 0, 2445);
     		},
     		l: function claim(nodes) {
     			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
@@ -18281,7 +18281,7 @@ var app = (function () {
     		p: function update(ctx, [dirty]) {
     			const button_changes = {};
 
-    			if (dirty & /*$$scope*/ 16) {
+    			if (dirty & /*$$scope*/ 32) {
     				button_changes.$$scope = { dirty, ctx };
     			}
 
@@ -18318,6 +18318,7 @@ var app = (function () {
     	validate_slots("SanityApi", slots, []);
     	var registrosAirPollution = [];
     	var registrosSanity = [];
+    	var paises = new Set();
 
     	async function getRegisters() {
     		console.log("Fetching air death's pollution data...");
@@ -18335,8 +18336,8 @@ var app = (function () {
     		const res1 = await fetch("https://sanity-integration.herokuapp.com/sanity-stats");
 
     		if (res1.ok) {
-    			const json = await res1.json();
-    			registrosSanity = json;
+    			const json2 = await res1.json();
+    			registrosSanity = json2;
     			console.log(`We have received ${registrosSanity.length} stats.`);
     		} else {
     			console.log("ERROR!" + errorMsg);
@@ -18348,16 +18349,23 @@ var app = (function () {
     		var registros = {};
     		var registrosAP = [];
     		var registrosSNT = [];
-    		console.log("Registros Air-Pollution:");
-
-    		registrosAirPollution.forEach(c => {
-    			var r = [c.year, c.country.toUpperCase(), c.deaths_air_pollution];
-    			registrosAP.push(r);
-    		});
 
     		registrosSanity.forEach(d => {
     			var a = [d.year, d.country.toUpperCase(), d.hospital_bed / 1000000];
     			registrosSNT.push(a);
+    			paises.add(d.country.toUpperCase());
+    		});
+
+    		var paises2 = Array.from(paises);
+    		console.log("Paises" + paises2);
+
+    		registrosAirPollution.forEach(c => {
+    			console.log(paises2.includes(c.country.toUpperCase()));
+
+    			if (paises2.includes(c.country.toUpperCase())) {
+    				var r = [c.year, c.country.toUpperCase(), c.deaths_air_pollution];
+    				registrosAP.push(r);
+    			}
     		});
 
     		console.log(registrosSNT);
@@ -18396,6 +18404,7 @@ var app = (function () {
     		Button,
     		registrosAirPollution,
     		registrosSanity,
+    		paises,
     		getRegisters,
     		onLoad
     	});
@@ -18403,6 +18412,7 @@ var app = (function () {
     	$$self.$inject_state = $$props => {
     		if ("registrosAirPollution" in $$props) registrosAirPollution = $$props.registrosAirPollution;
     		if ("registrosSanity" in $$props) registrosSanity = $$props.registrosSanity;
+    		if ("paises" in $$props) paises = $$props.paises;
     	};
 
     	if ($$props && "$$inject" in $$props) {
