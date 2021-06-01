@@ -1,5 +1,6 @@
 module.exports.all = (app) => {
     var DataStore = require("nedb");
+    var request = require("request");
     var db = new DataStore;
     var BASE_API_PATH = "/api/v1";
     ///////////////////////////////////////////////////////
@@ -710,18 +711,14 @@ app.delete(BASE_API_PATH+"/air-pollution/:country/:year", (req,res)=>{
     });	
 
 
-app.use("/proxyHeroku", function(req, res) {
-    console.log(`New Proxy Call!`);
 
-    var apiServerHost = 'https://sos2021-10.herokuapp.com/api/v1/air-pollution';    //aqui la direccion de la api a la que me quiero conectar
-    console.log(`apiServerHost = <${apiServerHost}>`);
-    console.log(`baseURL = <${req.baseUrl}>`);
-    console.log(`url = <${req.url}>`);
-   
-    var url = apiServerHost + req.url;
 
-    console.log(`piped: ${req.baseUrl}${req.url} -> ${url}`);
+    
 
-    req.pipe(request(url)).pipe(res);
-  });
+    app.use(BASE_API_PATH +"/obesity", function(req, res) {
+        var apiServerHost = 'http://sos2021-10.herokuapp.com/api/integration/obesity-stats';
+      var url = apiServerHost + req.url;
+      req.pipe(request(url)).pipe(res);
+
+    });
 }

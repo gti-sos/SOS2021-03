@@ -29,9 +29,11 @@
 	<div>Nuestras fuentes de información están orientadas a analizar la relación que existe entre como la calidad de vida puede influenciar al turismo y este ver si al viajar más, es decir, se usan más transportes, hace que aumente la contaminación del aire y las muertes que esto conlleva.</div>
 	
 	<a href="https://github.com/gti-sos/SOS2021-03.git" class="btn btn-outline-warning" role="button" aria-pressed="true">REPOSITORIO DE GITHUB</a>
-	
+	<br>
+	<br>
 	<h3><a href="https://sos2021-03.herokuapp.com/#/integrations">Integraciones</a></h3>
-
+	<br>
+	<br>
 	
 	<div> <h3>API's</h3></div>
 	<ul>

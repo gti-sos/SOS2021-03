@@ -20,6 +20,7 @@
 	import InterGraph from './Inter-tourism/InterGraph.svelte';
 	import MyGraph1 from './air-pollution/MyGraphAirPollution.svelte';
 	import impAirPollution1 from './air-pollution/integraciones/sanityApi.svelte';
+	import impAirPollution2 from './air-pollution/integraciones/obesityApi.svelte';
 	import allIntegrations from './Integrations.svelte';
 
     
@@ -32,6 +33,7 @@
 		"/air-pollution/:country/:year": EditAirPollution,
 		"/air-pollution/graph": MyGraph1,
 		"/air-pollution/integrationSanity" : impAirPollution1,
+		"/air-pollution/integrationObesity" : impAirPollution2,
 		"/international-tourisms": InterTourism,
 		"/international-tourisms/:country/:year": EditIntertourism,
 		"/international-tourisms/graph": InterGraph,
