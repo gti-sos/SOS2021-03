@@ -30,7 +30,7 @@
 	
 	<a href="https://github.com/gti-sos/SOS2021-03.git" class="btn btn-outline-warning" role="button" aria-pressed="true">REPOSITORIO DE GITHUB</a>
 	
-	
+	<h3><a href="https://sos2021-03.herokuapp.com/#/integrations">Integraciones</a></h3>
 
 	
 	<div> <h3>API's</h3></div>

@@ -1,9 +1,17 @@
 <script>
     import Button from "sveltestrap/src/Button.svelte"
+    import {
+        onMount
+    } from "svelte";
     var registrosAirPollution = [];
     var registrosSanity = [];
     var paises = new Set();
-    
+    var reg2010 = {};
+    var registrosGrafico = [];
+
+    var dicc = {};
+    var l1 = [];
+    var l2 = [];
 
     async function getRegisters(){
         console.log("Fetching air death's pollution data...");
@@ -32,6 +40,7 @@
         var registrosAP = [];
         var registrosSNT = [];
         
+        
         registrosSanity.forEach((d)=>{
             var a = [d.year, d.country.toUpperCase(), d.hospital_bed/1000000];
             registrosSNT.push(a);
@@ -53,92 +62,110 @@
         for(let r of registrosAP){
             var k = [r[0], r[1]];
             if(registros[k]){
-                registros[k].push([r[2]]);
+                registros[k].push(r[2]/10);
             }else{
-                registros[k]=[r[2]];
+                registros[k]=[r[2]/10];
             }
         }
         for(let r of registrosSNT){
             var k = [r[0], r[1]];
             if(registros[k]){
-                registros[k].push([r[2]]);
+                registros[k].push(r[2]);
             }else{
                 registros[k]=[r[2]];
             }
         }
         console.log(registros);
 
+        ////
+        for(let r of registrosAP){
+            var k = [r[0], r[1]];
+            if(k[0]==2010){
+                if(reg2010[k[1]]){
+                    reg2010[k[1]].push(r[2]/10);
+                    
+                }else{
+                    reg2010[k[1]]=[r[2]/10];
+                }
+                l1.push(r[2]/10);
+            }
+        }
+        for(let r of registrosSNT){
+            var k = [r[0], r[1]];
+            if(k[0]==2010){
+                if(reg2010[k[1]]){
+                    reg2010[k[1]].push(r[2]);
+                }else{
+                    reg2010[k[1]]=[r[2]];
+                }
+                l2.push(r[2]);
+            }
+        }
+        //////////
+        dicc["ap"]=[];
+        dicc["sn"]=[];
+        Object.entries(reg2010).forEach(([key, value]) => {
+			
+            dicc["ap"].push(value[0]);
+            dicc["sn"].push(value[1]);
+            
+        });
+
+        Object.entries(dicc).forEach(([key, value]) => {
+            
+            registrosGrafico.push({name: key , data: value})
+            
+        });
+        
+        
+        console.log( registrosGrafico);
+    
+        
+        loadGraph2();
+
     }
+
+    async function loadGraph2(){  
+      console.log("grafica")
+      new Chartist.Bar('.ct-chart', {
+        labels: Array.from(paises),
+        series: registrosGrafico
+        }, {
+        axisX: {
+            // On the x-axis start means top and end means bottom
+            position: 'start'
+        },
+        axisY: {
+            // On the y-axis start means left and end means right
+            position: 'end'
+        }
+        });
+
+        
+    
+    }
+    onMount(onLoad);
 </script>
 <main>
     <h2>
-        Tabla de estadisticas:
+        Integración con API de sanidad
     </h2>
     <br>
-    <Button on:click={onLoad}>Cargar registros</Button>
+    <h5>Comparativa del año 2010 de muertes por contaminación del aire vs. Camas de hospital(Por paises)</h5>
     <br>
     <br>
     
-<!--
-    <Table bordered>
-        <thead>
-            <tr>
-                <td>Pais</td>
-                <td>Año</td>
-                <td>Muertes por contaminación del aire de particulas</td>
-                <td>Muertes por contaminación del aire por combustibles sólidos</td>
-                <td>Muertes por contaminación del aire</td>
-                <td>Acciones</td>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td><input bind:value="{newRegister.country}"></td>
-					<td><input type=number bind:value={newRegister.year}></td>
-					<td><input type=number bind:value={newRegister.deaths_ambient_particulate_matter_pollution}></td>
-					<td><input type=number bind:value={newRegister.deaths_household_air_pollution_from_solid_fuels}></td>
-					<td><input type=number bind:value={newRegister.deaths_air_pollution}></td>
-					<td><Button on:click={insertRegister}>Añadir</Button>
-                </td>
-            </tr>
-            {#each air_pollution as r}
-                <tr>
-                <td>{r.country}</td>
-                <td>{r.year}</td>
-                <td>{r.deaths_ambient_particulate_matter_pollution}</td>
-                <td>{r.deaths_household_air_pollution_from_solid_fuels}</td>
-                <td>{r.deaths_air_pollution}</td>
-                <td><Button on:click={deleteRegister(r.country, r.year)}>Borrar</Button>
-                    <br>
-                <a href="#/air-pollution/{r.country}/{r.year}" class="btn btn-info active" role="button" aria-pressed="true">Editar</a>
-                    
-                   
-                </tr>
-
-            {/each}
-                
-
-        </tbody>
-    </Table>
-    <Pagination style="float:center;" ariaLabel="Cambiar de página">
-		<PaginationItem class="{pagActual === 1 ? 'disabled' : ''}">
-		  <PaginationLink previous href="#/air-pollution" on:click="{() => incrementOffset(-1)}" />
-		</PaginationItem>
-		{#if pagActual != 1}
-		<PaginationItem>
-			<PaginationLink href="#/air-pollution" on:click="{() => incrementOffset(-1)}" >{pagActual - 1}</PaginationLink>
-		</PaginationItem>
-		{/if}
-		<PaginationItem active>
-			<PaginationLink href="#/air-pollution" >{pagActual}</PaginationLink>
-		</PaginationItem>
-		{#if moreRegisters}
-		<PaginationItem >
-			<PaginationLink href="#/air-pollution" on:click="{() => incrementOffset(1)}">{pagActual + 1}</PaginationLink>
-		</PaginationItem>
-		{/if}
-		<PaginationItem class="{moreRegisters ? '' : 'disabled'}">
-		  <PaginationLink next href="#/air-pollution" on:click="{() => incrementOffset(1)}"/>
-		</PaginationItem>
-	</Pagination>-->
+    <div class="ct-chart ct-perfect-fourth c"></div>
+    <br>
+    <br>
+    <br>
+    <br>
 </main>
+<style>
+    .c { 
+        width: 75%; 
+        height: 512px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+</style>
