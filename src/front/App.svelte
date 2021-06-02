@@ -17,7 +17,7 @@
 	import EditAirPollution from './air-pollution/EditAirPollution.svelte';
 	import InterTourism from './Inter-tourism/HomeInterTourism.svelte';
 	import EditIntertourism from './Inter-tourism/EditInterTourism.svelte';
-	import InterGraph from './Inter-tourism/InterGraph.svelte';
+	import InterGraph from './Inter-tourism/Graphs.svelte';
 	import MyGraph1 from './air-pollution/MyGraphAirPollution.svelte';
 	import impAirPollution1 from './air-pollution/integraciones/sanityApi.svelte';
 	import impAirPollution2 from './air-pollution/integraciones/obesityApi.svelte';

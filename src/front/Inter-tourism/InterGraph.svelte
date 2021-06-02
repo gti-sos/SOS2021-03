@@ -1,11 +1,11 @@
 <script>
-    
-	
+   
     import {
         onMount
     } from "svelte";
 	
-    
+
+
 
 	var BASE_CONTACT_API_PATH= "/api/v2";
 	const paises = new Set();
@@ -17,10 +17,6 @@
 
     let data = [];
 
-	onMount(async function() {
-        const response = await fetch(apiURL);
-        data = await response.json();
-    });
 
     async function getData(){
         console.log("Fetching data...");
@@ -74,7 +70,7 @@
 			inter.push({name: key , data: value})
 		});
 		
-		onMount(getData);
+	console.log("Antes de la gráfica");
 		
 	loadGraph();
 	
@@ -83,17 +79,59 @@
 	
 
 	}
+	onMount(getData);
+	import * as d3 from "d3";
 
 	async function loadGraph(){
+		var data = [2, 4, 8, 10];
+
+		d3.json("http://localhost:1607/api/v2/international-tourisms", function(data) {
+    		console.log(data);
+		});
+		var svg = d3.select("svg"),
+			width = svg.attr("width"),
+			height = svg.attr("height"),
+			radius = Math.min(width, height) / 2,
+			g = svg.append("g").attr("transform", "translate(" + width / 2 + "," + height / 2 + ")");
+
+		var color = d3.scaleOrdinal(['#4daf4a','#377eb8','#ff7f00','#984ea3','#e41a1c']);
+
+		// Generate the pie
+		var pie = d3.pie();
+
+		// Generate the arcs
+		var arc = d3.arc()
+					.innerRadius(0)
+					.outerRadius(radius);
+
+		//Generate groups
+		var arcs = g.selectAll("arc")
+					.data(pie(data))
+					.enter()
+					.append("g")
+					.attr("class", "arc")
+
+		//Draw arc paths
+		arcs.append("path")
+			.attr("fill", function(d, i) {
+				return color(i);
+			})
+			.attr("d", arc);
 
 	}
 
 </script>
 
 <svelte:head>
-
-
+	<script  src="https://d3js.org/d3-selection.v1.min.js" > </script>
+	<script src="https://d3js.org/d3.v6.min.js"></script>
+	<script  src="https://d3js.org/d3.v5.js"> </script>
+	<script  src="https://d3js.org/d3.v5.min.js"></script>
+	<script src="https://d3js.org/d3.v4.min.js"></script>
+	
 </svelte:head>
+
+
 
 <main>
 
@@ -103,7 +141,9 @@
 <div>
 	<h5>
 		Gráfica 
+		
 	</h5>
+		<svg width="600" height="500"></svg>
 	<br>
 	
 </div>
@@ -117,4 +157,8 @@
 
 </main>
 
-    
+<style>
+	.bar {
+		fill: steelblue;
+	}
+</style>
