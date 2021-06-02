@@ -84,11 +84,13 @@
 		loadGraph();
         loadGraph2();
         console.log("Ya se deberia de haber cargado la grafica");
+        c
 		
     }   
     
     onMount(getData);
     async function loadGraph(){  
+    console.log("dicc");
     console.log(dictDeathsAirPollution);
     Highcharts.chart('container', {
         chart: {

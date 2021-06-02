@@ -22,7 +22,7 @@
 	import impAirPollution1 from './air-pollution/integraciones/sanityApi.svelte';
 	import impAirPollution2 from './air-pollution/integraciones/obesityApi.svelte';
 	import allIntegrations from './Integrations.svelte';
-
+  	import extAirPollution1 from './air-pollution/integraciones/externalApi1.svelte';
     
 	
 	const routes = {
@@ -34,6 +34,7 @@
 		"/air-pollution/graph": MyGraph1,
 		"/air-pollution/integrationSanity" : impAirPollution1,
 		"/air-pollution/integrationObesity" : impAirPollution2,
+		"/air-pollution/external1" : extAirPollution1,
 		"/international-tourisms": InterTourism,
 		"/international-tourisms/:country/:year": EditIntertourism,
 		"/international-tourisms/graph": InterGraph,

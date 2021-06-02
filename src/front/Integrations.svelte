@@ -12,5 +12,8 @@
         <li>
             <a href="https://sos2021-03.herokuapp.com/#/air-pollution/integrationObesity">Integración con API de Obesidad</a>
         </li>
+        <li>
+            <a href="https://sos2021-03.herokuapp.com/#/air-pollution/external1">Integración con API externa de Edad media a la maternidad por año</a>
+        </li>
     </ul>
 </main>
