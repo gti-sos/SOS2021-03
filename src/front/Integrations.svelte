@@ -9,5 +9,8 @@
         <li>
             <a href="https://sos2021-03.herokuapp.com/#/air-pollution/integrationSanity">Integración con API de Sanidad</a>
         </li>
+        <li>
+            <a href="https://sos2021-03.herokuapp.com/#/air-pollution/integrationObesity">Integración con API de Obesidad</a>
+        </li>
     </ul>
 </main>
