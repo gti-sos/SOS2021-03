@@ -18681,32 +18681,32 @@ var app = (function () {
     			t14 = space();
     			br9 = element("br");
     			if (script0.src !== (script0_src_value = "https://code.highcharts.com/highcharts.js")) attr_dev(script0, "src", script0_src_value);
-    			add_location(script0, file$2, 173, 4, 5107);
+    			add_location(script0, file$2, 173, 4, 5109);
     			if (script1.src !== (script1_src_value = "https://code.highcharts.com/modules/exporting.js")) attr_dev(script1, "src", script1_src_value);
-    			add_location(script1, file$2, 174, 4, 5178);
+    			add_location(script1, file$2, 174, 4, 5180);
     			if (script2.src !== (script2_src_value = "https://code.highcharts.com/modules/export-data.js")) attr_dev(script2, "src", script2_src_value);
-    			add_location(script2, file$2, 175, 4, 5256);
+    			add_location(script2, file$2, 175, 4, 5258);
     			if (script3.src !== (script3_src_value = "https://code.highcharts.com/modules/accessibility.js")) attr_dev(script3, "src", script3_src_value);
-    			add_location(script3, file$2, 176, 4, 5336);
-    			add_location(h2, file$2, 179, 4, 5442);
-    			add_location(br0, file$2, 182, 4, 5504);
-    			add_location(br1, file$2, 183, 4, 5514);
-    			add_location(br2, file$2, 184, 4, 5524);
+    			add_location(script3, file$2, 176, 4, 5338);
+    			add_location(h2, file$2, 179, 4, 5444);
+    			add_location(br0, file$2, 182, 4, 5506);
+    			add_location(br1, file$2, 183, 4, 5516);
+    			add_location(br2, file$2, 184, 4, 5526);
     			attr_dev(div, "id", "container");
     			attr_dev(div, "class", "svelte-xtekgp");
-    			add_location(div, file$2, 187, 8, 5586);
-    			add_location(br3, file$2, 190, 70, 5749);
-    			add_location(br4, file$2, 192, 16, 5785);
-    			add_location(br5, file$2, 194, 64, 5869);
+    			add_location(div, file$2, 187, 8, 5588);
+    			add_location(br3, file$2, 190, 70, 5751);
+    			add_location(br4, file$2, 192, 16, 5787);
+    			add_location(br5, file$2, 194, 64, 5871);
     			attr_dev(p, "class", "highcharts-description centro svelte-xtekgp");
-    			add_location(p, file$2, 188, 8, 5622);
+    			add_location(p, file$2, 188, 8, 5624);
     			attr_dev(figure, "class", "highcharts-figure c svelte-xtekgp");
-    			add_location(figure, file$2, 186, 4, 5540);
-    			add_location(br6, file$2, 199, 4, 5977);
-    			add_location(br7, file$2, 200, 4, 5987);
-    			add_location(br8, file$2, 201, 4, 5997);
-    			add_location(br9, file$2, 202, 4, 6007);
-    			add_location(main, file$2, 178, 0, 5430);
+    			add_location(figure, file$2, 186, 4, 5542);
+    			add_location(br6, file$2, 199, 4, 5979);
+    			add_location(br7, file$2, 200, 4, 5989);
+    			add_location(br8, file$2, 201, 4, 5999);
+    			add_location(br9, file$2, 202, 4, 6009);
+    			add_location(main, file$2, 178, 0, 5432);
     		},
     		l: function claim(nodes) {
     			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
@@ -18825,8 +18825,8 @@ var app = (function () {
 
     		registrosAirPollution.forEach(c => {
     			if (Array.from(paises).includes(c.country.toUpperCase()) && c.year == 2011) {
-    				[c.country.toUpperCase(), c.deaths_air_pollution * 10000];
-    				diccAP[c.country.toUpperCase()] = [c.deaths_air_pollution * 10000];
+    				[c.country.toUpperCase(), c.deaths_air_pollution * 100000];
+    				diccAP[c.country.toUpperCase()] = [c.deaths_air_pollution * 100000];
     			}
     		});
 
@@ -18972,8 +18972,11 @@ var app = (function () {
     	let h3;
     	let t3;
     	let ul;
-    	let li;
-    	let a;
+    	let li0;
+    	let a0;
+    	let t5;
+    	let li1;
+    	let a1;
 
     	const block = {
     		c: function create() {
@@ -18985,14 +18988,21 @@ var app = (function () {
     			h3.textContent = "Integraciones con API de muertes por contaminación de aire:";
     			t3 = space();
     			ul = element("ul");
-    			li = element("li");
-    			a = element("a");
-    			a.textContent = "Integración con API de Sanidad";
+    			li0 = element("li");
+    			a0 = element("a");
+    			a0.textContent = "Integración con API de Sanidad";
+    			t5 = space();
+    			li1 = element("li");
+    			a1 = element("a");
+    			a1.textContent = "Integración con API de Obesidad";
     			add_location(h1, file$1, 1, 4, 12);
     			add_location(h3, file$1, 4, 4, 55);
-    			attr_dev(a, "href", "https://sos2021-03.herokuapp.com/#/air-pollution/integrationSanity");
-    			add_location(a, file$1, 9, 12, 177);
-    			add_location(li, file$1, 8, 8, 159);
+    			attr_dev(a0, "href", "https://sos2021-03.herokuapp.com/#/air-pollution/integrationSanity");
+    			add_location(a0, file$1, 9, 12, 177);
+    			add_location(li0, file$1, 8, 8, 159);
+    			attr_dev(a1, "href", "https://sos2021-03.herokuapp.com/#/air-pollution/integrationObesity");
+    			add_location(a1, file$1, 12, 12, 331);
+    			add_location(li1, file$1, 11, 8, 313);
     			add_location(ul, file$1, 7, 4, 145);
     			add_location(main, file$1, 0, 0, 0);
     		},
@@ -19006,8 +19016,11 @@ var app = (function () {
     			append_dev(main, h3);
     			append_dev(main, t3);
     			append_dev(main, ul);
-    			append_dev(ul, li);
-    			append_dev(li, a);
+    			append_dev(ul, li0);
+    			append_dev(li0, a0);
+    			append_dev(ul, t5);
+    			append_dev(ul, li1);
+    			append_dev(li1, a1);
     		},
     		p: noop$1,
     		i: noop$1,

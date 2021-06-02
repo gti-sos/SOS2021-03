@@ -59,9 +59,9 @@
         registrosAirPollution.forEach((c)=>{
             
             if(Array.from(paises).includes(c.country.toUpperCase())&&c.year==2011){
-                var r = [c.country.toUpperCase(), c.deaths_air_pollution*10000];
+                var r = [c.country.toUpperCase(), c.deaths_air_pollution*100000];
                 registrosAP.push(r);
-                diccAP[c.country.toUpperCase()]=[c.deaths_air_pollution*10000];
+                diccAP[c.country.toUpperCase()]=[c.deaths_air_pollution*100000];
             }
             
         });
