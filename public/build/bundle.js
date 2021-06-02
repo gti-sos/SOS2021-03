@@ -18240,21 +18240,36 @@ var app = (function () {
     	let t1;
     	let br0;
     	let t2;
-    	let h5;
-    	let t4;
-    	let br1;
+    	let h6;
+    	let t3;
+    	let a;
     	let t5;
-    	let br2;
+    	let br1;
     	let t6;
-    	let div;
+    	let br2;
     	let t7;
-    	let br3;
-    	let t8;
-    	let br4;
+    	let h5;
     	let t9;
-    	let br5;
+    	let div;
     	let t10;
+    	let br3;
+    	let t11;
+    	let p;
+    	let t12;
+    	let br4;
+    	let t13;
+    	let br5;
+    	let t14;
     	let br6;
+    	let t15;
+    	let t16;
+    	let br7;
+    	let t17;
+    	let br8;
+    	let t18;
+    	let br9;
+    	let t19;
+    	let br10;
 
     	const block = {
     		c: function create() {
@@ -18264,33 +18279,59 @@ var app = (function () {
     			t1 = space();
     			br0 = element("br");
     			t2 = space();
+    			h6 = element("h6");
+    			t3 = text("Source: ");
+    			a = element("a");
+    			a.textContent = "API de sanidad integrada con cabecera Access-Control-Allow-Origin";
+    			t5 = space();
+    			br1 = element("br");
+    			t6 = space();
+    			br2 = element("br");
+    			t7 = space();
     			h5 = element("h5");
     			h5.textContent = "Comparativa del año 2010 de muertes por contaminación del aire vs. Camas de hospital(Por paises)";
-    			t4 = space();
-    			br1 = element("br");
-    			t5 = space();
-    			br2 = element("br");
-    			t6 = space();
-    			div = element("div");
-    			t7 = space();
-    			br3 = element("br");
-    			t8 = space();
-    			br4 = element("br");
     			t9 = space();
-    			br5 = element("br");
+    			div = element("div");
     			t10 = space();
+    			br3 = element("br");
+    			t11 = space();
+    			p = element("p");
+    			t12 = text("Comparativa de casos de muerte por contaminación del aire ");
+    			br4 = element("br");
+    			t13 = text("\r\n        \r\n        vs. ");
+    			br5 = element("br");
+    			t14 = text("\r\n        \r\n        Camas de hospital en ciertos paises en el año 2010. ");
     			br6 = element("br");
+    			t15 = text("\r\n        \r\n        (Integración realizada a través de cabecera Access-Control-Allow-Origin)");
+    			t16 = space();
+    			br7 = element("br");
+    			t17 = space();
+    			br8 = element("br");
+    			t18 = space();
+    			br9 = element("br");
+    			t19 = space();
+    			br10 = element("br");
     			add_location(h2, file$3, 149, 4, 4340);
     			add_location(br0, file$3, 152, 4, 4401);
-    			add_location(h5, file$3, 153, 4, 4411);
-    			add_location(br1, file$3, 154, 4, 4522);
-    			add_location(br2, file$3, 155, 4, 4532);
-    			attr_dev(div, "class", "ct-chart ct-perfect-fourth c svelte-uzzw0n");
-    			add_location(div, file$3, 157, 4, 4548);
-    			add_location(br3, file$3, 158, 4, 4602);
-    			add_location(br4, file$3, 159, 4, 4612);
-    			add_location(br5, file$3, 160, 4, 4622);
-    			add_location(br6, file$3, 161, 4, 4632);
+    			attr_dev(a, "href", "https://sanity-integration.herokuapp.com/sanity-stats");
+    			add_location(a, file$3, 153, 16, 4423);
+    			add_location(h6, file$3, 153, 4, 4411);
+    			add_location(br1, file$3, 156, 4, 4579);
+    			add_location(br2, file$3, 157, 4, 4589);
+    			attr_dev(h5, "class", "centro svelte-7rkpkp");
+    			add_location(h5, file$3, 158, 4, 4599);
+    			attr_dev(div, "class", "ct-chart ct-perfect-fourth c svelte-7rkpkp");
+    			add_location(div, file$3, 159, 4, 4727);
+    			add_location(br3, file$3, 160, 4, 4781);
+    			add_location(br4, file$3, 163, 66, 4891);
+    			add_location(br5, file$3, 165, 12, 4919);
+    			add_location(br6, file$3, 167, 60, 4995);
+    			attr_dev(p, "class", "centro svelte-7rkpkp");
+    			add_location(p, file$3, 161, 4, 4791);
+    			add_location(br7, file$3, 171, 4, 5107);
+    			add_location(br8, file$3, 172, 4, 5117);
+    			add_location(br9, file$3, 173, 4, 5127);
+    			add_location(br10, file$3, 174, 4, 5137);
     			add_location(main, file$3, 148, 0, 4328);
     		},
     		l: function claim(nodes) {
@@ -18302,21 +18343,36 @@ var app = (function () {
     			append_dev(main, t1);
     			append_dev(main, br0);
     			append_dev(main, t2);
-    			append_dev(main, h5);
-    			append_dev(main, t4);
-    			append_dev(main, br1);
+    			append_dev(main, h6);
+    			append_dev(h6, t3);
+    			append_dev(h6, a);
     			append_dev(main, t5);
-    			append_dev(main, br2);
+    			append_dev(main, br1);
     			append_dev(main, t6);
-    			append_dev(main, div);
+    			append_dev(main, br2);
     			append_dev(main, t7);
-    			append_dev(main, br3);
-    			append_dev(main, t8);
-    			append_dev(main, br4);
+    			append_dev(main, h5);
     			append_dev(main, t9);
-    			append_dev(main, br5);
+    			append_dev(main, div);
     			append_dev(main, t10);
-    			append_dev(main, br6);
+    			append_dev(main, br3);
+    			append_dev(main, t11);
+    			append_dev(main, p);
+    			append_dev(p, t12);
+    			append_dev(p, br4);
+    			append_dev(p, t13);
+    			append_dev(p, br5);
+    			append_dev(p, t14);
+    			append_dev(p, br6);
+    			append_dev(p, t15);
+    			append_dev(main, t16);
+    			append_dev(main, br7);
+    			append_dev(main, t17);
+    			append_dev(main, br8);
+    			append_dev(main, t18);
+    			append_dev(main, br9);
+    			append_dev(main, t19);
+    			append_dev(main, br10);
     		},
     		p: noop$1,
     		i: noop$1,
@@ -18550,18 +18606,28 @@ var app = (function () {
     const file$2 = "src\\front\\air-pollution\\integraciones\\obesityApi.svelte";
 
     function create_fragment$2(ctx) {
+    	let script0;
+    	let script0_src_value;
+    	let script1;
+    	let script1_src_value;
+    	let script2;
+    	let script2_src_value;
+    	let script3;
+    	let script3_src_value;
+    	let t0;
     	let main;
     	let h2;
-    	let t1;
-    	let br0;
     	let t2;
-    	let h5;
-    	let t4;
+    	let br0;
+    	let t3;
     	let br1;
-    	let t5;
+    	let t4;
     	let br2;
-    	let t6;
+    	let t5;
+    	let figure;
     	let div;
+    	let t6;
+    	let p;
     	let t7;
     	let br3;
     	let t8;
@@ -18569,74 +18635,126 @@ var app = (function () {
     	let t9;
     	let br5;
     	let t10;
+    	let t11;
     	let br6;
+    	let t12;
+    	let br7;
+    	let t13;
+    	let br8;
+    	let t14;
+    	let br9;
 
     	const block = {
     		c: function create() {
+    			script0 = element("script");
+    			script1 = element("script");
+    			script2 = element("script");
+    			script3 = element("script");
+    			t0 = space();
     			main = element("main");
     			h2 = element("h2");
-    			h2.textContent = "Integración con API de obesidad";
-    			t1 = space();
-    			br0 = element("br");
+    			h2.textContent = "Integración con API de Obesidad";
     			t2 = space();
-    			h5 = element("h5");
-    			h5.textContent = "Comparativa del año 2010 de muertes por contaminación del aire vs. Camas de hospital(Por paises)";
-    			t4 = space();
+    			br0 = element("br");
+    			t3 = space();
     			br1 = element("br");
-    			t5 = space();
+    			t4 = space();
     			br2 = element("br");
-    			t6 = space();
+    			t5 = space();
+    			figure = element("figure");
     			div = element("div");
-    			t7 = space();
+    			t6 = space();
+    			p = element("p");
+    			t7 = text("Comparativa de casos de muerte por contaminación del aire ");
     			br3 = element("br");
-    			t8 = space();
+    			t8 = text("\r\n            \r\n            vs. ");
     			br4 = element("br");
-    			t9 = space();
+    			t9 = text("\r\n            \r\n            Casos de obesidad en ciertos paises en el año 2011. ");
     			br5 = element("br");
-    			t10 = space();
+    			t10 = text("\r\n            \r\n            (Integración realizada a través de proxy)");
+    			t11 = space();
     			br6 = element("br");
-    			add_location(h2, file$2, 149, 4, 4346);
-    			add_location(br0, file$2, 152, 4, 4408);
-    			add_location(h5, file$2, 153, 4, 4418);
-    			add_location(br1, file$2, 154, 4, 4529);
-    			add_location(br2, file$2, 155, 4, 4539);
-    			attr_dev(div, "class", "ct-chart ct-perfect-fourth c svelte-uzzw0n");
-    			add_location(div, file$2, 157, 4, 4555);
-    			add_location(br3, file$2, 158, 4, 4609);
-    			add_location(br4, file$2, 159, 4, 4619);
-    			add_location(br5, file$2, 160, 4, 4629);
-    			add_location(br6, file$2, 161, 4, 4639);
-    			add_location(main, file$2, 148, 0, 4334);
+    			t12 = space();
+    			br7 = element("br");
+    			t13 = space();
+    			br8 = element("br");
+    			t14 = space();
+    			br9 = element("br");
+    			if (script0.src !== (script0_src_value = "https://code.highcharts.com/highcharts.js")) attr_dev(script0, "src", script0_src_value);
+    			add_location(script0, file$2, 173, 4, 5107);
+    			if (script1.src !== (script1_src_value = "https://code.highcharts.com/modules/exporting.js")) attr_dev(script1, "src", script1_src_value);
+    			add_location(script1, file$2, 174, 4, 5178);
+    			if (script2.src !== (script2_src_value = "https://code.highcharts.com/modules/export-data.js")) attr_dev(script2, "src", script2_src_value);
+    			add_location(script2, file$2, 175, 4, 5256);
+    			if (script3.src !== (script3_src_value = "https://code.highcharts.com/modules/accessibility.js")) attr_dev(script3, "src", script3_src_value);
+    			add_location(script3, file$2, 176, 4, 5336);
+    			add_location(h2, file$2, 179, 4, 5442);
+    			add_location(br0, file$2, 182, 4, 5504);
+    			add_location(br1, file$2, 183, 4, 5514);
+    			add_location(br2, file$2, 184, 4, 5524);
+    			attr_dev(div, "id", "container");
+    			attr_dev(div, "class", "svelte-xtekgp");
+    			add_location(div, file$2, 187, 8, 5586);
+    			add_location(br3, file$2, 190, 70, 5749);
+    			add_location(br4, file$2, 192, 16, 5785);
+    			add_location(br5, file$2, 194, 64, 5869);
+    			attr_dev(p, "class", "highcharts-description centro svelte-xtekgp");
+    			add_location(p, file$2, 188, 8, 5622);
+    			attr_dev(figure, "class", "highcharts-figure c svelte-xtekgp");
+    			add_location(figure, file$2, 186, 4, 5540);
+    			add_location(br6, file$2, 199, 4, 5977);
+    			add_location(br7, file$2, 200, 4, 5987);
+    			add_location(br8, file$2, 201, 4, 5997);
+    			add_location(br9, file$2, 202, 4, 6007);
+    			add_location(main, file$2, 178, 0, 5430);
     		},
     		l: function claim(nodes) {
     			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
     		},
     		m: function mount(target, anchor) {
+    			append_dev(document.head, script0);
+    			append_dev(document.head, script1);
+    			append_dev(document.head, script2);
+    			append_dev(document.head, script3);
+    			insert_dev(target, t0, anchor);
     			insert_dev(target, main, anchor);
     			append_dev(main, h2);
-    			append_dev(main, t1);
-    			append_dev(main, br0);
     			append_dev(main, t2);
-    			append_dev(main, h5);
-    			append_dev(main, t4);
+    			append_dev(main, br0);
+    			append_dev(main, t3);
     			append_dev(main, br1);
-    			append_dev(main, t5);
+    			append_dev(main, t4);
     			append_dev(main, br2);
-    			append_dev(main, t6);
-    			append_dev(main, div);
-    			append_dev(main, t7);
-    			append_dev(main, br3);
-    			append_dev(main, t8);
-    			append_dev(main, br4);
-    			append_dev(main, t9);
-    			append_dev(main, br5);
-    			append_dev(main, t10);
+    			append_dev(main, t5);
+    			append_dev(main, figure);
+    			append_dev(figure, div);
+    			append_dev(figure, t6);
+    			append_dev(figure, p);
+    			append_dev(p, t7);
+    			append_dev(p, br3);
+    			append_dev(p, t8);
+    			append_dev(p, br4);
+    			append_dev(p, t9);
+    			append_dev(p, br5);
+    			append_dev(p, t10);
+    			append_dev(main, t11);
     			append_dev(main, br6);
+    			append_dev(main, t12);
+    			append_dev(main, br7);
+    			append_dev(main, t13);
+    			append_dev(main, br8);
+    			append_dev(main, t14);
+    			append_dev(main, br9);
     		},
     		p: noop$1,
     		i: noop$1,
     		o: noop$1,
     		d: function destroy(detaching) {
+    			detach_dev(script0);
+    			detach_dev(script1);
+    			detach_dev(script2);
+    			detach_dev(script3);
+    			if (detaching) detach_dev(t0);
     			if (detaching) detach_dev(main);
     		}
     	};
@@ -18656,13 +18774,14 @@ var app = (function () {
     	let { $$slots: slots = {}, $$scope } = $$props;
     	validate_slots("ObesityApi", slots, []);
     	var registrosAirPollution = [];
-    	var registrosSanity = [];
+    	var registrosObesity = [];
     	var paises = new Set();
-    	var reg2010 = {};
-    	var registrosGrafico = [];
-    	var dicc = {};
-    	var l1 = [];
-    	var l2 = [];
+    	var lac = [];
+    	var lob = [];
+    	var paises2 = [];
+    	paises.add("GERMANY");
+    	paises.add("INDIA");
+    	paises.add("CHINA");
 
     	async function getRegisters() {
     		console.log("Fetching air death's pollution data...");
@@ -18676,13 +18795,13 @@ var app = (function () {
     			console.log("ERROR!" + errorMsg);
     		}
 
-    		console.log("Fetching sanity data...");
+    		console.log("Fetching obesity data...");
     		const res1 = await fetch("https://sos2021-03.herokuapp.com/api/v1/obesity");
 
     		if (res1.ok) {
     			const json2 = await res1.json();
-    			registrosSanity = json2;
-    			console.log(`We have received ${registrosSanity.length} stats.`);
+    			registrosObesity = json2;
+    			console.log(`We have received ${registrosObesity.length} stats.`);
     		} else {
     			console.log("ERROR!" + errorMsg);
     		}
@@ -18690,118 +18809,105 @@ var app = (function () {
 
     	async function onLoad() {
     		await getRegisters();
-    		var registros = {};
-    		var registrosAP = [];
-    		var registrosSNT = [];
+    		var diccAP = {};
+    		var diccOB = {};
 
-    		registrosSanity.forEach(d => {
-    			var a = [d.year, d.country.toUpperCase(), d.woman_percent * d.total_population];
-    			registrosSNT.push(a);
-    			paises.add(d.country.toUpperCase());
+    		registrosObesity.forEach(d => {
+    			[d.country.toUpperCase(), d.woman_percent * d.total_population / 1000];
+
+    			if (Array.from(paises).includes(d.country.toUpperCase()) && d.year == 2011) {
+    				diccOB[d.country.toUpperCase()] = [d.woman_percent * d.total_population / 1000];
+    				paises2.push(d.country.toUpperCase());
+    			}
     		});
 
-    		var paises2 = Array.from(paises);
-    		console.log("Paises" + paises2);
+    		console.log("Paises: " + Array.from(paises));
 
     		registrosAirPollution.forEach(c => {
-    			console.log(paises2.includes(c.country.toUpperCase()));
-
-    			if (paises2.includes(c.country.toUpperCase())) {
-    				var r = [c.year, c.country.toUpperCase(), c.deaths_air_pollution];
-    				registrosAP.push(r);
+    			if (Array.from(paises).includes(c.country.toUpperCase()) && c.year == 2011) {
+    				[c.country.toUpperCase(), c.deaths_air_pollution * 10000];
+    				diccAP[c.country.toUpperCase()] = [c.deaths_air_pollution * 10000];
     			}
     		});
 
-    		console.log(registrosSNT);
-    		console.log(registrosAP);
+    		console.log("decc OB: ");
+    		console.log(diccOB);
+    		console.log("decc AP: ");
+    		console.log(diccAP);
 
-    		for (let r of registrosAP) {
-    			var k = [r[0], r[1]];
-
-    			if (registros[k]) {
-    				registros[k].push(r[2] / 10);
-    			} else {
-    				registros[k] = [r[2] / 10];
-    			}
-    		}
-
-    		for (let r of registrosSNT) {
-    			var k = [r[0], r[1]];
-
-    			if (registros[k]) {
-    				registros[k].push(r[2]);
-    			} else {
-    				registros[k] = [r[2]];
-    			}
-    		}
-
-    		console.log(registros);
-
-    		////
-    		for (let r of registrosAP) {
-    			var k = [r[0], r[1]];
-
-    			if (k[0] == 2010) {
-    				if (reg2010[k[1]]) {
-    					reg2010[k[1]].push(r[2] / 10);
-    				} else {
-    					reg2010[k[1]] = [r[2] / 10];
-    				}
-
-    				l1.push(r[2] / 10);
-    			}
-    		}
-
-    		for (let r of registrosSNT) {
-    			var k = [r[0], r[1]];
-
-    			if (k[0] == 2010) {
-    				if (reg2010[k[1]]) {
-    					reg2010[k[1]].push(r[2]);
-    				} else {
-    					reg2010[k[1]] = [r[2]];
-    				}
-
-    				l2.push(r[2]);
-    			}
-    		}
-
-    		//////////
-    		dicc["ap"] = [];
-
-    		dicc["sn"] = [];
-
-    		Object.entries(reg2010).forEach(([key, value]) => {
-    			dicc["ap"].push(value[0]);
-    			dicc["sn"].push(value[1]);
+    		Object.entries(diccOB).forEach(([key, value]) => {
+    			lob.push(value);
     		});
 
-    		Object.entries(dicc).forEach(([key, value]) => {
-    			registrosGrafico.push({ name: key, data: value });
+    		Object.entries(diccAP).forEach(([key, value]) => {
+    			lac.push(-value);
     		});
 
-    		console.log(registrosGrafico);
+    		console.log("ap");
+    		console.log(lac);
+    		console.log("ob");
+    		console.log(lob);
     		loadGraph2();
     	}
 
     	async function loadGraph2() {
     		console.log("grafica");
+    		var categories = paises2;
 
-    		new Chartist.Bar(".ct-chart",
-    		{
-    				labels: Array.from(paises),
-    				series: registrosGrafico
+    		Highcharts.chart("container", {
+    			chart: { type: "bar" },
+    			title: {
+    				text: "Muertes por conteminación de aire vs. Casos de obesidad en 2011"
     			},
-    		{
-    				axisX: {
-    					// On the x-axis start means top and end means bottom
-    					position: "start"
+    			subtitle: {
+    				text: "Source: <a href=\"https://sos2021-03.herokuapp.com/api/v1/obesity\">API de obesidad integrada con Proxy</a>"
+    			},
+    			accessibility: { point: { valueDescriptionFormat: "" } },
+    			xAxis: [
+    				{
+    					categories,
+    					reversed: false,
+    					labels: { step: 1 },
+    					accessibility: { description: "Casos de obesidad" }
     				},
-    				axisY: {
-    					// On the y-axis start means left and end means right
-    					position: "end"
+    				{
+    					// mirror axis on right side
+    					opposite: true,
+    					reversed: false,
+    					categories,
+    					linkedTo: 0,
+    					labels: { step: 1 },
+    					accessibility: {
+    						description: "Muertes por contaminación del aire"
+    					}
     				}
-    			});
+    			],
+    			yAxis: {
+    				title: { text: null },
+    				labels: {
+    					formatter() {
+    						return Math.abs(this.value);
+    					}
+    				},
+    				accessibility: {
+    					description: "Population",
+    					rangeDescription: ""
+    				}
+    			},
+    			plotOptions: { series: { stacking: "normal" } },
+    			tooltip: {
+    				formatter() {
+    					return "<b>" + this.series.name + ", pais " + this.point.category + "</b><br/>" + "Population: " + Highcharts.numberFormat(Math.abs(this.point.y), 1);
+    				}
+    			},
+    			series: [
+    				{
+    					name: "Muertes por contaminación del aire",
+    					data: lac
+    				},
+    				{ name: "Casos de obesidad", data: lob }
+    			]
+    		});
     	}
 
     	onMount(onLoad);
@@ -18815,13 +18921,11 @@ var app = (function () {
     		Button,
     		onMount,
     		registrosAirPollution,
-    		registrosSanity,
+    		registrosObesity,
     		paises,
-    		reg2010,
-    		registrosGrafico,
-    		dicc,
-    		l1,
-    		l2,
+    		lac,
+    		lob,
+    		paises2,
     		getRegisters,
     		onLoad,
     		loadGraph2
@@ -18829,13 +18933,11 @@ var app = (function () {
 
     	$$self.$inject_state = $$props => {
     		if ("registrosAirPollution" in $$props) registrosAirPollution = $$props.registrosAirPollution;
-    		if ("registrosSanity" in $$props) registrosSanity = $$props.registrosSanity;
+    		if ("registrosObesity" in $$props) registrosObesity = $$props.registrosObesity;
     		if ("paises" in $$props) paises = $$props.paises;
-    		if ("reg2010" in $$props) reg2010 = $$props.reg2010;
-    		if ("registrosGrafico" in $$props) registrosGrafico = $$props.registrosGrafico;
-    		if ("dicc" in $$props) dicc = $$props.dicc;
-    		if ("l1" in $$props) l1 = $$props.l1;
-    		if ("l2" in $$props) l2 = $$props.l2;
+    		if ("lac" in $$props) lac = $$props.lac;
+    		if ("lob" in $$props) lob = $$props.lob;
+    		if ("paises2" in $$props) paises2 = $$props.paises2;
     	};
 
     	if ($$props && "$$inject" in $$props) {

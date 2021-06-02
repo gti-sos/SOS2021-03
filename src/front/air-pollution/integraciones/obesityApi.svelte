@@ -4,15 +4,16 @@
         onMount
     } from "svelte";
     var registrosAirPollution = [];
-    var registrosSanity = [];
+    var registrosObesity = [];
     var paises = new Set();
-    var reg2010 = {};
-    var registrosGrafico = [];
+    var lac = [];
+    var lob = [];
+    var paises2 = [];
 
-    var dicc = {};
-    var l1 = [];
-    var l2 = [];
 
+    paises.add("GERMANY"); 
+    paises.add("INDIA");
+    paises.add("CHINA");
     async function getRegisters(){
         console.log("Fetching air death's pollution data...");
         const res = await fetch("https://sos2021-03.herokuapp.com/api/v1/air-pollution");
@@ -23,12 +24,12 @@
         } else {
             console.log("ERROR!" + errorMsg);
         }
-        console.log("Fetching sanity data...");
+        console.log("Fetching obesity data...");
         const res1 = await fetch("https://sos2021-03.herokuapp.com/api/v1/obesity");
         if (res1.ok) {
             const json2 = await res1.json();
-            registrosSanity = json2;
-            console.log(`We have received ${registrosSanity.length} stats.`);
+            registrosObesity = json2;
+            console.log(`We have received ${registrosObesity.length} stats.`);
         } else {
             console.log("ERROR!" + errorMsg);
         }
@@ -36,136 +37,216 @@
 
     async function onLoad(){
         await getRegisters();
-        var registros = {};
+        
         var registrosAP = [];
-        var registrosSNT = [];
+        var registrosOB = [];
+        var diccAP = {};
+        var diccOB = {};
         
         
-        registrosSanity.forEach((d)=>{
-            var a = [d.year, d.country.toUpperCase(), d.woman_percent*d.total_population];
-            registrosSNT.push(a);
-            paises.add(d.country.toUpperCase());
+        
+        registrosObesity.forEach((d)=>{
+            var a = [d.country.toUpperCase(), d.woman_percent*d.total_population/1000];
+            if(Array.from(paises).includes(d.country.toUpperCase())&&d.year==2011){
+                registrosOB.push(a);
+                diccOB[d.country.toUpperCase()]=[d.woman_percent*d.total_population/1000];
+                paises2.push(d.country.toUpperCase());
+            }
+            
         });
-        var paises2= Array.from(paises);
-        console.log("Paises" + paises2);
+        
+        console.log("Paises: " + Array.from(paises));
         registrosAirPollution.forEach((c)=>{
-            console.log(paises2.includes(c.country.toUpperCase()));
-            if(paises2.includes(c.country.toUpperCase())){
-                var r = [c.year, c.country.toUpperCase(), c.deaths_air_pollution];
+            
+            if(Array.from(paises).includes(c.country.toUpperCase())&&c.year==2011){
+                var r = [c.country.toUpperCase(), c.deaths_air_pollution*10000];
                 registrosAP.push(r);
+                diccAP[c.country.toUpperCase()]=[c.deaths_air_pollution*10000];
             }
             
         });
-        
-        console.log(registrosSNT);
-        console.log(registrosAP);
-        for(let r of registrosAP){
-            var k = [r[0], r[1]];
-            if(registros[k]){
-                registros[k].push(r[2]/10);
-            }else{
-                registros[k]=[r[2]/10];
-            }
-        }
-        for(let r of registrosSNT){
-            var k = [r[0], r[1]];
-            if(registros[k]){
-                registros[k].push(r[2]);
-            }else{
-                registros[k]=[r[2]];
-            }
-        }
-        console.log(registros);
+        console.log("decc OB: ");
+        console.log(diccOB);
+        console.log("decc AP: ");
+        console.log(diccAP);
 
-        ////
-        for(let r of registrosAP){
-            var k = [r[0], r[1]];
-            if(k[0]==2010){
-                if(reg2010[k[1]]){
-                    reg2010[k[1]].push(r[2]/10);
-                    
-                }else{
-                    reg2010[k[1]]=[r[2]/10];
-                }
-                l1.push(r[2]/10);
-            }
-        }
-        for(let r of registrosSNT){
-            var k = [r[0], r[1]];
-            if(k[0]==2010){
-                if(reg2010[k[1]]){
-                    reg2010[k[1]].push(r[2]);
-                }else{
-                    reg2010[k[1]]=[r[2]];
-                }
-                l2.push(r[2]);
-            }
-        }
-        //////////
-        dicc["ap"]=[];
-        dicc["sn"]=[];
-        Object.entries(reg2010).forEach(([key, value]) => {
-			
-            dicc["ap"].push(value[0]);
-            dicc["sn"].push(value[1]);
+        Object.entries(diccOB).forEach(([key, value]) => {
+            
+            lob.push(value)
             
         });
-
-        Object.entries(dicc).forEach(([key, value]) => {
+        Object.entries(diccAP).forEach(([key, value]) => {
             
-            registrosGrafico.push({name: key , data: value})
+            lac.push(-value)
             
         });
-        
-        
-        console.log( registrosGrafico);
-    
-        
+        console.log("ap")
+        console.log(lac);
+        console.log("ob");
+        console.log(lob);
         loadGraph2();
 
     }
 
     async function loadGraph2(){  
       console.log("grafica")
-      new Chartist.Bar('.ct-chart', {
-        labels: Array.from(paises),
-        series: registrosGrafico
-        }, {
-        axisX: {
-            // On the x-axis start means top and end means bottom
-            position: 'start'
+      var categories = paises2;
+
+    Highcharts.chart('container', {
+        chart: {
+            type: 'bar'
         },
-        axisY: {
-            // On the y-axis start means left and end means right
-            position: 'end'
-        }
-        });
+        title: {
+            text: 'Muertes por conteminación de aire vs. Casos de obesidad en 2011'
+        },
+        subtitle: {
+            text: 'Source: <a href="https://sos2021-03.herokuapp.com/api/v1/obesity">API de obesidad integrada con Proxy</a>'
+        },
+        accessibility: {
+            point: {
+                valueDescriptionFormat: ''
+            }
+        },
+        xAxis: [{
+            categories: categories,
+            reversed: false,
+            labels: {
+                step: 1
+            },
+            accessibility: {
+                description: 'Casos de obesidad'
+            }
+        }, { // mirror axis on right side
+            opposite: true,
+            reversed: false,
+            categories: categories,
+            linkedTo: 0,
+            labels: {
+                step: 1
+            },
+            accessibility: {
+                description: 'Muertes por contaminación del aire'
+            }
+        }],
+        yAxis: {
+            title: {
+                text: null
+            },
+            labels: {
+                formatter: function () {
+                    return Math.abs(this.value);
+                }
+            },
+            accessibility: {
+                description: 'Population',
+                rangeDescription: ''
+            }
+        },
+
+        plotOptions: {
+            series: {
+                stacking: 'normal'
+            }
+        },
+
+        tooltip: {
+            formatter: function () {
+                return '<b>' + this.series.name + ', pais ' + this.point.category + '</b><br/>' +
+                    'Population: ' + Highcharts.numberFormat(Math.abs(this.point.y), 1) ;
+            }
+        },
+
+        series: [{
+            name: 'Muertes por contaminación del aire',
+            data: lac
+        }, {
+            name: 'Casos de obesidad',
+            data: lob
+        }]
+    });
 
         
     
     }
     onMount(onLoad);
 </script>
+<svelte:head>
+    <script src="https://code.highcharts.com/highcharts.js"></script>
+    <script src="https://code.highcharts.com/modules/exporting.js"></script>
+    <script src="https://code.highcharts.com/modules/export-data.js"></script>
+    <script src="https://code.highcharts.com/modules/accessibility.js"></script>
+</svelte:head>
 <main>
     <h2>
-        Integración con API de obesidad
+        Integración con API de Obesidad
     </h2>
     <br>
-    <h5>Comparativa del año 2010 de muertes por contaminación del aire vs. Camas de hospital(Por paises)</h5>
     <br>
     <br>
     
-    <div class="ct-chart ct-perfect-fourth c"></div>
+    <figure class="highcharts-figure c">
+        <div id="container"></div>
+        <p class="highcharts-description centro">
+            
+            Comparativa de casos de muerte por contaminación del aire <br>
+            
+            vs. <br>
+            
+            Casos de obesidad en ciertos paises en el año 2011. <br>
+            
+            (Integración realizada a través de proxy)
+        </p>
+    </figure>
     <br>
     <br>
     <br>
     <br>
 </main>
 <style>
+    .centro{
+        text-align:center;
+    }
     .c { 
         width: 75%; 
         height: 512px;
         margin-left: auto;
         margin-right: auto;
+    }
+    #container {
+        height: 400px; 
+    }
+
+    .highcharts-figure, .highcharts-data-table table {
+        min-width: 310px; 
+        max-width: 800px;
+        margin: 1em auto;
+    }
+
+    .highcharts-data-table table {
+        font-family: Verdana, sans-serif;
+        border-collapse: collapse;
+        border: 1px solid #EBEBEB;
+        margin: 10px auto;
+        text-align: center;
+        width: 100%;
+        max-width: 500px;
+    }
+    .highcharts-data-table caption {
+        padding: 1em 0;
+        font-size: 1.2em;
+        color: #555;
+    }
+    .highcharts-data-table th {
+        font-weight: 600;
+        padding: 0.5em;
+    }
+    .highcharts-data-table td, .highcharts-data-table th, .highcharts-data-table caption {
+        padding: 0.5em;
+    }
+    .highcharts-data-table thead tr, .highcharts-data-table tr:nth-child(even) {
+        background: #f8f8f8;
+    }
+    .highcharts-data-table tr:hover {
+        background: #f1f7ff;
     }
 </style>

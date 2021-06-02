@@ -151,11 +151,24 @@
         Integración con API de sanidad
     </h2>
     <br>
-    <h5>Comparativa del año 2010 de muertes por contaminación del aire vs. Camas de hospital(Por paises)</h5>
-    <br>
-    <br>
+    <h6>Source: <a href="https://sanity-integration.herokuapp.com/sanity-stats">API de sanidad integrada con cabecera Access-Control-Allow-Origin</a></h6>
     
+    
+    <br>
+    <br>
+    <h5 class = "centro">Comparativa del año 2010 de muertes por contaminación del aire vs. Camas de hospital(Por paises)</h5>
     <div class="ct-chart ct-perfect-fourth c"></div>
+    <br>
+    <p class="centro">
+            
+        Comparativa de casos de muerte por contaminación del aire <br>
+        
+        vs. <br>
+        
+        Camas de hospital en ciertos paises en el año 2010. <br>
+        
+        (Integración realizada a través de cabecera Access-Control-Allow-Origin)
+    </p>
     <br>
     <br>
     <br>
@@ -167,5 +180,8 @@
         height: 512px;
         margin-left: auto;
         margin-right: auto;
+    }
+    .centro {
+        text-align: center;
     }
 </style>
