@@ -9,5 +9,7 @@ jobs :
     steps:
       - uses: actions/checkout@v2
       - run: npm install
+      - run: npm run build
       - run: npm start &
       - run: npx newman run test/integration-air-pollution.json && npx newman run test/integration-inter-tourisms.json && npx newman run test/integration-inter-tourismsv2.json
+      - run: node test/e2e-air-pollution.js

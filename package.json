@@ -39,6 +39,7 @@
     "fusioncharts": "^3.17.0",
     "nedb": "^1.8.0",
     "path": "^0.12.7",
+    "puppeteer": "^10.0.0",
     "reaviz": "^10.2.1",
     "request": "^2.88.2",
     "svelte-fusioncharts": "^1.0.0",
