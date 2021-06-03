@@ -232,11 +232,11 @@
         </thead>
         <tbody>
             <tr>
-                <td><input bind:value="{newRegister.country}"></td>
-					<td><input type=number bind:value={newRegister.year}></td>
-					<td><input type=number bind:value={newRegister.deaths_ambient_particulate_matter_pollution}></td>
-					<td><input type=number bind:value={newRegister.deaths_household_air_pollution_from_solid_fuels}></td>
-					<td><input type=number bind:value={newRegister.deaths_air_pollution}></td>
+                <td><input id="country" bind:value="{newRegister.country}"></td>
+					<td><input id="year" type=number bind:value={newRegister.year}></td>
+					<td><input id="daparticulate" type=number bind:value={newRegister.deaths_ambient_particulate_matter_pollution}></td>
+					<td><input id="dafuels" type=number bind:value={newRegister.deaths_household_air_pollution_from_solid_fuels}></td>
+					<td><input id="da" type=number bind:value={newRegister.deaths_air_pollution}></td>
 					<td><Button on:click={insertRegister}>Añadir</Button>
                 </td>
             </tr>
