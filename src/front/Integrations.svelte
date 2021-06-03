@@ -15,5 +15,8 @@
         <li>
             <a href="https://sos2021-03.herokuapp.com/#/air-pollution/external1">Integración con API externa de Edad media a la maternidad por año</a>
         </li>
+        <li>
+            <a href="https://sos2021-03.herokuapp.com/#/air-pollution/external2">Integración con API externa de Titulados en Ciclos Formativos de grado superior por sexo</a>
+        </li>
     </ul>
 </main>

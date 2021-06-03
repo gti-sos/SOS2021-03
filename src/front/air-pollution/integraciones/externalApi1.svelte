@@ -131,7 +131,7 @@ async function LoadGraph2(){
         Integración con API externa de Edad Media a la maternidad por año
     </h2>
     <br>
-    <h6>Source: <a href="https://servicios.ine.es/wstempus/js/es/DATOS_TABLA/36742?tip=AM">API integrada con cabecera Access-Control-Allow-Origin</a></h6>
+    <h6>Source: <a href="https://servicios.ine.es/wstempus/js/es/DATOS_TABLA/36742?tip=AM">API de la que se ha obtenido la información</a></h6>
     
     
     <br>
@@ -150,7 +150,6 @@ async function LoadGraph2(){
         Estadísticas de Edad Media a la maternidad en algunas ciudades por años<br>
     
         
-        (Integración realizada a través de cabecera Access-Control-Allow-Origin)
     </p>
     <br>
     <br>
