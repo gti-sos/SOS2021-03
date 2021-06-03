@@ -1,4 +1,4 @@
-<!--<script>
+<script>
     import Button from "sveltestrap/src/Button.svelte";
     import FusionCharts from 'fusioncharts';
     import Charts from 'fusioncharts/fusioncharts.charts';
@@ -168,4 +168,4 @@
       
     </div>
    
-  </main>-->
+  </main>
