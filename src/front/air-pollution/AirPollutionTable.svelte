@@ -198,8 +198,8 @@
         Tabla de estadisticas:
     </h2>
     <br>
-    <Button on:click={loadInitialData}>Cargar registros</Button>
-    <Button on:click={deleteAll}>Borrar todos los registros</Button>
+    <Button id="cargar" on:click={loadInitialData}>Cargar registros</Button>
+    <Button id="borrar" on:click={deleteAll}>Borrar todos los registros</Button>
     <a href="#/air-pollution/graph" class="btn btn-outline-warning" role="button" aria-pressed="true">GRÁFICAS</a>
     <br>
     <br>
