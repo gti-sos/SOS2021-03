@@ -41,7 +41,7 @@
 		"/international-tourisms": InterTourism,
 		"/international-tourisms/:country/:year": EditIntertourism,
 		"/international-tourisms/graph": InterGraph,
-		"/allGraph": graphITAP,
+		"/analytics": graphITAP,
         "*": NotFound
 	}
 	
