@@ -53,7 +53,7 @@
         height: '100%'
     },
     title: {
-        text: 'Carbon emissions around the world (2014)'
+        text: 'Gráfica conjunta del equipo de trabajo SOS2021-03'
     },
     tooltip: {
         useHTML: true,
@@ -81,7 +81,7 @@
         }
     },
     series: [{
-        name: 'Europe',
+        name: 'Muertes por contaminación del Aire',
         data: lista
         
     }]
@@ -102,7 +102,7 @@
 </svelte:head>
 <main>
     <h2>
-        Integración con API de Obesidad
+        Gráfica conjunta
     </h2>
     <br>
     <br>
@@ -111,10 +111,7 @@
     <figure class="highcharts-figure">
         <div id="container"></div>
         <p class="highcharts-description">
-            Packed bubble charts are visualizations where the size and optionally
-            the color of the bubbles are used to visualize the data. The positioning
-            of the bubbles is not significant, but is optimized for compactness.
-            Try dragging the bubbles in this chart around, and see the effects.
+            Aquí pueden verse las muertes por contaminación del aire comparadas con las estadísticas de turismo internacional en el año 2011.
         </p>
     </figure>
     <br>
