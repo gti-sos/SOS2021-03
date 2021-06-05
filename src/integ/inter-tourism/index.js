@@ -3,13 +3,13 @@ module.exports.register = (app) => {
     var Datastore = require("nedb");
     var path = require("path");
     const dbFileName = path.join(__dirname, "inteTourism.db");
-   /* var db = new Datastore({
+    var db = new Datastore({
         filename: dbFileName, 
         autoload: true,
         autoload: true,
         autoload: true,
         autoload: true
-    });*/
+    });
 
     var inter_tourisms = [
         {
