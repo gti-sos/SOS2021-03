@@ -7,16 +7,21 @@
     var diccAP = {};
     var data1  =[];
     var lista = [];
+    var listaI = [];
 
 
     
     async function getRegisters(){
         console.log("Fetching air death's pollution data...");
         const res = await fetch("https://sos2021-03.herokuapp.com/api/v1/air-pollution");
-        if (res.ok) {
+        const res2 = await fetch("https://sos2021-03.herokuapp.com/api/v2/international-tourisms");
+        if (res.ok && res2.ok) {
             const json = await res.json();
+            const jsoninter = await res2.json();
             registrosAirPollution = json;
+            registrosInterTourism = jsoninter;
             let i =0;
+            let j=0;
             while(i<registrosAirPollution.length){
                 if(registrosAirPollution[i].year==2011){
                     lista.push({"name":registrosAirPollution[i].country,"value":registrosAirPollution[i].deaths_air_pollution});
@@ -24,6 +29,14 @@
                 i++;
             }
             console.log(`We have received ${registrosAirPollution.length} stats.`);
+            
+            while(j<registrosInterTourism.length){
+                if(registrosInterTourism[j].year==2011){
+                    listaI.push({"name":registrosInterTourism[j].country,"value":registrosInterTourism[j].numberofarrivals});
+                }
+                j++;
+            }
+            console.log(`We have received ${registrosInterTourism.length} stats.`);
         } else {
             console.log("ERROR!" + errorMsg);
         }
@@ -83,6 +96,11 @@
     series: [{
         name: 'Muertes por contaminación del Aire',
         data: lista
+        
+    },
+    {
+        name: 'Número de llegadas aéreas, turismo internacional',
+        data: listaI
         
     }]
 });

@@ -60,6 +60,9 @@
 						<NavItem  >
 							<NavLink  active href="#/info">Información</NavLink>
 						</NavItem>
+						<NavItem  >
+							<NavLink  active href="#/analytics">Gráfica grupal</NavLink>
+						</NavItem>
 						<NavItem>
 							<NavLink href="#/air-pollution">Contaminación del aire</NavLink>
 						</NavItem>
