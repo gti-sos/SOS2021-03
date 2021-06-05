@@ -4,6 +4,7 @@
         onMount
     } from "svelte";
     var registrosAirPollution = [];
+    var registrosInterTourism = [];
     var diccAP = {};
     var data1  =[];
     var lista = [];
