@@ -20786,28 +20786,28 @@ var app = (function () {
     			t11 = space();
     			br6 = element("br");
     			if (script0.src !== (script0_src_value = "https://code.highcharts.com/highcharts.js")) attr_dev(script0, "src", script0_src_value);
-    			add_location(script0, file$1, 115, 4, 3454);
+    			add_location(script0, file$1, 116, 4, 3503);
     			if (script1.src !== (script1_src_value = "https://code.highcharts.com/highcharts-more.js")) attr_dev(script1, "src", script1_src_value);
-    			add_location(script1, file$1, 116, 4, 3525);
+    			add_location(script1, file$1, 117, 4, 3574);
     			if (script2.src !== (script2_src_value = "https://code.highcharts.com/modules/exporting.js")) attr_dev(script2, "src", script2_src_value);
-    			add_location(script2, file$1, 117, 4, 3601);
+    			add_location(script2, file$1, 118, 4, 3650);
     			if (script3.src !== (script3_src_value = "https://code.highcharts.com/modules/accessibility.js")) attr_dev(script3, "src", script3_src_value);
-    			add_location(script3, file$1, 118, 4, 3679);
-    			add_location(h2, file$1, 121, 4, 3785);
-    			add_location(br0, file$1, 124, 4, 3832);
-    			add_location(br1, file$1, 125, 4, 3842);
-    			add_location(br2, file$1, 126, 4, 3852);
+    			add_location(script3, file$1, 119, 4, 3728);
+    			add_location(h2, file$1, 122, 4, 3834);
+    			add_location(br0, file$1, 125, 4, 3881);
+    			add_location(br1, file$1, 126, 4, 3891);
+    			add_location(br2, file$1, 127, 4, 3901);
     			attr_dev(div, "id", "container");
-    			add_location(div, file$1, 129, 8, 3912);
+    			add_location(div, file$1, 130, 8, 3961);
     			attr_dev(p, "class", "highcharts-description");
-    			add_location(p, file$1, 130, 8, 3948);
+    			add_location(p, file$1, 131, 8, 3997);
     			attr_dev(figure, "class", "highcharts-figure svelte-160h0cr");
-    			add_location(figure, file$1, 128, 4, 3868);
-    			add_location(br3, file$1, 134, 4, 4160);
-    			add_location(br4, file$1, 135, 4, 4170);
-    			add_location(br5, file$1, 136, 4, 4180);
-    			add_location(br6, file$1, 137, 4, 4190);
-    			add_location(main, file$1, 120, 0, 3773);
+    			add_location(figure, file$1, 129, 4, 3917);
+    			add_location(br3, file$1, 135, 4, 4209);
+    			add_location(br4, file$1, 136, 4, 4219);
+    			add_location(br5, file$1, 137, 4, 4229);
+    			add_location(br6, file$1, 138, 4, 4239);
+    			add_location(main, file$1, 121, 0, 3822);
     		},
     		l: function claim(nodes) {
     			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
@@ -20868,6 +20868,7 @@ var app = (function () {
     	let { $$slots: slots = {}, $$scope } = $$props;
     	validate_slots("GraphITAP", slots, []);
     	var registrosAirPollution = [];
+    	var registrosInterTourism = [];
     	var diccAP = {};
     	var data1 = [];
     	var lista = [];
@@ -20940,7 +20941,7 @@ var app = (function () {
     			},
     			tooltip: {
     				useHTML: true,
-    				pointFormat: "<b>{point.name}:</b> {point.value}m CO<sub>2</sub>"
+    				pointFormat: "<b>{point.name}:</b> {point.value} llegadas o m CO<sub>2</sub>"
     			},
     			plotOptions: {
     				packedbubble: {
@@ -20987,6 +20988,7 @@ var app = (function () {
     		Button,
     		onMount,
     		registrosAirPollution,
+    		registrosInterTourism,
     		diccAP,
     		data1,
     		lista,
@@ -20997,6 +20999,7 @@ var app = (function () {
 
     	$$self.$inject_state = $$props => {
     		if ("registrosAirPollution" in $$props) registrosAirPollution = $$props.registrosAirPollution;
+    		if ("registrosInterTourism" in $$props) registrosInterTourism = $$props.registrosInterTourism;
     		if ("diccAP" in $$props) diccAP = $$props.diccAP;
     		if ("data1" in $$props) data1 = $$props.data1;
     		if ("lista" in $$props) lista = $$props.lista;
