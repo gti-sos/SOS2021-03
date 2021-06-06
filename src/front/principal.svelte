@@ -37,6 +37,9 @@
 	<h3><a href="https://sos2021-03.herokuapp.com/#/analytics">Gráfica grupal</a></h3>
 	<br>
 	<br>
+	<h3><a href="https://sos2021-03.herokuapp.com/#/about">Vídeos explicativos</a></h3>
+	<br>
+	<br>
 	
 	<div> <h3>API's</h3></div>
 	<ul>
@@ -77,7 +80,7 @@
 				</thead>
 				<tr>
 					<td>
-						<a href="#/air-pollution" class="btn btn-outline-warning" role="button" aria-pressed="true">FRONT-END</a>
+						<a href="#/air-pollution" id="air-pollution" class="btn btn-outline-warning" role="button" aria-pressed="true">FRONT-END</a>
 					</td>
 					<td>
 						<a href="https://sos2021-03.herokuapp.com/api/v1/air-pollution" class="btn btn-outline-warning" role="button" aria-pressed="true">API Muertes por contaminación del aire</a>

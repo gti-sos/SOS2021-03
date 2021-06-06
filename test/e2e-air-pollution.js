@@ -25,7 +25,7 @@ const puppeteer = require('puppeteer');
     await page.screenshot({ path: './test/screenshots/air-pollution/02.png' });
     const [response2] = await Promise.all([
         page.waitForNavigation(),
-        page.click("body > main > main > ul:nth-child(13) > li:nth-child(1) > table:nth-child(4) > tbody > tr:nth-child(1) > td:nth-child(1) > a"),
+        page.click("#air-pollution"),
       ]);
       
     console.log("Clicked \"air-pollution Front-End\" link, redirecting to air-pollution page...");
