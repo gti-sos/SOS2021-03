@@ -14,7 +14,6 @@
 	var pais = new Set();
 	let years = new Set();
 	
-    let expendituresbillion=[];
     var dictExpendituresbillion={};
     var dataSource ={};
     let anyos2 = [];
@@ -24,10 +23,14 @@
     let categoriasAnyos = [];
     let data = [];
 
+    var registrosInterTourism = [];
+    var listaI = [];
 
     async function getData(){
         console.log("Fetching data...");
         const res = await fetch(BASE_CONTACT_API_PATH + "/international-tourisms");
+       
+      
         if(res.ok){
             console.log("Ok.");
             const json = await res.json();
@@ -37,7 +40,20 @@
 			let i=0;
             let j=0;
 			data.reverse();
+            console.log(data);
+
+            registrosInterTourism = json;
+            let e=0;
         
+            while(e<registrosInterTourism.length){
+                if(registrosInterTourism[e].year==2010){
+                    listaI.push([registrosInterTourism[e].country,registrosInterTourism[e].numberofdepartures]);
+                }
+                e++;
+            }
+            console.log(`We have received ${registrosInterTourism.length} stats.`);
+       
+
 			while(j<data.length){
                 pais.add(data[j].country);
 				years.add(data[j].year);
@@ -102,7 +118,8 @@
 					}
 			}
 		}
-
+        console.log(dictExpendituresbillion);
+    
 
         for(let a=0; a< years.size; a++){
             let anyos= Array.from(years).sort();
@@ -114,12 +131,11 @@
         var gastosanyos = [];
            Object.entries(dictExpendituresbillion).forEach(([key, value]) => {
                 gastosanyos.push({seriesName:key, data:value});
-               // expendituresbillion.push({name: key , data:value})
+               
 		    });
         console.log(categoriasAnyos);
         console.log(gastosanyos);
 
-        console.log(expendituresbillion);
        
 
     dataSource = {
@@ -140,15 +156,21 @@
       ],
       "dataset": gastosanyos
     };
-    console.log("datos cargados");
-    loadGraph();
+    console.log("datos cargados fusion");
+    
+    console.log("datos cargados high");
+
+     
+        
+    loadGraphFusion();
+    loadGraphHigh();
     };
     
      
     onMount(getData);
     var chartConfigs={};
-
-    async function loadGraph(){
+    
+    async function loadGraphFusion(){
         chartConfigs = {
        type: 'mscolumn2d',
        width: 700,
@@ -157,15 +179,107 @@
        dataSource
         };
     }
-</script>
     
+    async function loadGraphHigh(){
+        Highcharts.chart('container', {
+        chart: {
+            type: 'pie',
+            options3d: {
+            enabled: true,
+            alpha: 45
+            }
+        },
+        title: {
+            text: 'Turismo Internacional Número de LLegadas'
+        },
+        subtitle: {
+            text: '3D donut in Highcharts'
+        },
+        plotOptions: {
+            pie: {
+            innerSize: 100,
+            depth: 45
+            }
+        },
+        series: [{
+            name: 'Llegadas',
+            data: listaI
+            }]
+        });
+        
+    }
+    
+</script>
+<svelte:head>
+    <script src="https://code.highcharts.com/highcharts.js"></script>
+    <script src="https://code.highcharts.com/highcharts-3d.js"></script>
+    <script src="https://code.highcharts.com/modules/exporting.js"></script>
+    <script src="https://code.highcharts.com/modules/export-data.js"></script>
+    <script src="https://code.highcharts.com/modules/accessibility.js"></script>
+</svelte:head> 
 <main>
     <br>
-    <br>
+    
     <Button outline color="dark" onclick="window.location.href='#/international-tourisms'">Volver</Button>
+    <br>
+    <br>  
     <div style="margin:auto;"> 
     <SvelteFC {...chartConfigs}/>
       
     </div>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <div>
+        <figure class="highcharts-figure">
+            <div id="container"></div>
+            <p class="highcharts-description">
+              Este gráfico muestra el número de llegadas a los paises cargados en la api en 2010.
+            </p>
+          </figure>
+    </div>
    
   </main>
+  <style>
+    #container {
+        height: 400px; 
+    }
+
+    .highcharts-figure, .highcharts-data-table table {
+        min-width: 310px; 
+        max-width: 800px;
+        margin: 1em auto;
+    }
+
+    .highcharts-data-table table {
+    font-family: Verdana, sans-serif;
+    border-collapse: collapse;
+    border: 1px solid #EBEBEB;
+    margin: 10px auto;
+    text-align: center;
+    width: 100%;
+    max-width: 500px;
+    }
+    .highcharts-data-table caption {
+    padding: 1em 0;
+    font-size: 1.2em;
+    color: #555;
+    }
+    .highcharts-data-table th {
+    font-weight: 600;
+    padding: 0.5em;
+    }
+    .highcharts-data-table td, .highcharts-data-table th, .highcharts-data-table caption {
+    padding: 0.5em;
+    }
+    .highcharts-data-table thead tr, .highcharts-data-table tr:nth-child(even) {
+    background: #f8f8f8;
+    }
+    .highcharts-data-table tr:hover {
+    background: #f1f7ff;
+    }
+
+ </style>

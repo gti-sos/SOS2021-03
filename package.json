@@ -38,6 +38,7 @@
     "express": "^4.17.1",
     "fusioncharts": "^3.17.0",
     "highcharts": "^9.1.1",
+    "highcharts-3d": "^0.1.7",
     "nedb": "^1.8.0",
     "path": "^0.12.7",
     "puppeteer": "^10.0.0",
