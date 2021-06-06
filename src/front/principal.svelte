@@ -77,7 +77,7 @@
 				</thead>
 				<tr>
 					<td>
-						<a href="#/air-pollution" class="btn btn-outline-warning" role="button" aria-pressed="true">FRONT-END</a>
+						<a href="#/air-pollution" class="btn btn-outline-warning air-pollution" role="button" aria-pressed="true">FRONT-END</a>
 					</td>
 					<td>
 						<a href="https://sos2021-03.herokuapp.com/api/v1/air-pollution" class="btn btn-outline-warning" role="button" aria-pressed="true">API Muertes por contaminación del aire</a>
