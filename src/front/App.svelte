@@ -43,10 +43,11 @@
 		"/international-tourisms/:country/:year": EditIntertourism,
 		"/international-tourisms/graph": InterGraph,
 		"/analytics": graphITAP,
-        "*": NotFound,
-		"/about": about
+		"/about": about,
+        "*": NotFound
+		
 	}
-	
+
  
   
 </script>
