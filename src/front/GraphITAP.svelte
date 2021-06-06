@@ -24,17 +24,13 @@
             let i =0;
             let j=0;
             while(i<registrosAirPollution.length){
-                if(registrosAirPollution[i].year==2011){
-                    lista.push({"name":registrosAirPollution[i].country,"value":registrosAirPollution[i].deaths_air_pollution});
-                }
+                lista.push({"name":registrosAirPollution[i].country+" "+ registrosAirPollution[i].year,"value":registrosAirPollution[i].deaths_air_pollution});
                 i++;
             }
             console.log(`We have received ${registrosAirPollution.length} stats.`);
             
             while(j<registrosInterTourism.length){
-                if(registrosInterTourism[j].year==2011){
-                    listaI.push({"name":registrosInterTourism[j].country,"value":registrosInterTourism[j].numberofarrivals});
-                }
+                listaI.push({"name":registrosInterTourism[j].country+" "+registrosInterTourism[j].year,"value":registrosInterTourism[j].numberofarrivals});
                 j++;
             }
             console.log(`We have received ${registrosInterTourism.length} stats.`);
@@ -42,16 +38,6 @@
             console.log("ERROR!" + errorMsg);
         }
         
-        /*
-        console.log("Fetching obesity data...");
-        const res1 = await fetch("https://sos2021-03.herokuapp.com/api/v1/obesity");
-        if (res1.ok) {
-            const json2 = await res1.json();
-            registrosObesity = json2;
-            console.log(`We have received ${registrosObesity.length} stats.`);
-        } else {
-            console.log("ERROR!" + errorMsg);
-        }*/
         console.log(lista);
         loadGraph2();
         
@@ -71,7 +57,7 @@
     },
     tooltip: {
         useHTML: true,
-        pointFormat: '<b>{point.name}:</b> {point.value} llegadas o m CO<sub>2</sub>'
+        pointFormat: '<b>{point.name}:</b> {point.value} llegadas/millones de muertes por contaminación del aire<sub>2</sub>'
     },
     plotOptions: {
         packedbubble: {

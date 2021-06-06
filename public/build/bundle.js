@@ -21057,28 +21057,28 @@ var app = (function () {
     			t11 = space();
     			br6 = element("br");
     			if (script0.src !== (script0_src_value = "https://code.highcharts.com/highcharts.js")) attr_dev(script0, "src", script0_src_value);
-    			add_location(script0, file$3, 116, 4, 3503);
+    			add_location(script0, file$3, 102, 4, 3035);
     			if (script1.src !== (script1_src_value = "https://code.highcharts.com/highcharts-more.js")) attr_dev(script1, "src", script1_src_value);
-    			add_location(script1, file$3, 117, 4, 3574);
+    			add_location(script1, file$3, 103, 4, 3106);
     			if (script2.src !== (script2_src_value = "https://code.highcharts.com/modules/exporting.js")) attr_dev(script2, "src", script2_src_value);
-    			add_location(script2, file$3, 118, 4, 3650);
+    			add_location(script2, file$3, 104, 4, 3182);
     			if (script3.src !== (script3_src_value = "https://code.highcharts.com/modules/accessibility.js")) attr_dev(script3, "src", script3_src_value);
-    			add_location(script3, file$3, 119, 4, 3728);
-    			add_location(h2, file$3, 122, 4, 3834);
-    			add_location(br0, file$3, 125, 4, 3881);
-    			add_location(br1, file$3, 126, 4, 3891);
-    			add_location(br2, file$3, 127, 4, 3901);
+    			add_location(script3, file$3, 105, 4, 3260);
+    			add_location(h2, file$3, 108, 4, 3366);
+    			add_location(br0, file$3, 111, 4, 3413);
+    			add_location(br1, file$3, 112, 4, 3423);
+    			add_location(br2, file$3, 113, 4, 3433);
     			attr_dev(div, "id", "container");
-    			add_location(div, file$3, 130, 8, 3961);
+    			add_location(div, file$3, 116, 8, 3493);
     			attr_dev(p, "class", "highcharts-description");
-    			add_location(p, file$3, 131, 8, 3997);
+    			add_location(p, file$3, 117, 8, 3529);
     			attr_dev(figure, "class", "highcharts-figure svelte-160h0cr");
-    			add_location(figure, file$3, 129, 4, 3917);
-    			add_location(br3, file$3, 135, 4, 4209);
-    			add_location(br4, file$3, 136, 4, 4219);
-    			add_location(br5, file$3, 137, 4, 4229);
-    			add_location(br6, file$3, 138, 4, 4239);
-    			add_location(main, file$3, 121, 0, 3822);
+    			add_location(figure, file$3, 115, 4, 3449);
+    			add_location(br3, file$3, 121, 4, 3741);
+    			add_location(br4, file$3, 122, 4, 3751);
+    			add_location(br5, file$3, 123, 4, 3761);
+    			add_location(br6, file$3, 124, 4, 3771);
+    			add_location(main, file$3, 107, 0, 3354);
     		},
     		l: function claim(nodes) {
     			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
@@ -21159,12 +21159,10 @@ var app = (function () {
     			let j = 0;
 
     			while (i < registrosAirPollution.length) {
-    				if (registrosAirPollution[i].year == 2011) {
-    					lista.push({
-    						"name": registrosAirPollution[i].country,
-    						"value": registrosAirPollution[i].deaths_air_pollution
-    					});
-    				}
+    				lista.push({
+    					"name": registrosAirPollution[i].country + " " + registrosAirPollution[i].year,
+    					"value": registrosAirPollution[i].deaths_air_pollution
+    				});
 
     				i++;
     			}
@@ -21172,12 +21170,10 @@ var app = (function () {
     			console.log(`We have received ${registrosAirPollution.length} stats.`);
 
     			while (j < registrosInterTourism.length) {
-    				if (registrosInterTourism[j].year == 2011) {
-    					listaI.push({
-    						"name": registrosInterTourism[j].country,
-    						"value": registrosInterTourism[j].numberofarrivals
-    					});
-    				}
+    				listaI.push({
+    					"name": registrosInterTourism[j].country + " " + registrosInterTourism[j].year,
+    					"value": registrosInterTourism[j].numberofarrivals
+    				});
 
     				j++;
     			}
@@ -21187,18 +21183,7 @@ var app = (function () {
     			console.log("ERROR!" + errorMsg);
     		}
 
-    		/*
-    console.log("Fetching obesity data...");
-    const res1 = await fetch("https://sos2021-03.herokuapp.com/api/v1/obesity");
-    if (res1.ok) {
-        const json2 = await res1.json();
-        registrosObesity = json2;
-        console.log(`We have received ${registrosObesity.length} stats.`);
-    } else {
-        console.log("ERROR!" + errorMsg);
-    }*/
     		console.log(lista);
-
     		loadGraph2();
     	}
 
@@ -21212,7 +21197,7 @@ var app = (function () {
     			},
     			tooltip: {
     				useHTML: true,
-    				pointFormat: "<b>{point.name}:</b> {point.value} llegadas o m CO<sub>2</sub>"
+    				pointFormat: "<b>{point.name}:</b> {point.value} llegadas/millones de muertes por contaminación del aire<sub>2</sub>"
     			},
     			plotOptions: {
     				packedbubble: {
@@ -21304,13 +21289,19 @@ var app = (function () {
 
     function create_fragment$7(ctx) {
     	let main;
+    	let h3;
+    	let t1;
     	let iframe;
     	let iframe_src_value;
 
     	const block = {
     		c: function create() {
     			main = element("main");
+    			h3 = element("h3");
+    			h3.textContent = "Video explicativo muertes por contaminacion del aire";
+    			t1 = space();
     			iframe = element("iframe");
+    			add_location(h3, file$2, 1, 4, 12);
     			attr_dev(iframe, "width", "560");
     			attr_dev(iframe, "height", "315");
     			if (iframe.src !== (iframe_src_value = "https://www.youtube.com/embed/coYPEnDuBoA")) attr_dev(iframe, "src", iframe_src_value);
@@ -21318,7 +21309,7 @@ var app = (function () {
     			attr_dev(iframe, "frameborder", "0");
     			attr_dev(iframe, "allow", "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture");
     			iframe.allowFullscreen = true;
-    			add_location(iframe, file$2, 1, 4, 12);
+    			add_location(iframe, file$2, 2, 4, 79);
     			add_location(main, file$2, 0, 0, 0);
     		},
     		l: function claim(nodes) {
@@ -21326,6 +21317,8 @@ var app = (function () {
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, main, anchor);
+    			append_dev(main, h3);
+    			append_dev(main, t1);
     			append_dev(main, iframe);
     		},
     		p: noop$1,
@@ -22010,7 +22003,7 @@ var app = (function () {
     /* src\front\App.svelte generated by Svelte v3.37.0 */
     const file = "src\\front\\App.svelte";
 
-    // (72:7) <NavLink  active href="#/">
+    // (73:7) <NavLink  active href="#/">
     function create_default_slot_18(ctx) {
     	let t;
 
@@ -22030,14 +22023,14 @@ var app = (function () {
     		block,
     		id: create_default_slot_18.name,
     		type: "slot",
-    		source: "(72:7) <NavLink  active href=\\\"#/\\\">",
+    		source: "(73:7) <NavLink  active href=\\\"#/\\\">",
     		ctx
     	});
 
     	return block;
     }
 
-    // (71:6) <NavItem  >
+    // (72:6) <NavItem  >
     function create_default_slot_17(ctx) {
     	let navlink;
     	let current;
@@ -22087,14 +22080,14 @@ var app = (function () {
     		block,
     		id: create_default_slot_17.name,
     		type: "slot",
-    		source: "(71:6) <NavItem  >",
+    		source: "(72:6) <NavItem  >",
     		ctx
     	});
 
     	return block;
     }
 
-    // (75:7) <NavLink  active href="#/info">
+    // (76:7) <NavLink  active href="#/info">
     function create_default_slot_16(ctx) {
     	let t;
 
@@ -22114,14 +22107,14 @@ var app = (function () {
     		block,
     		id: create_default_slot_16.name,
     		type: "slot",
-    		source: "(75:7) <NavLink  active href=\\\"#/info\\\">",
+    		source: "(76:7) <NavLink  active href=\\\"#/info\\\">",
     		ctx
     	});
 
     	return block;
     }
 
-    // (74:6) <NavItem  >
+    // (75:6) <NavItem  >
     function create_default_slot_15(ctx) {
     	let navlink;
     	let current;
@@ -22171,14 +22164,14 @@ var app = (function () {
     		block,
     		id: create_default_slot_15.name,
     		type: "slot",
-    		source: "(74:6) <NavItem  >",
+    		source: "(75:6) <NavItem  >",
     		ctx
     	});
 
     	return block;
     }
 
-    // (78:7) <NavLink  active href="#/analytics">
+    // (79:7) <NavLink  active href="#/analytics">
     function create_default_slot_14(ctx) {
     	let t;
 
@@ -22198,14 +22191,14 @@ var app = (function () {
     		block,
     		id: create_default_slot_14.name,
     		type: "slot",
-    		source: "(78:7) <NavLink  active href=\\\"#/analytics\\\">",
+    		source: "(79:7) <NavLink  active href=\\\"#/analytics\\\">",
     		ctx
     	});
 
     	return block;
     }
 
-    // (77:6) <NavItem  >
+    // (78:6) <NavItem  >
     function create_default_slot_13(ctx) {
     	let navlink;
     	let current;
@@ -22255,14 +22248,14 @@ var app = (function () {
     		block,
     		id: create_default_slot_13.name,
     		type: "slot",
-    		source: "(77:6) <NavItem  >",
+    		source: "(78:6) <NavItem  >",
     		ctx
     	});
 
     	return block;
     }
 
-    // (81:7) <NavLink href="#/air-pollution">
+    // (82:7) <NavLink href="#/air-pollution">
     function create_default_slot_12(ctx) {
     	let t;
 
@@ -22282,14 +22275,14 @@ var app = (function () {
     		block,
     		id: create_default_slot_12.name,
     		type: "slot",
-    		source: "(81:7) <NavLink href=\\\"#/air-pollution\\\">",
+    		source: "(82:7) <NavLink href=\\\"#/air-pollution\\\">",
     		ctx
     	});
 
     	return block;
     }
 
-    // (80:6) <NavItem>
+    // (81:6) <NavItem>
     function create_default_slot_11(ctx) {
     	let navlink;
     	let current;
@@ -22338,14 +22331,14 @@ var app = (function () {
     		block,
     		id: create_default_slot_11.name,
     		type: "slot",
-    		source: "(80:6) <NavItem>",
+    		source: "(81:6) <NavItem>",
     		ctx
     	});
 
     	return block;
     }
 
-    // (84:7) <NavLink href="#/international-tourisms">
+    // (85:7) <NavLink href="#/international-tourisms">
     function create_default_slot_10(ctx) {
     	let t;
 
@@ -22365,14 +22358,14 @@ var app = (function () {
     		block,
     		id: create_default_slot_10.name,
     		type: "slot",
-    		source: "(84:7) <NavLink href=\\\"#/international-tourisms\\\">",
+    		source: "(85:7) <NavLink href=\\\"#/international-tourisms\\\">",
     		ctx
     	});
 
     	return block;
     }
 
-    // (83:6) <NavItem>
+    // (84:6) <NavItem>
     function create_default_slot_9(ctx) {
     	let navlink;
     	let current;
@@ -22421,14 +22414,14 @@ var app = (function () {
     		block,
     		id: create_default_slot_9.name,
     		type: "slot",
-    		source: "(83:6) <NavItem>",
+    		source: "(84:6) <NavItem>",
     		ctx
     	});
 
     	return block;
     }
 
-    // (87:7) <DropdownToggle nav caret>
+    // (88:7) <DropdownToggle nav caret>
     function create_default_slot_8(ctx) {
     	let t;
 
@@ -22448,14 +22441,14 @@ var app = (function () {
     		block,
     		id: create_default_slot_8.name,
     		type: "slot",
-    		source: "(87:7) <DropdownToggle nav caret>",
+    		source: "(88:7) <DropdownToggle nav caret>",
     		ctx
     	});
 
     	return block;
     }
 
-    // (91:8) <DropdownItem href= "https://sos2021-03.herokuapp.com/api/v1/air-pollution">
+    // (92:8) <DropdownItem href= "https://sos2021-03.herokuapp.com/api/v1/air-pollution">
     function create_default_slot_7(ctx) {
     	let t;
 
@@ -22475,14 +22468,14 @@ var app = (function () {
     		block,
     		id: create_default_slot_7.name,
     		type: "slot",
-    		source: "(91:8) <DropdownItem href= \\\"https://sos2021-03.herokuapp.com/api/v1/air-pollution\\\">",
+    		source: "(92:8) <DropdownItem href= \\\"https://sos2021-03.herokuapp.com/api/v1/air-pollution\\\">",
     		ctx
     	});
 
     	return block;
     }
 
-    // (92:8) <DropdownItem href="https://sos2021-03.herokuapp.com/api/v2/international-tourisms">
+    // (93:8) <DropdownItem href="https://sos2021-03.herokuapp.com/api/v2/international-tourisms">
     function create_default_slot_6(ctx) {
     	let t;
 
@@ -22502,14 +22495,14 @@ var app = (function () {
     		block,
     		id: create_default_slot_6.name,
     		type: "slot",
-    		source: "(92:8) <DropdownItem href=\\\"https://sos2021-03.herokuapp.com/api/v2/international-tourisms\\\">",
+    		source: "(93:8) <DropdownItem href=\\\"https://sos2021-03.herokuapp.com/api/v2/international-tourisms\\\">",
     		ctx
     	});
 
     	return block;
     }
 
-    // (93:8) <DropdownItem href= "https://sos2021-03.herokuapp.com/api/v1/quality-of-life">
+    // (94:8) <DropdownItem href= "https://sos2021-03.herokuapp.com/api/v1/quality-of-life">
     function create_default_slot_5(ctx) {
     	let t;
 
@@ -22529,14 +22522,14 @@ var app = (function () {
     		block,
     		id: create_default_slot_5.name,
     		type: "slot",
-    		source: "(93:8) <DropdownItem href= \\\"https://sos2021-03.herokuapp.com/api/v1/quality-of-life\\\">",
+    		source: "(94:8) <DropdownItem href= \\\"https://sos2021-03.herokuapp.com/api/v1/quality-of-life\\\">",
     		ctx
     	});
 
     	return block;
     }
 
-    // (90:7) <DropdownMenu>
+    // (91:7) <DropdownMenu>
     function create_default_slot_4(ctx) {
     	let dropdownitem0;
     	let t0;
@@ -22637,14 +22630,14 @@ var app = (function () {
     		block,
     		id: create_default_slot_4.name,
     		type: "slot",
-    		source: "(90:7) <DropdownMenu>",
+    		source: "(91:7) <DropdownMenu>",
     		ctx
     	});
 
     	return block;
     }
 
-    // (86:6) <Dropdown {isOpen} toggle="{() => isOpen = !isOpen}">
+    // (87:6) <Dropdown {isOpen} toggle="{() => isOpen = !isOpen}">
     function create_default_slot_3(ctx) {
     	let dropdowntoggle;
     	let t;
@@ -22719,14 +22712,14 @@ var app = (function () {
     		block,
     		id: create_default_slot_3.name,
     		type: "slot",
-    		source: "(86:6) <Dropdown {isOpen} toggle=\\\"{() => isOpen = !isOpen}\\\">",
+    		source: "(87:6) <Dropdown {isOpen} toggle=\\\"{() => isOpen = !isOpen}\\\">",
     		ctx
     	});
 
     	return block;
     }
 
-    // (70:5) <Nav navbar >
+    // (71:5) <Nav navbar >
     function create_default_slot_2(ctx) {
     	let navitem0;
     	let t0;
@@ -22903,14 +22896,14 @@ var app = (function () {
     		block,
     		id: create_default_slot_2.name,
     		type: "slot",
-    		source: "(70:5) <Nav navbar >",
+    		source: "(71:5) <Nav navbar >",
     		ctx
     	});
 
     	return block;
     }
 
-    // (69:4) <Collapse {isOpena} navbar expand="md" on:update={handleUpdate}>
+    // (70:4) <Collapse {isOpena} navbar expand="md" on:update={handleUpdate}>
     function create_default_slot_1(ctx) {
     	let nav;
     	let current;
@@ -22959,14 +22952,14 @@ var app = (function () {
     		block,
     		id: create_default_slot_1.name,
     		type: "slot",
-    		source: "(69:4) <Collapse {isOpena} navbar expand=\\\"md\\\" on:update={handleUpdate}>",
+    		source: "(70:4) <Collapse {isOpena} navbar expand=\\\"md\\\" on:update={handleUpdate}>",
     		ctx
     	});
 
     	return block;
     }
 
-    // (67:2) <Navbar color="light" light expand="md" >
+    // (68:2) <Navbar color="light" light expand="md" >
     function create_default_slot(ctx) {
     	let navbartoggler;
     	let t;
@@ -23032,7 +23025,7 @@ var app = (function () {
     		block,
     		id: create_default_slot.name,
     		type: "slot",
-    		source: "(67:2) <Navbar color=\\\"light\\\" light expand=\\\"md\\\" >",
+    		source: "(68:2) <Navbar color=\\\"light\\\" light expand=\\\"md\\\" >",
     		ctx
     	});
 
@@ -23070,8 +23063,8 @@ var app = (function () {
     			create_component(navbar.$$.fragment);
     			t = space();
     			create_component(router.$$.fragment);
-    			add_location(body, file, 65, 1, 2775);
-    			add_location(main, file, 64, 0, 2766);
+    			add_location(body, file, 66, 1, 2778);
+    			add_location(main, file, 65, 0, 2769);
     		},
     		l: function claim(nodes) {
     			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
@@ -23153,8 +23146,8 @@ var app = (function () {
     		"/international-tourisms/external1": InteExt1,
     		"/international-tourisms/external2": InteExt2,
     		"/analytics": GraphITAP,
-    		"*": NotFound,
-    		"/about": About
+    		"/about": About,
+    		"*": NotFound
     	};
 
     	const writable_props = [];
