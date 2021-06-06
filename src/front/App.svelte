@@ -55,10 +55,11 @@
 		"/international-tourisms/external1" : inteExt1,
 		"/international-tourisms/external2" : inteExt2,
 		"/analytics": graphITAP,
-        "*": NotFound,
-		"/about": about
+		"/about": about,
+        "*": NotFound
+		
 	}
-	
+
  
   
 </script>
