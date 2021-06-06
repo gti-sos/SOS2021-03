@@ -26,6 +26,12 @@
 	import extAirPollution2 from './air-pollution/integraciones/externalApi2.svelte';
 	import graphITAP from './GraphITAP.svelte';
 	import about from './about.svelte';
+	import inteG02 from './Inter-tourism/integration/inteG02.svelte';
+	import inteG04 from './Inter-tourism/integration/inteG04.svelte';
+	import inteG08 from './Inter-tourism/integration/inteG08.svelte';
+	import inteG10 from './Inter-tourism/integration/inteG10.svelte';
+	import inteExt1 from './Inter-tourism/integration/inteExt1.svelte';
+	import inteExt2 from './Inter-tourism/integration/inteExt2.svelte';
     
 	
 	const routes = {
@@ -42,6 +48,12 @@
 		"/international-tourisms": InterTourism,
 		"/international-tourisms/:country/:year": EditIntertourism,
 		"/international-tourisms/graph": InterGraph,
+		"/international-tourisms/inteG02" : inteG02,
+		"/international-tourisms/inteG04" : inteG04,
+		"/international-tourisms/inteG08": inteG08,
+		"/international-tourisms/inteG10": inteG10,
+		"/international-tourisms/external1" : inteExt1,
+		"/international-tourisms/external2" : inteExt2,
 		"/analytics": graphITAP,
         "*": NotFound,
 		"/about": about
