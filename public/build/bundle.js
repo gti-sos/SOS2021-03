@@ -18201,7 +18201,7 @@ var app = (function () {
     const { Object: Object_1$4, console: console_1$6 } = globals;
     const file$8 = "src\\front\\Inter-tourism\\Graphs.svelte";
 
-    // (165:4) <Button outline color="dark" onclick="window.location.href='#/international-tourisms'">
+    // (223:4) <Button outline color="dark" onclick="window.location.href='#/international-tourisms'">
     function create_default_slot$1(ctx) {
     	let t;
 
@@ -18221,7 +18221,7 @@ var app = (function () {
     		block,
     		id: create_default_slot$1.name,
     		type: "slot",
-    		source: "(165:4) <Button outline color=\\\"dark\\\" onclick=\\\"window.location.href='#/international-tourisms'\\\">",
+    		source: "(223:4) <Button outline color=\\\"dark\\\" onclick=\\\"window.location.href='#/international-tourisms'\\\">",
     		ctx
     	});
 
@@ -18229,15 +18229,46 @@ var app = (function () {
     }
 
     function create_fragment$8(ctx) {
+    	let script0;
+    	let script0_src_value;
+    	let script1;
+    	let script1_src_value;
+    	let script2;
+    	let script2_src_value;
+    	let script3;
+    	let script3_src_value;
+    	let script4;
+    	let script4_src_value;
+    	let t0;
     	let main;
     	let br0;
-    	let t0;
-    	let br1;
     	let t1;
     	let button;
     	let t2;
-    	let div;
+    	let br1;
+    	let t3;
+    	let br2;
+    	let t4;
+    	let div0;
     	let sveltefc;
+    	let t5;
+    	let br3;
+    	let t6;
+    	let br4;
+    	let t7;
+    	let br5;
+    	let t8;
+    	let br6;
+    	let t9;
+    	let br7;
+    	let t10;
+    	let br8;
+    	let t11;
+    	let div2;
+    	let figure;
+    	let div1;
+    	let t12;
+    	let p;
     	let current;
 
     	button = new Button({
@@ -18262,40 +18293,118 @@ var app = (function () {
 
     	const block = {
     		c: function create() {
+    			script0 = element("script");
+    			script1 = element("script");
+    			script2 = element("script");
+    			script3 = element("script");
+    			script4 = element("script");
+    			t0 = space();
     			main = element("main");
     			br0 = element("br");
-    			t0 = space();
-    			br1 = element("br");
     			t1 = space();
     			create_component(button.$$.fragment);
     			t2 = space();
-    			div = element("div");
+    			br1 = element("br");
+    			t3 = space();
+    			br2 = element("br");
+    			t4 = space();
+    			div0 = element("div");
     			create_component(sveltefc.$$.fragment);
-    			add_location(br0, file$8, 162, 4, 4736);
-    			add_location(br1, file$8, 163, 4, 4746);
-    			set_style(div, "margin", "auto");
-    			add_location(div, file$8, 165, 4, 4864);
-    			add_location(main, file$8, 161, 0, 4724);
+    			t5 = space();
+    			br3 = element("br");
+    			t6 = space();
+    			br4 = element("br");
+    			t7 = space();
+    			br5 = element("br");
+    			t8 = space();
+    			br6 = element("br");
+    			t9 = space();
+    			br7 = element("br");
+    			t10 = space();
+    			br8 = element("br");
+    			t11 = space();
+    			div2 = element("div");
+    			figure = element("figure");
+    			div1 = element("div");
+    			t12 = space();
+    			p = element("p");
+    			p.textContent = "Este gráfico muestra el número de llegadas a los paises cargados en la api en 2010.";
+    			if (script0.src !== (script0_src_value = "https://code.highcharts.com/highcharts.js")) attr_dev(script0, "src", script0_src_value);
+    			add_location(script0, file$8, 213, 4, 5974);
+    			if (script1.src !== (script1_src_value = "https://code.highcharts.com/highcharts-3d.js")) attr_dev(script1, "src", script1_src_value);
+    			add_location(script1, file$8, 214, 4, 6045);
+    			if (script2.src !== (script2_src_value = "https://code.highcharts.com/modules/exporting.js")) attr_dev(script2, "src", script2_src_value);
+    			add_location(script2, file$8, 215, 4, 6119);
+    			if (script3.src !== (script3_src_value = "https://code.highcharts.com/modules/export-data.js")) attr_dev(script3, "src", script3_src_value);
+    			add_location(script3, file$8, 216, 4, 6197);
+    			if (script4.src !== (script4_src_value = "https://code.highcharts.com/modules/accessibility.js")) attr_dev(script4, "src", script4_src_value);
+    			add_location(script4, file$8, 217, 4, 6277);
+    			add_location(br0, file$8, 220, 4, 6384);
+    			add_location(br1, file$8, 223, 4, 6508);
+    			add_location(br2, file$8, 224, 4, 6518);
+    			set_style(div0, "margin", "auto");
+    			add_location(div0, file$8, 225, 4, 6530);
+    			add_location(br3, file$8, 229, 4, 6618);
+    			add_location(br4, file$8, 230, 4, 6628);
+    			add_location(br5, file$8, 231, 4, 6638);
+    			add_location(br6, file$8, 232, 4, 6648);
+    			add_location(br7, file$8, 233, 4, 6658);
+    			add_location(br8, file$8, 234, 4, 6668);
+    			attr_dev(div1, "id", "container");
+    			attr_dev(div1, "class", "svelte-1yvwmsf");
+    			add_location(div1, file$8, 237, 12, 6741);
+    			attr_dev(p, "class", "highcharts-description");
+    			add_location(p, file$8, 238, 12, 6781);
+    			attr_dev(figure, "class", "highcharts-figure svelte-1yvwmsf");
+    			add_location(figure, file$8, 236, 8, 6693);
+    			add_location(div2, file$8, 235, 4, 6678);
+    			add_location(main, file$8, 219, 0, 6372);
     		},
     		l: function claim(nodes) {
     			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
     		},
     		m: function mount(target, anchor) {
+    			append_dev(document.head, script0);
+    			append_dev(document.head, script1);
+    			append_dev(document.head, script2);
+    			append_dev(document.head, script3);
+    			append_dev(document.head, script4);
+    			insert_dev(target, t0, anchor);
     			insert_dev(target, main, anchor);
     			append_dev(main, br0);
-    			append_dev(main, t0);
-    			append_dev(main, br1);
     			append_dev(main, t1);
     			mount_component(button, main, null);
     			append_dev(main, t2);
-    			append_dev(main, div);
-    			mount_component(sveltefc, div, null);
+    			append_dev(main, br1);
+    			append_dev(main, t3);
+    			append_dev(main, br2);
+    			append_dev(main, t4);
+    			append_dev(main, div0);
+    			mount_component(sveltefc, div0, null);
+    			append_dev(main, t5);
+    			append_dev(main, br3);
+    			append_dev(main, t6);
+    			append_dev(main, br4);
+    			append_dev(main, t7);
+    			append_dev(main, br5);
+    			append_dev(main, t8);
+    			append_dev(main, br6);
+    			append_dev(main, t9);
+    			append_dev(main, br7);
+    			append_dev(main, t10);
+    			append_dev(main, br8);
+    			append_dev(main, t11);
+    			append_dev(main, div2);
+    			append_dev(div2, figure);
+    			append_dev(figure, div1);
+    			append_dev(figure, t12);
+    			append_dev(figure, p);
     			current = true;
     		},
     		p: function update(ctx, [dirty]) {
     			const button_changes = {};
 
-    			if (dirty & /*$$scope*/ 8192) {
+    			if (dirty & /*$$scope*/ 32768) {
     				button_changes.$$scope = { dirty, ctx };
     			}
 
@@ -18319,6 +18428,12 @@ var app = (function () {
     			current = false;
     		},
     		d: function destroy(detaching) {
+    			detach_dev(script0);
+    			detach_dev(script1);
+    			detach_dev(script2);
+    			detach_dev(script3);
+    			detach_dev(script4);
+    			if (detaching) detach_dev(t0);
     			if (detaching) detach_dev(main);
     			destroy_component(button);
     			destroy_component(sveltefc);
@@ -18343,13 +18458,14 @@ var app = (function () {
     	var BASE_CONTACT_API_PATH = "/api/v2";
     	var pais = new Set();
     	let years = new Set();
-    	let expendituresbillion = [];
     	var dictExpendituresbillion = {};
     	var dataSource = {};
     	let anyos2 = [];
     	var dictAnyoPais = {};
     	let categoriasAnyos = [];
     	let data = [];
+    	var registrosInterTourism = [];
+    	var listaI = [];
 
     	async function getData() {
     		console.log("Fetching data...");
@@ -18364,6 +18480,22 @@ var app = (function () {
     			let i = 0;
     			let j = 0;
     			data.reverse();
+    			console.log(data);
+    			registrosInterTourism = json;
+    			let e = 0;
+
+    			while (e < registrosInterTourism.length) {
+    				if (registrosInterTourism[e].year == 2010) {
+    					listaI.push([
+    						registrosInterTourism[e].country,
+    						registrosInterTourism[e].numberofdepartures
+    					]);
+    				}
+
+    				e++;
+    			}
+
+    			console.log(`We have received ${registrosInterTourism.length} stats.`);
 
     			while (j < data.length) {
     				pais.add(data[j].country);
@@ -18424,6 +18556,8 @@ var app = (function () {
     			}
     		}
 
+    		console.log(dictExpendituresbillion);
+
     		for (let a = 0; a < years.size; a++) {
     			let anyos = Array.from(years).sort();
     			categoriasAnyos.push({ "label": anyos[a].toString() });
@@ -18433,11 +18567,10 @@ var app = (function () {
 
     		Object.entries(dictExpendituresbillion).forEach(([key, value]) => {
     			gastosanyos.push({ seriesName: key, data: value });
-    		}); // expendituresbillion.push({name: key , data:value})
+    		});
 
     		console.log(categoriasAnyos);
     		console.log(gastosanyos);
-    		console.log(expendituresbillion);
 
     		dataSource = {
     			"chart": {
@@ -18454,21 +18587,38 @@ var app = (function () {
     			"dataset": gastosanyos
     		};
 
-    		console.log("datos cargados");
-    		loadGraph();
+    		console.log("datos cargados fusion");
+    		console.log("datos cargados high");
+    		loadGraphFusion();
+    		loadGraphHigh();
     	}
 
     	
     	onMount(getData);
     	var chartConfigs = {};
 
-    	async function loadGraph() {
+    	async function loadGraphFusion() {
     		$$invalidate(0, chartConfigs = {
     			type: "mscolumn2d",
     			width: 700,
     			height: 500,
     			dataFormat: "json",
     			dataSource
+    		});
+    	}
+
+    	async function loadGraphHigh() {
+    		Highcharts.chart("container", {
+    			chart: {
+    				type: "pie",
+    				options3d: { enabled: true, alpha: 45 }
+    			},
+    			title: {
+    				text: "Turismo Internacional Número de LLegadas"
+    			},
+    			subtitle: { text: "3D donut in Highcharts" },
+    			plotOptions: { pie: { innerSize: 100, depth: 45 } },
+    			series: [{ name: "Llegadas", data: listaI }]
     		});
     	}
 
@@ -18489,29 +18639,32 @@ var app = (function () {
     		BASE_CONTACT_API_PATH,
     		pais,
     		years,
-    		expendituresbillion,
     		dictExpendituresbillion,
     		dataSource,
     		anyos2,
     		dictAnyoPais,
     		categoriasAnyos,
     		data,
+    		registrosInterTourism,
+    		listaI,
     		getData,
     		chartConfigs,
-    		loadGraph
+    		loadGraphFusion,
+    		loadGraphHigh
     	});
 
     	$$self.$inject_state = $$props => {
     		if ("BASE_CONTACT_API_PATH" in $$props) BASE_CONTACT_API_PATH = $$props.BASE_CONTACT_API_PATH;
     		if ("pais" in $$props) pais = $$props.pais;
     		if ("years" in $$props) years = $$props.years;
-    		if ("expendituresbillion" in $$props) expendituresbillion = $$props.expendituresbillion;
     		if ("dictExpendituresbillion" in $$props) dictExpendituresbillion = $$props.dictExpendituresbillion;
     		if ("dataSource" in $$props) dataSource = $$props.dataSource;
     		if ("anyos2" in $$props) anyos2 = $$props.anyos2;
     		if ("dictAnyoPais" in $$props) dictAnyoPais = $$props.dictAnyoPais;
     		if ("categoriasAnyos" in $$props) categoriasAnyos = $$props.categoriasAnyos;
     		if ("data" in $$props) data = $$props.data;
+    		if ("registrosInterTourism" in $$props) registrosInterTourism = $$props.registrosInterTourism;
+    		if ("listaI" in $$props) listaI = $$props.listaI;
     		if ("chartConfigs" in $$props) $$invalidate(0, chartConfigs = $$props.chartConfigs);
     	};
 
