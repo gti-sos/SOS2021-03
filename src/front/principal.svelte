@@ -37,6 +37,9 @@
 	<h3><a href="https://sos2021-03.herokuapp.com/#/analytics">Gráfica grupal</a></h3>
 	<br>
 	<br>
+	<h3><a href="https://sos2021-03.herokuapp.com/#/about.svelte">Vídeos explicativos</a></h3>
+	<br>
+	<br>
 	
 	<div> <h3>API's</h3></div>
 	<ul>
