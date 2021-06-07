@@ -12,6 +12,8 @@ module.exports.register = (app) => {
         autoload: true
     });
 
+    
+
     var inter_tourisms = [];
     var inter_tourisms_initial = [
         {
@@ -423,5 +425,12 @@ module.exports.register = (app) => {
                 }
             }
         });
-    });   
+    }); 
+    
+    app.use(BASE_API_PATH +"/nuts-production-stats", function(req, res) {
+        var apiServerHost = 'https://sos2021-02.herokuapp.com/api/v2/nuts-production-stats';
+      var url = apiServerHost + req.url;
+      req.pipe(request(url)).pipe(res);
+
+    });
 };

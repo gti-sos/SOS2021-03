@@ -39,6 +39,7 @@
     "fusioncharts": "^3.17.0",
     "highcharts": "^9.1.1",
     "highcharts-3d": "^0.1.7",
+    "jscharting": "^3.0.3-beta",
     "nedb": "^1.8.0",
     "path": "^0.12.7",
     "puppeteer": "^10.0.0",

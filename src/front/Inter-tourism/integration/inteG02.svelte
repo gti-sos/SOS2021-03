@@ -1,241 +1,93 @@
 <script>
-    import Button from "sveltestrap/src/Button.svelte"
-    import FusionCharts from 'fusioncharts';
-    import Charts from 'fusioncharts/fusioncharts.charts';
-    import FusionTheme from 'fusioncharts/themes/fusioncharts.theme.fusion';
-    import SvelteFC, { fcRoot } from 'svelte-fusioncharts';
-    fcRoot(FusionCharts, Charts, FusionTheme);
+    import Button from "sveltestrap/src/Button.svelte";
     import {
         onMount
     } from "svelte";
-    var registrosNuts= [];
-    var registrosInterTourism = [];
-    var lista = [];
-    var listaI = [];
-
-    var dataSource ={};
-
+    var BASE_CONTACT_API_PATH= "/api/v2";
+    const paises = new Set();
     
-    async function getRegisters(){
-       
-        const res = await fetch("https://sos2021-02.herokuapp.com/api/v2/nuts-production-stats");
-        const res2 = await fetch("https://sos2021-03.herokuapp.com/api/v2/international-tourisms");
-        if (res.ok && res2.ok) {
+    let data = [];
+    let data2=[];
+
+
+    let piramide =[];
+    async function getData(){
+        console.log("Fetching data...");
+        const res = await fetch(BASE_CONTACT_API_PATH + "/international-tourisms?year=2011");
+        const res2 = await fetch("https://sos2021-03.herokuapp.com/api/v2/nuts-production-stats?year=2011");
+        if(res.ok){
+            console.log("Ok.");
             const json = await res.json();
-            const jsoninter = await res2.json();
-            registrosNuts = json;
-            registrosInterTourism = jsoninter;
-            let i =0;
-            let j=0;
-            while(i<registrosNuts.length){
-                if(registrosNuts[i].year==2015){
-                    lista.push({"name":registrosNuts[i].country,"value":registrosNuts[i].pistachio});
+            const json2 = await res2.json();
+            data = json;
+            data2= json2;
+            console.log(`We have received ${data.length} data points.`);
+            let i=0;
+            let e=0;
+            while(e<data.length){    
+                 if(data[e].country == "Greece"){   
+                    //piramide.push({name: 'Número de llegadas', y:data[e].numberofarrivals});
+                    //piramide.push({name: 'Número de salidas', y:data[e].numberofdepartures});
+                    piramide.push({name: 'Gastos en turismo', y:data[e].expendituresbillion});
                 }
+                e++;
+            }
+            while(i<data2.length){
+                if(data[i].country == "Greece"){ 
+                    piramide.push({name: "Nuez", y:data[i].walnut});
+                    piramide.push({name: "Almendra", y:data[i].almond});
+                    piramide.push({name: "Pistacho", y:data[i].pistachio});
+                }   
                 i++;
-            }
-            console.log(`We have received ${registrosAirPollution.length} stats.`);
             
-            while(j<registrosInterTourism.length){
-                if(registrosInterTourism[j].year==2015){
-                    listaI.push({"name":registrosInterTourism[j].country,"value":registrosInterTourism[j].numberofarrivals});
-                }
-                j++;
-            }
-            console.log(`We have received ${registrosInterTourism.length} stats.`);
-        } else {
-            console.log("ERROR!" + errorMsg);
+            }             
+   
+        }else{
+            console.log("Error!");
         }
-        
-        dataSource = {
-            "chart": {
-            "caption": "Yearly Energy Production",
-            "numbersuffix": " TWh",
-            "formatnumberscale": "0",
-            "showvalues": "0",
-            "drawcrossline": "1",
-            "showsum": "1",
-            "plottooltext": "$dataValue from $seriesName",
-            "theme": "fusion"
-        },
-        "categories": [
-            {
-            "category": [
-                {
-                "label": "Canada"
-                },
-                {
-                "label": "China"
-                },
-                {
-                "label": "Russia"
-                },
-                {
-                "label": "Australia"
-                },
-                {
-                "label": "United States"
-                },
-                {
-                "label": "France"
-                }
-            ]
-            }
-        ],
-        "dataset": [
-            {
-            "seriesname": "Coal",
-            "data": [
-                {
-                "value": "400"
-                },
-                {
-                "value": "830"
-                },
-                {
-                "value": "500"
-                },
-                {
-                "value": "420"
-                },
-                {
-                "value": "790"
-                },
-                {
-                "value": "380"
-                }
-            ]
-            },
-            {
-            "seriesname": "Hydro",
-            "data": [
-                {
-                "value": "350"
-                },
-                {
-                "value": "620"
-                },
-                {
-                "value": "410"
-                },
-                {
-                "value": "370"
-                },
-                {
-                "value": "720"
-                },
-                {
-                "value": "310"
-                }
-            ]
-            },
-            {
-            "seriesname": "Nuclear",
-            "data": [
-                {
-                "value": "210"
-                },
-                {
-                "value": "400"
-                },
-                {
-                "value": "450"
-                },
-                {
-                "value": "180"
-                },
-                {
-                "value": "570"
-                },
-                {
-                "value": "270"
-                }
-            ]
-            },
-            {
-            "seriesname": "Gas",
-            "data": [
-                {
-                "value": "180"
-                },
-                {
-                "value": "330"
-                },
-                {
-                "value": "230"
-                },
-                {
-                "value": "160"
-                },
-                {
-                "value": "440"
-                },
-                {
-                "value": "350"
-                }
-            ]
-            },
-            {
-            "seriesname": "Oil",
-            "data": [
-                {
-                "value": "60"
-                },
-                {
-                "value": "200"
-                },
-                {
-                "value": "200"
-                },
-                {
-                "value": "50"
-                },
-                {
-                "value": "230"
-                },
-                {
-                "value": "150"
-                }
-            ]
-            }
-        ]
-        };
-    
-    
         loadGraph();
         
-    }
-
-    var chartConfigs={};
-
+    }   
+    onMount(getData);
     async function loadGraph(){  
-        chartConfigs = {
-        type: 'stackedarea2d',
-        width: 600,
-        height: 400,
-        dataFormat: 'json',
-        dataSource
-        };
-        
     
+        var chart = JSC.Chart('chartDiv', {
+        debug: true,
+        type: 'coneInverted',
+        legend: { 
+            position: 'inside bottom', 
+            outline_width: 0 
+        }, 
+        title: { 
+            label_text: 'Integración con frutos secos en 2011 en Grecia', 
+            position: 'center'
+        }, 
+        
+        yAxis: { 
+           
+            label_text: 'Gastos', 
+            formatString: 'c'
+        }, 
+        defaultSeries: { 
+            shape_innerPadding: 6, 
+            defaultPoint: { label_text: '%name' } 
+        },  
+        series: [
+            {
+            name: 'Gastos', 
+            palette: 'default',
+            points: piramide
+        
+            }
+        ]
+        });
     }
-    onMount(getRegisters);
 </script>
-
+<svelte:head>
+    <script src="https://code.jscharting.com/latest/jscharting.js"></script>
+</svelte:head>
 <main>
     <br>
-    
-    <Button outline color="dark" onclick="window.location.href='#/international-tourisms'">Volver</Button>
-    <br>
-    <br> 
-    <h2>
-      Integración de mi API con la de frutos secos del grupo 02
-    </h2>
-    <br>
-    <br>
-    <br>
-    <SvelteFC {...chartConfigs} />
-    
+        <Button outline color="secondary" onclick="window.location.href='#/integrations'">Volver</Button>
+        <div id="chartDiv" style="max-width: 700px;height: 580px;margin: 0 auto"></div>
 </main>
-<style>
-
- </style>

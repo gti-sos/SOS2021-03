@@ -10,30 +10,23 @@
     // Always set FusionCharts as the first parameter
     fcRoot(FusionCharts, Charts, FusionTheme);
     
-    var BASE_CONTACT_API_PATH= "/api/v2";
-	var pais = new Set();
-	let years = new Set();
-	
-    var dictExpendituresbillion={};
     var dataSource ={};
-    let anyos2 = [];
-    
-	
-	var dictAnyoPais ={};
-    let categoriasAnyos = [];
-    let data = [];
+
 
     var registrosInterTourism = [];
     var registrosEducation = [];
     var listaI = [];
     var listaE = [];
-
+    var paises = [];
+    var paisesI = [];
+    
+    var BASE_CONTACT_API_PATH= "/api/v2";
     async function getData(){
         console.log("Fetching data...");
-        const res = await fetch("https://sos2021-03.herokuapp.com/api/v2/international-tourisms");
-        const res2 = await fetch("https://education-expenditures.herokuapp.com/api/v1/reduced");
+        const res = await fetch(BASE_CONTACT_API_PATH + "/international-tourisms?year=2015");
+        const res2 = await fetch("https://education-expenditures.herokuapp.com/api/v1");
       
-        if(res.ok && res2.ok){
+        if(res.ok){
             console.log("Ok.");
             const json = await res.json();
             const jsonE = await res2.json();
@@ -41,48 +34,38 @@
             registrosInterTourism = json;
             registrosEducation = jsonE;
             let e=0;
-            let i=0;
-            
+            let o=0;
             while(e<registrosInterTourism.length){
-               
-                listaI.push({"seriesName":registrosInterTourism[e].country,"data":registrosInterTourism[e].expendituresbillion});
-                
+             
+                listaI.push({"value":registrosInterTourism[e].expendituresbillion});
+                paisesI.push({"label" : registrosInterTourism[e].country});
                 e++;
             }
+            while(o<registrosEducation.length){
+                if(registrosEducation[o].year == 2015){
+                    paises.push({"label" : registrosEducation[o].country});
+                    listaE.push({"value":registrosEducation[o].education_expenditure_per_millions});
+                }
+                o++;
+            }
+            
             console.log(registrosInterTourism);
+            console.log(paisesI);
+            console.log(listaI);
             
-            while(i<registrosEducation.length){
-               
-               listaI.push({"seriesName":registrosEducation[i].country,"data":registrosEducation[i].education_expenditure_per_millions});
-               
-               i++;
-           }
-           console.log(registrosEducation);
-            
+            console.log(registrosEducation);
+            console.log(paises);
+            console.log(listaE);
 		
         }else{
             console.log("Error!");
         }
-		     
-    
-        let paises=[];
-        for(let a=0; a< paises.size; a++){
-            let anyos= Array.from(years).sort();
-            let paises=Array.from(paises);
-            categoriasAnyos.push({"label" : paises[a].toString()});
-           
-  
-        }
-
         
-        console.log(categoriasAnyos);
-        //console.log(gastosanyos);
+        ;
 
-        var gastos = [];
-           Object.entries(listaI).forEach(([key, value]) => {
-                gastos.push({seriesName:key, data:value});
-               
-		    });
+       var pais = [...new Set([...paises,...paisesI])];
+    
+        console.log(pais);
 
     dataSource = {
         "chart": {
@@ -96,11 +79,19 @@
         "theme": "fusion"
     },
     "categories": [
-        {
-        "category": categoriasAnyos
-        }
-    ],
-    "dataset": gastos
+    {
+      "category":  pais
+    
+    }],
+    "dataset": [
+    {
+      "seriesname": "Gastos en Educacion",
+      "data": listaE
+    },
+    {
+      "seriesname": "Gastos en Turismo",
+      "data": listaI
+    }]
     };
     console.log("datos cargados fusion");
     
@@ -111,16 +102,18 @@
     loadGraphFusion();
     
     };
-    
-     
+  
     onMount(getData);
+
+    
+
     var chartConfigs={};
     
     async function loadGraphFusion(){
         chartConfigs = {
         type: 'stackedarea2d',
-        width: 600,
-        height: 400,
+        width: 800,
+        height: 500,
         dataFormat: 'json',
         dataSource
         };
@@ -132,7 +125,7 @@
 <main>
     <br>
     
-    <Button outline color="dark" onclick="window.location.href='#/international-tourisms'">Volver</Button>
+    <Button outline color="secondary" onclick="window.location.href='#/integrations'">Volver</Button>
     <br>
     <br>  
     <div style="margin:auto;"> 

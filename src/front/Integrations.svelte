@@ -24,22 +24,22 @@
     </h3>
     <ul>
         <li>
-            <a href="https://sos2021-03.herokuapp.com/#/international-tourisms/inteG02">Integración con API de Frutos Secos - G02</a>
+            <a href="#/international-tourisms/inteG02">Integración con API de Frutos Secos - G02</a>
         </li>
         <li>
-            <a href="https://sos2021-03.herokuapp.com/#/international-tourisms/inteG04">Integración con API de Gastos en Educación - G04</a>
+            <a href="#/international-tourisms/inteG04">Integración con API de Gastos en Educación - G04</a>
         </li>
         <li>
-            <a href="https://sos2021-03.herokuapp.com/#/international-tourisms/inteG08">Integración con API de evolución COVID en la India - G08</a>
+            <a href="#/international-tourisms/inteG08">Integración con API de evolución COVID en la India - G08</a>
         </li>
         <li>
-            <a href="https://sos2021-03.herokuapp.com/#/international-tourisms/inteG10">Integración con API de Consumo de Comida - G10</a>
+            <a href="#/international-tourisms/inteG10">Integración con API de Consumo de Comida - G10</a>
         </li>
         <li>
-            <a href="https://sos2021-03.herokuapp.com/#/international-tourisms/external1">Integración con API externa de Edad media a la maternidad por año</a>
+            <a href="#/international-tourisms/external1">Integración con API externa de Edad media a la maternidad por año</a>
         </li>
         <li>
-            <a href="https://sos2021-03.herokuapp.com/#/international-tourisms/external2">Integración con API externa de Titulados en Ciclos Formativos de grado superior por sexo</a>
+            <a href="#/international-tourisms/external2">Integración con API externa de Titulados en Ciclos Formativos de grado superior por sexo</a>
         </li>
     </ul>
 </main>
