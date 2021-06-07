@@ -1,32 +1,35 @@
-﻿User,Title,Duration
-Ayman Alaoui Mhammedi,F03,03:42:42
-Ayman Alaoui Mhammedi,F04,05:19:48
-Ayman Alaoui Mhammedi,f05,08:43:43
-Ayman Alaoui Mhammedi,F06,07:16:30
-Ayman Alaoui Mhammedi,horuku,01:01:37
-Ayman Alaoui Mhammedi,instalar POSTMAN,11:47:05
-Ayman Alaoui Mhammedi,postman,00:19:05
-Ayman Alaoui Mhammedi,SLACK INTEGRATION,00:08:17
-Ayman Alaoui Mhammedi,,00:00:01
-Joan Llonga00,#13 Preparación f04,04:48:03
-Joan Llonga00,#15 Tareas voluntarias F05,03:37:58
-Joan Llonga00,#18 Entregable D01,22:54:02
-Joan Llonga00,#22 F07,06:00:10
-Joan Llonga00,#24 D02,90:12:08
-Joan Llonga00,#27 Investigación para F12,02:49:27
-Joan Llonga00,#28 D03,42:26:43
-Joan Llonga00,#6 L04,03:15:00
-Joan Llonga00,#8 Lab5,06:25:15
-Joan Llonga00,,03:09:46
-Paugarler," terminar lab 5",03:25:03
-Paugarler,#12 F04 individual,07:04:17
-Paugarler,#16 f05,02:58:35
-Paugarler,#19 Entregable D1,00:00:06
-Paugarler,#25 D02,05:08:31
-Paugarler,#26 cambios en backend,05:44:07
-Paugarler,#3 Registrar información en el repositorio común,00:34:18
-Paugarler,#5 Sincronizar repositorio,03:16:46
-Paugarler,#9 Punto 2 en grupo,00:45:14
-Paugarler,Entrega f07,04:28:19
-Paugarler,Entregable D1,10:10:52
-Paugarler,Mis gráficas,04:44:04
+﻿Project,Client,Title,Duration
+SOS2021-03,," terminar lab 5",03:25:03
+SOS2021-03,,#12 F04 individual,07:04:17
+SOS2021-03,,#13 Preparación f04,04:48:03
+SOS2021-03,,#15 Tareas voluntarias F05,03:37:58
+SOS2021-03,,#16 f05,02:58:35
+SOS2021-03,,#18 Entregable D01,22:54:02
+SOS2021-03,,#22 F07,06:00:10
+SOS2021-03,,#24 D02,90:12:08
+SOS2021-03,,#25 D02,05:08:31
+SOS2021-03,,#26 cambios en backend,05:44:07
+SOS2021-03,,#27 Investigación para F12,02:49:27
+SOS2021-03,,#28 D03,42:26:43
+SOS2021-03,,#3 Registrar información en el repositorio común,00:34:18
+SOS2021-03,,#30 D03,08:03:14
+SOS2021-03,,#5 Sincronizar repositorio,03:16:46
+SOS2021-03,,#6 L04,03:15:00
+SOS2021-03,,#8 Lab5,06:25:15
+SOS2021-03,,#9 Punto 2 en grupo,00:44:42
+SOS2021-03,,Entrega f07,04:28:19
+SOS2021-03,,Entregable D1,10:10:52
+SOS2021-03,,F03,03:42:42
+SOS2021-03,,F04,05:19:48
+SOS2021-03,,f05,08:43:43
+SOS2021-03,,F06,07:16:30
+SOS2021-03,,horuku,01:01:37
+SOS2021-03,,instalar POSTMAN,11:47:05
+SOS2021-03,,Mis gráficas,06:30:32
+SOS2021-03,,postman,00:19:05
+SOS2021-03,,SLACK INTEGRATION,00:08:17
+SOS2021-03,,,03:09:46
+,,#19 Entregable D1,00:00:06
+,,#30 D03,02:02:34
+,,#9 Punto 2 en grupo,00:00:32
+,,,00:00:01

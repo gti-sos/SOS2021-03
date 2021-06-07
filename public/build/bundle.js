@@ -21298,27 +21298,46 @@ var app = (function () {
 
     function create_fragment$7(ctx) {
     	let main;
-    	let h3;
+    	let h30;
     	let t1;
-    	let iframe;
-    	let iframe_src_value;
+    	let iframe0;
+    	let iframe0_src_value;
+    	let t2;
+    	let h31;
+    	let t4;
+    	let iframe1;
+    	let iframe1_src_value;
 
     	const block = {
     		c: function create() {
     			main = element("main");
-    			h3 = element("h3");
-    			h3.textContent = "Video explicativo muertes por contaminacion del aire";
+    			h30 = element("h3");
+    			h30.textContent = "Video explicativo muertes por contaminacion del aire - Joan Villalonga Álvaro";
     			t1 = space();
-    			iframe = element("iframe");
-    			add_location(h3, file$7, 1, 4, 12);
-    			attr_dev(iframe, "width", "560");
-    			attr_dev(iframe, "height", "315");
-    			if (iframe.src !== (iframe_src_value = "https://www.youtube.com/embed/coYPEnDuBoA")) attr_dev(iframe, "src", iframe_src_value);
-    			attr_dev(iframe, "title", "YouTube video player");
-    			attr_dev(iframe, "frameborder", "0");
-    			attr_dev(iframe, "allow", "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture");
-    			iframe.allowFullscreen = true;
-    			add_location(iframe, file$7, 2, 4, 79);
+    			iframe0 = element("iframe");
+    			t2 = space();
+    			h31 = element("h3");
+    			h31.textContent = "Video explicativo turismo internacional - Paula Garrido Lerma";
+    			t4 = space();
+    			iframe1 = element("iframe");
+    			add_location(h30, file$7, 1, 4, 12);
+    			attr_dev(iframe0, "width", "560");
+    			attr_dev(iframe0, "height", "315");
+    			if (iframe0.src !== (iframe0_src_value = "https://www.youtube.com/embed/coYPEnDuBoA")) attr_dev(iframe0, "src", iframe0_src_value);
+    			attr_dev(iframe0, "title", "YouTube video player");
+    			attr_dev(iframe0, "frameborder", "0");
+    			attr_dev(iframe0, "allow", "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture");
+    			iframe0.allowFullscreen = true;
+    			add_location(iframe0, file$7, 2, 4, 104);
+    			add_location(h31, file$7, 3, 4, 358);
+    			attr_dev(iframe1, "width", "560");
+    			attr_dev(iframe1, "height", "315");
+    			if (iframe1.src !== (iframe1_src_value = "https://youtu.be/34LOIbEODNI")) attr_dev(iframe1, "src", iframe1_src_value);
+    			attr_dev(iframe1, "title", "YouTube video player");
+    			attr_dev(iframe1, "frameborder", "0");
+    			attr_dev(iframe1, "allow", "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture");
+    			iframe1.allowFullscreen = true;
+    			add_location(iframe1, file$7, 4, 4, 434);
     			add_location(main, file$7, 0, 0, 0);
     		},
     		l: function claim(nodes) {
@@ -21326,9 +21345,13 @@ var app = (function () {
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, main, anchor);
-    			append_dev(main, h3);
+    			append_dev(main, h30);
     			append_dev(main, t1);
-    			append_dev(main, iframe);
+    			append_dev(main, iframe0);
+    			append_dev(main, t2);
+    			append_dev(main, h31);
+    			append_dev(main, t4);
+    			append_dev(main, iframe1);
     		},
     		p: noop$1,
     		i: noop$1,
