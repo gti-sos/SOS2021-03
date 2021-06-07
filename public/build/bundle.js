@@ -15021,15 +15021,15 @@ var app = (function () {
     			br = element("br");
     			t11 = space();
     			attr_dev(a, "href", a_href_value = "#/international-tourisms/" + /*r*/ ctx[26].country + "/" + /*r*/ ctx[26].year);
-    			add_location(a, file$j, 224, 6, 7194);
-    			add_location(td0, file$j, 223, 5, 7182);
-    			add_location(td1, file$j, 226, 5, 7284);
-    			add_location(td2, file$j, 227, 5, 7308);
-    			add_location(td3, file$j, 228, 5, 7344);
-    			add_location(td4, file$j, 229, 5, 7382);
-    			add_location(br, file$j, 231, 6, 7501);
-    			add_location(td5, file$j, 230, 5, 7421);
-    			add_location(tr, file$j, 222, 5, 7171);
+    			add_location(a, file$j, 224, 6, 7288);
+    			add_location(td0, file$j, 223, 5, 7276);
+    			add_location(td1, file$j, 226, 5, 7378);
+    			add_location(td2, file$j, 227, 5, 7402);
+    			add_location(td3, file$j, 228, 5, 7438);
+    			add_location(td4, file$j, 229, 5, 7476);
+    			add_location(br, file$j, 231, 6, 7595);
+    			add_location(td5, file$j, 230, 5, 7515);
+    			add_location(tr, file$j, 222, 5, 7265);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, tr, anchor);
@@ -15219,21 +15219,26 @@ var app = (function () {
     			add_location(td5, file$j, 204, 5, 6590);
     			add_location(tr0, file$j, 198, 4, 6439);
     			add_location(thead, file$j, 196, 3, 6420);
+    			attr_dev(input0, "id", "country");
     			add_location(input0, file$j, 210, 9, 6670);
     			add_location(td6, file$j, 210, 5, 6666);
+    			attr_dev(input1, "id", "year");
     			attr_dev(input1, "type", "number");
-    			add_location(input1, file$j, 211, 10, 6729);
-    			add_location(td7, file$j, 211, 6, 6725);
+    			add_location(input1, file$j, 211, 10, 6742);
+    			add_location(td7, file$j, 211, 6, 6738);
+    			attr_dev(input2, "id", "numberofarrivals");
     			attr_dev(input2, "type", "number");
-    			add_location(input2, file$j, 212, 10, 6795);
-    			add_location(td8, file$j, 212, 6, 6791);
+    			add_location(input2, file$j, 212, 10, 6818);
+    			add_location(td8, file$j, 212, 6, 6814);
+    			attr_dev(input3, "id", "numberofdepartures");
     			attr_dev(input3, "type", "number");
-    			add_location(input3, file$j, 213, 10, 6873);
-    			add_location(td9, file$j, 213, 6, 6869);
+    			add_location(input3, file$j, 213, 10, 6918);
+    			add_location(td9, file$j, 213, 6, 6914);
+    			attr_dev(input4, "id", "expendituresbillion");
     			attr_dev(input4, "type", "number");
-    			add_location(input4, file$j, 214, 10, 6953);
-    			add_location(td10, file$j, 214, 6, 6949);
-    			add_location(td11, file$j, 215, 6, 7030);
+    			add_location(input4, file$j, 214, 10, 7022);
+    			add_location(td10, file$j, 214, 6, 7018);
+    			add_location(td11, file$j, 215, 6, 7124);
     			add_location(tr1, file$j, 209, 4, 6655);
     			add_location(tbody, file$j, 207, 3, 6636);
     		},
@@ -16130,17 +16135,17 @@ var app = (function () {
     			t7 = space();
     			td5 = element("td");
     			create_component(button.$$.fragment);
-    			add_location(td0, file$j, 263, 4, 8627);
-    			add_location(td1, file$j, 264, 4, 8686);
-    			add_location(input0, file$j, 265, 8, 8709);
-    			add_location(td2, file$j, 265, 4, 8705);
-    			add_location(td3, file$j, 266, 4, 8756);
+    			add_location(td0, file$j, 263, 4, 8721);
+    			add_location(td1, file$j, 264, 4, 8780);
+    			add_location(input0, file$j, 265, 8, 8803);
+    			add_location(td2, file$j, 265, 4, 8799);
+    			add_location(td3, file$j, 266, 4, 8850);
     			attr_dev(input1, "type", "number");
-    			add_location(input1, file$j, 267, 8, 8778);
-    			add_location(td4, file$j, 267, 4, 8774);
-    			add_location(td5, file$j, 268, 4, 8832);
-    			add_location(tr, file$j, 262, 12, 8616);
-    			add_location(tbody, file$j, 261, 8, 8595);
+    			add_location(input1, file$j, 267, 8, 8872);
+    			add_location(td4, file$j, 267, 4, 8868);
+    			add_location(td5, file$j, 268, 4, 8926);
+    			add_location(tr, file$j, 262, 12, 8710);
+    			add_location(tbody, file$j, 261, 8, 8689);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, tbody, anchor);
