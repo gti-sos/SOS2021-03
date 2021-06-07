@@ -6,6 +6,7 @@ module.exports.register = (app) => {
     var BASE_API_PATH = "/api/v2";
     var Datastore = require("nedb");
     var path = require("path");
+    var request = require("request");
     const dbFileName = path.join(__dirname, "inteTourism.db");
     var db = new Datastore({
         filename: dbFileName, 

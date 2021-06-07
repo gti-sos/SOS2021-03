@@ -17,7 +17,7 @@
     var registrosEducation = [];
     var listaI = [];
     var listaE = [];
-    var paises = [];
+    var paises = new Set();
     var paisesI = [];
     
     var BASE_CONTACT_API_PATH= "/api/v2";
@@ -38,12 +38,12 @@
             while(e<registrosInterTourism.length){
              
                 listaI.push({"value":registrosInterTourism[e].expendituresbillion});
-                paisesI.push({"label" : registrosInterTourism[e].country});
+                paises.add({"label" : registrosInterTourism[e].country});
                 e++;
             }
             while(o<registrosEducation.length){
                 if(registrosEducation[o].year == 2015){
-                    paises.push({"label" : registrosEducation[o].country});
+                    paises.add({"label" : registrosEducation[o].country});
                     listaE.push({"value":registrosEducation[o].education_expenditure_per_millions});
                 }
                 o++;
@@ -63,7 +63,8 @@
         
         ;
 
-       var pais = [...new Set([...paises,...paisesI])];
+       var pais = [...paises];
+       pais.length = pais.length-3;
     
         console.log(pais);
 

@@ -36,10 +36,10 @@
             <a href="#/international-tourisms/inteG10">Integración con API de Consumo de Comida - G10</a>
         </li>
         <li>
-            <a href="#/international-tourisms/external1">Integración con API externa de Edad media a la maternidad por año</a>
+            <a href="#/international-tourisms/external1">Integración con API externa de máximo nivel educativo por características del hogar</a>
         </li>
         <li>
-            <a href="#/international-tourisms/external2">Integración con API externa de Titulados en Ciclos Formativos de grado superior por sexo</a>
+            <a href="#/international-tourisms/external2">Integración con API externa de población mayor de cierta edad por año</a>
         </li>
     </ul>
 </main>
