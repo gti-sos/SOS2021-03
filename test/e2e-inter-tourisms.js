@@ -46,7 +46,7 @@ const puppeteer = require('puppeteer');
 
     await page.click("#cargar");
 
-    page.evaluate('window.confirm' = () => true);
+    page.evaluate('window.alert = () => true');
       
     console.log("Clicked \"Cargar registros\" , uploading registers...");
       
@@ -72,7 +72,7 @@ const puppeteer = require('puppeteer');
 
     await page.click('#add');
 
-    page.evaluate('window.confirm = () => true');
+    page.evaluate('window.alert = () => true');
 
     await page.waitForTimeout(2000);  
 
@@ -94,11 +94,10 @@ const puppeteer = require('puppeteer');
 
     ////Ahora vamos a mostrar las integraciones
 
-    await page.goBack();
 
     await page.waitForTimeout(2000);
 
-    await page.click('body > main > main > button');
+    await page.click('body > main > main > h3:nth-child(7) > a');
 
     await page.waitForTimeout(2000);
 
@@ -106,45 +105,52 @@ const puppeteer = require('puppeteer');
 
     await page.screenshot({ path: './test/screenshots/inter-tourisms/08.png' });
 
-    await page.click('body > main > main > h3:nth-child(7) > a');
+    await page.click('body > main > main > ul:nth-child(5) > li:nth-child(1) > a');
 
     await page.waitForTimeout(2000);
-
+   
+    
     console.log("We must be at integrations page...");
 
     await page.screenshot({ path: './test/screenshots/inter-tourisms/09.png' });
 
-    await page.click('body > main > main > ul > ul > li:nth-child(1) > a');
+    await page.goBack();
+
+    await page.click('body > main > main > ul:nth-child(5) > li:nth-child(1) > a');
 
     await page.waitForTimeout(2000);
 
+    
+
     console.log("We must be at nuts integration page...");
 
-    await page.screenshot({ path: './test/screenshots/inter-tourisms/10.png' });
+    
 
     await page.goBack();
 
-    await page.click('body > main > main > ul < ul > li:nth-child(2) > a');
+    await page.click('body > main > main > ul:nth-child(5) > li:nth-child(2) > a');
+
+    
 
     await page.waitForTimeout(2000);
 
     console.log("We must be at education integration page...");
 
-    await page.screenshot({ path: './test/screenshots/inter-tourisms/11.png' });
+    await page.screenshot({ path: './test/screenshots/inter-tourisms/10.png' });
 
     await page.goBack();
 
-    await page.click('body > main > main > ul > ul > li:nth-child(3) > a');
+    await page.click('body > main > main > ul:nth-child(5) > li:nth-child(3) > a');
 
     await page.waitForTimeout(2000);
 
     console.log("We must be at COVID india integration page...");
 
-    await page.screenshot({ path: './test/screenshots/inter-tourisms/12.png' });
+    await page.screenshot({ path: './test/screenshots/inter-tourisms/11.png' });
 
     await page.goBack();
 
-    await page.click('body > main > main > ul > ul > li:nth-child(6) > a');
+    await page.click('body > main > main > ul:nth-child(5) > li:nth-child(6) > a');
 
     await page.waitForTimeout(2000);
 
@@ -156,7 +162,7 @@ const puppeteer = require('puppeteer');
 
     console.log("We must be at external2 integration page...");
 
-    await page.screenshot({ path: './test/screenshots/inter-tourisms/13.png' });
+    await page.screenshot({ path: './test/screenshots/inter-tourisms/12.png' });
 
 
     await browser.close();
