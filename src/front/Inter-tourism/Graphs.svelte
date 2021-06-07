@@ -105,8 +105,9 @@
         }
 		let paises= Object.keys(dictExpendituresbillion);
 		for(let p=0; p<paises.length; p++){
-			if(dictAnyoPais[paises[p]]){
+			if(dictAnyoPais[paises[p]].sort()){
 				let anyos2=dictAnyoPais[paises[p]];
+
 				let a=0;
 					while(a<Array.from(years).length){
 						let ord =Array.from(years).sort();

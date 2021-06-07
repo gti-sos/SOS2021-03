@@ -11,7 +11,7 @@
         Estadisticas sobre el turismo internacional:
     </h1>
     <TableInterTourism/>
-    <Button outline color="info" href="javascript:location.reload()">Volver</Button>
+    <Button id="Volverinfo" outline color="info" href="#/info">Volver a info</Button>
 
     
 </main>

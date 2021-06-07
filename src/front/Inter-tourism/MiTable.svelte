@@ -188,8 +188,8 @@
 	<!--{#await inter_tourism}
 	Loading datas...
 	{:then inter_tourism}-->
-		<Button on:click={loadInitialData}>Cargar los datos</Button>
-		<Button on:click={deleteAll}>Borrar todos los datos</Button>
+		<Button id="cargar" on:click={loadInitialData}>Cargar los datos</Button>
+		<Button id="borrar" on:click={deleteAll}>Borrar todos los datos</Button>
 		<a href="#/international-tourisms/graph" class="btn btn-outline-dark" role="button" aria-pressed="true">Gráfica</a>
 		<br>
 		
@@ -213,7 +213,7 @@
 						<td><input type=number bind:value={newRegister.numberofarrivals}></td>
 						<td><input type=number bind:value={newRegister.numberofdepartures}></td>
 						<td><input type=number bind:value={newRegister.expendituresbillion}></td>
-						<td><Button on:click={insertRegister}>Añadir</Button>
+						<td><Button id="add" on:click={insertRegister}>Añadir</Button>
 					</td>
 				</tr>
 			
