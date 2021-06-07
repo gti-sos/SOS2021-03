@@ -208,11 +208,11 @@
 			<tbody>
 				
 				<tr>
-					<td><input bind:value="{newRegister.country}"></td>
-						<td><input type=number bind:value={newRegister.year}></td>
-						<td><input type=number bind:value={newRegister.numberofarrivals}></td>
-						<td><input type=number bind:value={newRegister.numberofdepartures}></td>
-						<td><input type=number bind:value={newRegister.expendituresbillion}></td>
+					<td><input id="country" bind:value="{newRegister.country}"></td>
+						<td><input id="year" type=number bind:value={newRegister.year}></td>
+						<td><input id="numberofarrivals" type=number bind:value={newRegister.numberofarrivals}></td>
+						<td><input id="numberofdepartures" type=number bind:value={newRegister.numberofdepartures}></td>
+						<td><input id="expendituresbillion" type=number bind:value={newRegister.expendituresbillion}></td>
 						<td><Button id="add" on:click={insertRegister}>Añadir</Button>
 					</td>
 				</tr>

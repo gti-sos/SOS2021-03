@@ -25,7 +25,7 @@ const puppeteer = require('puppeteer');
     await page.screenshot({ path: './test/screenshots/inter-tourisms/02.png' });
     const [response2] = await Promise.all([
         page.waitForNavigation(),
-        page.click("#international-tourisms"),
+        page.click("body > nav > div > ul > li:nth-child(5) > a"),
       ]);
       
     console.log("Clicked \"Turismo Internacional\" link, redirecting to international tourisms page...");
@@ -46,7 +46,7 @@ const puppeteer = require('puppeteer');
 
     await page.click("#cargar");
 
-    page.evaluate('window.confirm = () => true');
+    page.evaluate('window.confirm' = () => true);
       
     console.log("Clicked \"Cargar registros\" , uploading registers...");
       
