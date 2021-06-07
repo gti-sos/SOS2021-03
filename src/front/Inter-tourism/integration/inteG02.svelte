@@ -29,11 +29,12 @@
             while(e<data.length){    
                  if(data[e].country == "Greece"){   
                     //piramide.push({name: 'Número de llegadas', y:data[e].numberofarrivals});
-                    //piramide.push({name: 'Número de salidas', y:data[e].numberofdepartures});
-                    piramide.push({name: 'Gastos en turismo', y:data[e].expendituresbillion});
+                    piramide.push({name: "Número de salidas", y:data[e].numberofdepartures});
+                    piramide.push({name: "Gastos en turismo", y:data[e].expendituresbillion});
                 }
                 e++;
             }
+            console.log(data);
             while(i<data2.length){
                 if(data2[i].country == "Greece"){ 
                     piramide.push({name: "Nuez", y:data2[i].walnut});
@@ -43,37 +44,6 @@
                 i++;
             
             }             
-   
-        }
-         if(res.ok && res2.ok){
-            console.log("Ok.");
-            const json = await res.json();
-            console.log(res2.json);
-            const json2 = await res2.json();
-            
-            data = json;
-            data2= json2;
-            console.log(`We have received ${data.length} data points.`);
-            let i=0;
-            let e=0;
-            while(e<data.length){    
-                 if(data[e].country == "Greece"){   
-                    //piramide.push({name: 'Número de llegadas', y:data[e].numberofarrivals});
-                    //piramide.push({name: 'Número de salidas', y:data[e].numberofdepartures});
-                    piramide.push({name: 'Gastos en turismo', y:data[e].expendituresbillion});
-                }
-                e++;
-            }
-            while(i<data2.length){
-                if(data2[i].country == "Greece"){ 
-                    piramide.push({name: "Nuez", y:data2[i].walnut});
-                    piramide.push({name: "Almendra", y:data2[i].almond});
-                    piramide.push({name: "Pistacho", y:data2[i].pistachio});
-                }   
-                i++;
-            
-            }             
-   
         }else{
             console.log("Error!");
         }
@@ -101,7 +71,7 @@
             formatString: 'c'
         }, 
         defaultSeries: { 
-            shape_innerPadding: 6, 
+            shape_innerPadding: 8, 
             defaultPoint: { label_text: '%name' } 
         },  
         series: [

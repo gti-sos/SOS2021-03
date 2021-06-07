@@ -21432,14 +21432,14 @@ var app = (function () {
     			t2 = space();
     			div = element("div");
     			if (script.src !== (script_src_value = "https://code.jscharting.com/latest/jscharting.js")) attr_dev(script, "src", script_src_value);
-    			add_location(script, file$6, 88, 4, 2739);
-    			add_location(br, file$6, 91, 4, 2841);
+    			add_location(script, file$6, 88, 4, 2764);
+    			add_location(br, file$6, 91, 4, 2866);
     			attr_dev(div, "id", "chartDiv");
     			set_style(div, "max-width", "700px");
     			set_style(div, "height", "580px");
     			set_style(div, "margin", "0 auto");
-    			add_location(div, file$6, 93, 8, 2962);
-    			add_location(main, file$6, 90, 0, 2829);
+    			add_location(div, file$6, 93, 8, 2987);
+    			add_location(main, file$6, 90, 0, 2854);
     		},
     		l: function claim(nodes) {
     			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
@@ -21520,7 +21520,11 @@ var app = (function () {
     			while (e < data.length) {
     				if (data[e].country == "Greece") {
     					//piramide.push({name: 'Número de llegadas', y:data[e].numberofarrivals});
-    					//piramide.push({name: 'Número de salidas', y:data[e].numberofdepartures});
+    					piramide.push({
+    						name: "Número de salidas",
+    						y: data[e].numberofdepartures
+    					});
+
     					piramide.push({
     						name: "Gastos en turismo",
     						y: data[e].expendituresbillion
@@ -21529,6 +21533,8 @@ var app = (function () {
 
     				e++;
     			}
+
+    			console.log(data);
 
     			while (i < data2.length) {
     				if (data2[i].country == "Greece") {
@@ -21562,7 +21568,7 @@ var app = (function () {
     			},
     			yAxis: { label_text: "Gastos", formatString: "c" },
     			defaultSeries: {
-    				shape_innerPadding: 6,
+    				shape_innerPadding: 8,
     				defaultPoint: { label_text: "%name" }
     			},
     			series: [
